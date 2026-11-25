@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#123c36"><meta name="description" content="MCP 时钟工具、协议实测及数字孪生的接入边界。">
+<meta name="theme-color" content="#123c36"><meta name="description" content="可替换的仿真环境服务、MCP 接口、时钟工具实测与数字孪生接口。">
 <title>环境工具层 · 具身智能 RSI</title>
 <link rel="stylesheet" href="./framework.css">
 <link rel="stylesheet" href="./embodied.css">
@@ -11,8 +11,11 @@
 <body id="top" data-page="environment"><a class="skip" href="#content">跳到正文</a>
 <header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
+<section class="wrap section" id="simulation-service">
+  <div class="section-head"><div><p class="kicker">环境工具层</p><h1 class="detail-heading">仿真环境服务</h1></div><p>Skill 通过 MCP 环境接口调用仿真工具。替换底层仿真环境时，适配器按同一约定处理工具名称、参数、返回值和时间单位。</p></div>
+</section>
 <section class="wrap section" id="tool-contract">
-      <div class="section-head"><div><p class="kicker">首个 MCP 适配器</p><h1 class="detail-heading">把时钟实验做成工具</h1></div><p>Skill 定义何时调用工具、如何核对回执，以及如何解释返回结果。标准客户端通过 <code>tools/list</code> 发现工具及参数，通过 <code>tools/call</code> 调用。基线与新测结果均带运行号、事件标识和逻辑秒数。</p></div>
+      <div class="section-head"><div><p class="kicker">首个 MCP 适配器</p><h2>时钟工具接入示例</h2></div><p>Skill 定义何时调用工具、如何核对回执，以及如何解释返回结果。标准客户端通过 <code>tools/list</code> 发现工具及参数，通过 <code>tools/call</code> 调用。基线与新测结果均带运行号、事件标识和逻辑秒数。</p></div>
       <div class="levels"><article><h3>读取基线</h3><code>read_clock_reference(run_id)</code><p>从两次已发布的 AFSIM 实测中选择一条，返回该次实验的时钟标记和来源。</p></article><article><h3>发起一次新测量</h3><code>measure_clock_markers()</code><p>在本地启动一次固定的无实体时钟实验，生成新的运行号并返回实际输出。每次调用都使用同一份双标记输入。</p></article></div>
       <details class="worked"><summary>查看调用示例与 kagent 绑定方式</summary><div><pre class="rpc"><code>{"jsonrpc":"2.0","id":3,"method":"tools/call",
  "params":{"name":"measure_clock_markers","arguments":{}}}</code></pre><p>测量 Skill 先读取基线，再发起新测量，逐项对照标记和时间。kagent 的声明式 Agent 通过 <code>mcpServer.toolNames</code> 绑定这两个名称。集群接入需提供可达的 Streamable HTTP 服务，AgenticMesh 通过运行实例引用和调用标识关联证据。</p></div></details>

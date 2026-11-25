@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1096" width="100%" height="100%" role="group" aria-labelledby="title desc" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
   <title id="title">具身智能体 RSI 组件与协作关系</title>
-  <desc id="desc">控制面将获准版本下发至执行面。AeroWeaver 编排应用，按任务为本地 Agent 分配角色并绑定 Skill。Agent 实例之间拟通过 A2A 协议通信。展开一个实例可见模型、上下文、记忆、Skill 和 Harness 五层。模型、记忆与环境工具分别由对应网关访问。运行证据进入进化面，候选版本由控制面验证。</desc>
+  <desc id="desc">控制面将获准版本下发至执行面。AeroWeaver 编排应用，按任务为本地 Agent 分配角色并绑定 Skill。Agent 实例之间拟通过 A2A 协议通信。展开一个实例可见模型、上下文、记忆、Skill 和 Harness 五层。模型、记忆与环境工具分别由对应网关访问。仿真环境服务通过统一的 MCP 环境接口接入，具体实现可替换。运行证据进入进化面，候选版本由控制面验证。</desc>
   <style>a:hover rect,a:focus rect{stroke:#173f36;stroke-width:2.3}a:focus{outline:none}</style>
   <text x="25" y="39" font-size="29" font-weight="700" fill="#203b37" text-anchor="start">具身智能体 RSI 组件与协作关系</text>
   <text x="1135" y="37" font-size="16" font-weight="400" fill="#50675e" text-anchor="end">控制面、进化面与 Agent 五层结构沿用 AgenticMesh</text>
@@ -279,9 +279,9 @@
     <rect x="935" y="975" width="188" height="38" rx="5" fill="white" stroke="#81aaa5" stroke-width="1" />
     <text x="1029.0" y="999.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">MCP 环境接口</text>
   </a>
-  <a href="./environment.html#tool-contract" target="_top">
+  <a href="./environment.html#simulation-service" target="_top">
     <rect x="290" y="1010" width="224" height="34" rx="5" fill="white" stroke="#9ab9aa" stroke-width="1" />
-    <text x="402.0" y="1032.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">AFSIM 时钟服务</text>
+    <text x="402.0" y="1032.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">仿真环境服务</text>
   </a>
   <a href="./environment.html#digital-twin" target="_top">
     <rect x="586" y="1010" width="230" height="34" rx="5" fill="white" stroke="#9ab9aa" stroke-width="1" />
