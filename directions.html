@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#123c36"><meta name="description" content="从局部状态表征、群体协作增益和经验迁移三个科学问题出发，规划执行面首轮分工、联合验收与后续研究。">
+<meta name="theme-color" content="#123c36"><meta name="description" content="课题一的三个研究方向、主要任务与首轮交付，涵盖跨尺度状态与行为模型、群智共识与协作增益、分层决策与策略演化。">
 <title>研究方向规划图 · 具身智能 RSI</title>
 <link rel="stylesheet" href="./framework.css">
 <link rel="stylesheet" href="./blueprint.css?v=overview-2">
-<link rel="stylesheet" href="./directions.css?v=parallel-modules-1">
+<link rel="stylesheet" href="./directions.css?v=research-directions-3">
 <link rel="stylesheet" href="./guide.css?v=overview-2">
 <script src="./framework.js?v=overview-2" defer></script>
 <script src="./diagram-view.js" defer></script>
@@ -13,30 +13,47 @@
 <header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html" aria-current="page">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
 <section class="wrap plan-intro" id="plan"><p class="kicker">具身智能 RSI · 研究规划</p><h1>研究方向规划图</h1>
-<p class="plan-deck">以<a href="./architecture.html?v=1.9">架构总图 v1.9</a> 为基线。第一阶段基于离线数据搭建完整的 Agent 框架，贯通任务输入、规划、技能执行、多智能体协作和结果核验。后续研究用可追溯的运行记录比较不同观测表征与协作方式。</p>
-<nav class="plan-nav" aria-label="方向图页内导航"><a href="#questions">科学问题与研究方向</a><a href="#execution-work">第一阶段任务与验收</a><a href="#plan-caption">分层组件矩阵</a><a href="./execution-research-roadmap-v1.2.jpg" download>下载方向总览图 ↓</a></nav>
+<p class="plan-deck">课题一围绕高速固定翼集群仿真，研究个体与群组如何表示状态、怎样评价协作，以及如何在多次运行中检验策略改进。三项研究共用<a href="./architecture.html?v=1.9">具身智能 RSI 架构</a>的执行面和实验记录。</p>
+<nav class="plan-nav" aria-label="方向图页内导航"><a href="#questions">三个方向与任务</a><a href="#execution-work">第一阶段任务与验收</a><a href="#plan-caption">分层组件矩阵</a><a href="./execution-research-roadmap-v1.2.jpg" download>下载第一阶段工程任务图</a></nav>
 <section class="research-routes" id="questions" aria-labelledby="questions-title">
-  <h2 id="questions-title">三个科学问题</h2>
-  <p class="research-lead">高速固定翼集群仿真中，同一事件到达各成员的时间可能不同，多个成员的判断也可能来自同一条观测。这给分布式具身智能提出了三个可独立检验的问题。</p>
+  <h2 id="questions-title">课题一 · 三个研究方向与任务</h2>
   <div class="research-grid">
-    <article id="question-state"><h3>异步局部状态表征</h3>
-      <p class="science-question">信息延迟或缺失时，哪些历史观测足以支持个体对当前状态的判断？</p>
-      <p class="science-test">固定每次判断时已经可见的记录与上下文长度，比较“只保留最新值”和“保留来源、采样时刻与缺失状态”的摘要。按延迟分组统计判断误差与引用未来信息的次数。</p>
-      <a href="./studies.html#observation">A1 局部观测的时间与表征</a></article>
-    <article id="question-coordination"><h3>群体协作增益</h3>
-      <p class="science-question">通信在什么条件下带来互补信息，又在什么条件下只会放大共同误判？</p>
-      <p class="science-test">在同批事件和相同模型调用预算下，对照独立判断、转发同一来源和交换互补观测。后两组匹配消息量。以独立标注计算正确率的配对变化和共同误判率。</p>
-      <a href="./studies.html#cooperation">A2 共识与协作增益的度量</a></article>
-    <article id="question-transfer"><h3>经验迁移与递归改进</h3>
-      <p class="science-question">从一次失败中形成的 Skill 改动，在什么条件下能改善未见任务？改进器自身的贡献如何识别？</p>
-      <p class="science-test">先冻结模型和预算，在留出批次配对比较原版与候选 Skill，记录收益与退化。候选评价可复算后，再固定初始 Skill 和候选数，比较新旧改进器产出有效候选的比例。</p>
-      <div class="route-links"><a href="./studies.html#skill">B1 经验复用</a><a href="./studies.html#evaluation">B2 独立评价</a><a href="./studies.html#recursion-study">C1 递归验证</a></div></article>
+    <article id="question-state">
+      <h3><span class="section-ref">3.2.1</span>个体—群组—整体的跨尺度状态与行为模型</h3>
+      <p class="science-question">成员观测不同步时，哪些个体状态可以汇总，哪些差异需要保留到群组和整体层面？</p>
+      <ul class="research-tasks">
+        <li><b>个体建模</b>　描述单个 Agent 的观测、记忆和行为记录，标明信息来源、采样时刻和可见时刻。</li>
+        <li><b>跨尺度映射</b>　从个体记录重建成员关系、角色状态和整体任务进度，标出信息缺失时无法确定的部分。</li>
+      </ul>
+      <p class="science-test"><b>首轮交付</b>　三层状态字典、一段可逐层追溯的回放样例，以及对应的观测摘要 Skill。</p>
+      <div class="route-links"><a href="./studies.html#observation">观测表征实验</a><a href="./topics.html#topic-state">首轮选题</a></div>
+    </article>
+    <article id="question-coordination">
+      <h3><span class="section-ref">3.2.2</span>群智共识与协作增益的综合度量</h3>
+      <p class="science-question">多个成员得出相同判断时，怎样区分独立信息带来的增益与重复转发造成的共同误判？</p>
+      <ul class="research-tasks">
+        <li><b>交互分析</b>　把判断追溯到原始观测，区分独立来源和同源转发，统计达成共识的时间与共同误判率。</li>
+        <li><b>增益度量</b>　在同批任务、相同预算下，对照独立判断、固定共享与候选协作方式，分别报告判断质量和通信开销。</li>
+      </ul>
+      <p class="science-test"><b>首轮交付</b>　一套配对评价方法、一组独立判断基线，以及能说明“一致但出错”的反例。</p>
+      <div class="route-links"><a href="./studies.html#cooperation">协作评价实验</a><a href="./topics.html#topic-gain">首轮选题</a></div>
+    </article>
+    <article id="question-transfer">
+      <h3><span class="section-ref">3.2.3</span>分层群智决策、角色组织与策略演化</h3>
+      <p class="science-question">一次任务中，各层如何分工、交接与反馈？跨次运行积累的经验能否改善未见任务上的表现？</p>
+      <ul class="research-tasks">
+        <li><b>任务内的角色组织</b>　在同一基准任务中，描述任务层、群组层和个体层的职责，记录交接结果与未完成原因。</li>
+        <li><b>跨任务的持续演化</b>　根据失败记录提出候选 Skill 或选择规则，固定评价条件，在留出任务上检验收益与退化。</li>
+      </ul>
+      <p class="science-test"><b>首轮交付</b>　一份角色交接基线、一项有来源依据的候选改动，以及与原版本的独立对照结果。</p>
+      <div class="route-links"><a href="./studies.html#skill">经验与 Skill 候选</a><a href="./studies.html#evaluation">版本评价</a><a href="./topics.html#topic-update">首轮选题</a></div>
+    </article>
   </div>
-  <p class="basis-line"><b>共同实验基础</b>　<a href="./studies.html#basis">P0 可回放基准</a>保存每个 Agent 当时能看到的记录，独立答案单独留给评价者。三条方向据此复用同一批输入和反例。</p>
+  <p class="basis-line"><b>三项如何衔接</b>　3.2.1 提供状态模型，3.2.3 用它完成任务并留下交互记录，3.2.2 根据这些记录比较协作收益。评价结果和失败样例再交回 3.2.3，检验下一版候选改动。三项共用<a href="./studies.html#basis">同一套回放基准</a>。</p>
 </section>
 <section class="work-plan" id="execution-work" aria-labelledby="work-title">
   <h2 id="work-title">第一阶段 · 基于离线数据搭建完整的 Agent 框架</h2>
-  <p class="research-lead">六个模块可以同时开工。开工时共同约定输入、输出、错误和版本，随后各自维护实现、测试入口和本地测试样例。每个模块只启动自身及其测试替身，独立验收通过后再统一联调。</p>
+  <p class="research-lead">六个模块按共同的输入、输出、错误和版本约定并行开发，各自用测试替身验收。首轮可沿用 AeroWeaver 的 Coverage 任务联调，以同一任务逐项复测替换后的 Skill 和 MCP 工具。AFSIM 离线记录另用于验证指定时刻的观测查询。</p>
   <p class="basis-line"><b>共用的验收样例</b>　同一批仪表读数中包含有效值、空值和零值。各模块共用任务、记录标识与预期结果，分别测试正常执行、数据缺失及消息重送。<a href="./module-acceptance-v1.json" download>下载样例与预期结果（JSON）</a></p>
   <div class="work-table-wrap"><table class="work-matrix module-contracts">
     <thead><tr><th scope="col">独立模块</th><th scope="col">输入与输出</th><th scope="col">怎样单独测试</th><th scope="col">独立验收条件</th></tr></thead>

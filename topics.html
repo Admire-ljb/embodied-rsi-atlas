@@ -16,9 +16,9 @@
     <main id="top">
       <section class="catalog" id="topics">
         <div class="wrap">
-          <div class="title-line"><div><p class="overline">课题一 · 研究归属</p><h1 style="font-size:clamp(2rem,4vw,3.5rem)">学生研究点地图</h1></div><p>每人认领一个可独立检验的问题。每项注明对照实验、成果归属和下一位研究者如何使用。</p></div>
+          <div class="title-line"><div><p class="overline">课题一 · 研究归属</p><h1 style="font-size:clamp(2rem,4vw,3.5rem)">学生研究点地图</h1></div><p>选题分属跨尺度建模、协作度量、分层决策与演化三个方向。每项列出首轮对照、交付成果与后续用途。<a href="./directions.html#questions">查看三个方向与任务</a></p></div>
           <form class="filters" id="filters" hidden>
-            <div class="pills" aria-label="研究方向"><button type="button" data-filter="-1" aria-pressed="true">全部方向</button><button type="button" data-filter="0" aria-pressed="false">状态表征</button><button type="button" data-filter="1" aria-pressed="false">协作度量</button><button type="button" data-filter="2" aria-pressed="false">策略适应</button></div>
+            <div class="pills" aria-label="研究方向"><button type="button" data-filter="-1" aria-pressed="true">全部方向</button><button type="button" data-filter="0" aria-pressed="false">跨尺度建模</button><button type="button" data-filter="1" aria-pressed="false">协作度量</button><button type="button" data-filter="2" aria-pressed="false">分层决策与演化</button></div>
             <label class="level">研究起点 <select id="level"><option value="">全部</option><option>本科入门</option><option>本科进阶</option><option>研究生</option></select></label>
             <label class="search"><span class="sr">搜索选题</span><input id="search" type="search" placeholder="搜索研究问题或交付物"></label>
           </form>
@@ -33,7 +33,7 @@
               <div class="topic-body">
                 <p class="question">观测过期时，时间标注能否改善群组状态摘要的可信度？</p>
                 <dl>
-                  <div><dt>研究归属</dt><dd>3.2.1 跨尺度状态与行为表征 · 首轮研究点</dd></div>
+                  <div><dt>研究归属</dt><dd>3.2.1 个体—群组—整体的跨尺度状态与行为模型 · 首轮研究点</dd></div>
                   <div><dt>数据与材料</dt><dd>具有状态变化标注的抽象对局日志。保留观察者、采样时刻和到达时刻。</dd></div>
                   <div><dt>首轮对照</dt><dd>比较最新观测、历史摘要和带来源及采样时间的摘要。三组使用相同的可见记录。</dd></div>
                   <div><dt>评价指标</dt><dd>在群组状态已经改变的样本中，统计旧证据误用率；另报可判断样本覆盖率。</dd></div>
@@ -55,7 +55,7 @@
               <div class="topic-body">
                 <p class="question">在等量本局信息与错配信息下，成员一致率能否区分判断质量？</p>
                 <dl>
-                  <div><dt>研究归属</dt><dd>3.2.2 共识与协作增益 · 首轮研究点</dd></div>
+                  <div><dt>研究归属</dt><dd>3.2.2 群智共识与协作增益的综合度量 · 首轮研究点</dd></div>
                   <div><dt>数据与材料</dt><dd>使用同一批抽象对局和固定个体模型，保存独立判断与小组结论。</dd></div>
                   <div><dt>首轮对照</dt><dd>比较独立判断、共享本局信息、共享等量错配信息。后两组保持相同消息预算。</dd></div>
                   <div><dt>评价指标</dt><dd>同时公布一致数、共同误判数与总局数，分别计算总体和一致样本内的共同误判比例。</dd></div>
@@ -77,7 +77,7 @@
               <div class="topic-body">
                 <p class="question">已有两个策略版本在熟悉对手上的相对优势，换到预留对手组是否仍然成立？</p>
                 <dl>
-                  <div><dt>研究归属</dt><dd>3.2.3 策略适应与泛化 · 首轮研究点</dd></div>
+                  <div><dt>研究归属</dt><dd>3.2.3 分层群智决策、角色组织与策略演化 · 首轮研究点</dd></div>
                   <div><dt>数据与材料</dt><dd>抽象双队计分博弈的策略版本、独立重复批次和预先划定的对手组。</dd></div>
                   <div><dt>首轮对照</dt><dd>使用相同条件下的两版给定策略结果，保持对手组和观察口径固定；熟悉组与留出组分别比较。</dd></div>
                   <div><dt>评价指标</dt><dd>在相同样本上计算两个版本的收益差，分别报告各对手组和各独立批次。</dd></div>
@@ -99,7 +99,7 @@
               <div class="topic-body">
                 <p class="question">一条晚到的旧观测会使哪些历史样本被错误地视为当前样本？</p>
                 <dl>
-                  <div><dt>研究归属</dt><dd>3.2.1 跨尺度状态与行为表征 · 延伸研究点</dd></div>
+                  <div><dt>研究归属</dt><dd>3.2.1 个体—群组—整体的跨尺度状态与行为模型 · 延伸研究点</dd></div>
                   <div><dt>数据与材料</dt><dd>同一组含乱序和缺失条目的合成观测表。</dd></div>
                   <div><dt>首轮对照</dt><dd>比较按接收顺序与按采样时间检索所得的状态标签。</dd></div>
                   <div><dt>评价指标</dt><dd>时间错配比例、可核验记录比例。</dd></div>
@@ -121,7 +121,7 @@
               <div class="topic-body">
                 <p class="question">不同成员的观测互相矛盾时，摘要表达的不确定性是否可信？</p>
                 <dl>
-                  <div><dt>研究归属</dt><dd>3.2.1 跨尺度状态与行为表征 · 延伸研究点</dd></div>
+                  <div><dt>研究归属</dt><dd>3.2.1 个体—群组—整体的跨尺度状态与行为模型 · 延伸研究点</dd></div>
                   <div><dt>数据与材料</dt><dd>有标准答案或由标注者明确标为不可判定的抽象记录。</dd></div>
                   <div><dt>首轮对照</dt><dd>给同一批记录生成有来源与无来源的摘要，由独立标注者核对证据。</dd></div>
                   <div><dt>评价指标</dt><dd>证据引用正确率、错误肯定率、可判定样本覆盖率。</dd></div>
@@ -143,7 +143,7 @@
               <div class="topic-body">
                 <p class="question">两组样本的一致率相同，能否仍然具有不同的错误结构？</p>
                 <dl>
-                  <div><dt>研究归属</dt><dd>3.2.2 共识与协作增益 · 延伸研究点</dd></div>
+                  <div><dt>研究归属</dt><dd>3.2.2 群智共识与协作增益的综合度量 · 延伸研究点</dd></div>
                   <div><dt>数据与材料</dt><dd>各成员判断和独立真值均已知的合成样本。</dd></div>
                   <div><dt>首轮对照</dt><dd>分别统计一致且正确、一致但错误以及成员有分歧的样本。</dd></div>
                   <div><dt>评价指标</dt><dd>一致率、共同误判率、给定一致时的错误比例。</dd></div>
@@ -165,7 +165,7 @@
               <div class="topic-body">
                 <p class="question">不同样本难度是否会改变对协作收益的估计？</p>
                 <dl>
-                  <div><dt>研究归属</dt><dd>3.2.2 共识与协作增益 · 延伸研究点</dd></div>
+                  <div><dt>研究归属</dt><dd>3.2.2 群智共识与协作增益的综合度量 · 延伸研究点</dd></div>
                   <div><dt>数据与材料</dt><dd>每个对局有两种处理条件的对应记录，并保留对局标识。</dd></div>
                   <div><dt>首轮对照</dt><dd>比较总体均值差与分层配对估计，单列缺少配对的一组。</dd></div>
                   <div><dt>评价指标</dt><dd>配对收益差、区间宽度和各层样本量。</dd></div>
@@ -187,7 +187,7 @@
               <div class="topic-body">
                 <p class="question">评价集中各类对手所占比例变化时，策略排序会不会反转？</p>
                 <dl>
-                  <div><dt>研究归属</dt><dd>3.2.3 策略适应与泛化 · 延伸研究点</dd></div>
+                  <div><dt>研究归属</dt><dd>3.2.3 分层群智决策、角色组织与策略演化 · 延伸研究点</dd></div>
                   <div><dt>数据与材料</dt><dd>给定的抽象博弈收益表及分组标签。</dd></div>
                   <div><dt>首轮对照</dt><dd>保留各组收益，改变汇总权重，检查排序变化的来源。</dd></div>
                   <div><dt>评价指标</dt><dd>排名反转次数、组内差异及最差组收益。</dd></div>
@@ -209,7 +209,7 @@
               <div class="topic-body">
                 <p class="question">版本迭代中重复使用的测试样本，会给留出评价带来多大偏差？</p>
                 <dl>
-                  <div><dt>研究归属</dt><dd>3.2.3 策略适应与泛化 · 延伸研究点</dd></div>
+                  <div><dt>研究归属</dt><dd>3.2.3 分层群智决策、角色组织与策略演化 · 延伸研究点</dd></div>
                   <div><dt>数据与材料</dt><dd>有版本标识、评测时间与训练或留出分组的记录。</dd></div>
                   <div><dt>首轮对照</dt><dd>分别核算重复样本与独立样本上的结果，标注划分不清的部分。</dd></div>
                   <div><dt>评价指标</dt><dd>样本重叠率、独立留出集上的收益差。</dd></div>
@@ -230,9 +230,9 @@
         <div class="section-aside"><p class="overline">共同实验</p><h2>协作与交接</h2><p>研究点共用问题索引、样本版本和独立评价协议。每项结果按适用条件归入相应模块，供后续实验复算和比较。</p><p>开题时注明依赖的研究方向、样本版本和评分规则。交付时附一条反例及可复算的原始记录。</p><a class="file" href="./fixed-wing.html#integration">查看 AFSIM 时钟验收样例</a>
           </div>
         <div class="research-steps">
-          <article><span class="step">3.2.1</span><div><h3>个体—群组—整体的跨尺度状态与行为模型</h3><p>表征组交付带时间与来源标记的状态摘要，并明确哪些样本证据不足。后两组据此固定可见信息范围。</p></div></article>
-          <article><span class="step">3.2.2</span><div><h3>群智共识与协作增益的综合度量</h3><p>度量组独立管理真值与计分规则，按相同样本、相同预算测出协作收益，保存共同误判的反例。</p></div></article>
-          <article><span class="step">3.2.3</span><div><h3>分层群智决策、角色组织与策略演化</h3><p>适应组提交策略版本与对手划分，报告熟悉组和留出组的结果。首月各组共同复核一组对照与一例失效条件。</p></div></article>
+          <article><span class="step">3.2.1</span><div><h3>个体—群组—整体的跨尺度状态与行为模型</h3><p>交付个体、群组与整体的状态字典及回放样例。每条摘要保留观测来源和可见时刻，供角色组织和协作评价复用。</p></div></article>
+          <article><span class="step">3.2.2</span><div><h3>群智共识与协作增益的综合度量</h3><p>依据独立标注，在同一批任务上比较判断质量与通信开销。将同源转发、共同误判等反例交给版本评价。</p></div></article>
+          <article><span class="step">3.2.3</span><div><h3>分层群智决策、角色组织与策略演化</h3><p>先交付同一任务的分层职责与角色交接记录，再从失败案例中提出候选改动，使用 3.2.2 的方法检验它在未见任务上的收益与退化。</p></div></article>
         </div>
       </section>
     <section class="section wrap" aria-label="指标读法"><div class="section-aside"><p class="overline">合成数据</p><h2>指标读法</h2><p>三种条件各有 100 局，切换指标可比较成员一致、共同误判及平均团队收益。示例仅用于说明计算口径。</p><a class="file" href="./bench-example.csv" download="群体博弈指标示例.csv">下载图中示例 CSV</a></div><figure class="comparison">

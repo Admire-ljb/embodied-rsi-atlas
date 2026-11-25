@@ -13,6 +13,10 @@
 .research-grid article:nth-child(2) { border-top-color: #527895; }
 .research-grid article:nth-child(3) { border-top-color: #9b7940; }
 .research-grid h3 { margin: 0; font: 700 1.19rem/1.55 var(--serif); }
+.research-grid .section-ref { display: block; margin-bottom: .3rem; font: 650 .92rem/1.5 var(--mono); color: var(--green); }
+.research-tasks { padding-inline-start: 1.15rem; margin: 0 0 .8rem; }
+.research-tasks li + li { margin-top: .45rem; }
+.research-grid { margin-top: .8rem; }
 .science-question { margin: .5rem 0 .65rem; font-weight: 600; }
 .science-test { color: var(--muted); margin: 0 0 1rem; font-size: .95rem; }
 .research-grid article > a, .route-links { margin-top: auto; font-size: .9rem; }
