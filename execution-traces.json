@@ -1,0 +1,155 @@
+{
+  "fixture": "clock-markers@1.0",
+  "runs": [
+    {
+      "execution_id": "9683e599-d9db-4e8d-a165-7fcb893356ec",
+      "skill": "compare-clock-markers@1.0",
+      "runtime": "local-deterministic",
+      "transport": "stdio",
+      "calls": [
+        {
+          "step": 1,
+          "tool": "read_clock_reference",
+          "arguments": {
+            "run_id": "repeat-01"
+          },
+          "receipt": {
+            "source": "reference",
+            "run_id": "repeat-01",
+            "time_unit": "s",
+            "events": [
+              {
+                "event_id": "sample-a",
+                "logical_time_s": 1.0
+              },
+              {
+                "event_id": "sample-b",
+                "logical_time_s": 3.0
+              }
+            ]
+          }
+        },
+        {
+          "step": 2,
+          "tool": "measure_clock_markers",
+          "arguments": {},
+          "receipt": {
+            "source": "measured",
+            "run_id": "11cf746d-6267-4921-8da3-fcbf16fb76d1",
+            "time_unit": "s",
+            "events": [
+              {
+                "event_id": "sample-a",
+                "logical_time_s": 1.0
+              },
+              {
+                "event_id": "sample-b",
+                "logical_time_s": 3.0
+              }
+            ]
+          }
+        }
+      ],
+      "protocol": "2025-11-25",
+      "status": "matched",
+      "checks": {
+        "same_event_ids_in_order": true,
+        "same_logical_seconds_in_order": true
+      }
+    },
+    {
+      "execution_id": "2c8c54e3-2fc1-4e44-94d8-33cf9209e1f4",
+      "skill": "compare-clock-markers@1.0",
+      "runtime": "local-deterministic",
+      "transport": "stdio",
+      "calls": [
+        {
+          "step": 1,
+          "tool": "read_clock_reference",
+          "arguments": {
+            "run_id": "repeat-02"
+          },
+          "receipt": {
+            "source": "reference",
+            "run_id": "repeat-02",
+            "time_unit": "s",
+            "events": [
+              {
+                "event_id": "sample-a",
+                "logical_time_s": 1.0
+              },
+              {
+                "event_id": "sample-b",
+                "logical_time_s": 3.0
+              }
+            ]
+          }
+        },
+        {
+          "step": 2,
+          "tool": "measure_clock_markers",
+          "arguments": {},
+          "receipt": {
+            "source": "measured",
+            "run_id": "2c70bc74-8deb-41f9-9e9c-39df552801c9",
+            "time_unit": "s",
+            "events": [
+              {
+                "event_id": "sample-a",
+                "logical_time_s": 1.0
+              },
+              {
+                "event_id": "sample-b",
+                "logical_time_s": 3.0
+              }
+            ]
+          }
+        }
+      ],
+      "protocol": "2025-11-25",
+      "status": "matched",
+      "checks": {
+        "same_event_ids_in_order": true,
+        "same_logical_seconds_in_order": true
+      }
+    },
+    {
+      "execution_id": "a0c1f5fc-5d5a-4cc0-a7ef-bfa7dc132d8e",
+      "skill": "compare-clock-markers@1.0",
+      "runtime": "local-deterministic",
+      "transport": "stdio",
+      "calls": [
+        {
+          "step": 1,
+          "tool": "read_clock_reference",
+          "arguments": {
+            "run_id": "repeat-01"
+          },
+          "receipt": {
+            "source": "reference",
+            "run_id": "repeat-01",
+            "time_unit": "s",
+            "events": [
+              {
+                "event_id": "sample-a",
+                "logical_time_s": 1.0
+              },
+              {
+                "event_id": "sample-b",
+                "logical_time_s": 3.0
+              }
+            ]
+          }
+        },
+        {
+          "step": 2,
+          "tool": "measure_clock_markers",
+          "arguments": {}
+        }
+      ],
+      "protocol": "2025-11-25",
+      "status": "incomplete",
+      "error": "Error executing tool measure_clock_markers: Set AFSIM_MISSION to the absolute path of the installed mission executable."
+    }
+  ]
+}

@@ -1,6 +1,13 @@
 .plan-intro { padding-block: clamp(30px, 4vw, 60px); }
 .plan-intro h1 { font-size: clamp(2.2rem, 4.5vw, 3.9rem); margin: 8px 0 12px; }
 .plan-deck { max-width: 61em; color: var(--muted); margin-bottom: 24px; }
+.planning-matrix td[data-plane="执行面"] { background: #f2f6fa; }
+.planning-matrix .plan-download { margin: 10px 0 0; }
+.planning-matrix .plan-download a, .blueprint .prototype-link { display: inline; padding: 0; border: 0; color: var(--green); text-decoration: underline; background: transparent; }
+.dependency-route { margin-top: 15px; }
+.dependency-route > summary { cursor: pointer; font-weight: 650; }
+.dependency-route .route { margin-top: 12px; }
+#execution-prototype table caption { text-align: left; font-weight: 650; color: var(--green); }
 .route-visual { position: relative; }
 .route img, .direction-preview img { display: block; width: 100%; height: auto; border-radius: 7px; }
 .route .node-jump { display: block; position: absolute; border-radius: 6px; }

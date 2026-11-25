@@ -1,0 +1,29 @@
+apiVersion: kagent.dev/v1alpha2
+kind: Agent
+metadata:
+  name: clock-observer
+  namespace: kagent
+spec:
+  type: Declarative
+  description: Compare an AFSIM clock observation with a named reference.
+  declarative:
+    modelConfig: default-model-config
+    systemMessage: |
+      You observe the two-marker simulation clock. When asked to compare a run,
+      use read_clock_reference with the requested reference (default repeat-01),
+      then use measure_clock_markers once. Preserve both tool receipts, including
+      their source, run ID, unit and ordered event list. Require distinct run IDs,
+      source reference for the selected baseline, source measured for the new run,
+      seconds as the time unit, and nonempty event lists. For valid receipts,
+      report matched if event IDs and logical seconds match in order, or different
+      with the observed differences. Report incomplete if a tool or validation
+      fails. Never substitute a baseline or predicted value for a new observation.
+    tools:
+      - type: McpServer
+        mcpServer:
+          apiGroup: kagent.dev
+          kind: RemoteMCPServer
+          name: clock-tools
+          toolNames:
+            - read_clock_reference
+            - measure_clock_markers

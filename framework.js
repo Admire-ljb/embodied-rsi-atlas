@@ -3,6 +3,11 @@
 // Preserve links shared before the student map moved to its own page.
 function followStudentBookmark() {
   const hash = window.location.hash;
+  const directionLayers = ['#layer-concept', '#layer-mechanism', '#layer-evaluation', '#layer-platform', '#layer-domain'];
+  if (document.body.dataset.page === 'core' && directionLayers.includes(hash)) {
+    window.location.replace('./directions.html' + hash);
+    return true;
+  }
   if (hash === '#topics' || hash === '#evidence' || hash.startsWith('#topic-')) {
     window.location.replace('./topics.html' + hash);
     return true;
