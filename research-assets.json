@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "id": "sample-consensus",
+      "version": "1.0",
+      "name": "共同误判合成样本",
+      "kind": "合成样本",
+      "module": "群体度量库",
+      "file": "consensus-example.csv",
+      "depends_on": [],
+      "scope": "8 个抽象二值判断样本及两组匿名预测，仅用于演示计数和分母。"
+    },
+    {
+      "id": "worked-consensus",
+      "version": "1.0",
+      "name": "共同误判复算记录",
+      "kind": "已复算示例",
+      "module": "群体度量库",
+      "file": "consensus-note.txt",
+      "depends_on": [
+        "sample-consensus@1.0"
+      ],
+      "scope": "同一组样本说明一致率无法唯一确定共同误判率。"
+    },
+    {
+      "id": "record-template",
+      "version": "1.0",
+      "name": "研究成果登记模板",
+      "kind": "可用模板",
+      "module": "共享实验协议",
+      "file": "research-record.txt",
+      "depends_on": [],
+      "scope": "记录研究问题、依赖版本、实验口径、结果、反例与后续复用。"
+    }
+  ]
+}
