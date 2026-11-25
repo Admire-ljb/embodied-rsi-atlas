@@ -1,0 +1,4 @@
+﻿session,sample,frame,stage,camera_sample_ms,scale_sample_ms,bin_net_g,reference_note
+illustration-01,puck-A,01,observe,0,0,0,empty_bin
+illustration-01,puck-A,02,place,400,380,0,scale_precedes_visual_contact
+illustration-01,puck-A,03,review,800,820,24,reference_mass_24g
