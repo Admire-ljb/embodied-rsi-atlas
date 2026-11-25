@@ -1,12 +1,22 @@
 .site-guide { background: #fbfcf9; border-bottom: 1px solid #d3dfd8; }
-.guide-wrap, .diagram-page { width: min(1240px, calc(100% - 48px)); margin-inline: auto; }
-.guide-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 9px; padding-block: 13px; }
-.guide-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; min-height: 64px; padding: 8px 14px; color: #233c34; background: white; border: 1px solid #c7d5cd; border-radius: 5px; text-decoration: none; line-height: 1.45; }
-.guide-card strong { font-size: 1.04rem; }
-.guide-card small { color: #486258; font-size: .86rem; }
-.guide-grid a:hover, .guide-grid a:focus-visible { background: #f0f6f1; border-color: #779a83; text-decoration: none; }
-.guide-card[aria-current] { background: #ecf4ed; border-color: #80a58f; box-shadow: inset 3px 0 #386951; }
-.current-mark { position: absolute; right: 9px; top: 8px; color: #39674f; font-size: .73rem; }
+.guide-wrap, .diagram-page { width: min(1170px, calc(100% - 80px)); margin-inline: auto; }
+.guide-bar, .guide-brand, .guide-nav { display: flex; align-items: center; }
+.guide-bar { min-height: 64px; justify-content: space-between; gap: 12px 24px; }
+.guide-brand { gap: 12px; color: #193d32; text-decoration: none; white-space: nowrap; }
+.guide-brand b { font: 700 1.25rem/1.4 var(--serif,serif); }
+.guide-brand span { border-left: 1px solid #c9d6cc; padding-left: 12px; font-size: .95rem; }
+.guide-nav { flex-wrap: wrap; gap: 2px 20px; }
+.guide-nav a { padding-block: 8px 6px; border-bottom: 2px solid transparent; font-size: .94rem; color: #405a50; text-decoration: none; white-space: nowrap; }
+.guide-nav a:hover, .guide-nav a:focus-visible, .guide-nav a[aria-current] { color: #174d3e; border-color: #43795c; text-decoration: none; }
+.guide-nav a[aria-current] { font-weight: 700; }
+.home-result { display: grid; grid-template-columns: 2fr 1fr; gap: 1.75rem; padding-block: 1.3rem; border-block: 1px solid #b6c8b7; align-items: center; }
+.home-result p { color: var(--muted); margin-top: .35rem; }
+.home-result-links { display: grid; gap: .45rem; justify-self: end; }
+.home-rows { margin: 0; }
+.home-rows > div { display: grid; grid-template-columns: 12rem 1fr; gap: 1.5rem; padding-block: 1rem; border-top: 1px solid var(--line); }
+.home-rows dt { font-weight: 700; }
+.home-rows dd { margin: 0; color: var(--muted); }
+.home-rows dd a { display: inline-block; }
 .site-foot { background: #173c34; color: #e5eee8; }
 .site-foot .guide-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 24px; padding-block: 19px; }
 .site-foot nav { display: flex; flex-wrap: wrap; gap: 7px 16px; }
@@ -15,9 +25,9 @@
 .twin-note { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 14px; }
 .twin-note h2 { font-size: 1.2rem; margin-bottom: 5px; }
 .diagram-page { margin-block: 18px 24px; }
-.overview-poster { padding: clamp(13px,1.5vw,22px); margin: 0; background: #fff; border: 1px solid #b8ccc0; border-radius: 8px; color: #213d33; line-height: 1.45; }
+.overview-poster { padding: 1.25rem; margin: 0; background: #fff; border: 1px solid #b8ccc0; border-radius: 8px; color: #213d33; line-height: 1.45; }
 .poster-heading { display: flex; gap: 10px 24px; justify-content: space-between; align-items: center; padding: 0 0 13px; }
-.poster-heading h1 { font: 700 clamp(1.45rem,2.65vw,2.1rem)/1.25 var(--serif); margin: 0 0 4px; }
+.poster-heading h1 { font: 700 2rem/1.25 var(--serif); margin: 0 0 4px; }
 .poster-heading p,.poster-plane p,.env-content p { color: #3a5448; font-size: .94rem; }
 .poster-heading .poster-download { white-space: nowrap; font-weight: 650; font-size: .88rem; }
 .overview-poster h2 { font: 700 1.06rem/1.4 var(--sans); margin: 0; color: #1e3a2f; }
@@ -47,29 +57,51 @@
 .role-flow a { min-height: 32px; font-weight: 650; }
 .env-content .poster-nodes { grid-template-columns: 1fr 1fr; margin-top: 5px; }
 .poster-use { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px 14px; padding-top: 9px; font-size: .88rem; }
-@media(max-width:860px) {
-  .guide-wrap,.diagram-page { width: calc(100% - 24px); }
-  .guide-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; }
-  .guide-card { min-height: 52px; padding: 6px 10px; }
-  .poster-band { grid-template-columns: 8.5rem 1fr; }
+.anchor-terms, .gates { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .8rem; }
+.anchor-terms span, .gates span { display: block; color: #40574b; font-size: .86rem; }
+.anchor-terms b, .gates b { display: block; color: #20382c; font-size: .94rem; }
+.wide-band { display: block; }
+.wide-band .poster-label { display: flex; align-items: baseline; gap: .7rem; }
+.gate-ends { display: flex; align-items: baseline; gap: .75rem; margin-top: .4rem; font-size: .9rem; }
+.gate-ends b { flex: none; color: #695222; }
+.gates { list-style: none; margin: .5rem 0; padding: 0; gap: 1.4rem; }
+.gates li { position: relative; background: #fffcf4; border: 1px solid #d8c59a; border-radius: 4px; padding: .45rem .6rem; }
+.gates li:not(:last-child)::after { content: '→'; position: absolute; top: 50%; left: calc(100% + .23rem); transform: translateY(-50%); color: #866a37; }
+.plane-spec { margin: .5rem 0; font-size: .91rem; }
+.plane-spec > div { display: grid; grid-template-columns: 5.5em 1fr; gap: .35rem; border-top: 1px solid #c6d6cb; padding: .38rem 0; }
+.plane-spec dt { font-weight: 650; }
+.plane-spec dd { margin: 0; color: #385045; }
+.overview-poster .plane-foot { border-top: 1px solid var(--edge); margin-top: .4rem; padding-top: .4rem; color: #3a5042; font-size: .86rem; }
+.diagram-view { min-width: 0; }
+.export-poster { float: right; font-size: .9rem; padding-block: .35rem; margin-left: .6rem; }
+.diagram-scroll { clear: both; }
+.diagram-tools { display: flex; align-items: center; flex-wrap: wrap; gap: .35rem; margin: 0 0 .65rem; font: .875rem/1.5 var(--sans); color: #425c50; }
+.diagram-tools [hidden], .diagram-tools[hidden] { display: none; }
+.zoom-label { margin-right: .3rem; }
+.diagram-tools button { font: inherit; border: 1px solid #baccc0; border-radius: 4px; color: #294e40; background: white; padding: .3rem .72rem; cursor: pointer; }
+.diagram-tools button[aria-pressed="true"] { background: #21503e; border-color: #21503e; color: white; }
+.zoom-amount { min-width: 3.1em; text-align: center; font-variant-numeric: tabular-nums; }
+.diagram-tools button:disabled { opacity: .45; }
+.diagram-scroll { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
+.diagram-scroll:focus-visible { outline: 2px solid #43795c; outline-offset: 2px; }
+.diagram-stage { position: relative; width: 70rem; margin-inline: auto; overflow: hidden; }
+.diagram-sheet { display: flow-root; width: 70rem; transform-origin: left top; }
+.diagram-sheet .layer-matrix { margin: 0; }
+@media(max-width:800px) {
+  .guide-wrap,.diagram-page { width: calc(100% - 32px); }
+  .guide-bar { flex-wrap: wrap; gap: 3px 16px; padding-block: 10px 5px; }
+  .guide-nav { gap: 0 12px; }
+  .guide-nav a { padding-block: 6px; font-size: .9rem; }
 }
 @media(max-width:660px) {
-  .diagram-page { margin-top: 10px; }
-  .poster-band,.poster-pair { grid-template-columns: 1fr; gap: 6px; }
-  .poster-label { display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 9px; }
-  .poster-heading { align-items: flex-start; }
-  .poster-heading h1 { margin-right: 0; }
-  .guide-card { align-self: stretch; }
-  .guide-card strong { padding-right: 2em; }
-  .guide-card small { font-size: .81rem; }
-}
-@media(max-width:400px) {
-  .poster-nodes { gap: 4px; }
-  .poster-nodes a { padding: 4px; }
-  .poster-heading { flex-wrap: wrap; }
+  .home-rows > div,.home-result { grid-template-columns: 1fr; gap: .25rem; }
+  .home-result-links { margin-top: .6rem; justify-self: start; }
+  .guide-nav { width: 100%; }
 }
 @media print {
-  .site-guide,.site-foot,.poster-download { display: none; }
+  .site-guide,.site-foot,.export-poster,.diagram-tools { display: none; }
+  .diagram-scroll,.diagram-stage { overflow: visible; }
+  .diagram-stage,.diagram-sheet { width: 100% !important; height: auto !important; transform: none !important; }
   .diagram-page { width: 100%; margin: 0; }
   .overview-poster { break-inside: avoid; print-color-adjust: exact; }
 }

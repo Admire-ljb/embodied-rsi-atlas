@@ -3,20 +3,22 @@
 <meta name="theme-color" content="#123c36"><meta name="description" content="五个研究层级与架构组件的对应矩阵。">
 <title>研究方向规划图 · 具身智能 RSI</title>
 <link rel="stylesheet" href="./framework.css">
-<link rel="stylesheet" href="./blueprint.css">
+<link rel="stylesheet" href="./blueprint.css?v=overview-2">
 <link rel="stylesheet" href="./directions.css">
-<link rel="stylesheet" href="./guide.css">
-<script src="./framework.js?v=pages-1" defer></script>
+<link rel="stylesheet" href="./guide.css?v=overview-2">
+<script src="./framework.js?v=overview-2" defer></script>
+<script src="./diagram-view.js" defer></script>
 </head>
 <body id="top" data-page="directions"><a class="skip" href="#content">跳到正文</a>
-<header class="site-guide"><div class="guide-wrap"><nav class="guide-grid" aria-label="主导航">
-<a class="guide-card" href="./index.html"><strong>架构总图</strong><small>系统由哪些组件组成，怎样配合</small></a>
-<span class="guide-card" aria-current="page"><span class="current-mark">当前</span><strong>方向规划图</strong><small>各研究方向对应哪些架构组件</small></span>
-<a class="guide-card" href="./execution.html"><strong>执行面原型</strong><small>查看可运行的 Skill 与实测轨迹</small></a>
-<a class="guide-card" href="./topics.html"><strong>研究点地图</strong><small>从研究问题进入实验与选题</small></a></nav></div></header>
+<header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html" aria-current="page">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
 <section class="wrap plan-intro" id="plan"><p class="kicker">具身智能 RSI</p><h1>研究方向规划图</h1><p class="plan-deck">当前从执行面开始，先把一次环境观测做成可调用、可判定、可复跑的 Skill。首项实现已完成本地验证。<a href="./execution.html#execution-prototype">查看执行面原型与实测轨迹</a></p>
-<figure class="blueprint planning-matrix"><figcaption id="plan-caption"><strong>研究方向与架构组件的对应关系</strong></figcaption><p class="matrix-key">每行列出一个研究节点。沿行可查看它涉及的实现组件，沿执行面一列可查看各方向需要的运行能力。空项表示该节点在此面无直接组件。</p><table class="layer-matrix" aria-labelledby="plan-caption"><colgroup><col class="layer-col"><col class="node-col"><col span="4"></colgroup>
+<figure class="blueprint planning-matrix"><figcaption id="plan-caption"><strong>研究方向与架构组件的对应关系</strong></figcaption><p class="matrix-key">每行列出一个研究节点。沿行可查看它涉及的实现组件，沿执行面一列可查看各方向需要的运行能力。空项表示该节点在此面无直接组件。</p><div class="diagram-view">
+<div class="diagram-tools" role="group" aria-label="方向规划矩阵缩放" hidden>
+  <span class="zoom-label">图幅</span><button type="button" data-zoom="auto" aria-pressed="true">自动</button><button type="button" data-zoom="fit" aria-pressed="false">适宽</button><button type="button" data-zoom="original" aria-pressed="false">原大</button>
+  <button type="button" data-zoom="smaller" aria-label="缩小图幅">−</button><span class="zoom-amount" aria-live="polite"></span><button type="button" data-zoom="larger" aria-label="放大图幅">＋</button><span class="pan-hint" hidden>可横向滚动查看</span>
+</div>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="方向规划矩阵图面"><div class="diagram-stage"><div class="diagram-sheet"><table class="layer-matrix" aria-labelledby="plan-caption"><colgroup><col class="layer-col"><col class="node-col"><col span="4"></colgroup>
 <thead><tr><th scope="col">研究层级</th><th scope="col">技术节点</th>
 <th scope="col" id="evolution" style="--wash:#e5f1e9;--accent:#457149">进化面<small>提出候选</small></th>
 <th scope="col" id="control" style="--wash:#faf1d9;--accent:#846423">控制面<small>评价与发布</small></th>
@@ -108,7 +110,8 @@
 <td data-plane="共用底座">成对图像与独立参考读数</td>
 </tr>
 </tbody>
-</table><p class="plan-download"><a href="./ai-directions.jpg" download>下载分层方向规划图</a></p></figure>
+</table></div></div></div>
+</div><p class="plan-download"><a href="./ai-directions.jpg" download>下载分层方向规划图</a></p></figure>
 <p class="asset-link"><a href="./studies.html">查看方向依赖与实验判据</a></p>
 <nav class="direction-shortcuts" aria-label="选择研究方向"><a href="./studies.html#basis">P0 可回放的共同基准</a><a href="./studies.html#observation">A1 局部观测的时间与表征</a><a href="./studies.html#cooperation">A2 共识与协作增益的度量</a><a href="./studies.html#skill">B1 经验复用与 Skill 候选</a><a href="./studies.html#evaluation">B2 候选版本的独立评价</a><a href="./studies.html#recursion-study">C1 改进器的递归验证</a></nav></section>
 </main>

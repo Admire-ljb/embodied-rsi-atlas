@@ -6,14 +6,10 @@
 <link rel="stylesheet" href="./embodied.css">
 <link rel="stylesheet" href="./blueprint.css">
 <link rel="stylesheet" href="./directions.css">
-<link rel="stylesheet" href="./guide.css">
+<link rel="stylesheet" href="./guide.css?v=overview-2">
 </head>
 <body id="top" data-page="modules"><a class="skip" href="#content">跳到正文</a>
-<header class="site-guide"><div class="guide-wrap"><nav class="guide-grid" aria-label="主导航">
-<a class="guide-card" href="./index.html"><strong>架构总图</strong><small>系统由哪些组件组成，怎样配合</small></a>
-<a class="guide-card" href="./directions.html"><strong>方向规划图</strong><small>各研究方向对应哪些架构组件</small></a>
-<a class="guide-card" href="./execution.html"><strong>执行面原型</strong><small>查看可运行的 Skill 与实测轨迹</small></a>
-<a class="guide-card" href="./topics.html"><strong>研究点地图</strong><small>从研究问题进入实验与选题</small></a></nav></div></header>
+<header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
 <section class="band" id="engineering"><div class="wrap section">
       <div class="section-head" id="research"><div><p class="kicker">技术模块</p><h1 class="detail-heading">模块、交付与验收</h1></div><p>各模块分别定义角色交接、工具调用、经验检索和版本选择。模块间以带来源的观测、可回放的运行记录及固定的评价协议交换结果。</p></div>
@@ -21,8 +17,8 @@
 <article id="work-runtime"><div><small>执行面</small><h3>智能体上下文与角色交接</h3></div><div><p><b>交付</b>　定义 kagent Agent 的角色、上下文和 Skill 绑定，给每次交接保留观测来源。</p><p><b>验收</b>　在同一批读数任务上复核交接前后的信息遗漏。</p><a href="./studies.html#observation">局部观测的时间与表征</a></div></article>
 <article id="work-tools"><div><small>执行面 · 技能与工具绑定</small><h3>Skill 与 MCP 调用契约</h3></div><div><p><b>交付</b>　定义 Skill 何时调用 MCP 工具、允许哪些输入、如何解释输出。用时钟样例核对观测来源、单位和回执。</p><p><b>验收</b>　从回执中区分基线与新测结果，检查事件标识、来源与时间单位。</p><a href="./studies.html#basis">可回放的共同基准</a></div></article>
 <article id="work-eval"><div><small>共用证据</small><h3>群体度量与独立评价</h3></div><div><p><b>交付</b>　确定样本、分母、信息预算和配对基线，保留共同误判的反例。</p><p><b>验收</b>　从同一批输入复算一致率、共同误判率和配对收益。</p><a href="./studies.html#cooperation">共识与协作增益的度量</a></div></article>
-<article id="work-evolve"><div><small>进化面</small><h3>经验记忆与 Skill 候选</h3></div><div><p><b>交付</b>　给每条经验记录来源、适用范围和反例。每项候选引用父版本。</p><p><b>验收</b>　换一批样本检验同一条经验的收益和失效条件。</p><a href="./studies.html#skill">经验复用与 Skill 候选</a></div></article>
-<article id="work-release"><div><small>控制面</small><h3>候选判定与版本比较</h3></div><div><p><b>交付</b>　冻结独立评价协议、预算、留出集和可恢复的基线版本。</p><p><b>验收</b>　用已知退化版本检验接受规则，再以等预算比较新旧改进器。</p><a href="./studies.html#evaluation">候选版本的独立评价</a></div></article>
+<article id="work-evolve"><div><small>进化面 · 沿用 AgenticMesh</small><h3>从运行证据到改进候选</h3></div><div><p><b>输入</b>　执行轨迹、在线评测结果和既有经验。按症状归集失败样本，生成含适用条件与验收用例的目标。</p><p><b>组件</b>　归因器用回放定位可能出错的组件，提议器给出补丁，评判器检查证据是否足以支持送审。经验库保存症状、位置、修改与效果之间的关联。</p><p><b>输出</b>　候选携带父版本、改动范围、证据和已知反例。改进器自身的修改走同一条提交流程，由控制面裁决。</p><a href="./architecture.html#evolution">在总图中定位</a> · <a href="./studies.html#skill">经验复用研究</a></div></article>
+<article id="work-release"><div><small>控制面 · 沿用 AgenticMesh</small><h3>候选验证、发布与回退</h3></div><div><p><b>输入</b>　候选差异、父版本及冻结的试验对象。控制面维护验证预算、留出样本、风险分级与放行规则。</p><p><b>组件</b>　从模拟交互、对抗测试进入录制回放与隔离沙箱，更高等级采用流量镜像和小流量试发。各阶段将运行结果关联到同一候选版本。</p><p><b>输出</b>　记录接受、拒绝或证据不足及其依据；接受时生成锁定依赖的应用版本，灰度下发。发现退化时恢复已登记的基线。</p><a href="./architecture.html#control">在总图中定位</a> · <a href="./studies.html#evaluation">独立评价研究</a></div></article>
 <article id="work-twin"><div><small>共用证据</small><h3>参照质量与不确定性</h3></div><div><p><b>交付</b>　记录评价参照的来源、有效区间，以及参照与智能体可见输入的关系。</p><p><b>验收</b>　对无法独立核实的样本给出证据不足的判定，保留分组复算记录。</p><a href="./studies.html#cooperation">共识与协作增益的度量</a></div></article></div>
 <p class="asset-link"><a href="./directions.html">查看研究顺序与停止条件</a> · <a href="./topics.html#topics">专题研究点与开题卡</a></p>
     </div></section>

@@ -10,6 +10,7 @@ function followMovedSection() {
     target = 'studies';
   } else if (page === 'core') {
     const oldSections = [
+      [/^#(architecture|control|execution|evolution|environment-tools)$/, 'architecture'],
       [/^#(execution-prototype)$/, 'execution'],
       [/^#(engineering|research|work-[\w-]+)$/, 'modules'],
       [/^#tool-contract$/, 'environment'],

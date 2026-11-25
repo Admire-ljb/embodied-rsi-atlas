@@ -6,14 +6,10 @@
 <link rel="stylesheet" href="./embodied.css">
 <link rel="stylesheet" href="./blueprint.css">
 <link rel="stylesheet" href="./directions.css">
-<link rel="stylesheet" href="./guide.css">
+<link rel="stylesheet" href="./guide.css?v=overview-2">
 </head>
 <body id="top" data-page="environment"><a class="skip" href="#content">跳到正文</a>
-<header class="site-guide"><div class="guide-wrap"><nav class="guide-grid" aria-label="主导航">
-<a class="guide-card" href="./index.html"><strong>架构总图</strong><small>系统由哪些组件组成，怎样配合</small></a>
-<a class="guide-card" href="./directions.html"><strong>方向规划图</strong><small>各研究方向对应哪些架构组件</small></a>
-<a class="guide-card" href="./execution.html"><strong>执行面原型</strong><small>查看可运行的 Skill 与实测轨迹</small></a>
-<a class="guide-card" href="./topics.html"><strong>研究点地图</strong><small>从研究问题进入实验与选题</small></a></nav></div></header>
+<header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
 <section class="wrap section" id="tool-contract">
       <div class="section-head"><div><p class="kicker">首个 MCP 适配器</p><h1 class="detail-heading">把时钟实验做成工具</h1></div><p>Skill 定义何时调用工具、如何核对回执，以及如何解释返回结果。标准客户端通过 <code>tools/list</code> 发现工具及参数，通过 <code>tools/call</code> 调用。基线与新测结果均带运行号、事件标识和逻辑秒数。</p></div>

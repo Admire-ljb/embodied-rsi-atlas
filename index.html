@@ -1,33 +1,61 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#123c36"><meta name="description" content="三面架构总览，含组件关系、证据流向、验证状态和环境接入。">
-<title>架构总图 · 具身智能 RSI</title>
+<meta name="theme-color" content="#123c36"><meta name="description" content="具身智能递归自我改进研究框架，涵盖三面架构、研究方向、执行面原型与任务实例。">
+<title>具身智能 RSI 研究架构</title>
 <link rel="stylesheet" href="./framework.css">
-<link rel="stylesheet" href="./guide.css">
-<script src="./framework.js?v=pages-1" defer></script>
+<link rel="stylesheet" href="./embodied.css">
+<link rel="stylesheet" href="./guide.css?v=overview-2">
+<script src="./framework.js?v=overview-2" defer></script>
 </head>
 <body id="top" data-page="core"><a class="skip" href="#content">跳到正文</a>
-<header class="site-guide"><div class="guide-wrap"><nav class="guide-grid" aria-label="主导航">
-<span class="guide-card" aria-current="page"><span class="current-mark">当前</span><strong>架构总图</strong><small>系统由哪些组件组成，怎样配合</small></span>
-<a class="guide-card" href="./directions.html"><strong>方向规划图</strong><small>各研究方向对应哪些架构组件</small></a>
-<a class="guide-card" href="./execution.html"><strong>执行面原型</strong><small>查看可运行的 Skill 与实测轨迹</small></a>
-<a class="guide-card" href="./topics.html"><strong>研究点地图</strong><small>从研究问题进入实验与选题</small></a></nav></div></header>
+<header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html" aria-current="page">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
-<section class="diagram-page" id="architecture"><figure class="overview-poster" id="framework" aria-labelledby="poster-title">
-<figcaption class="poster-heading"><div><h1 id="poster-title">具身智能体递归自我改进架构</h1><p>智能体执行任务产生证据，进化面据此提出候选，控制面独立评价后发布下一版本。</p></div><a class="poster-download" download href="./rsi-architecture.jpg">下载总图</a></figcaption>
-<div class="poster-band frozen"><h2>外部锚点</h2><div>试验前固定约束与预算、独立参照、留出样本和接受准则。<a href="./modules.html#work-twin">查看参照定义</a></div></div>
-<div class="poster-band decision" id="control"><div class="poster-label"><h2>控制面</h2><small>AgenticMesh · 版本治理</small></div><div class="poster-nodes"><a href="./modules.html#work-release"><strong>登记候选</strong><span>引用父版本</span></a><a href="./modules.html#work-eval"><strong>独立对照</strong><span>沿用冻结的评价协议</span></a><a href="./modules.html#work-release"><strong>发布或回退</strong><span>保留基线与判定依据</span></a></div></div>
-<div class="direction-lines"><span>↑ 提交候选及依据</span><span>↓ 下发获准版本</span></div>
-<div class="poster-pair"><section class="poster-plane evolve" id="evolution"><div class="poster-label"><h2>进化面</h2><small>AgenticMesh · 经验与候选</small></div><div class="poster-nodes"><a href="./modules.html#work-evolve"><strong>归因</strong><span>聚类失败样本</span></a><a href="./studies.html#skill"><strong>检索</strong><span>查找经验与反例</span></a><a href="./recursion.html"><strong>提出候选</strong><span>改动 Skill 或上下文</span></a></div><p>改进器本身也可成为候选，在新任务批次上接受同预算评价。</p></section>
-<section class="poster-plane run" id="execution"><div class="poster-label"><h2><a href="./execution.html">执行面</a></h2><small>kagent · 智能体运行时</small></div>
-<div class="role-flow"><a href="./modules.html#work-runtime">协调 Agent</a><span>⇄ A2A ⇄</span><a href="./execution.html">观测 Agent</a></div>
-<p class="agent-parts"><b>Agent 组成</b>　模型、上下文、记忆、Skill 与 Harness</p>
-<p><a href="./execution.html">时钟观测 Skill 已在本地运行</a>。kagent 集群、A2A 角色交接与 AgenticMesh 发布待联调。</p></section></div>
-<div class="direction-lines"><span>↑ 轨迹与失败样本</span><span>↓ 工具调用　↑ 观测回执</span></div>
-<div class="poster-band evidence"><div class="poster-label"><h2>共用底座</h2><small>遥测、证据与实验</small></div><div><a href="./assets.html">运行号与调用轨迹</a>关联样本、版本和独立标注，供回放、归因与评价复用。<a href="./execution.html#execution-prototype">查看三次执行记录</a></div></div>
-<div class="poster-band environment" id="environment-tools"><div class="poster-label"><h2><a href="./environment.html">环境工具层</a></h2><small>统一 MCP 工具接口</small></div><div class="env-content"><p>Skill 经工具网关发起调用，环境返回带来源、逻辑时刻和单位的回执。</p><div class="poster-nodes"><a href="./environment.html#tool-contract"><strong>仿真环境 · AFSIM</strong><span>实测两次，时钟标记均为 1 秒和 3 秒</span></a><a href="./environment.html#digital-twin"><strong>数字孪生</strong><span>预留模型观测与参照记录接口</span></a></div></div></div>
-<div class="poster-use"><span><b>任务实例</b>　<a href="./fixed-wing.html">高速固定翼仿真</a> · <a href="./cases.html?task=indoor-meter-inspection">室内仪表巡检</a></span><span><a href="./directions.html">对应研究方向</a> · <a href="./assets.html">成果与实测记录</a></span></div>
-</figure></section>
+<section class="lead" id="framework"><div class="wrap lead-inner">
+      <div><p class="kicker">递归自我改进 · Recursive Self-Improvement</p>
+        <h1>具身智能<br><em>RSI 研究架构</em></h1>
+        <p class="intro">具身智能体从环境中获取观测，调用技能，再观察环境发生了什么。怎样把这些经历变成可复核的能力改进？产生改进的方法本身，又能否随经验而进步？</p>
+        <div class="actions"><a class="button" href="./architecture.html">查看三面架构</a><a class="text-link" href="./fixed-wing.html">高速固定翼实例</a></div>
+      </div>
+      <figure class="hero-map core-figure">
+        <figcaption>一次跨版本改进怎样闭合</figcaption>
+        <ol class="cycle">
+          <li><a href="./architecture.html#control"><b>控制面</b><span>指定实验版本</span></a></li>
+          <li><a href="./architecture.html#execution"><b>执行面</b><span>产生运行证据</span></a></li>
+          <li><a href="./architecture.html#evolution"><b>进化面</b><span>提交候选版本</span></a></li>
+        </ol>
+        <div class="return-path"><span>回到控制面 · 独立检验，决定保留哪个版本</span></div>
+        <p>共享记录关联任务、具身交互、候选和评价。换任务时，通过适配层更换环境、能力与评分依据。</p>
+      </figure>
+    </div></section>
+<section class="wrap section" id="shared-record">
+      <div class="section-head"><div><p class="kicker">通用内核</p><h2>三面共用一条运行记录</h2></div><p>控制面和进化面沿用 AgenticMesh 的架构设计。当前先验证执行面怎样把具身环境中的观测和工具回执组织成证据，供改进器归因和控制面独立评价。</p></div>
+      <div class="planes">
+        <article><h3>控制面 · 实验与版本</h3><p>登记候选后，按风险逐级验证。控制面依据预先冻结的准则决定是否发布，保留应用快照、依赖版本与回退基线。</p><small>架构组件</small><a href="./architecture.html#control">分级质量门禁、接受准则与发布</a></article>
+        <article><h3>执行面 · 具身交互</h3><p>按已登记版本运行智能体。每步把观测的来源和时间、技能请求、执行回执、后续环境反馈串成轨迹。区分“请求已受理”与“环境中发生了预期变化”。</p><small>维护对象</small><b>智能体运行器、任务适配器、交互事件记录</b></article>
+        <article><h3>进化面 · 归因与提案</h3><p>从失败样本中提出可检验的改进目标。改进器定位原因、提出候选并说明依据。经验库保留有效条件和反例，供后续任务检索。</p><small>架构组件</small><a href="./architecture.html#evolution">改进器、经验库与递归提案</a></article>
+      </div>
+      <div class="handoff"><h3>具身交互需要两种不同的反馈</h3><p><b>任务内</b>，本步环境反馈成为下一步可见观测。<b>跨运行</b>，多次轨迹的证据用于提出新版本。独立真值在评价阶段使用，避免把事后才知道的信息写入智能体当时的观测。</p></div>
+      <details class="worked"><summary>展开共用对象与关联关系</summary><div class="table-scroll"><table>
+        <thead><tr><th scope="col">对象</th><th scope="col">最小约定</th><th scope="col">关联到</th></tr></thead><tbody>
+          <tr><th scope="row">任务与能力</th><td>环境、具身体、观测范围、能力及版本</td><td>一次运行的条件</td></tr>
+          <tr><th scope="row">运行与证据</th><td>运行号、采样和可见时刻、请求回执、后续观测</td><td>当时能知道什么、后来验证了什么</td></tr>
+          <tr><th scope="row">提案与候选</th><td>父版本、改进器版本、改动对象、依据与预期</td><td>由哪次经验提出哪次修改</td></tr>
+          <tr><th scope="row">评价与版本</th><td>独立协议、对照版本、预算、结果和冻结样本标识</td><td>本轮采用哪个版本，为什么</td></tr>
+        </tbody></table></div></details>
+    </section>
+<section class="band home-work"><div class="wrap section">
+  <div class="section-head"><div><p class="kicker">研究进展</p><h2>从执行面开始验证</h2></div>
+  <p>首个原型通过本地 Skill 执行器读取仿真基线、发起新测量，并比较两次记录。观测 Agent 的声明和工具绑定已给出，kagent 集群部署与角色交接待联调。</p></div>
+  <div class="home-result"><div><h3>时钟观测 Skill</h3><p>两次新测量均与各自基线一致。另一次移除仿真配置后，执行器保留已取得的记录，并标记本次测量未完成。</p></div>
+  <div class="home-result-links"><a href="./execution.html">查看原型与三次实测记录</a><a href="./environment.html">查看环境工具接口</a></div></div>
+</div></section>
+<section class="wrap section home-index"><div class="section-head"><div><p class="kicker">研究路径</p><h2>从框架找到具体问题</h2></div>
+<p>方向规划图按概念、机制、评测与治理、平台、领域应用五层组织研究节点。每个节点都能对应到架构组件和可检验的交付物。</p></div>
+<dl class="home-rows">
+  <div><dt><a href="./directions.html">方向规划图</a></dt><dd>沿行看一个研究问题涉及哪些组件，沿列看同一架构面的研究任务。<a href="./modules.html">技术模块与交付</a></dd></div>
+  <div><dt><a href="./cases.html">任务实例</a></dt><dd>高速固定翼仿真与室内仪表巡检共用任务规范，分别声明观测、能力与评价依据。<a href="./topics.html">研究点地图</a></dd></div>
+  <div><dt><a href="./recursion.html">递归验证</a></dt><dd>用相同预算比较改进器，在独立任务批次上记录收益与退化。<a href="./assets.html">成果与版本记录</a></dd></div>
+</dl></section>
 </main>
 <footer class="site-foot"><div class="guide-wrap"><span>具身智能 RSI 研究架构</span><nav aria-label="技术资料"><a href="./modules.html">技术模块</a><a href="./environment.html">环境工具</a><a href="./cases.html">任务实例</a><a href="./recursion.html">递归验证</a><a href="./assets.html">成果库</a></nav></div></footer>
 </body></html>

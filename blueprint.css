@@ -22,18 +22,6 @@
 .agent-spec { margin-top: 14px; border-bottom: 1px solid var(--line); padding: 0 0 10px; }
 .agent-spec summary { cursor: pointer; color: var(--green); font-weight: 650; }
 .agent-spec p { margin-top: 6px; color: var(--muted); }
-@media screen and (max-width: 760px) {
-  .layer-matrix, .layer-matrix tbody { display: block; }
-  .layer-matrix colgroup { display: none; }
-  .layer-matrix thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .layer-matrix tbody { margin-top: 18px; }
-  .layer-matrix tr { display: grid; grid-template-columns: 1fr 1fr; }
-  .layer-matrix .layer-name, .layer-matrix .node-name { grid-column: 1/-1; padding: 8px 10px; }
-  .layer-matrix .layer-name { font-size: 1.04rem; border-left: 3px solid #4a7162; }
-  .layer-matrix .node-name { background: #f7f9f7; }
-  .layer-matrix td { display: block; padding: 7px 10px; }
-  .layer-matrix td::before { content: attr(data-plane); display: block; color: #52695e; font-size: .82rem; font-weight: 700; }
-}
 .blueprint figcaption span, .map-source, .blueprint .node-foot { font-size: .87rem; }
 .map-band { --stroke: #b8c5bd; --wash: #f4f6f4; padding: 10px clamp(10px, 1.5vw, 18px); background: var(--wash); border: 1px solid var(--stroke); border-left: 4px solid var(--stroke); border-radius: 5px; }
 .band-title { font-weight: 750; font-size: 1.08rem; line-height: 1.5; }
