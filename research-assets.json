@@ -109,6 +109,17 @@
     },
     {
       "id": "layered-architecture",
+      "version": "1.7",
+      "name": "具身智能体 RSI 组件与协作关系",
+      "kind": "工程架构",
+      "module": "具身智能 RSI 研究架构",
+      "file": "rsi-architecture-v1.7.svg",
+      "depends_on": ["layered-architecture@1.6"],
+      "scope": "候选提交、版本下发、工具调用、证据回流与改进器递归的组件关系图。",
+      "audience": "core"
+    },
+    {
+      "id": "layered-architecture",
       "version": "1.6",
       "name": "具身智能体 RSI 架构总图",
       "kind": "工程架构",

@@ -6,43 +6,34 @@
 <link rel="stylesheet" href="./guide.css?v=overview-2">
 <script src="./framework.js?v=overview-2" defer></script>
 <script src="./diagram-view.js" defer></script>
+<style>
+  .relation-poster { position: relative; margin: 0; border: 1px solid #c3d1c8; border-radius: 7px; background: white; }
+  .relation-poster object, .relation-poster img { display: block; width: 100%; aspect-ratio: 1160/884; height: auto; }
+  .relation-poster .fragment { position: absolute; width: 1px; height: 1px; pointer-events: none; }
+  .figure-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); margin: 0; }
+  .map-downloads { display: flex; gap: .85rem; }
+  .map-notes { margin-top: .6rem; font-size: .94rem; }
+</style>
 </head>
 <body id="top" data-page="architecture"><a class="skip" href="#content">跳到正文</a>
 <header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html" aria-current="page">架构总图</a><a href="./directions.html">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
 <section class="diagram-page" id="architecture"><div class="diagram-view">
-<a class="export-poster" download href="./rsi-architecture-v1.6.jpg">下载总图</a>
+<div class="export-poster map-downloads"><a download href="./rsi-architecture-v1.7.svg">下载矢量图</a><a download href="./rsi-architecture-v1.7.jpg">下载 JPG</a></div>
 <div class="diagram-tools" role="group" aria-label="架构总图缩放" hidden>
   <span class="zoom-label">图幅</span><button type="button" data-zoom="auto" aria-pressed="true">自动</button><button type="button" data-zoom="fit" aria-pressed="false">适宽</button><button type="button" data-zoom="original" aria-pressed="false">原大</button>
   <button type="button" data-zoom="smaller" aria-label="缩小图幅">−</button><span class="zoom-amount" aria-live="polite"></span><button type="button" data-zoom="larger" aria-label="放大图幅">＋</button><span class="pan-hint" hidden>可横向滚动查看</span>
 </div>
-<div class="diagram-scroll" tabindex="0" role="region" aria-label="架构总图图面"><div class="diagram-stage"><div class="diagram-sheet"><figure class="overview-poster" id="framework" aria-labelledby="poster-title">
-<figcaption class="poster-heading"><div><h1 id="poster-title">具身智能体递归自我改进架构</h1><p>控制面与进化面沿用 AgenticMesh 的组件和职责。首期工作集中在执行面与环境工具层。</p></div></figcaption>
-<div class="poster-band frozen"><div class="poster-label"><h2>外部锚点</h2><small>每轮试验开始前固定</small></div><div class="anchor-terms"><span><b>约束</b>可改范围与资源上限</span><span><b>注入真值</b>已知故障及位置</span><span><b>留出集与锚集</b>独立判定与回归</span><span><b>放行规则</b>接受条件与风险分级</span></div></div>
-<section class="poster-band decision wide-band" id="control"><div class="poster-label"><h2>控制面</h2><small>AgenticMesh · 保存期望状态，决定可发布版本</small></div>
-<div class="gate-ends"><b>候选登记</b><span>引用父版本、差异、依据与预算，按风险进入分级验证。</span></div>
-<ol class="gates"><li><b>用户模拟与红队测试</b><span>覆盖多轮交互、异常输入和边界条件。</span></li><li><b>录制回放与临时沙箱</b><span>复用已录响应，在隔离副本内检验写操作。</span></li><li><b>流量镜像</b><span>影子版本接收同一输入，写入定向到隔离环境。</span></li><li><b>金丝雀发布</b><span>小范围比较候选与基线，观测退化、成本及违规。</span></li></ol>
-<div class="gate-ends"><b>接受与发布</b><span>依据冻结准则判定。通过后生成锁定依赖的应用快照，灰度下发到执行面；退化时切回基线。</span></div>
-<p class="plane-foot">控制面维护改进范围与预算、可复现实验对象、应用定义、治理策略、Agent 身份与注册表。<a href="./modules.html#work-release">版本治理</a></p></section>
-<div class="direction-lines"><span>↑ 提交候选及依据</span><span>↓ 下发获准版本</span></div>
-<div class="poster-pair"><section class="poster-plane evolve" id="evolution"><div class="poster-label"><h2>进化面</h2><small>AgenticMesh · 从运行证据形成改进候选</small></div>
-<dl class="plane-spec"><div><dt>评测与诊断</dt><dd>对失败轨迹聚类，定位故障；可按既有策略恢复的事件交由控制面处理。</dd></div>
-<div><dt>目标与归因</dt><dd>从问题簇生成含验收条件的目标，用对照回放定位应修改的组件。</dd></div>
-<div><dt>改进器</dt><dd>归因器解释失败，提议器形成候选，评判器比较证据。改进器也作为普通应用在执行面运行。</dd></div>
-<div><dt>经验库</dt><dd>关联症状、位置、补丁和效果。跨任务反复有效的经验可整理成 Skill 或流程，作为候选提交。</dd></div></dl>
-<p class="plane-foot"><b>递归路径</b>　改进器的新版本也要提交控制面，经相同门槛后下发。<a href="./recursion.html">递归验证</a></p></section>
-<section class="poster-plane run" id="execution"><div class="poster-label"><h2><a href="./execution.html">执行面</a></h2><small>kagent · 智能体运行时</small></div>
-<div class="role-flow"><a href="./modules.html#work-runtime">协调 Agent</a><span>⇄ A2A ⇄</span><a href="./execution.html">观测 Agent</a></div>
-<dl class="plane-spec"><div><dt>应用编排</dt><dd>应用版本登记 Agent、工具服务及其绑定。kagent 承载角色声明，A2A 用于角色间的任务交接。</dd></div>
-<div><dt>Agent 内部</dt><dd>模型读取上下文；记忆提供有来源的历史观测；Skill 规定操作步骤；Harness 组织调用并收集回执。</dd></div>
-<div><dt>进程外网关</dt><dd>模型网关管理调用与预算，记忆网关限定读写范围，工具网关按 MCP 契约访问环境服务。</dd></div></dl>
-<p class="plane-foot"><b>本地实测</b>　<a href="./execution.html">时钟观测 Skill</a> 产生两条匹配轨迹和一条未完成轨迹。集群部署、A2A 交接及跨面自动发布待联调。</p></section></div>
-<div class="direction-lines"><span>↑ 轨迹与失败样本</span><span>↓ 工具调用　↑ 观测回执</span></div>
-<div class="poster-band evidence"><div class="poster-label"><h2>共用底座</h2><small>遥测、证据与实验</small></div><div>Agent、网关和服务分别记录事件，按运行号与步骤拼接为统一轨迹。评估集、录制回放、临时沙箱与故障注入为独立验证提供参照。<a href="./execution.html#execution-prototype">查看执行记录</a></div></div>
-<div class="poster-band environment" id="environment-tools"><div class="poster-label"><h2><a href="./environment.html">环境工具层</a></h2><small>统一 MCP 工具接口</small></div><div class="env-content"><p>Skill 经工具网关发起调用，环境返回带来源、逻辑时刻和单位的回执。</p><div class="poster-nodes"><a href="./environment.html#tool-contract"><strong>仿真环境 · AFSIM</strong><span>实测两次，时钟标记均为 1 秒和 3 秒</span></a><a href="./environment.html#digital-twin"><strong>数字孪生</strong><span>预留模型观测与参照记录接口</span></a></div></div></div>
-<div class="poster-use"><span><b>设计依据</b>　<a href="http://admire.buaanlsde.cn/rsi/three-planes.html">AgenticMesh 三面架构</a>。四级门禁的自动串联、改进器与跨层经验沉淀均属本项目待验证环节。</span><span><a href="./directions.html">研究方向</a> · <a href="./cases.html">任务实例</a></span></div>
-</figure></div></div></div>
-</div></section>
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="架构总图图面"><div class="diagram-stage"><div class="diagram-sheet"><figure class="relation-poster" id="framework" aria-labelledby="poster-title">
+<figcaption class="figure-name"><h1 id="poster-title">具身智能体 RSI 组件与协作关系</h1></figcaption>
+<span class="fragment" id="control" style="left:2%;top:17%"></span>
+<span class="fragment" id="evolution" style="left:2%;top:36.8%"></span>
+<span class="fragment" id="execution" style="left:47.6%;top:36.8%"></span>
+<span class="fragment" id="environment-tools" style="left:2%;top:85%"></span>
+<object data="./rsi-architecture-v1.7.svg" type="image/svg+xml" width="1160" height="884" aria-label="架构组件与协作关系。点击组件可查看技术说明。">
+<img src="./rsi-architecture-v1.7.jpg" width="1160" height="884" alt="进化面提交候选，控制面验证并下发版本。执行面经 MCP 调用环境，遥测记录拼接为轨迹后回到进化面。">
+</object></figure></div></div></div>
+</div><p class="map-notes"><a href="./modules.html">组件职责与接口说明</a> · <a href="./execution.html">执行面实测记录</a></p></section>
 </main>
 <footer class="site-foot"><div class="guide-wrap"><span>具身智能 RSI 研究架构</span><nav aria-label="技术资料"><a href="./modules.html">技术模块</a><a href="./environment.html">环境工具</a><a href="./cases.html">任务实例</a><a href="./recursion.html">递归验证</a><a href="./assets.html">成果库</a></nav></div></footer>
 </body></html>
