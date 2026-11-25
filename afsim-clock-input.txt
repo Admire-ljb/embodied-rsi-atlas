@@ -1,0 +1,9 @@
+end_time 5 sec
+
+execute at_time 1 sec absolute
+   writeln("ATLAS_CLOCK,sample-a,", TIME_NOW);
+end_execute
+
+execute at_time 3 sec absolute
+   writeln("ATLAS_CLOCK,sample-b,", TIME_NOW);
+end_execute

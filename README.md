@@ -6,6 +6,7 @@
 
 - [通用架构](./index.html)
 - [高速固定翼专题](./fixed-wing.html)
+- [AFSIM 与三课题联调](./fixed-wing.html#integration)，含[时钟输入](./afsim-clock-input.txt)及[两次运行记录](./afsim-clock-check.json)。本地时钟复现实验使用 AFSIM 2.9.0，运行中适配及半实物校核待联调。
 - [专题学生研究点与开题卡](./topics.html)
 - [任务描述规范](./task-profile.schema.json) 与 [两份配置](./task-profiles.json)
 - [共享成果索引](./research-assets.json)

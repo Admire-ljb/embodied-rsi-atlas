@@ -49,15 +49,14 @@
     {
       "id": "two-task-profiles",
       "version": "1.0",
-      "name": "双任务适配示例",
+      "name": "双任务适配示例（初版）",
       "kind": "实例配置",
       "module": "任务适配层",
-      "file": "task-profiles.json",
+      "file": "task-profiles-v1.0.json",
       "depends_on": [
         "task-profile-contract@1.0"
       ],
-      "scope": "高速固定翼仿真记录与室内移动巡检采用同一字段集合；两份配置用于架构设计与校验。",
-      "audience": "core"
+      "scope": "高速固定翼仿真记录与室内移动巡检采用同一字段集合；两份配置用于架构设计与校验。"
     },
     {
       "id": "rsi-experiment",
@@ -72,6 +71,41 @@
       ],
       "scope": "分别记录任务能力版本、改进器版本、具身运行证据以及等预算的独立评价结果。",
       "audience": "core"
+    },
+    {
+      "id": "two-task-profiles",
+      "version": "1.1",
+      "name": "双任务适配示例",
+      "kind": "实例配置",
+      "module": "任务适配层",
+      "file": "task-profiles.json",
+      "depends_on": [
+        "task-profile-contract@1.0"
+      ],
+      "scope": "固定翼实例选用 AFSIM 作为首期平台，列明课题二、三的数据来源；室内巡检沿用同一描述规范。",
+      "audience": "core"
+    },
+    {
+      "id": "clock-markers",
+      "version": "1.0",
+      "name": "AFSIM 时钟标记输入",
+      "kind": "联调输入",
+      "module": "课题二 · 任务级时钟",
+      "file": "afsim-clock-input.txt",
+      "scope": "两个预设时钟标记，无实体模型。可按相同输入复核运行记录。",
+      "depends_on": []
+    },
+    {
+      "id": "clock-repeat",
+      "version": "1.0",
+      "name": "AFSIM 时钟重复运行记录",
+      "kind": "本地实测",
+      "module": "课题二 · 任务级时钟",
+      "file": "afsim-clock-check.json",
+      "scope": "记录两次运行的事件标识与逻辑时刻，供三组联调时比对。",
+      "depends_on": [
+        "clock-markers@1.0"
+      ]
     }
   ]
 }

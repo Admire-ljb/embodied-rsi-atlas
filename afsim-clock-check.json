@@ -1,0 +1,44 @@
+{
+  "record_version": "1.0",
+  "scope": "任务级逻辑时钟标记复现",
+  "platform": "AFSIM",
+  "wsf_version": "2.9.0",
+  "scenario_version": "clock-markers@1.0",
+  "scenario_file": "afsim-clock-input.txt",
+  "input_sha256_lf": "e1c89022444aaad72b1473d15284223b6ce7f4ed32aaa9540f259105baf41d4f",
+  "time_unit": "s",
+  "runs": [
+    {
+      "run_id": "repeat-01",
+      "exit_code": 0,
+      "events": [
+        {
+          "event_id": "sample-a",
+          "logical_time_s": 1.0
+        },
+        {
+          "event_id": "sample-b",
+          "logical_time_s": 3.0
+        }
+      ]
+    },
+    {
+      "run_id": "repeat-02",
+      "exit_code": 0,
+      "events": [
+        {
+          "event_id": "sample-a",
+          "logical_time_s": 1.0
+        },
+        {
+          "event_id": "sample-b",
+          "logical_time_s": 3.0
+        }
+      ]
+    }
+  ],
+  "comparison": "标记标识、次序和逻辑时刻逐项一致。",
+  "independent_physical_reference": null,
+  "hardware_in_loop": "未接入",
+  "scope_limit": "仅覆盖两个预设时钟标记。设备时间对齐、Agent运行时适配与跨粒度物理一致性待联调。"
+}

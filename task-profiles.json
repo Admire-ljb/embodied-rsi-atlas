@@ -3,19 +3,19 @@
   "profiles": [
     {
       "task_id": "fixed-wing-simulation",
-      "version": "1.0",
+      "version": "1.1",
       "title": "高速固定翼无人机集群",
       "status": "设计示例",
       "objective": "在给定仿真记录中，研究异步观测、群体判断与跨粒度比较的证据边界。",
-      "environment": "任务级仿真记录与跨粒度对照样本",
+      "environment": "首期选用 AFSIM 任务级仿真，经课题二自研适配层提供观测与事件；课题三提供单机细粒度对照。",
       "entities": "多个匿名成员及群组",
       "time_basis": "分别登记仿真采样时刻、可见时刻与记录粒度。",
       "observations": "给定样本中当时已公开的局部观测、群组摘要和来源。",
       "capabilities": "查询带版本的样本快照、读取前缀记录、登记研究判断。",
       "feedback": "快照的版本回执、可见历史范围和后续独立标注。",
-      "reference": "独立样本标注及跨粒度校核记录，由评价方保存。",
+      "reference": "课题三提供带有效区间的独立参考，区分全数字结果、半实物量测和已用于输入的数据。",
       "metrics": "证据覆盖率、样本内共同误判比例、分组结果差异。",
-      "first_artifact": "带时间和来源的观测样例，以及可复算的共识指标。"
+      "first_artifact": "AFSIM 时钟标记输入与两次运行记录已发布。带可见时刻的快照及半实物时标为后续交付。"
     },
     {
       "task_id": "indoor-meter-inspection",

@@ -13,7 +13,7 @@
   <a class="skip" href="#framework">跳到研究体系</a>
   <header><div class="wrap bar">
     <a class="brand" href="#top"><b>高速固定翼</b><span>任务实例</span></a>
-    <nav aria-label="主导航"><a href="./index.html">通用 RSI 架构</a><a href="#framework">实例主线</a><a href="#architecture">研究架构</a><a href="#roadmap">方向规划</a><a href="#assets">成果库</a><a class="nav-topic" href="./topics.html#topics">学生选题 ↗</a></nav>
+    <nav aria-label="主导航"><a href="./index.html">通用 RSI 架构</a><a href="#framework">实例主线</a><a href="#architecture">研究架构</a><a href="#integration">三课题联调</a><a href="#roadmap">方向规划</a><a href="#assets">成果库</a><a class="nav-topic" href="./topics.html#topics">学生选题 ↗</a></nav>
   </div></header>
   <main>
     <section class="lead"><div class="wrap lead-inner">
@@ -56,8 +56,22 @@
         <article><h3>实验运行与证据记录</h3><p>用约定的样本和方法得到判断、时间记录及得分。研究者只能使用当时可见的观测，评分者另行持有真值。</p><small>产物</small><b>可复算的样本和原始结果</b></article>
         <article><h3>方法迭代与成果归档</h3><p>根据误差或反例提出一个可区分的改动，由另一位研究者在原协议下复测。保留成立、证据不足和与预期相反的结果。</p><small>产物</small><b>有条件的结论和后续问题</b></article>
       </div>
-      <div class="handoff"><h3>课题之间交换什么</h3><p><b>课题一</b>提出研究问题、观测定义和比较口径。<b>课题二</b>衔接任务级样本、运行版本和事件记录。<b>课题三</b>衔接不同粒度间的对应关系和独立校核依据。若两种粒度给出不同结论，先记录差异与适用条件，再决定是否能合并解释。</p></div>
     </div></section>
+    <section class="wrap section" id="integration" aria-labelledby="integration-title">
+      <div class="section-head"><div><p class="kicker">固定翼实例 · 仿真平台接入</p><h2 id="integration-title">基于 AFSIM 的三课题联调</h2></div><p>首期以 AFSIM 为任务级仿真平台。三个课题共用想定版本、运行号、事件标识和逻辑时间。任务级回放检验同一记录能否重现，装备级独立参照检验该记录能支持什么物理结论。</p></div>
+      <div class="planes">
+        <article><h3>课题一 · AI 组牵头</h3><p>定义智能体可见的观测、时间含义、Skill 输入输出和评价判据。运行时用课题二提供的任务级信息形成判断，评价时再与课题三的参照核对。</p><small>交给软件组和飞控组</small><b>带版本的字段字典、可见性规则与验收样例</b></article>
+        <article><h3>课题二 · 软件组</h3><p>在项目许可范围内复用 AFSIM 的想定管理、实体调度、时间推进和记录回放。自研引擎适配层，对外提供当时可见的快照和事件。维护简化验证引擎，以同一协议对照事件语义。</p><small>交给 AI 组和飞控组</small><b>任务级事件流、时间基准和可重放的运行记录</b></article>
+        <article><h3>课题三 · 飞控组</h3><p>维护单机细粒度模型的本体状态与执行反馈接口。选择与任务事件对应的片段，关联全数字响应、半实物在环量测与独立参考，记录采样时刻、有效区间和适用工况。</p><small>回传软件组和 AI 组</small><b>状态—事件映射、偏差区间及物理一致性结论</b></article>
+      </div>
+      <div class="handoff"><h3>一条迟到观测，三组怎样一起验收？</h3><p>以记录器的时钟标记为例。软件组同时记录标记发生的逻辑时刻和它对智能体可见的时刻。AI 组在两者之间读取快照，预期读不到该标记，在可见时刻之后再查，预期只出现一次。飞控组随后用独立采集的台架时标核对同一事件，注明时钟偏差和测量不确定度。若参照区间跨过约定边界，结果登记为“待验证”。</p></div>
+      <details class="worked"><summary>查看三组联调顺序与通过条件</summary><ol class="road">
+        <li><div><h3>任务级时间复现</h3><p>软件组用相同输入运行两次，按事件标识比对顺序和逻辑时刻。下方提供已完成的最小样例。</p></div></li>
+        <li><div><h3>运行中查询与独立引擎对照</h3><p>AI 组和软件组约定一条延迟可见的标记，以同一查询分别验证可见前、可见后和重放后的结果。将简化引擎的结果并列保存，定位字段或时间语义差异。此项待联调。</p></div></li>
+        <li><div><h3>跨粒度及半实物校核</h3><p>飞控组提供同一事件的全数字记录和台架量测，软件组关联任务级事件，AI 组按事先确定的判据区分支持、冲突和证据不足。用作本轮输入的量测标明依赖关系，独立参照另列。此项待联调。</p></div></li>
+      </ol></details>
+      <div class="worked" id="clock-check"><h3>首项实测 · AFSIM 逻辑时钟</h3><p>在本地 AFSIM 2.9.0 中，以同一份无实体输入独立运行两次。两次均在逻辑时间 1 秒和 3 秒依次输出标记 A、B。此结果验证了这两个标记的顺序和时刻可复现。智能体适配、设备时钟对齐及半实物校核仍待实测。</p><p class="asset-link"><a href="./afsim-clock-input.txt" download>下载时钟样例输入</a> · <a href="./afsim-clock-check.json" download>下载两次运行的逐项记录</a></p></div>
+    </section>
     <section class="wrap section" id="roadmap">
       <div class="section-head"><div><p class="kicker">方向规划</p><h2>按研究依赖安排先后</h2></div><p>下面是建议的研究顺序。三条主线可以并行推进，后一项比较只引用已明确版本和口径的上游产物。</p></div>
       <ol class="road">

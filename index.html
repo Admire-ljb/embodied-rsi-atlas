@@ -15,7 +15,7 @@
   <a class="skip" href="#architecture">跳到通用架构</a>
   <header><div class="wrap bar">
     <a class="brand" href="#top"><b>具身智能</b><span>RSI 研究架构</span></a>
-    <nav aria-label="主导航"><a href="#architecture">通用架构</a><a href="#adaptation">任务接入</a><a href="#recursion">递归验证</a><a href="#research">学生研究点</a><a href="#assets">成果库</a></nav>
+    <nav aria-label="主导航"><a href="#architecture">通用架构</a><a href="#adaptation">任务接入</a><a href="#project-handoff">课题衔接</a><a href="#recursion">递归验证</a><a href="#research">学生研究点</a><a href="#assets">成果库</a></nav>
   </div></header>
   <main>
     <section class="lead" id="framework"><div class="wrap lead-inner">
@@ -54,23 +54,24 @@
     <section class="band" id="adaptation"><div class="wrap section">
       <div class="section-head"><div><p class="kicker">任务适配层</p><h2>换任务，更换哪些内容？</h2></div><p>任务方描述环境、观测、能力、反馈和真值。通用内核沿用相同的运行、提案、评价和版本关系。下面两份设计配置通过同一份任务描述规范校验。</p></div>
       <div class="profile-panel">
-        <div class="profile-menu"><label for="profile-select">选择任务实例</label><select id="profile-select" disabled><option value="fixed-wing-simulation">高速固定翼无人机集群</option><option value="indoor-meter-inspection">室内移动机器人巡检</option></select><span id="profile-status">设计示例 · v1.0</span></div>
+        <div class="profile-menu"><label for="profile-select">选择任务实例</label><select id="profile-select" disabled><option value="fixed-wing-simulation">高速固定翼无人机集群</option><option value="indoor-meter-inspection">室内移动机器人巡检</option></select><span id="profile-status">设计示例 · v1.1</span></div>
         <div id="profile-content" aria-live="polite"><h3 id="profile-title">高速固定翼无人机集群</h3><p id="profile-objective">在给定仿真记录中，研究异步观测、群体判断与跨粒度比较的证据边界。</p>
           <dl class="field-grid" id="profile-fields">
                 <div><dt>具身体</dt><dd>多个匿名成员及群组</dd></div>
-                <div><dt>环境与数据来源</dt><dd>任务级仿真记录与跨粒度对照样本</dd></div>
+                <div><dt>环境与数据来源</dt><dd>首期选用 AFSIM 任务级仿真，经课题二自研适配层提供观测与事件；课题三提供单机细粒度对照。</dd></div>
                 <div><dt>时间语义</dt><dd>分别登记仿真采样时刻、可见时刻与记录粒度。</dd></div>
                 <div><dt>当时可见的观测</dt><dd>给定样本中当时已公开的局部观测、群组摘要和来源。</dd></div>
                 <div><dt>任务能力</dt><dd>查询带版本的样本快照、读取前缀记录、登记研究判断。</dd></div>
                 <div><dt>回执与后续观测</dt><dd>快照的版本回执、可见历史范围和后续独立标注。</dd></div>
-                <div><dt>独立评价依据</dt><dd>独立样本标注及跨粒度校核记录，由评价方保存。</dd></div>
+                <div><dt>独立评价依据</dt><dd>课题三提供带有效区间的独立参考，区分全数字结果、半实物量测和已用于输入的数据。</dd></div>
                 <div><dt>评价指标</dt><dd>证据覆盖率、样本内共同误判比例、分组结果差异。</dd></div>
-                <div><dt>首项交付</dt><dd>带时间和来源的观测样例，以及可复算的共识指标。</dd></div>
+                <div><dt>首项交付</dt><dd>AFSIM 时钟标记输入与两次运行记录已发布。带可见时刻的快照及半实物时标为后续交付。</dd></div>
           </dl>
         </div>
         <div class="profile-links"><a href="./fixed-wing.html">高速固定翼专题与研究分工 ↗</a><a href="./task-profiles.json" download>下载两份任务配置</a><a href="./task-profile.schema.json" download>下载共用规范</a></div>
         <noscript><p>两份完整任务配置可通过上方链接查看。</p></noscript>
       </div>
+      <div class="handoff" id="project-handoff"><h3>固定翼实例如何衔接课题二、三？</h3><p>AI 组牵头约定观测、技能和评价口径。软件组从 AFSIM 接入任务级状态、事件和仿真时间。飞控组提供单机模型接口，用全数字与半实物量测校核任务事件的物理依据。首轮已复现两个逻辑时钟标记，三组可沿用该样例联调。 <a href="./fixed-wing.html#integration">查看三组分工、联调顺序与实测记录</a></p></div>
     </div></section>
     <section class="wrap section" id="recursion">
       <div class="section-head"><div><p class="kicker">递归验证</p><h2>分别检验能力与改进器</h2></div><p>一次任务得分提高，只能支持该能力版本在特定条件下有改善。要检验递归自我改进，还要追踪谁提出了改进器的新版本，以及新改进器是否更善于产生有效候选。</p></div>
@@ -93,7 +94,7 @@
       <div class="section-head"><div><p class="kicker">共享成果库</p><h2>留下可复用的版本</h2></div><p>通用契约、任务配置、样本与评价记录共用成果索引。每一项列出归属模块、版本、适用范围和上游依赖。</p></div>
       <div class="asset-list">
           <div><span>通用契约 · v1.0</span><a href="./task-profile.schema.json" download="task-profile.schema.json">具身任务描述规范 ↓</a><p>JSON Schema 描述环境、具身体、观测、能力、反馈和独立评价等共用字段。</p></div>
-          <div><span>实例配置 · v1.0</span><a href="./task-profiles.json" download="task-profiles.json">双任务适配示例 ↓</a><p>高速固定翼仿真记录与室内移动巡检采用同一字段集合；两份配置用于架构设计与校验。</p></div>
+          <div><span>实例配置 · v1.1</span><a href="./task-profiles.json" download="task-profiles.json">双任务适配示例 ↓</a><p>固定翼实例选用 AFSIM 作为首期平台，列明课题二、三的数据来源；室内巡检沿用同一描述规范。</p></div>
           <div><span>通用模板 · v1.0</span><a href="./rsi-experiment.txt" download="具身RSI实验记录.md">能力与改进器实验记录 ↓</a><p>分别记录任务能力版本、改进器版本、具身运行证据以及等预算的独立评价结果。</p></div>
           <div><span>合成样本 · v1.0</span><a href="./consensus-example.csv" download="consensus-example.csv">共同误判合成样本 ↓</a><p>8 个抽象二值判断样本及两组匿名预测，仅用于演示计数和分母。</p></div>
           <div><span>已复算示例 · v1.0</span><a href="./consensus-note.txt" download="consensus-note.md">共同误判复算记录 ↓</a><p>同一组样本说明一致率无法唯一确定共同误判率。</p></div>
