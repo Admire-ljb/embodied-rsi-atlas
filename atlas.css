@@ -164,7 +164,7 @@ button,a {
 }
 
 h1 {
-  font: 700 clamp(3.4rem,5.7vw,5.5rem)/1.08 var(--serif);
+  font: 700 clamp(3rem,5.1vw,4.6rem)/1.13 var(--serif);
   letter-spacing: .015em;
   margin: 19px 0 15px;
 }
@@ -209,7 +209,7 @@ h1 em {
   border-bottom: 1px solid #6d8580;
 }
 
-.bench {
+.comparison {
   min-width: 0;
   background: #133a37;
   color: #eef8f0;
@@ -218,7 +218,7 @@ h1 em {
   overflow: hidden;
 }
 
-.bench-head,.bench figcaption {
+.comparison-head,.comparison figcaption {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -226,49 +226,96 @@ h1 em {
   padding: 14px 18px;
 }
 
-.bench-head {
+.comparison-head {
   border-bottom: 1px solid #40615a;
   font-size: .93rem;
   font-weight: 600;
 }
 
-.bench-head small {
+.comparison-head small {
   font-size: .79rem;
   color: var(--mint);
   font-weight: 400;
 }
 
-.bench canvas {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: #143b38;
+.plot {
+  padding: 24px clamp(14px, 3vw, 32px) 28px;
+  background: linear-gradient(125deg, #185148, #133c37);
 }
 
-.bench figcaption {
+.plot-title, .plot-row {
+  display: grid;
+  align-items: center;
+  gap: 12px;
+}
+
+.plot-title {
+  grid-template-columns: 1fr auto;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #5a8275;
+}
+
+.plot-title b {
+  font: 600 clamp(1.3rem, 2.4vw, 1.9rem)/1.5 var(--serif);
+}
+
+.plot-title span, .plot-value {
+  color: #dcebdc;
+  font: .84rem var(--mono);
+}
+
+.plot-row {
+  grid-template-columns: 6.5em minmax(0, 1fr) 3em;
+  margin-top: 19px;
+  font-size: .91rem;
+}
+
+.plot-track {
+  display: block;
+  height: 11px;
+  background: #365e55;
+}
+
+.plot-track i {
+  display: block;
+  height: 100%;
+  background: #aedcbf;
+}
+
+.plot-row:last-child .plot-track i {
+  background: #e4ad80;
+}
+
+.plot-value {
+  text-align: right;
+}
+
+.comparison figcaption {
   border-top: 1px solid #40615a;
   flex-wrap: wrap;
 }
 
-.bench output {
-  font: .81rem/1.5 var(--mono);
-  color: #d2ead7;
+.comparison output {
+  flex-basis: 100%;
+  min-height: 2.8em;
+  font: .86rem/1.55 var(--sans);
+  color: #d8eadc;
 }
 
-.bench-modes {
+.comparison-modes {
   display: flex;
   border: 1px solid #5c7b73;
   border-radius: 4px;
 }
 
-.bench-modes button {
+.comparison-modes button {
   color: #d2ead7;
   font-size: .86rem;
   min-height: 32px;
   padding: 3px 10px;
 }
 
-.bench-modes button[aria-pressed=true] {
+.comparison-modes button[aria-pressed=true] {
   background: #c7e8cb;
   color: #113d32;
 }
@@ -311,7 +358,7 @@ summary::-webkit-details-marker {
 
 .layer summary {
   display: grid;
-  grid-template-columns: 34px minmax(6em,.9fr) minmax(0,1.3fr) 18px;
+  grid-template-columns: 48px minmax(7em,1fr) minmax(0,1fr) 18px;
   gap: 10px;
   align-items: center;
   padding: 15px 4px;
@@ -631,7 +678,7 @@ footer b {
   .search {
     margin: 0;
   }
-  .bench figcaption {
+  .comparison figcaption {
     gap: 6px;
   }
   .title-line {
@@ -672,11 +719,9 @@ footer b {
     gap: 26px;
   }
   h1 {
-    font-size: clamp(3.1rem,10vw,4rem);
+    font-size: clamp(2.7rem,9vw,3.7rem);
   }
-  h1 br {
-    display: none;
-  }
+
   .hero-links {
     margin-top: 16px;
   }
@@ -706,7 +751,7 @@ footer b {
     grid-template-columns: 1fr;
   }
   .layer summary {
-    grid-template-columns: 25px 6.2em 1fr 15px;
+    grid-template-columns: 44px minmax(6em,1fr) minmax(0,1fr) 15px;
     gap: 5px;
   }
   .layer-content {
@@ -748,7 +793,7 @@ footer b {
   .focus {
     font-size: .82rem;
   }
-  .bench-head,.bench figcaption {
+  .comparison-head,.comparison figcaption {
     padding: 10px;
   }
   .hero-links {
