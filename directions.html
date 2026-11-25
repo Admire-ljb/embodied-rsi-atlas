@@ -4,7 +4,7 @@
 <title>研究方向规划图 · 具身智能 RSI</title>
 <link rel="stylesheet" href="./framework.css">
 <link rel="stylesheet" href="./blueprint.css?v=overview-2">
-<link rel="stylesheet" href="./directions.css?v=execution-roadmap-1">
+<link rel="stylesheet" href="./directions.css?v=parallel-modules-1">
 <link rel="stylesheet" href="./guide.css?v=overview-2">
 <script src="./framework.js?v=overview-2" defer></script>
 <script src="./diagram-view.js" defer></script>
@@ -14,7 +14,7 @@
 <main id="content">
 <section class="wrap plan-intro" id="plan"><p class="kicker">具身智能 RSI · 研究规划</p><h1>研究方向规划图</h1>
 <p class="plan-deck">以<a href="./architecture.html?v=1.9">架构总图 v1.9</a> 为基线。第一阶段基于离线数据搭建完整的 Agent 框架，贯通任务输入、规划、技能执行、多智能体协作和结果核验。后续研究用可追溯的运行记录比较不同观测表征与协作方式。</p>
-<nav class="plan-nav" aria-label="方向图页内导航"><a href="#questions">科学问题与研究方向</a><a href="#execution-work">第一阶段任务与验收</a><a href="#plan-caption">分层组件矩阵</a><a href="./execution-research-roadmap-v1.1.jpg" download>下载方向总览图 ↓</a></nav>
+<nav class="plan-nav" aria-label="方向图页内导航"><a href="#questions">科学问题与研究方向</a><a href="#execution-work">第一阶段任务与验收</a><a href="#plan-caption">分层组件矩阵</a><a href="./execution-research-roadmap-v1.2.jpg" download>下载方向总览图 ↓</a></nav>
 <section class="research-routes" id="questions" aria-labelledby="questions-title">
   <h2 id="questions-title">三个科学问题</h2>
   <p class="research-lead">高速固定翼集群仿真中，同一事件到达各成员的时间可能不同，多个成员的判断也可能来自同一条观测。这给分布式具身智能提出了三个可独立检验的问题。</p>
@@ -36,22 +36,23 @@
 </section>
 <section class="work-plan" id="execution-work" aria-labelledby="work-title">
   <h2 id="work-title">第一阶段 · 基于离线数据搭建完整的 Agent 框架</h2>
-  <p class="research-lead">第一阶段要交付一套可以接收任务、生成计划、调用 Skill、组织多个 Agent 协作并返回结果的执行框架。离线数据为环境工具提供输入。先并行搭建环境接口和单个 Agent，再接入 Skill、编排与通信。运行记录从首个实例开始采集。</p>
-  <div class="work-table-wrap"><table class="work-matrix">
-    <thead><tr><th scope="col">建设任务</th><th scope="col">首轮交付</th><th scope="col">验收条件</th><th scope="col">支撑方向</th></tr></thead>
+  <p class="research-lead">六个模块可以同时开工。开工时共同约定输入、输出、错误和版本，随后各自维护实现、测试入口和本地测试样例。每个模块只启动自身及其测试替身，独立验收通过后再统一联调。</p>
+  <p class="basis-line"><b>共用的验收样例</b>　同一批仪表读数中包含有效值、空值和零值。各模块共用任务、记录标识与预期结果，分别测试正常执行、数据缺失及消息重送。<a href="./module-acceptance-v1.json" download>下载样例与预期结果（JSON）</a></p>
+  <div class="work-table-wrap"><table class="work-matrix module-contracts">
+    <thead><tr><th scope="col">独立模块</th><th scope="col">输入与输出</th><th scope="col">怎样单独测试</th><th scope="col">独立验收条件</th></tr></thead>
     <tbody>
-      <tr><th scope="row"><a href="./modules.html#work-tools">1　离线环境与工具接口</a></th><td>把一份离线数据及其参考结果登记为带版本的样例。环境适配器通过 MCP 提供检索、读取工具，统一返回结果、来源和错误信息。</td><td>对同一次查询返回一致的记录与来源。更换同一契约下的数据集，沿用同一套 Agent 和 Skill。</td><td>P0</td></tr>
-      <tr><th scope="row"><a href="./modules.html#agent-layers">2　单个 Agent 的运行时</a></th><td>以 kagent 承载 Agent 实例，接入模型、任务上下文、记忆、Skill 和执行框架（Harness）。给每次任务分配独立上下文和运行号。</td><td>给定任务，实例能加载指令、调用模型、执行获准的工具并返回结果。启动新任务后，可核对上下文和记忆的读取范围。</td><td>P0、A1</td></tr>
-      <tr><th scope="row"><a href="./modules.html#agent-skill">3　Skill 封装与注册</a></th><td>接通任务 1、2。为数据检索、摘要和结果核验封装 Skill。每项登记适用条件、参数、执行入口、版本及返回格式。</td><td>从注册表选取 Skill 后可独立运行。用一条正常输入和一条缺失输入验证返回值与错误处理。</td><td>P0、B1</td></tr>
-      <tr><th scope="row"><a href="./modules.html#aeroweaver">4　任务规划与应用编排</a></th><td>在 AeroWeaver 中组合已注册的能力。把任务说明转成可执行的计划，列出步骤依赖、实例角色、可用 Skill 及完成条件。</td><td>执行前能查看计划。更改任务要求后，相关步骤和 Skill 选择随之调整。一次工具失败后有明确的处理路径。</td><td>A1、A2</td></tr>
-      <tr><th scope="row"><a href="./modules.html#aeroweaver">5　多 Agent 通信与协作</a></th><td>用 A2A 协议连接实例，按任务计划分派工作、传递中间结果并汇总。消息关联任务、步骤和证据来源。</td><td>一个实例的结果能成为下游实例的输入。通过消息标识区分重复交接，超时后任务状态可追踪。</td><td>P0、A2</td></tr>
-      <tr><th scope="row"><a href="./modules.html#work-release">6　运行证据与版本管理</a></th><td>按 AgenticMesh 三面架构登记应用版本。由执行面归档计划、模型与工具调用、消息及结果，向控制面提供验收记录，向进化面提交失败样例。</td><td>固定数据、任务和版本后能重放已记录的执行过程，独立复核最终结果。一次失败可定位到具体步骤及对应版本。</td><td>P0、B2</td></tr>
+      <tr><th scope="row"><a href="./modules.html#work-tools">离线环境与 MCP 工具</a></th><td>接收数据集标识和查询条件，返回记录、来源或错误码。</td><td>用本地离线样例启动工具服务，以 MCP 测试客户端发现工具、发起调用并检查回执。</td><td>指定样本返回 r1 至 r3。请求不存在的数据集，返回可识别的错误。</td></tr>
+      <tr><th scope="row"><a href="./modules.html#agent-layers">单 Agent 运行时</a></th><td>接收任务上下文、模型与 Skill 配置，执行后返回状态、结果及运行事件。</td><td>在 kagent 测试环境运行单个 Agent。用固定响应的模型适配器、内存存储和测试 Skill 驱动 Harness。</td><td>连续运行两项任务，上下文相互隔离。测试 Skill 出错时能定位失败步骤。</td></tr>
+      <tr><th scope="row"><a href="./modules.html#agent-skill">Skill 封装与注册</a></th><td>按名称和版本发现与调用 Skill，约定输入、输出、错误和来源引用。</td><td>用命令行测试入口直接调用真实 Skill。以固定回执代替外部工具，分别检查检索和摘要逻辑。</td><td>三条记录中只将 r2 列为缺失，零读数有效。缺少必填参数时返回约定错误。</td></tr>
+      <tr><th scope="row"><a href="./modules.html#aeroweaver">任务规划与应用编排</a></th><td>AeroWeaver 接收任务和能力清单，生成含 Skill、角色与依赖的计划，交付可调度步骤。</td><td>用静态能力清单、模拟执行器单测编排器。分别输入完整指令、变更指令和某一步执行失败的回执。</td><td>计划只引用已登记能力，依赖无环，上游结果可供下游使用。失败后给出可观察的状态。</td></tr>
+      <tr><th scope="row"><a href="./modules.html#aeroweaver">A2A 通信与交接</a></th><td>传递任务、中间结果与状态，保留运行号、步骤号、消息标识及证据引用。</td><td>运行真实通信适配器，使用本地 A2A 测试对端收发消息。按脚本模拟正常应答、重复投递和超时。</td><td>同一消息投递两次，得到两条投递记录和一次业务接收。超时可在调用端识别。</td></tr>
+      <tr><th scope="row"><a href="./modules.html#work-release">运行记录与版本管理</a></th><td>接收版本信息和结构化事件，按运行号还原计划、工具调用、消息及最终状态。</td><td>以固定事件序列和临时存储测试归档、检索与回放。按 AgenticMesh 的三面架构导出验收记录和失败样例。</td><td>重复导入保持结果一致。指定一次失败运行，能定位最先失败的步骤及应用版本。</td></tr>
     </tbody>
   </table></div>
-  <div class="joint-test" id="first-milestone"><h3>首轮联合验收 · 从任务输入到协作结果</h3>
-    <p><b>跑通一项任务。</b> 输入“汇总指定时段的记录，并核查缺失项”。系统先给出计划，再由不同实例完成检索、汇总与核验，返回带记录引用的结果。用预先保存的参考答案核对缺失项与统计值。</p>
-    <p><b>换数据与任务。</b> 在同一工具契约下替换离线样例，再把任务从“汇总记录”改为“比较两个时段”。检查哪些步骤复用，哪些步骤由编排器重新生成。</p>
-    <p><b>复现一次失败。</b> 让一项工具调用返回缺失输入，核对 Skill 错误、A2A 交接状态和最终说明。按运行号重放记录，能找到首次失败的步骤与版本。</p>
+  <div class="joint-test" id="first-milestone"><h3>最终联调 · 用真实模块完成同一项任务</h3>
+    <p><b>核对模块交付。</b> 每个模块提供独立启动或调用入口、一条测试命令和验收报告。联调前核对各模块使用的接口版本、运行号与步骤号约定、结果状态和错误含义。</p>
+    <p><b>接入真实模块。</b> 各模块单测通过后，用真实服务替换测试对端。AeroWeaver 出计划，kagent 实例执行 Skill，经 MCP 读取离线数据，通过 A2A 交接结果。记录模块按运行号关联全过程。</p>
+    <p><b>核对端到端结果。</b> 正常样例应汇总三条记录且只标出 r2 缺失。再运行未知数据集和重复交接用例，分别核对失败位置、去重结果与来源引用。</p>
   </div>
   <p class="basis-line"><b>进入下一阶段的条件</b>　执行框架通过联合验收后，先定义各实例的可见范围与消息投递规则，再开展 A1、A2 对照实验。积累可追溯反例后启动 B1，形成配对评价协议后启动 B2。两者均可复跑后再开展 C1。<a href="./studies.html#experiments">查看各方向实验与停止条件</a></p>
 </section>

@@ -200,6 +200,31 @@
     },
     {
       "id": "execution-research-roadmap",
+      "version": "1.2",
+      "kind": "方向规划",
+      "module": "具身智能 RSI 研究架构",
+      "name": "执行面独立模块与联合验收",
+      "file": "execution-research-roadmap-v1.2.jpg",
+      "depends_on": [
+        "layered-architecture@1.9",
+        "module-acceptance@1.0"
+      ],
+      "scope": "六个模块分别开发和测试，通过单模块验收后再接入统一的离线任务。",
+      "audience": "core"
+    },
+    {
+      "id": "module-acceptance",
+      "version": "1.0",
+      "kind": "验收样例",
+      "module": "执行面",
+      "name": "离线仪表记录与模块验收样例",
+      "file": "module-acceptance-v1.json",
+      "depends_on": [],
+      "scope": "应用层任务、Skill 清单、参考计划，以及正常、缺失和重复消息的预期结果。",
+      "audience": "core"
+    },
+    {
+      "id": "execution-research-roadmap",
       "version": "1.1",
       "kind": "方向规划",
       "module": "具身智能 RSI 研究架构",

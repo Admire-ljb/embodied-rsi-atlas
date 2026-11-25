@@ -1,0 +1,43 @@
+{
+  "fixture_version": "1.0",
+  "description": "离线仪表巡检示例。字段是应用层约定，由各模块映射到所用协议。expected 只供测试断言使用。",
+  "application_version": "inspection@1.0",
+  "run_id": "example-run-01",
+  "task": {
+    "task_id": "inspect-readings",
+    "request": "汇总本批读数，列出缺失读数的记录编号。",
+    "dataset_id": "readings-v1"
+  },
+  "records": [
+    {"record_id": "r1", "reading": 21},
+    {"record_id": "r2", "reading": null},
+    {"record_id": "r3", "reading": 0}
+  ],
+  "skill_catalog": [
+    {"name": "load_readings", "version": "1.0", "inputs": ["dataset_id"], "outputs": ["records"]},
+    {"name": "summarize_readings", "version": "1.0", "inputs": ["records"], "outputs": ["summary"]}
+  ],
+  "reference_plan": [
+    {"step_id": "read", "skill": "load_readings", "depends_on": []},
+    {"step_id": "summarize", "skill": "summarize_readings", "depends_on": ["read"]}
+  ],
+  "cases": [
+    {
+      "case_id": "normal",
+      "expected": {"status": "completed", "total": 3, "missing_ids": ["r2"]}
+    },
+    {
+      "case_id": "unknown-dataset",
+      "input_override": {"dataset_id": "absent"},
+      "expected": {"status": "failed", "error_code": "dataset_not_found", "failed_step": "read"}
+    },
+    {
+      "case_id": "duplicate-handoff",
+      "deliveries": [
+        {"message_id": "m1", "step_id": "summarize", "refs": ["r1", "r2", "r3"]},
+        {"message_id": "m1", "step_id": "summarize", "refs": ["r1", "r2", "r3"]}
+      ],
+      "expected": {"status": "completed", "delivery_count": 2, "accepted_count": 1, "total": 3, "missing_ids": ["r2"]}
+    }
+  ]
+}

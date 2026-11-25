@@ -24,6 +24,8 @@
 .work-matrix thead th { background: #e6eff5; color: #294c64; }
 .work-matrix thead th:first-child { width: 17%; }
 .work-matrix thead th:last-child { width: 12%; }
+.module-contracts thead th:first-child { width: 16%; }
+.module-contracts thead th:last-child { width: 24%; }
 .work-matrix tbody tr + tr { border-top: 1px solid #d9e2df; }
 .work-matrix tbody th { color: #294c64; background: #f2f6f8; }
 .work-matrix tbody td { background: white; }
@@ -41,6 +43,9 @@
   .work-matrix tbody td:nth-child(2)::before { content: "交付"; }
   .work-matrix tbody td:nth-child(3)::before { content: "验收"; }
   .work-matrix tbody td:nth-child(4)::before { content: "支撑方向"; }
+  .module-contracts tbody td:nth-child(2)::before { content: "输入与输出"; }
+  .module-contracts tbody td:nth-child(3)::before { content: "单独测试"; }
+  .module-contracts tbody td:nth-child(4)::before { content: "独立验收"; }
 }
 .planning-matrix td[data-plane="执行面"] { background: #f2f6fa; }
 .planning-matrix .plan-download { margin: 10px 0 0; }
