@@ -3,6 +3,7 @@
 const cards = Array.from(document.querySelectorAll('details.topic'));
 const filterForm = document.querySelector('#filters');
 const search = document.querySelector('#search');
+const modulePicker = document.querySelector('#platform-module');
 const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
 let track = '-1';
 filterForm.hidden = false;
@@ -13,6 +14,7 @@ function refresh() {
   let matches = 0;
   for (const card of cards) {
     const allowed = (track === '-1' || card.dataset.track === track)
+      && (!modulePicker.value || card.dataset.modules.split(' ').includes(modulePicker.value))
       && (!term || card.textContent.toLocaleLowerCase().includes(term));
     card.hidden = !allowed;
     if (allowed) matches++;
@@ -28,6 +30,7 @@ function refresh() {
 function clearFilters() {
   track = '-1';
   search.value = '';
+  modulePicker.value = '';
   refresh();
 }
 
@@ -36,12 +39,13 @@ filterButtons.forEach(b => b.addEventListener('click', () => {
   refresh();
 }));
 search.addEventListener('input', refresh);
+modulePicker.addEventListener('change', refresh);
 document.querySelector('#reset').addEventListener('click', clearFilters);
 refresh();
 
 function revealTopic(hash) {
   if (!hash.startsWith('#topic-')) return;
-  const card = document.getElementById(hash.slice(1));
+  const card = document.getElementById(hash.slice(1))?.closest('details.topic');
   if (!card || !cards.includes(card)) return;
   if (card.hidden) clearFilters();
   card.open = true;

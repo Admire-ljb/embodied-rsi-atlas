@@ -489,6 +489,15 @@ details[open]>summary .plus:after {
   padding-inline: 8px;
 }
 
+.platform-boundary {
+  max-width: 78ch;
+  color: var(--body);
+  margin: .4rem 0 1.2rem;
+}
+.platform-picker { flex-wrap: wrap; }
+.platform-picker select { max-width: 100%; }
+#topics .title-line > p { max-width: 66ch; }
+
 .search {
   margin-left: auto;
 }

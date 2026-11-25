@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#163b37">
-    <meta name="description" content="具身智能 RSI 三个研究方向的科学问题、对照实验及对应架构组件。">
+    <meta name="description" content="面向开放式数字孪生测试训练平台的研究点、对照实验、模块分工及场景适用范围。">
     <title>研究点地图 · 具身智能 RSI</title>
-    <link rel="stylesheet" href="./atlas.css?v=research-map">
-    <script src="./atlas.js?v=research-map" defer></script>
+    <link rel="stylesheet" href="./atlas.css?v=platform-map">
+    <script src="./atlas.js?v=platform-map" defer></script>
     <link rel="stylesheet" href="./guide.css?v=overview-2">
 </head>
   <body>
@@ -16,90 +16,118 @@
     <main id="top">
       <section class="catalog" id="topics">
         <div class="wrap">
-          <div class="title-line"><h1>研究点地图</h1><p>围绕同一批离线任务，研究智能体如何形成状态判断、通信变化怎样影响一次任务中的群体计划，以及多次任务的经验能否改进下一版本。展开各项可查看研究问题、对照与架构位置。</p></div>
+          <div class="title-line"><h1>研究点地图</h1><p>以开放式数字孪生测试训练平台为共同实验环境，研究从单机独立判断、多实体协作到训练版本回流的九个问题。<a href="#evidence">查看三类典型场景的研究用途</a></p></div>
+          <p class="platform-boundary">单机功能测试面向各类接入装备。自主能力训练面向具备端侧智能的装备，以协同作战飞机（CCA）为代表。下列实验按研究设计划分，已运行的样例在相应条目中注明。</p>
           <form class="filters" id="filters" hidden>
             <div class="pills" aria-label="研究方向"><button type="button" data-filter="-1" aria-pressed="true">全部方向</button><button type="button" data-filter="0" aria-pressed="false">个体自主决策</button><button type="button" data-filter="1" aria-pressed="false">群体协同规划</button><button type="button" data-filter="2" aria-pressed="false">跨任务策略演化</button></div>
+            <label class="level platform-picker">平台模块 <select id="platform-module"><option value="">全部模块</option><option value="1">模块① 开放仿真环境</option><option value="2">模块② 环境与装备数字孪生</option><option value="3">模块③ 半实物接入与物理效应模拟</option><option value="4">模块④ 人机混合蓝军与训练编排</option><option value="5">模块⑤ 空中具身智能训练算力与数据基座</option></select></label>
             <label class="search"><span class="sr">搜索研究点</span><input id="search" type="search" placeholder="搜索问题、指标或组件"></label>
           </form>
-          <p id="count" class="count" aria-live="polite">共 12 个研究点</p>
+          <p id="count" class="count" aria-live="polite">共 9 个研究点</p>
           <div id="cards">
-<section class="topic-group" id="state-models" aria-labelledby="state-models-title"><h2 id="state-models-title">局部观测下的个体状态表征与自主决策</h2><p>重建智能体在任务当时可见的状态，在单机任务上独立评价判断质量，建立后续协作评价的基线。</p>
-<details class="topic" id="topic-replay" data-track="0">
-                <summary><span class="topic-lead"><small>时序与可见性</small><strong>离线观测的时间边界</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">同一条记录在采样时刻与到达时刻之间，哪些成员已经能够使用它？</p><dl><div><dt>对照实验</dt><dd>固定回放时刻，分别按事件发生时间和成员可见时间截取记录。</dd></div><div><dt>评价依据</dt><dd>逐条核对晚到、缺失和乱序记录，统计被提前使用的记录数。</dd></div><div><dt>架构位置</dt><dd>环境工具层返回带来源的时序记录，Agent 上下文据此重建观测。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#observation">查看对应模块与实验</a><button type="button" class="download" data-card="replay">下载研究说明</button></div>
-                </div></details>
-<details class="topic" id="topic-attribution" data-track="0">
-                <summary><span class="topic-lead"><small>信息不完备</small><strong>缺测与冲突条件下的状态可信度</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">智能体只掌握局部记录时，哪些状态能够判定？哪些结论会随缺测或证据冲突而改变？</p><dl><div><dt>对照实验</dt><dd>在相同任务片段中逐步减少可见来源，比较摘要与独立标注。</dd></div><div><dt>评价依据</dt><dd>同时统计可判断样本的覆盖率，以及证据不足时仍给出确定结论的比例。</dd></div><div><dt>架构位置</dt><dd>共用底座保存冲突和缺测样本，供后续协作实验复用。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#basis">查看对应模块与实验</a><button type="button" class="download" data-card="attribution">下载研究说明</button></div>
-                </div></details>
-<details class="topic" id="topic-individual" data-track="0">
-                <summary><span class="topic-lead"><small>单机基线</small><strong>局部信息下的个体判断与单机评价</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">观测不完整时，智能体独立完成一次判断的依据是什么？</p><dl><div><dt>对照实验</dt><dd>在单机离线巡检任务中，分别给出当前读数和带时间标记的历史读数，核对智能体对读数是否有效的判断。</dd></div><div><dt>评价依据</dt><dd>对同一批样本报告判断正确率、暂不能判断的比例和证据来源。</dd></div><div><dt>架构位置</dt><dd>执行面保留个体判断，控制面用独立标注生成单机评价基线。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#observation">查看对应模块与实验</a><button type="button" class="download" data-card="individual">下载研究说明</button></div>
-                </div></details>
+<section class="topic-group" id="state-models" aria-labelledby="state-models-title">
+  <h2 id="state-models-title">局部观测下的个体状态表征与自主决策</h2><p>先建立可独立运行的单机科目，再检验智能体据以判断的观测，在全数字和半实物条件下是否具有相同含义。</p>
+  <details class="topic" id="topic-individual" data-track="0" data-modules="2 4 5">
+    <summary><span class="topic-lead"><small>环境与装备数字孪生 · 人机混合蓝军与训练编排 · 空中具身智能训练算力与数据基座</small><strong>单机功能基线与自主决策能力的独立评价</strong></span><span class="plus" aria-hidden="true"></span></summary>
+    <div class="topic-body"><p class="question">同一科目通过功能测试后，如何判断训练是否改善了智能体独立完成任务的能力？</p><dl>
+      <div><dt>对应平台模块</dt><dd>模块② 环境与装备数字孪生、模块④ 人机混合蓝军与训练编排、模块⑤ 空中具身智能训练算力与数据基座</dd></div>
+      <div><dt>拟开展的对照实验</dt><dd>先让装备孪生体完成预设状态检查，核对输入、状态和结果。对搭载智能体的模型，设置观测完整与缺测两组科目，比较训练前后何时确认状态、何时请求复测。</dd></div>
+      <div><dt>评价依据</dt><dd>功能测试记录通过项与异常项。能力评价另报任务完成率、误判及未能判断的样本，并关联模型版本。</dd></div>
+      <div><dt>可积累成果</dt><dd>可复跑的单机科目、功能基线和训练前后配对记录。</dd></div>
+    </dl><div class="topic-actions"><a href="./studies.html#observation">查看局部观测实验</a><button type="button" class="download" data-card="individual">下载研究说明</button></div></div>
+  </details>
+  <details class="topic" id="topic-replay" data-track="0" data-modules="1 2">
+    <summary><span class="topic-lead"><small>开放仿真环境 · 环境与装备数字孪生</small><strong>单机观测的时间语义与可复现性</strong></span><span class="plus" aria-hidden="true"></span></summary>
+    <div class="topic-body"><p class="question">同一段任务回放时，能否重建智能体在作出判断前实际收到的观测？</p><dl>
+      <div><dt>对应平台模块</dt><dd>模块① 开放仿真环境、模块② 环境与装备数字孪生</dd></div>
+      <div><dt>拟开展的对照实验</dt><dd>固定想定和模型版本，核对引擎事件时刻、孪生模型采样时刻和观测到达时刻。对同一段记录分别作在线记录与离线重建。</dd></div>
+      <div><dt>评价依据</dt><dd>核对可见事件的顺序、缺失项和过早纳入的记录。时钟标记样例只提供时间顺序的实测依据，成员可见性仍需另验。</dd></div>
+      <div><dt>可积累成果</dt><dd>带时刻和来源的观测样本、回放对照及不一致事件清单。</dd></div>
+    </dl><div class="topic-actions"><a href="./execution.html#clock-skill">查看时钟接口实测</a><button type="button" class="download" data-card="replay">下载研究说明</button></div></div>
+  </details>
+  <details class="topic" id="topic-attribution" data-track="0" data-modules="1 2 3">
+    <summary><span class="topic-lead"><small>开放仿真环境 · 环境与装备数字孪生 · 半实物接入与物理效应模拟</small><strong>数字孪生与半实物观测的一致性边界</strong></span><span class="plus" aria-hidden="true"></span></summary>
+    <div class="topic-body"><p class="question">用设备量测替换数字量测后，同一个体状态判断在哪些工况下仍然成立？</p><dl>
+      <div><dt>对应平台模块</dt><dd>模块① 开放仿真环境、模块② 环境与装备数字孪生、模块③ 半实物接入与物理效应模拟</dd></div>
+      <div><dt>拟开展的对照实验</dt><dd>以单机基础科目为例，在相同初始条件下比较全数字记录和半实物记录。通过统一时钟和状态映射对齐两条记录，另以独立参照评估共同偏差。</dd></div>
+      <div><dt>评价依据</dt><dd>报告状态偏差、事件时差和无法判定的区间，并注明量测来源。模块①管理时间与状态语义，模块②③依约接入。</dd></div>
+      <div><dt>可积累成果</dt><dd>同科目虚实对照样本、判断分歧及已验证工况表。</dd></div>
+    </dl><div class="topic-actions"><a href="./environment.html#digital-twin">查看环境工具层的孪生接入</a><button type="button" class="download" data-card="attribution">下载研究说明</button></div></div>
+  </details>
 </section>
-<section class="topic-group" id="cooperation" aria-labelledby="cooperation-title"><h2 id="cooperation-title">通信约束下的群体协同决策与规划</h2><p>研究一次任务中的群组状态、角色交接与计划有效性，用共识质量和配对收益判断协作效果。</p>
-<details class="topic" id="topic-state" data-track="1">
-                <summary><span class="topic-lead"><small>状态与行为</small><strong>从成员记录到群组与整体状态</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">多名成员报告同一步骤时，怎样判断群组进度，又保留结论所依赖的个体行为？</p><dl><div><dt>对照实验</dt><dd>用同批记录分别生成个体、群组和整体摘要。以离线巡检为例，核对每条读数经过谁读取、谁复核。</dd></div><div><dt>评价依据</dt><dd>比较各尺度的进度判定误差，并核对汇总结果能否回溯到对应的成员记录。</dd></div><div><dt>架构位置</dt><dd>Agent 上下文与记忆提供摘要，步骤轨迹保留原始依据。</dd></div></dl>
-                  <div class="topic-actions"><a href="./modules.html#agent-layers">查看对应模块与实验</a><button type="button" class="download" data-card="state">下载研究说明</button></div>
-                </div></details>
-<details class="topic" id="topic-roles" data-track="1">
-                <summary><span class="topic-lead"><small>任务内组织</small><strong>分层任务中的角色交接</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">一个步骤分给多个角色时，结果如何归属？消息重送会不会造成重复处理？</p><dl><div><dt>对照实验</dt><dd>用同一批仪表记录比较正常交接、重复交接与交接中断，逐步核对输出和来源。</dd></div><div><dt>评价依据</dt><dd>核对结果完整率、重复处理数和可定位的失败步骤。</dd></div><div><dt>架构位置</dt><dd>应用编排给出步骤依赖，交接记录把发送方、接收方和记录引用相连。</dd></div></dl>
-                  <div class="topic-actions"><a href="./execution.html#offline-example">查看对应模块与实验</a><button type="button" class="download" data-card="roles">下载研究说明</button></div>
-                </div></details>
-<details class="topic" id="topic-interruption" data-track="1">
-                <summary><span class="topic-lead"><small>研究问题 · 待验证</small><strong>通信中断后群体计划的适用边界</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">成员可见信息逐渐分化时，原有分工在哪些时段仍有效，哪些步骤已无法共同确认？</p><dl><div><dt>对照实验</dt><dd>以离线巡检记录比较通信正常、全程无通信与任务中途失联三种条件。中断前已共享的记录按原有可见时刻保留。</dd></div><div><dt>评价依据</dt><dd>比较计划与实际进度的差异、未确认交接和共同误判，分别记录各成员当时的依据。</dd></div><div><dt>架构位置</dt><dd>执行面保存交接与消息记录，共用底座关联计划版本及独立标注。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#cooperation">查看对应模块与实验</a><button type="button" class="download" data-card="interruption">下载研究说明</button></div>
-                </div></details>
-<details class="topic" id="topic-agreement" data-track="1">
-                <summary><span class="topic-lead"><small>共识质量</small><strong>一致判断与共同误判</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">同样的一致率，是否可能对应完全不同的群体判断质量？</p><dl><div><dt>对照实验</dt><dd>将各成员的独立判断、交换信息后的判断与同一份独立标注配对。</dd></div><div><dt>评价依据</dt><dd>分别计算一致率、总体共同误判率和已达成一致样本中的误判比例。</dd></div><div><dt>架构位置</dt><dd>执行面保存成员判断，评价模块使用独立标注复算指标。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#cooperation">查看对应模块与实验</a><button type="button" class="download" data-card="agreement">下载研究说明</button></div>
-                </div></details>
-<details class="topic" id="topic-gain" data-track="1">
-                <summary><span class="topic-lead"><small>信息来源</small><strong>独立证据对协作判断的贡献</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">新消息是新增观测，还是同一条观测经多个成员转发？两者对结论有何影响？</p><dl><div><dt>对照实验</dt><dd>固定消息数量，比较独立来源、同源转发和未交换信息三个条件。</dd></div><div><dt>评价依据</dt><dd>对照原始来源核查重复计数，并比较相同样本上的判断变化。</dd></div><div><dt>架构位置</dt><dd>消息交接保留原始记录引用，共识度量按来源归并。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#cooperation">查看对应模块与实验</a><button type="button" class="download" data-card="gain">下载研究说明</button></div>
-                </div></details>
-<details class="topic" id="topic-transfer" data-track="1">
-                <summary><span class="topic-lead"><small>配对比较</small><strong>相同预算下的协作增益</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">给定相同输入、调用预算与评价规则，协作增加了多少有效判断？</p><dl><div><dt>对照实验</dt><dd>在同一批任务上配对比较独立判断与协作判断，同时记录消息量与调用次数。</dd></div><div><dt>评价依据</dt><dd>报告配对收益差及其区间，并单列无法配对的运行。</dd></div><div><dt>架构位置</dt><dd>运行记录提供配对索引，控制面复用同一协议比较版本。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#evaluation">查看对应模块与实验</a><button type="button" class="download" data-card="transfer">下载研究说明</button></div>
-                </div></details>
+<section class="topic-group" id="cooperation" aria-labelledby="cooperation-title">
+  <h2 id="cooperation-title">通信约束下的群体协同决策与规划</h2><p>考察一次多实体任务中成员各自知道什么、角色怎样交接，以及群体进度与协作增益能否由原始记录复核。</p>
+  <details class="topic" id="topic-state" data-track="1" data-modules="1 2">
+    <summary><span class="topic-lead"><small>开放仿真环境 · 环境与装备数字孪生</small><strong>多实体推演的群体状态重建与规模效应</strong></span><span class="plus" aria-hidden="true"></span></summary>
+    <div class="topic-body"><span id="topic-gain" aria-hidden="true"></span><p class="question">在线实体增多后，同一类群体事件还能否从成员记录中准确重建？</p><dl>
+      <div><dt>对应平台模块</dt><dd>模块① 开放仿真环境、模块② 环境与装备数字孪生</dd></div>
+      <div><dt>拟开展的对照实验</dt><dd>采用带有独立标注的共同任务片段，在不同实体规模下核对成员、群组与整体三个层次的状态。重复转发的消息保留原始来源。</dd></div>
+      <div><dt>评价依据</dt><dd>分开报告实时推进能力、记录完整率与群体状态判定误差，避免把记录丢失解释为群体行为变化。</dd></div>
+      <div><dt>可积累成果</dt><dd>按规模分层的回放基线、事件对照表和缺失记录。</dd></div>
+    </dl><div class="topic-actions"><a href="./studies.html#basis">查看回放基准</a><button type="button" class="download" data-card="state">下载研究说明</button></div></div>
+  </details>
+  <details class="topic" id="topic-roles" data-track="1" data-modules="1 4 5">
+    <summary><span class="topic-lead"><small>开放仿真环境 · 人机混合蓝军与训练编排 · 空中具身智能训练算力与数据基座</small><strong>人机混合训练中的角色交接与协作增益</strong></span><span class="plus" aria-hidden="true"></span></summary>
+    <div class="topic-body"><span id="topic-agreement" aria-hidden="true"></span><span id="topic-transfer" aria-hidden="true"></span><p class="question">脚本、智能体和人员参与同一科目时，哪些结果来自有效交接，哪些只是对同一来源的重复确认？</p><dl>
+      <div><dt>对应平台模块</dt><dd>模块① 开放仿真环境、模块④ 人机混合蓝军与训练编排、模块⑤ 空中具身智能训练算力与数据基座</dd></div>
+      <div><dt>拟开展的对照实验</dt><dd>固定科目和初始输入，区分脚本陪练、智能体陪练和真人席位参与三种条件。保留角色交接前后的判断及其信息来源，在同一评价口径下比较。</dd></div>
+      <div><dt>评价依据</dt><dd>以独立判断为基线，比较任务完整率、共同误判率与配对收益。将独立来源和同源转发分开计数。</dd></div>
+      <div><dt>可积累成果</dt><dd>按参与方式区分的科目记录、角色交接样本和协作度量协议。</dd></div>
+    </dl><div class="topic-actions"><a href="./execution.html#offline-example">查看离线交接样例</a><button type="button" class="download" data-card="roles">下载研究说明</button></div></div>
+  </details>
+  <details class="topic" id="topic-interruption" data-track="1" data-modules="1 4">
+    <summary><span class="topic-lead"><small>开放仿真环境 · 人机混合蓝军与训练编排</small><strong>通信中断后群体计划的适用边界</strong></span><span class="plus" aria-hidden="true"></span></summary>
+    <div class="topic-body"><p class="question">成员所见信息逐渐分化后，原计划中哪些步骤仍能确认，哪些进度判断已失去依据？</p><dl>
+      <div><dt>对应平台模块</dt><dd>模块① 开放仿真环境、模块④ 人机混合蓝军与训练编排</dd></div>
+      <div><dt>拟开展的对照实验</dt><dd>对同一项分工任务，比较正常通信、全程无通信和中途失联。分别保存各成员当时可见的输入和平台事后汇总的记录。</dd></div>
+      <div><dt>评价依据</dt><dd>比较计划进度与独立记录的差异、未确认的交接及共同误判。浏览器样例已演示重复交接去重，三种通信条件的对照属于拟开展实验。</dd></div>
+      <div><dt>可积累成果</dt><dd>按通信条件标注的计划与交接记录、计划适用范围及反例。</dd></div>
+    </dl><div class="topic-actions"><a href="./studies.html#cooperation">查看协作评价方法</a><button type="button" class="download" data-card="interruption">下载研究说明</button></div></div>
+  </details>
 </section>
-<section class="topic-group" id="role-evolution" aria-labelledby="role-evolution-title"><h2 id="role-evolution-title">基于跨任务经验的群体协作策略演化</h2><p>从多次运行中提取经验，说明经验如何形成候选改动，再到独立任务中检验改动的收益与退化。</p>
-<details class="topic" id="topic-memory" data-track="2">
-                <summary><span class="topic-lead"><small>跨次运行</small><strong>角色经验的适用范围</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">在一种角色分工下总结的经验，换到其他任务批次后是否仍然有效？</p><dl><div><dt>对照实验</dt><dd>从开发批次提取带来源的经验，比较无经验、共享经验和按角色检索三种条件。</dd></div><div><dt>评价依据</dt><dd>在独立批次报告收益、退化样例，以及哪些角色使用过同一条经验。</dd></div><div><dt>架构位置</dt><dd>记忆保存经验来源，进化面据此提出带适用条件的 Skill 候选。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#skill">查看对应模块与实验</a><button type="button" class="download" data-card="memory">下载研究说明</button></div>
-                </div></details>
-<details class="topic" id="topic-candidate" data-track="2">
-                <summary><span class="topic-lead"><small>候选生成</small><strong>从跨任务经验到候选策略版本</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">多个任务中反复出现的同类错误，是否支持对既有协作规则作一次可检验的修改？</p><dl><div><dt>对照实验</dt><dd>以仪表巡检中重复报告造成的计数偏差为例，用开发批次提出一项修改，登记触发它的记录、适用条件和父版本。</dd></div><div><dt>评价依据</dt><dd>检查改动与原始反例的对应关系。候选与父版本交由同一独立协议比较。</dd></div><div><dt>架构位置</dt><dd>进化面提出候选，控制面记录版本与评价条件。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#skill">查看对应模块与实验</a><button type="button" class="download" data-card="candidate">下载研究说明</button></div>
-                </div></details>
-<details class="topic" id="topic-update" data-track="2">
-                <summary><span class="topic-lead"><small>版本演化</small><strong>候选策略的独立评价</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">由运行经验产生的修改，在未参与改动的新任务中还能保留多少收益？</p><dl><div><dt>对照实验</dt><dd>固定预算、角色配置与留出任务，在相同输入上比较父版本和候选版本。</dd></div><div><dt>评价依据</dt><dd>按任务组报告配对收益和退化情况，以冻结的接受规则作出版本选择。</dd></div><div><dt>架构位置</dt><dd>进化面提交候选，控制面关联父版本、评测样本和接受记录。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#evaluation">查看对应模块与实验</a><button type="button" class="download" data-card="update">下载研究说明</button></div>
-                </div></details>
+<section class="topic-group" id="role-evolution" aria-labelledby="role-evolution-title">
+  <h2 id="role-evolution-title">基于跨任务经验的群体协作策略演化</h2><p>从训练记录中提取可复用经验，形成候选改动，并在独立任务中检验回流版本的收益。</p>
+  <details class="topic" id="topic-memory" data-track="2" data-modules="4 5">
+    <summary><span class="topic-lead"><small>人机混合蓝军与训练编排 · 空中具身智能训练算力与数据基座</small><strong>异构训测记录的经验表征与适用范围</strong></span><span class="plus" aria-hidden="true"></span></summary>
+    <div class="topic-body"><p class="question">来自脚本、智能体和人员参与的记录，哪些可以在另一项任务中作为同类经验证据？</p><dl>
+      <div><dt>对应平台模块</dt><dd>模块④ 人机混合蓝军与训练编排、模块⑤ 空中具身智能训练算力与数据基座</dd></div>
+      <div><dt>拟开展的对照实验</dt><dd>按来源、角色、任务和模型版本整理运行片段。以完整场次划分开发集与留出集，在新任务中核对检索到的经验是否适用。</dd></div>
+      <div><dt>评价依据</dt><dd>核查来源可追溯率、适用条件误判和开发集与留出集的场次重叠。同一运行的多次回放只计一个场次。</dd></div>
+      <div><dt>可积累成果</dt><dd>带来源和适用条件的经验目录、可重建的数据批次。</dd></div>
+    </dl><div class="topic-actions"><a href="./studies.html#skill">查看经验复用研究</a><button type="button" class="download" data-card="memory">下载研究说明</button></div></div>
+  </details>
+  <details class="topic" id="topic-candidate" data-track="2" data-modules="4 5">
+    <summary><span class="topic-lead"><small>人机混合蓝军与训练编排 · 空中具身智能训练算力与数据基座</small><strong>由训练反馈形成可检验的候选版本</strong></span><span class="plus" aria-hidden="true"></span></summary>
+    <div class="topic-body"><p class="question">多次评估中反复出现的问题，是否足以支持一项可独立检验的模型或协作规则改动？</p><dl>
+      <div><dt>对应平台模块</dt><dd>模块④ 人机混合蓝军与训练编排、模块⑤ 空中具身智能训练算力与数据基座</dd></div>
+      <div><dt>拟开展的对照实验</dt><dd>从开发批次提取有独立记录支持的共性问题，将改动与父版本关联。例如，对重复确认造成的统计偏差提出一项修订，再交给冻结的评分协议复核。</dd></div>
+      <div><dt>评价依据</dt><dd>核查改动依据、受影响科目和预期变化，复现原问题并单列新出现的退化样本。</dd></div>
+      <div><dt>可积累成果</dt><dd>父子版本关系、训练数据版本、候选说明和对照样本。</dd></div>
+    </dl><div class="topic-actions"><a href="./modules.html#work-evolve">查看进化面</a><button type="button" class="download" data-card="candidate">下载研究说明</button></div></div>
+  </details>
+  <details class="topic" id="topic-update" data-track="2" data-modules="2 4 5">
+    <summary><span class="topic-lead"><small>环境与装备数字孪生 · 人机混合蓝军与训练编排 · 空中具身智能训练算力与数据基座</small><strong>候选能力回流后的跨科目复测</strong></span><span class="plus" aria-hidden="true"></span></summary>
+    <div class="topic-body"><p class="question">训练所得版本回到装备孪生体或陪练模型后，在未参与训练的科目中能保留多少收益？</p><dl>
+      <div><dt>对应平台模块</dt><dd>模块② 环境与装备数字孪生、模块④ 人机混合蓝军与训练编排、模块⑤ 空中具身智能训练算力与数据基座</dd></div>
+      <div><dt>拟开展的对照实验</dt><dd>区分装备智能体和陪练模型两类回流对象。先复测原科目，再用独立科目对照父版本。涉及端侧适配时，分别记录训练环境与适配环境的模型版本和判断差异。</dd></div>
+      <div><dt>评价依据</dt><dd>报告成对收益、失败样本和适用范围。训练集表现、独立复测和端侧适配各自保留证据。</dd></div>
+      <div><dt>可积累成果</dt><dd>回流版本记录、独立科目复测报告与回退依据。</dd></div>
+    </dl><div class="topic-actions"><a href="./studies.html#evaluation">查看独立评价协议</a><button type="button" class="download" data-card="update">下载研究说明</button></div></div>
+  </details>
 </section>
 </div>
           <p class="empty" id="empty" hidden>没有匹配的研究点。<button type="button" id="reset">清除筛选</button></p>
         </div>
       </section>
       <section class="section wrap evidence" id="evidence">
-        <div class="section-aside"><p class="overline">共同实验</p><h2>协作与交接</h2><p>研究点共用问题索引、样本版本和独立评价协议。每项结果按适用条件归入相应模块，供后续实验复算和比较。</p><p>同一运行号连接观测来源、成员判断与版本号。这样，可以回查一次共同误判究竟来自输入缺失、消息重复，还是摘要过程中的信息丢失。</p><a class="file" href="./execution.html#offline-example">查看执行面离线样例</a>
-          </div>
+        <div class="section-aside"><h2>典型场景与验证范围</h2>
+          <p>单机科目可独立验收，也为多实体实验提供同版本的个体基线。三类典型场景使用统一的想定版本管理、时间语义和记录格式。100–200 架实体同时在线是平台建设目标。</p>
+          <p>技术性陈述第 5–6 页界定装备与场景，第 9–14 页说明五个模块，第 15 页给出从想定到能力回流的训测闭环。</p>
+        </div>
         <div class="research-steps">
-          <article><div><h3>局部观测下的个体状态表征与自主决策</h3><p>保存单机任务中当时可用的观测、个体判断与独立评价，作为衡量协作增益的基线。</p></div></article>
-          <article><div><h3>通信约束下的群体协同决策与规划</h3><p>按同一任务关联个体判断、角色交接与群组结果，分析信息中断前后的计划适用范围。</p></div></article>
-          <article><div><h3>基于跨任务经验的群体协作策略演化</h3><p>从多次运行的反例提出候选改动，登记依据和父版本，在未参与改动的任务上复测。</p></div></article>
+          <article><div><h3>集群防空压制／反辐射攻击场景</h3><p>用于检验群体状态的可追溯性。以同一片段核对个体、群组和整体的事件记录，检查整体结论能否回到独立来源。</p><a href="#topic-state">群体状态重建</a></div></article>
+          <article><div><h3>群对群抗饱和反无拦截场景</h3><p>用于检验双边异构实体的记录与回放。按模型版本和在线规模核对运行时间、事件顺序与记录完整性。</p><a href="#topic-replay">事件回放与时间语义</a> · <a href="#topic-state">规模效应</a></div></article>
+          <article><div><h3>CCA 有人—无人协同场景</h3><p>由单机能力基线延伸到角色交接和版本回流。分别标明人工、脚本与智能体参与的场次，在独立科目上复测同一版本。</p><a href="#topic-roles">人机角色交接</a> · <a href="#topic-update">版本回流复测</a></div></article>
         </div>
       </section>
     <section class="section wrap" aria-label="指标读法"><div class="section-aside"><p class="overline">合成数据</p><h2>指标读法</h2><p>三种条件各有 100 局，切换指标可比较成员一致、共同误判及平均团队收益。示例仅用于说明计算口径。</p><a class="file" href="./bench-example.csv" download="群体博弈指标示例.csv">下载图中示例 CSV</a></div><figure class="comparison">
