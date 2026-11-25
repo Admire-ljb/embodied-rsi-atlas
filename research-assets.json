@@ -21,7 +21,8 @@
       "depends_on": [
         "sample-consensus@1.0"
       ],
-      "scope": "同一组样本说明一致率无法唯一确定共同误判率。"
+      "scope": "同一组样本说明一致率无法唯一确定共同误判率。",
+      "download_name": "consensus-note.md"
     },
     {
       "id": "record-template",
@@ -31,7 +32,8 @@
       "module": "共享实验协议",
       "file": "research-record.txt",
       "depends_on": [],
-      "scope": "记录研究问题、依赖版本、实验口径、结果、反例与后续复用。"
+      "scope": "记录研究问题、依赖版本、实验口径、结果、反例与后续复用。",
+      "download_name": "research-record.md"
     }
   ]
 }
