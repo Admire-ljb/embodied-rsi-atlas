@@ -1,6 +1,47 @@
 .plan-intro { padding-block: clamp(30px, 4vw, 60px); }
 .plan-intro h1 { font-size: clamp(2.2rem, 4.5vw, 3.9rem); margin: 8px 0 12px; }
 .plan-deck { max-width: 61em; color: var(--muted); margin-bottom: 24px; }
+.plan-nav { display: flex; flex-wrap: wrap; gap: .45rem 1.4rem; padding: .6rem 0; border-block: 1px solid var(--line); }
+.plan-nav a { padding: .2rem 0; font-size: .95rem; }
+.plan-nav a[download] { margin-inline-start: auto; }
+.research-routes, .work-plan { margin-block: 2rem 2.7rem; }
+.plan-intro :is(.research-routes,.work-plan) h2 { font-size: clamp(1.45rem,2.5vw,2rem); }
+.research-lead { max-width: 65em; margin: .6rem 0 1.1rem; color: var(--muted); }
+.research-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border: 1px solid #b7c7be; border-radius: 6px; overflow: hidden; background: white; }
+.research-grid article { display: flex; flex-direction: column; padding: 1rem 1.2rem 1.15rem; border-top: 4px solid #57816a; }
+.research-grid article + article { border-left: 1px solid var(--line); }
+.research-grid article:nth-child(2) { border-top-color: #527895; }
+.research-grid article:nth-child(3) { border-top-color: #9b7940; }
+.research-grid h3 { margin: 0; font: 700 1.19rem/1.55 var(--serif); }
+.science-question { margin: .5rem 0 .65rem; font-weight: 600; }
+.science-test { color: var(--muted); margin: 0 0 1rem; font-size: .95rem; }
+.research-grid article > a, .route-links { margin-top: auto; font-size: .9rem; }
+.route-links { display: flex; flex-wrap: wrap; gap: .2rem .75rem; }
+.basis-line { margin-top: .6rem; padding: .65rem .9rem; background: #eff3ef; color: #344f45; line-height: 1.7; }
+.work-table-wrap { border-block: 1px solid #a6bac9; }
+.work-matrix { table-layout: fixed; width: 100%; margin: 0; border-collapse: collapse; font-size: .96rem; }
+.work-matrix :is(th,td) { text-align: left; padding: .7rem .8rem; vertical-align: top; line-height: 1.65; }
+.work-matrix thead th { background: #e6eff5; color: #294c64; }
+.work-matrix thead th:first-child { width: 17%; }
+.work-matrix thead th:last-child { width: 12%; }
+.work-matrix tbody tr + tr { border-top: 1px solid #d9e2df; }
+.work-matrix tbody th { color: #294c64; background: #f2f6f8; }
+.work-matrix tbody td { background: white; }
+.joint-test { margin-top: 1.2rem; padding: .85rem 1.1rem; border-left: 3px solid #61829a; background: #edf3f7; }
+.joint-test h3 { margin: 0 0 .4rem; color: #294c64; }
+.joint-test p + p { margin-top: .38rem; }
+@media(max-width:780px) {
+  .plan-nav a[download] { margin-inline-start: 0; }
+  .research-grid { grid-template-columns: 1fr; }
+  .research-grid article + article { border-left: 0; }
+  .work-matrix, .work-matrix tbody, .work-matrix tbody tr { display: block; }
+  .work-matrix thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .work-matrix tbody :is(th,td) { display: block; padding: .42rem .8rem; }
+  .work-matrix tbody td::before { color: var(--muted); font-size: .83rem; margin-right: .5rem; font-weight: 650; }
+  .work-matrix tbody td:nth-child(2)::before { content: "交付"; }
+  .work-matrix tbody td:nth-child(3)::before { content: "验收"; }
+  .work-matrix tbody td:nth-child(4)::before { content: "支撑方向"; }
+}
 .planning-matrix td[data-plane="执行面"] { background: #f2f6fa; }
 .planning-matrix .plan-download { margin: 10px 0 0; }
 .planning-matrix .plan-download a, .blueprint .prototype-link { display: inline; padding: 0; border: 0; color: var(--green); text-decoration: underline; background: transparent; }

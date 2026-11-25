@@ -199,6 +199,17 @@
       "scope": "两种传输分别验证工具发现、基线读取、新测量、返回结构和无效参数处理。"
     },
     {
+      "id": "execution-research-roadmap",
+      "version": "1.0",
+      "kind": "方向规划",
+      "module": "具身智能 RSI 研究架构",
+      "name": "科学问题与首轮执行面分工图",
+      "file": "execution-research-roadmap-v1.jpg",
+      "depends_on": ["layered-architecture@1.9", "clock-skill@1.0"],
+      "scope": "从局部观测、协作增益和经验迁移三类问题，映射到可检验的研究方向和执行面首轮分工。",
+      "audience": "core"
+    },
+    {
       "id": "ai-directions",
       "version": "1.2",
       "kind": "方向规划",

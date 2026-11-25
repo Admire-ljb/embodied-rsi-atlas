@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#123c36"><meta name="description" content="五个研究层级与架构组件的对应矩阵。">
+<meta name="theme-color" content="#123c36"><meta name="description" content="从局部状态表征、群体协作增益和经验迁移三个科学问题出发，规划执行面首轮分工、联合验收与后续研究。">
 <title>研究方向规划图 · 具身智能 RSI</title>
 <link rel="stylesheet" href="./framework.css">
 <link rel="stylesheet" href="./blueprint.css?v=overview-2">
-<link rel="stylesheet" href="./directions.css">
+<link rel="stylesheet" href="./directions.css?v=execution-roadmap-1">
 <link rel="stylesheet" href="./guide.css?v=overview-2">
 <script src="./framework.js?v=overview-2" defer></script>
 <script src="./diagram-view.js" defer></script>
@@ -12,7 +12,48 @@
 <body id="top" data-page="directions"><a class="skip" href="#content">跳到正文</a>
 <header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html" aria-current="page">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
-<section class="wrap plan-intro" id="plan"><p class="kicker">具身智能 RSI</p><h1>研究方向规划图</h1><p class="plan-deck">当前从执行面开始，先把一次环境观测做成可调用、可判定、可复跑的 Skill。首项实现已完成本地验证。<a href="./execution.html#execution-prototype">查看执行面原型与实测轨迹</a></p>
+<section class="wrap plan-intro" id="plan"><p class="kicker">具身智能 RSI · 研究规划</p><h1>研究方向规划图</h1>
+<p class="plan-deck">以<a href="./architecture.html?v=1.9">架构总图 v1.9</a> 为基线。第一阶段集中搭建执行面，先让两个本地 Agent 在同一项仿真任务中协作，并留下可重放的记录。随后用同一套记录研究个体看到了什么、群体从通信中获得了什么，以及经验能否迁移。</p>
+<nav class="plan-nav" aria-label="方向图页内导航"><a href="#questions">科学问题与研究方向</a><a href="#execution-work">首轮分工与联调</a><a href="#plan-caption">分层组件矩阵</a><a href="./execution-research-roadmap-v1.jpg" download>下载方向总览图 ↓</a></nav>
+<section class="research-routes" id="questions" aria-labelledby="questions-title">
+  <h2 id="questions-title">三个科学问题</h2>
+  <p class="research-lead">高速固定翼集群仿真中，同一事件到达各成员的时间可能不同，多个成员的判断也可能来自同一条观测。这给分布式具身智能提出了三个可独立检验的问题。</p>
+  <div class="research-grid">
+    <article id="question-state"><h3>异步局部状态表征</h3>
+      <p class="science-question">信息延迟或缺失时，哪些历史观测足以支持个体对当前状态的判断？</p>
+      <p class="science-test">固定每次判断时已经可见的记录与上下文长度，比较“只保留最新值”和“保留来源、采样时刻与缺失状态”的摘要。按延迟分组统计判断误差与引用未来信息的次数。</p>
+      <a href="./studies.html#observation">A1 局部观测的时间与表征</a></article>
+    <article id="question-coordination"><h3>群体协作增益</h3>
+      <p class="science-question">通信在什么条件下带来互补信息，又在什么条件下只会放大共同误判？</p>
+      <p class="science-test">在同批事件和相同模型调用预算下，对照独立判断、转发同一来源和交换互补观测。后两组匹配消息量。以独立标注计算正确率的配对变化和共同误判率。</p>
+      <a href="./studies.html#cooperation">A2 共识与协作增益的度量</a></article>
+    <article id="question-transfer"><h3>经验迁移与递归改进</h3>
+      <p class="science-question">从一次失败中形成的 Skill 改动，在什么条件下能改善未见任务？改进器自身的贡献如何识别？</p>
+      <p class="science-test">先冻结模型和预算，在留出批次配对比较原版与候选 Skill，记录收益与退化。候选评价可复算后，再固定初始 Skill 和候选数，比较新旧改进器产出有效候选的比例。</p>
+      <div class="route-links"><a href="./studies.html#skill">B1 经验复用</a><a href="./studies.html#evaluation">B2 独立评价</a><a href="./studies.html#recursion-study">C1 递归验证</a></div></article>
+  </div>
+  <p class="basis-line"><b>共同实验基础</b>　<a href="./studies.html#basis">P0 可回放基准</a>保存每个 Agent 当时能看到的记录，独立答案单独留给评价者。三条方向据此复用同一批输入和反例。</p>
+</section>
+<section class="work-plan" id="execution-work" aria-labelledby="work-title">
+  <h2 id="work-title">第一阶段 · 搭建执行面</h2>
+  <p class="research-lead">约 10 人可按五项工作结对并行，每项两人。已有起点是<a href="./execution.html">本地时钟 Skill 与三条 MCP 调用轨迹</a>。下面是拟认领的交付，两个独立 Agent 的集成运行是本轮里程碑。</p>
+  <div class="work-table-wrap"><table class="work-matrix">
+    <thead><tr><th scope="col">认领模块</th><th scope="col">首个可交接成果</th><th scope="col">联调时如何验收</th><th scope="col">支撑方向</th></tr></thead>
+    <tbody>
+      <tr><th scope="row"><a href="./modules.html#aeroweaver">应用编排与运行时</a></th><td>一份 AeroWeaver 任务配置与两个 kagent 实例声明，按任务绑定角色、上下文与 Skill。</td><td>用同一任务启动两个可寻址实例，输出同一运行号、各自的实例标识与 Skill 版本。</td><td>P0、A2</td></tr>
+      <tr><th scope="row"><a href="./modules.html#agent-context">局部观测与上下文</a></th><td>可见记录格式与摘要器。为同一事件保存来源、采样时刻和各实例首次可见时刻。</td><td>向一个实例延迟投递一条记录。重放截止时刻前的上下文，两实例分别得到预期的可见记录。</td><td>P0、A1</td></tr>
+      <tr><th scope="row"><a href="./modules.html#aeroweaver">A2A 消息交接</a></th><td>两个实例之间的 A2A 适配及交接样例。消息关联任务、发送者、接收者和观测来源。</td><td>接收端可定位原始观测。重复投递同一条消息时，仅计作一次证据。</td><td>A1、A2</td></tr>
+      <tr><th scope="row"><a href="./modules.html#work-tools">Skill 与 MCP 工具</a></th><td>将现有时钟 Skill 接入实例，从 Python 执行器调用 MCP 基线读取与新测量工具，保留结构化回执。</td><td>正常运行返回匹配结果。工具不可用时，实例报告未完成，并保留已取得的基线回执。</td><td>P0、B1</td></tr>
+      <tr><th scope="row"><a href="./studies.html#basis">证据、回放与基线</a></th><td>按运行号串接实例上下文、A2A 消息与 MCP 回执。交付回放入口、独立参考答案和配对计数表。</td><td>由另一对成员只凭归档重建事件顺序，复算一致与误判的原始计数，并定位一次失败。</td><td>P0、A2、B2</td></tr>
+    </tbody>
+  </table></div>
+  <div class="joint-test" id="first-milestone"><h3>首轮联合验收</h3>
+    <p><b>先对齐记录。</b> 五对成员共用一份事件样本，约定运行号、实例标识、观测来源、采样时刻与可见时刻；各模块可先用样例并行开发。</p>
+    <p><b>再跑通双实例。</b> 在时钟校验任务中，一个实例经 MCP 读取仿真基线，另一个取得新测量，两者通过 A2A 交换带来源的记录，给出可复算的比较结果。</p>
+    <p><b>最后交叉复跑。</b> 交付正常、人工延迟投递、工具不可用三类轨迹。另一对成员应能分别复现匹配结果、迟到记录的可见边界和未完成的原因。人工延迟在样本中单独标记。</p>
+  </div>
+  <p class="basis-line"><b>进入下一阶段的条件</b>　联合验收通过后，在同一基准上并行开展 A1 和 A2。积累可追溯反例后启动 B1，形成配对评价协议后启动 B2。两者均可复跑后再开展 C1。<a href="./studies.html#experiments">查看各方向实验与停止条件</a></p>
+</section>
 <figure class="blueprint planning-matrix"><figcaption id="plan-caption"><strong>研究方向与架构组件的对应关系</strong></figcaption><p class="matrix-key">每行列出一个研究节点。沿行可查看它涉及的实现组件，沿执行面一列可查看各方向需要的运行能力。空项表示该节点在此面无直接组件。</p><div class="diagram-view">
 <div class="diagram-tools" role="group" aria-label="方向规划矩阵缩放" hidden>
   <span class="zoom-label">图幅</span><button type="button" data-zoom="auto" aria-pressed="true">自动</button><button type="button" data-zoom="fit" aria-pressed="false">适宽</button><button type="button" data-zoom="original" aria-pressed="false">原大</button>
