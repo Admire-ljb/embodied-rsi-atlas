@@ -613,9 +613,6 @@ details[open]>summary .plus:after {
 }
 
 .research-steps article {
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 14px;
   border-top: 1px solid var(--line);
   padding: 13px 0;
 }

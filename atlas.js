@@ -55,7 +55,7 @@ revealTopic(location.hash);
 document.querySelectorAll('[data-card]').forEach(button => button.addEventListener('click', () => {
   const card = button.closest('details');
   const title = card.querySelector('strong').textContent;
-  const lines = ['# ' + title, '', '高速固定翼无人机集群 · 课题一', '', '## 研究问题', '', card.querySelector('.question').textContent, ''];
+  const lines = ['# ' + title, '', '高速固定翼无人机集群', '', '## 研究问题', '', card.querySelector('.question').textContent, ''];
   card.querySelectorAll('dl div').forEach(row => {
     lines.push('## ' + row.querySelector('dt').textContent, '', row.querySelector('dd').textContent, '');
   });

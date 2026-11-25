@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#123c36"><meta name="description" content="课题一的三个研究方向、主要任务与首轮交付，涵盖跨尺度状态与行为模型、群智共识与协作增益、分层决策与策略演化。">
+<meta name="theme-color" content="#123c36"><meta name="description" content="具身智能的三个研究方向涵盖跨尺度状态与行为模型、群智共识与协作增益、分层决策与策略演化。">
 <title>研究方向规划图 · 具身智能 RSI</title>
 <link rel="stylesheet" href="./framework.css">
 <link rel="stylesheet" href="./blueprint.css?v=overview-2">
-<link rel="stylesheet" href="./directions.css?v=research-directions-3">
+<link rel="stylesheet" href="./directions.css?v=research-overview">
 <link rel="stylesheet" href="./guide.css?v=overview-2">
 <script src="./framework.js?v=overview-2" defer></script>
 <script src="./diagram-view.js" defer></script>
@@ -13,43 +13,33 @@
 <header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html" aria-current="page">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
 <section class="wrap plan-intro" id="plan"><p class="kicker">具身智能 RSI · 研究规划</p><h1>研究方向规划图</h1>
-<p class="plan-deck">课题一围绕高速固定翼集群仿真，研究个体与群组如何表示状态、怎样评价协作，以及如何在多次运行中检验策略改进。三项研究共用<a href="./architecture.html?v=1.9">具身智能 RSI 架构</a>的执行面和实验记录。</p>
+<p class="plan-deck">以高速固定翼集群仿真为实例，三个方向共用<a href="./architecture.html?v=1.9">具身智能 RSI 架构</a>的运行记录，研究个体状态、群体协作与跨任务的策略改进。</p>
 <nav class="plan-nav" aria-label="方向图页内导航"><a href="#questions">三个方向与任务</a><a href="#execution-work">第一阶段任务与验收</a><a href="#plan-caption">分层组件矩阵</a><a href="./execution-research-roadmap-v1.2.jpg" download>下载第一阶段工程任务图</a></nav>
 <section class="research-routes" id="questions" aria-labelledby="questions-title">
-  <h2 id="questions-title">课题一 · 三个研究方向与任务</h2>
+  <h2 id="questions-title">三个研究方向</h2>
   <div class="research-grid">
     <article id="question-state">
-      <h3><span class="section-ref">3.2.1</span>个体—群组—整体的跨尺度状态与行为模型</h3>
-      <p class="science-question">成员观测不同步时，哪些个体状态可以汇总，哪些差异需要保留到群组和整体层面？</p>
+      <h3>个体—群组—整体的跨尺度状态与行为模型</h3>
       <ul class="research-tasks">
-        <li><b>个体建模</b>　描述单个 Agent 的观测、记忆和行为记录，标明信息来源、采样时刻和可见时刻。</li>
-        <li><b>跨尺度映射</b>　从个体记录重建成员关系、角色状态和整体任务进度，标出信息缺失时无法确定的部分。</li>
+        <li>描述单个智能体的观测、记忆和行为，保留信息来源与时间。</li>
+        <li>研究如何由个体记录表示群组关系和整体任务进度，并标明观测缺失带来的不确定性。</li>
       </ul>
-      <p class="science-test"><b>首轮交付</b>　三层状态字典、一段可逐层追溯的回放样例，以及对应的观测摘要 Skill。</p>
-      <div class="route-links"><a href="./studies.html#observation">观测表征实验</a><a href="./topics.html#topic-state">首轮选题</a></div>
     </article>
     <article id="question-coordination">
-      <h3><span class="section-ref">3.2.2</span>群智共识与协作增益的综合度量</h3>
-      <p class="science-question">多个成员得出相同判断时，怎样区分独立信息带来的增益与重复转发造成的共同误判？</p>
+      <h3>群智共识与协作增益的综合度量</h3>
       <ul class="research-tasks">
-        <li><b>交互分析</b>　把判断追溯到原始观测，区分独立来源和同源转发，统计达成共识的时间与共同误判率。</li>
-        <li><b>增益度量</b>　在同批任务、相同预算下，对照独立判断、固定共享与候选协作方式，分别报告判断质量和通信开销。</li>
+        <li>分析成员判断的依据，区分独立观测和同一消息的重复转发。</li>
+        <li>在相同任务与信息预算下，比较独立判断与协作判断的准确性、共同误判率及通信开销。</li>
       </ul>
-      <p class="science-test"><b>首轮交付</b>　一套配对评价方法、一组独立判断基线，以及能说明“一致但出错”的反例。</p>
-      <div class="route-links"><a href="./studies.html#cooperation">协作评价实验</a><a href="./topics.html#topic-gain">首轮选题</a></div>
     </article>
     <article id="question-transfer">
-      <h3><span class="section-ref">3.2.3</span>分层群智决策、角色组织与策略演化</h3>
-      <p class="science-question">一次任务中，各层如何分工、交接与反馈？跨次运行积累的经验能否改善未见任务上的表现？</p>
+      <h3>分层群智决策、角色组织与策略演化</h3>
       <ul class="research-tasks">
-        <li><b>任务内的角色组织</b>　在同一基准任务中，描述任务层、群组层和个体层的职责，记录交接结果与未完成原因。</li>
-        <li><b>跨任务的持续演化</b>　根据失败记录提出候选 Skill 或选择规则，固定评价条件，在留出任务上检验收益与退化。</li>
+        <li>研究任务层、群组层与个体层的分工，以及任务执行中的角色交接与反馈。</li>
+        <li>研究如何从运行经验中调整技能或选择规则，并在未见任务上检验改动的收益与退化。</li>
       </ul>
-      <p class="science-test"><b>首轮交付</b>　一份角色交接基线、一项有来源依据的候选改动，以及与原版本的独立对照结果。</p>
-      <div class="route-links"><a href="./studies.html#skill">经验与 Skill 候选</a><a href="./studies.html#evaluation">版本评价</a><a href="./topics.html#topic-update">首轮选题</a></div>
     </article>
   </div>
-  <p class="basis-line"><b>三项如何衔接</b>　3.2.1 提供状态模型，3.2.3 用它完成任务并留下交互记录，3.2.2 根据这些记录比较协作收益。评价结果和失败样例再交回 3.2.3，检验下一版候选改动。三项共用<a href="./studies.html#basis">同一套回放基准</a>。</p>
 </section>
 <section class="work-plan" id="execution-work" aria-labelledby="work-title">
   <h2 id="work-title">第一阶段 · 基于离线数据搭建完整的 Agent 框架</h2>
