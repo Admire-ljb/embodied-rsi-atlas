@@ -13,8 +13,8 @@
 <header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html" aria-current="page">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
 <section class="wrap plan-intro" id="plan"><p class="kicker">具身智能 RSI · 研究规划</p><h1>研究方向规划图</h1>
-<p class="plan-deck">以<a href="./architecture.html?v=1.9">架构总图 v1.9</a> 为基线。第一阶段集中搭建执行面，先让两个本地 Agent 在同一项仿真任务中协作，并留下可重放的记录。随后用同一套记录研究个体看到了什么、群体从通信中获得了什么，以及经验能否迁移。</p>
-<nav class="plan-nav" aria-label="方向图页内导航"><a href="#questions">科学问题与研究方向</a><a href="#execution-work">首轮分工与联调</a><a href="#plan-caption">分层组件矩阵</a><a href="./execution-research-roadmap-v1.jpg" download>下载方向总览图 ↓</a></nav>
+<p class="plan-deck">以<a href="./architecture.html?v=1.9">架构总图 v1.9</a> 为基线。第一阶段基于离线数据搭建完整的 Agent 框架，贯通任务输入、规划、技能执行、多智能体协作和结果核验。后续研究用可追溯的运行记录比较不同观测表征与协作方式。</p>
+<nav class="plan-nav" aria-label="方向图页内导航"><a href="#questions">科学问题与研究方向</a><a href="#execution-work">第一阶段任务与验收</a><a href="#plan-caption">分层组件矩阵</a><a href="./execution-research-roadmap-v1.1.jpg" download>下载方向总览图 ↓</a></nav>
 <section class="research-routes" id="questions" aria-labelledby="questions-title">
   <h2 id="questions-title">三个科学问题</h2>
   <p class="research-lead">高速固定翼集群仿真中，同一事件到达各成员的时间可能不同，多个成员的判断也可能来自同一条观测。这给分布式具身智能提出了三个可独立检验的问题。</p>
@@ -35,24 +35,25 @@
   <p class="basis-line"><b>共同实验基础</b>　<a href="./studies.html#basis">P0 可回放基准</a>保存每个 Agent 当时能看到的记录，独立答案单独留给评价者。三条方向据此复用同一批输入和反例。</p>
 </section>
 <section class="work-plan" id="execution-work" aria-labelledby="work-title">
-  <h2 id="work-title">第一阶段 · 搭建执行面</h2>
-  <p class="research-lead">约 10 人可按五项工作结对并行，每项两人。已有起点是<a href="./execution.html">本地时钟 Skill 与三条 MCP 调用轨迹</a>。下面是拟认领的交付，两个独立 Agent 的集成运行是本轮里程碑。</p>
+  <h2 id="work-title">第一阶段 · 基于离线数据搭建完整的 Agent 框架</h2>
+  <p class="research-lead">第一阶段要交付一套可以接收任务、生成计划、调用 Skill、组织多个 Agent 协作并返回结果的执行框架。离线数据为环境工具提供输入。先并行搭建环境接口和单个 Agent，再接入 Skill、编排与通信。运行记录从首个实例开始采集。</p>
   <div class="work-table-wrap"><table class="work-matrix">
-    <thead><tr><th scope="col">认领模块</th><th scope="col">首个可交接成果</th><th scope="col">联调时如何验收</th><th scope="col">支撑方向</th></tr></thead>
+    <thead><tr><th scope="col">建设任务</th><th scope="col">首轮交付</th><th scope="col">验收条件</th><th scope="col">支撑方向</th></tr></thead>
     <tbody>
-      <tr><th scope="row"><a href="./modules.html#aeroweaver">应用编排与运行时</a></th><td>一份 AeroWeaver 任务配置与两个 kagent 实例声明，按任务绑定角色、上下文与 Skill。</td><td>用同一任务启动两个可寻址实例，输出同一运行号、各自的实例标识与 Skill 版本。</td><td>P0、A2</td></tr>
-      <tr><th scope="row"><a href="./modules.html#agent-context">局部观测与上下文</a></th><td>可见记录格式与摘要器。为同一事件保存来源、采样时刻和各实例首次可见时刻。</td><td>向一个实例延迟投递一条记录。重放截止时刻前的上下文，两实例分别得到预期的可见记录。</td><td>P0、A1</td></tr>
-      <tr><th scope="row"><a href="./modules.html#aeroweaver">A2A 消息交接</a></th><td>两个实例之间的 A2A 适配及交接样例。消息关联任务、发送者、接收者和观测来源。</td><td>接收端可定位原始观测。重复投递同一条消息时，仅计作一次证据。</td><td>A1、A2</td></tr>
-      <tr><th scope="row"><a href="./modules.html#work-tools">Skill 与 MCP 工具</a></th><td>将现有时钟 Skill 接入实例，从 Python 执行器调用 MCP 基线读取与新测量工具，保留结构化回执。</td><td>正常运行返回匹配结果。工具不可用时，实例报告未完成，并保留已取得的基线回执。</td><td>P0、B1</td></tr>
-      <tr><th scope="row"><a href="./studies.html#basis">证据、回放与基线</a></th><td>按运行号串接实例上下文、A2A 消息与 MCP 回执。交付回放入口、独立参考答案和配对计数表。</td><td>由另一对成员只凭归档重建事件顺序，复算一致与误判的原始计数，并定位一次失败。</td><td>P0、A2、B2</td></tr>
+      <tr><th scope="row"><a href="./modules.html#work-tools">1　离线环境与工具接口</a></th><td>把一份离线数据及其参考结果登记为带版本的样例。环境适配器通过 MCP 提供检索、读取工具，统一返回结果、来源和错误信息。</td><td>对同一次查询返回一致的记录与来源。更换同一契约下的数据集，沿用同一套 Agent 和 Skill。</td><td>P0</td></tr>
+      <tr><th scope="row"><a href="./modules.html#agent-layers">2　单个 Agent 的运行时</a></th><td>以 kagent 承载 Agent 实例，接入模型、任务上下文、记忆、Skill 和执行框架（Harness）。给每次任务分配独立上下文和运行号。</td><td>给定任务，实例能加载指令、调用模型、执行获准的工具并返回结果。启动新任务后，可核对上下文和记忆的读取范围。</td><td>P0、A1</td></tr>
+      <tr><th scope="row"><a href="./modules.html#agent-skill">3　Skill 封装与注册</a></th><td>接通任务 1、2。为数据检索、摘要和结果核验封装 Skill。每项登记适用条件、参数、执行入口、版本及返回格式。</td><td>从注册表选取 Skill 后可独立运行。用一条正常输入和一条缺失输入验证返回值与错误处理。</td><td>P0、B1</td></tr>
+      <tr><th scope="row"><a href="./modules.html#aeroweaver">4　任务规划与应用编排</a></th><td>在 AeroWeaver 中组合已注册的能力。把任务说明转成可执行的计划，列出步骤依赖、实例角色、可用 Skill 及完成条件。</td><td>执行前能查看计划。更改任务要求后，相关步骤和 Skill 选择随之调整。一次工具失败后有明确的处理路径。</td><td>A1、A2</td></tr>
+      <tr><th scope="row"><a href="./modules.html#aeroweaver">5　多 Agent 通信与协作</a></th><td>用 A2A 协议连接实例，按任务计划分派工作、传递中间结果并汇总。消息关联任务、步骤和证据来源。</td><td>一个实例的结果能成为下游实例的输入。通过消息标识区分重复交接，超时后任务状态可追踪。</td><td>P0、A2</td></tr>
+      <tr><th scope="row"><a href="./modules.html#work-release">6　运行证据与版本管理</a></th><td>按 AgenticMesh 三面架构登记应用版本。由执行面归档计划、模型与工具调用、消息及结果，向控制面提供验收记录，向进化面提交失败样例。</td><td>固定数据、任务和版本后能重放已记录的执行过程，独立复核最终结果。一次失败可定位到具体步骤及对应版本。</td><td>P0、B2</td></tr>
     </tbody>
   </table></div>
-  <div class="joint-test" id="first-milestone"><h3>首轮联合验收</h3>
-    <p><b>先对齐记录。</b> 五对成员共用一份事件样本，约定运行号、实例标识、观测来源、采样时刻与可见时刻；各模块可先用样例并行开发。</p>
-    <p><b>再跑通双实例。</b> 在时钟校验任务中，一个实例经 MCP 读取仿真基线，另一个取得新测量，两者通过 A2A 交换带来源的记录，给出可复算的比较结果。</p>
-    <p><b>最后交叉复跑。</b> 交付正常、人工延迟投递、工具不可用三类轨迹。另一对成员应能分别复现匹配结果、迟到记录的可见边界和未完成的原因。人工延迟在样本中单独标记。</p>
+  <div class="joint-test" id="first-milestone"><h3>首轮联合验收 · 从任务输入到协作结果</h3>
+    <p><b>跑通一项任务。</b> 输入“汇总指定时段的记录，并核查缺失项”。系统先给出计划，再由不同实例完成检索、汇总与核验，返回带记录引用的结果。用预先保存的参考答案核对缺失项与统计值。</p>
+    <p><b>换数据与任务。</b> 在同一工具契约下替换离线样例，再把任务从“汇总记录”改为“比较两个时段”。检查哪些步骤复用，哪些步骤由编排器重新生成。</p>
+    <p><b>复现一次失败。</b> 让一项工具调用返回缺失输入，核对 Skill 错误、A2A 交接状态和最终说明。按运行号重放记录，能找到首次失败的步骤与版本。</p>
   </div>
-  <p class="basis-line"><b>进入下一阶段的条件</b>　联合验收通过后，在同一基准上并行开展 A1 和 A2。积累可追溯反例后启动 B1，形成配对评价协议后启动 B2。两者均可复跑后再开展 C1。<a href="./studies.html#experiments">查看各方向实验与停止条件</a></p>
+  <p class="basis-line"><b>进入下一阶段的条件</b>　执行框架通过联合验收后，先定义各实例的可见范围与消息投递规则，再开展 A1、A2 对照实验。积累可追溯反例后启动 B1，形成配对评价协议后启动 B2。两者均可复跑后再开展 C1。<a href="./studies.html#experiments">查看各方向实验与停止条件</a></p>
 </section>
 <figure class="blueprint planning-matrix"><figcaption id="plan-caption"><strong>研究方向与架构组件的对应关系</strong></figcaption><p class="matrix-key">每行列出一个研究节点。沿行可查看它涉及的实现组件，沿执行面一列可查看各方向需要的运行能力。空项表示该节点在此面无直接组件。</p><div class="diagram-view">
 <div class="diagram-tools" role="group" aria-label="方向规划矩阵缩放" hidden>
@@ -123,15 +124,15 @@
 <th class="node-name" scope="row"><a href="./studies.html#basis">P0 可回放基准</a></th>
 <td data-plane="进化面" class="na"><span aria-hidden="true">—</span><span class="sr-only">无直接组件</span></td>
 <td data-plane="控制面">固定输入版本与时间语义</td>
-<td data-plane="执行面">读取带运行号的事件序列</td>
-<td data-plane="共用底座">记录事件序列与回放样本</td>
+<td data-plane="执行面">通过 MCP 读取带来源的离线记录</td>
+<td data-plane="共用底座">数据版本、运行轨迹与参考答案</td>
 </tr>
 <tr>
-<th class="node-name" scope="row"><a href="./execution.html#execution-prototype">观测 Skill</a></th>
+<th class="node-name" scope="row"><a href="#execution-work">Agent 与 Skill 运行时</a></th>
 <td data-plane="进化面" class="na"><span aria-hidden="true">—</span><span class="sr-only">无直接组件</span></td>
-<td data-plane="控制面">限定可用的两个工具</td>
-<td data-plane="执行面">读基线、发起测量并判读回执</td>
-<td data-plane="共用底座">记录两次工具调用与最终判定</td>
+<td data-plane="控制面">固定可用工具与查询范围</td>
+<td data-plane="执行面">按任务编排实例、绑定并执行 Skill</td>
+<td data-plane="共用底座">串接模型、工具、消息和任务结果</td>
 </tr>
 </tbody>
 <tbody id="layer-domain" style="--layer-wash:#f0ecf5">
@@ -141,7 +142,7 @@
 <td data-plane="进化面">提出观测摘要候选</td>
 <td data-plane="控制面">比较异步观测的可判读性</td>
 <td data-plane="执行面">读取指定时刻的可见记录</td>
-<td data-plane="共用底座">时钟基线与跨粒度样本</td>
+<td data-plane="共用底座">离线任务样例与独立核验记录</td>
 </tr>
 <tr>
 <th class="node-name" scope="row"><a href="./recursion.html#recursion">室内仪表巡检</a></th>
@@ -152,7 +153,7 @@
 </tr>
 </tbody>
 </table></div></div></div>
-</div><p class="plan-download"><a href="./ai-directions.jpg" download>下载分层方向规划图</a></p></figure>
+</div><p class="plan-download"><a href="./directions-component-matrix-v1.3.jpg" download>下载分层方向规划图</a></p></figure>
 <p class="asset-link"><a href="./studies.html">查看方向依赖与实验判据</a></p>
 <nav class="direction-shortcuts" aria-label="选择研究方向"><a href="./studies.html#basis">P0 可回放的共同基准</a><a href="./studies.html#observation">A1 局部观测的时间与表征</a><a href="./studies.html#cooperation">A2 共识与协作增益的度量</a><a href="./studies.html#skill">B1 经验复用与 Skill 候选</a><a href="./studies.html#evaluation">B2 候选版本的独立评价</a><a href="./studies.html#recursion-study">C1 改进器的递归验证</a></nav></section>
 </main>

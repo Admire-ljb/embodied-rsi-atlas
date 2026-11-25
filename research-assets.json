@@ -200,6 +200,19 @@
     },
     {
       "id": "execution-research-roadmap",
+      "version": "1.1",
+      "kind": "方向规划",
+      "module": "具身智能 RSI 研究架构",
+      "name": "科学问题与离线 Agent 框架第一阶段任务图",
+      "file": "execution-research-roadmap-v1.1.jpg",
+      "depends_on": [
+        "layered-architecture@1.9"
+      ],
+      "scope": "使用离线数据，构建 Agent 运行时、Skill、MCP 工具接入、AeroWeaver 编排、A2A 交接及可复现的运行记录。",
+      "audience": "core"
+    },
+    {
+      "id": "execution-research-roadmap",
       "version": "1.0",
       "kind": "方向规划",
       "module": "具身智能 RSI 研究架构",
@@ -207,6 +220,19 @@
       "file": "execution-research-roadmap-v1.jpg",
       "depends_on": ["layered-architecture@1.9", "clock-skill@1.0"],
       "scope": "从局部观测、协作增益和经验迁移三类问题，映射到可检验的研究方向和执行面首轮分工。",
+      "audience": "core"
+    },
+    {
+      "id": "ai-directions",
+      "version": "1.3",
+      "kind": "方向规划",
+      "module": "具身智能 RSI 研究架构",
+      "name": "离线 Agent 框架对应的分层方向矩阵",
+      "file": "directions-component-matrix-v1.3.jpg",
+      "depends_on": [
+        "execution-research-roadmap@1.1"
+      ],
+      "scope": "离线基准、Agent 实例、Skill 运行时和领域样例在架构中的对应组件。",
       "audience": "core"
     },
     {
