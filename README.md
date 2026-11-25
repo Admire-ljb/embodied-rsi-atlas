@@ -1,15 +1,28 @@
 # 具身智能 RSI 研究架构
 
-本站为面向不同具身体、环境和任务的递归自我改进研究架构。首页介绍控制面、执行面、进化面，及支持跨版本比较的独立评价。高速固定翼是一个专题实例，另有室内移动巡检的任务适配设计。
+首页以外部锚点、RSI 三面、共用证据和环境工具展示系统。设计采用 kagent 运行 Agent，AgenticMesh 组织治理、归因与候选发布，MCP 连接具身环境。工程分工下设可独立检验的研究点。高速固定翼与室内仪表巡检是两份任务配置。
 
 ## 入口
 
-- [通用架构](./index.html)
+- [分层架构总图](./index.html#architecture) · [工程分工](./index.html#engineering) · [环境工具](./index.html#tool-contract)
 - [高速固定翼专题](./fixed-wing.html)
 - [AFSIM 与三课题联调](./fixed-wing.html#integration)，含[时钟输入](./afsim-clock-input.txt)及[两次运行记录](./afsim-clock-check.json)。本地时钟复现实验使用 AFSIM 2.9.0，运行中适配及半实物校核待联调。
 - [专题学生研究点与开题卡](./topics.html)
 - [任务描述规范](./task-profile.schema.json) 与 [两份配置](./task-profiles.json)
 - [共享成果索引](./research-assets.json)
+
+## 运行 MCP 时钟工具
+
+将 [clock_mcp.py](./clock_mcp.py)、[afsim-clock-input.txt](./afsim-clock-input.txt) 与 [afsim-clock-check.json](./afsim-clock-check.json) 放在同一目录。在 Python 3.12 虚拟环境中运行以下命令。
+
+```sh
+python -m pip install "mcp==1.30.0"
+python clock_mcp.py
+```
+
+默认传输为 stdio。使用宿主或 MCP 客户端启动上述 Python 进程，再执行 `tools/list`。调用 `read_clock_reference` 时传入 `{"run_id":"repeat-01"}` 或 `{"run_id":"repeat-02"}`，可直接读取已发表的实测基线。调用 `measure_clock_markers` 时传入 `{}`。新测量需要在工具服务进程环境中将 `AFSIM_MISSION` 设为本机获准使用的 mission 可执行文件的绝对路径，每次调用使用独立的临时目录。
+
+本机 HTTP 验证可用 `python clock_mcp.py --transport streamable-http`，端点为 `http://127.0.0.1:8000/mcp`。在 kagent 中规划绑定这两个工具时，使用 Agent 的 `mcpServer.toolNames` 指定名称，并引用已注册的工具服务。集群需单独提供可达的服务地址。本项目已用官方客户端验证两种传输、实际测量及错误处理，集群和 AgenticMesh 端到端集成待验收。[协议实测结果](./mcp-clock-test.json)
 
 ## 换一个任务
 

@@ -1,0 +1,64 @@
+{
+  "sdk": "mcp-python",
+  "sdk_version": "1.30.0",
+  "afsim_version": "2.9.0",
+  "scope": "Local two-marker clock fixture",
+  "transports": {
+    "stdio": {
+      "negotiated_protocol": "2025-11-25",
+      "discovered_tools": [
+        "measure_clock_markers",
+        "read_clock_reference"
+      ],
+      "reference_runs": [
+        "repeat-01",
+        "repeat-02"
+      ],
+      "measurement": {
+        "source": "measured",
+        "run_id": "349c1063-58b7-41c4-9ed7-cedc9058c1df",
+        "time_unit": "s",
+        "events": [
+          {
+            "event_id": "sample-a",
+            "logical_time_s": 1.0
+          },
+          {
+            "event_id": "sample-b",
+            "logical_time_s": 3.0
+          }
+        ]
+      },
+      "matches_both_references": true,
+      "invalid_reference_returned_tool_error": true
+    },
+    "streamable-http": {
+      "negotiated_protocol": "2025-11-25",
+      "discovered_tools": [
+        "measure_clock_markers",
+        "read_clock_reference"
+      ],
+      "reference_runs": [
+        "repeat-01",
+        "repeat-02"
+      ],
+      "measurement": {
+        "source": "measured",
+        "run_id": "e6b5554e-67c2-4a91-932b-38031534be49",
+        "time_unit": "s",
+        "events": [
+          {
+            "event_id": "sample-a",
+            "logical_time_s": 1.0
+          },
+          {
+            "event_id": "sample-b",
+            "logical_time_s": 3.0
+          }
+        ]
+      },
+      "matches_both_references": true,
+      "invalid_reference_returned_tool_error": true
+    }
+  }
+}

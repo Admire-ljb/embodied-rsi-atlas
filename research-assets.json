@@ -106,6 +106,42 @@
       "depends_on": [
         "clock-markers@1.0"
       ]
+    },
+    {
+      "id": "layered-architecture",
+      "version": "1.0",
+      "name": "具身 RSI 分层架构图",
+      "kind": "工程架构",
+      "module": "系统总体",
+      "file": "rsi-architecture.jpg",
+      "depends_on": [],
+      "scope": "外部锚点、三面职责、kagent 智能体、共用证据和 MCP 仿真适配。",
+      "audience": "core"
+    },
+    {
+      "id": "clock-mcp-server",
+      "version": "1.0",
+      "name": "时钟 MCP 工具服务",
+      "kind": "适配器源码",
+      "module": "环境工具",
+      "file": "clock_mcp.py",
+      "depends_on": [
+        "clock-markers@1.0",
+        "clock-repeat@1.0"
+      ],
+      "scope": "通过标准 MCP 接口读取已发布基线，或在本地发起新的 AFSIM 时钟测量。"
+    },
+    {
+      "id": "clock-mcp-test",
+      "version": "1.0",
+      "name": "MCP 双传输验证记录",
+      "kind": "本地实测",
+      "module": "工程验收",
+      "file": "mcp-clock-test.json",
+      "depends_on": [
+        "clock-mcp-server@1.0"
+      ],
+      "scope": "两种传输分别验证工具发现、基线读取、新测量、返回结构和无效参数处理。"
     }
   ]
 }
