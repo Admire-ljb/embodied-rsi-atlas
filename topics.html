@@ -16,31 +16,46 @@
     <main id="top">
       <section class="catalog" id="topics">
         <div class="wrap">
-          <div class="title-line"><h1>研究点地图</h1><p>围绕同一批离线任务，研究智能体如何形成状态判断、成员交互带来多少增益，以及经验能否改进下一版本。展开各项可查看研究问题、对照与架构位置。</p></div>
+          <div class="title-line"><h1>研究点地图</h1><p>围绕同一批离线任务，研究智能体如何形成状态判断、通信变化怎样影响一次任务中的群体计划，以及多次任务的经验能否改进下一版本。展开各项可查看研究问题、对照与架构位置。</p></div>
           <form class="filters" id="filters" hidden>
-            <div class="pills" aria-label="研究方向"><button type="button" data-filter="-1" aria-pressed="true">全部方向</button><button type="button" data-filter="0" aria-pressed="false">跨尺度建模</button><button type="button" data-filter="1" aria-pressed="false">协作度量</button><button type="button" data-filter="2" aria-pressed="false">分层决策与演化</button></div>
+            <div class="pills" aria-label="研究方向"><button type="button" data-filter="-1" aria-pressed="true">全部方向</button><button type="button" data-filter="0" aria-pressed="false">个体自主决策</button><button type="button" data-filter="1" aria-pressed="false">群体协同规划</button><button type="button" data-filter="2" aria-pressed="false">跨任务策略演化</button></div>
             <label class="search"><span class="sr">搜索研究点</span><input id="search" type="search" placeholder="搜索问题、指标或组件"></label>
           </form>
-          <p id="count" class="count" aria-live="polite">共 9 个研究点</p>
+          <p id="count" class="count" aria-live="polite">共 12 个研究点</p>
           <div id="cards">
-<section class="topic-group" id="state-models" aria-labelledby="state-models-title"><h2 id="state-models-title">个体—群组—整体的跨尺度状态与行为模型</h2><p>用个体当时可见的记录解释群组状态与整体任务进度，检验每一级摘要保留了哪些信息。</p>
+<section class="topic-group" id="state-models" aria-labelledby="state-models-title"><h2 id="state-models-title">局部观测下的个体状态表征与自主决策</h2><p>重建智能体在任务当时可见的状态，在单机任务上独立评价判断质量，建立后续协作评价的基线。</p>
 <details class="topic" id="topic-replay" data-track="0">
                 <summary><span class="topic-lead"><small>时序与可见性</small><strong>离线观测的时间边界</strong></span><span class="plus" aria-hidden="true"></span></summary>
                 <div class="topic-body"><p class="question">同一条记录在采样时刻与到达时刻之间，哪些成员已经能够使用它？</p><dl><div><dt>对照实验</dt><dd>固定回放时刻，分别按事件发生时间和成员可见时间截取记录。</dd></div><div><dt>评价依据</dt><dd>逐条核对晚到、缺失和乱序记录，统计被提前使用的记录数。</dd></div><div><dt>架构位置</dt><dd>环境工具层返回带来源的时序记录，Agent 上下文据此重建观测。</dd></div></dl>
                   <div class="topic-actions"><a href="./studies.html#observation">查看对应模块与实验</a><button type="button" class="download" data-card="replay">下载研究说明</button></div>
                 </div></details>
-<details class="topic" id="topic-state" data-track="0">
+<details class="topic" id="topic-attribution" data-track="0">
+                <summary><span class="topic-lead"><small>信息不完备</small><strong>缺测与冲突条件下的状态可信度</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">智能体只掌握局部记录时，哪些状态能够判定？哪些结论会随缺测或证据冲突而改变？</p><dl><div><dt>对照实验</dt><dd>在相同任务片段中逐步减少可见来源，比较摘要与独立标注。</dd></div><div><dt>评价依据</dt><dd>同时统计可判断样本的覆盖率，以及证据不足时仍给出确定结论的比例。</dd></div><div><dt>架构位置</dt><dd>共用底座保存冲突和缺测样本，供后续协作实验复用。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#basis">查看对应模块与实验</a><button type="button" class="download" data-card="attribution">下载研究说明</button></div>
+                </div></details>
+<details class="topic" id="topic-individual" data-track="0">
+                <summary><span class="topic-lead"><small>单机基线</small><strong>局部信息下的个体判断与单机评价</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">观测不完整时，智能体独立完成一次判断的依据是什么？</p><dl><div><dt>对照实验</dt><dd>在单机离线巡检任务中，分别给出当前读数和带时间标记的历史读数，核对智能体对读数是否有效的判断。</dd></div><div><dt>评价依据</dt><dd>对同一批样本报告判断正确率、暂不能判断的比例和证据来源。</dd></div><div><dt>架构位置</dt><dd>执行面保留个体判断，控制面用独立标注生成单机评价基线。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#observation">查看对应模块与实验</a><button type="button" class="download" data-card="individual">下载研究说明</button></div>
+                </div></details>
+</section>
+<section class="topic-group" id="cooperation" aria-labelledby="cooperation-title"><h2 id="cooperation-title">通信约束下的群体协同决策与规划</h2><p>研究一次任务中的群组状态、角色交接与计划有效性，用共识质量和配对收益判断协作效果。</p>
+<details class="topic" id="topic-state" data-track="1">
                 <summary><span class="topic-lead"><small>状态与行为</small><strong>从成员记录到群组与整体状态</strong></span><span class="plus" aria-hidden="true"></span></summary>
                 <div class="topic-body"><p class="question">多名成员报告同一步骤时，怎样判断群组进度，又保留结论所依赖的个体行为？</p><dl><div><dt>对照实验</dt><dd>用同批记录分别生成个体、群组和整体摘要。以离线巡检为例，核对每条读数经过谁读取、谁复核。</dd></div><div><dt>评价依据</dt><dd>比较各尺度的进度判定误差，并核对汇总结果能否回溯到对应的成员记录。</dd></div><div><dt>架构位置</dt><dd>Agent 上下文与记忆提供摘要，步骤轨迹保留原始依据。</dd></div></dl>
                   <div class="topic-actions"><a href="./modules.html#agent-layers">查看对应模块与实验</a><button type="button" class="download" data-card="state">下载研究说明</button></div>
                 </div></details>
-<details class="topic" id="topic-attribution" data-track="0">
-                <summary><span class="topic-lead"><small>信息不完备</small><strong>缺测与冲突条件下的状态可信度</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">只掌握部分成员的记录时，哪些整体状态仍然可以可靠判断？</p><dl><div><dt>对照实验</dt><dd>在相同任务片段中逐步减少可见来源，比较摘要与独立标注。</dd></div><div><dt>评价依据</dt><dd>同时统计可判断样本的覆盖率，以及证据不足时仍给出确定结论的比例。</dd></div><div><dt>架构位置</dt><dd>共用底座保存冲突和缺测样本，供后续协作实验复用。</dd></div></dl>
-                  <div class="topic-actions"><a href="./studies.html#basis">查看对应模块与实验</a><button type="button" class="download" data-card="attribution">下载研究说明</button></div>
+<details class="topic" id="topic-roles" data-track="1">
+                <summary><span class="topic-lead"><small>任务内组织</small><strong>分层任务中的角色交接</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">一个步骤分给多个角色时，结果如何归属？消息重送会不会造成重复处理？</p><dl><div><dt>对照实验</dt><dd>用同一批仪表记录比较正常交接、重复交接与交接中断，逐步核对输出和来源。</dd></div><div><dt>评价依据</dt><dd>核对结果完整率、重复处理数和可定位的失败步骤。</dd></div><div><dt>架构位置</dt><dd>应用编排给出步骤依赖，交接记录把发送方、接收方和记录引用相连。</dd></div></dl>
+                  <div class="topic-actions"><a href="./execution.html#offline-example">查看对应模块与实验</a><button type="button" class="download" data-card="roles">下载研究说明</button></div>
                 </div></details>
-</section>
-<section class="topic-group" id="cooperation" aria-labelledby="cooperation-title"><h2 id="cooperation-title">群智共识与协作增益的综合度量</h2><p>在同一任务和信息预算下，分别衡量成员是否达成一致、结论是否正确，以及消息交换带来了多少增益。</p>
+<details class="topic" id="topic-interruption" data-track="1">
+                <summary><span class="topic-lead"><small>研究问题 · 待验证</small><strong>通信中断后群体计划的适用边界</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">成员可见信息逐渐分化时，原有分工在哪些时段仍有效，哪些步骤已无法共同确认？</p><dl><div><dt>对照实验</dt><dd>以离线巡检记录比较通信正常、全程无通信与任务中途失联三种条件。中断前已共享的记录按原有可见时刻保留。</dd></div><div><dt>评价依据</dt><dd>比较计划与实际进度的差异、未确认交接和共同误判，分别记录各成员当时的依据。</dd></div><div><dt>架构位置</dt><dd>执行面保存交接与消息记录，共用底座关联计划版本及独立标注。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#cooperation">查看对应模块与实验</a><button type="button" class="download" data-card="interruption">下载研究说明</button></div>
+                </div></details>
 <details class="topic" id="topic-agreement" data-track="1">
                 <summary><span class="topic-lead"><small>共识质量</small><strong>一致判断与共同误判</strong></span><span class="plus" aria-hidden="true"></span></summary>
                 <div class="topic-body"><p class="question">同样的一致率，是否可能对应完全不同的群体判断质量？</p><dl><div><dt>对照实验</dt><dd>将各成员的独立判断、交换信息后的判断与同一份独立标注配对。</dd></div><div><dt>评价依据</dt><dd>分别计算一致率、总体共同误判率和已达成一致样本中的误判比例。</dd></div><div><dt>架构位置</dt><dd>执行面保存成员判断，评价模块使用独立标注复算指标。</dd></div></dl>
@@ -57,16 +72,16 @@
                   <div class="topic-actions"><a href="./studies.html#evaluation">查看对应模块与实验</a><button type="button" class="download" data-card="transfer">下载研究说明</button></div>
                 </div></details>
 </section>
-<section class="topic-group" id="role-evolution" aria-labelledby="role-evolution-title"><h2 id="role-evolution-title">分层群智决策、角色组织与策略演化</h2><p>从一次任务内的角色分工与交接，研究到跨次运行的经验复用，再用独立任务检验候选版本。</p>
-<details class="topic" id="topic-roles" data-track="2">
-                <summary><span class="topic-lead"><small>任务内组织</small><strong>分层任务中的角色交接</strong></span><span class="plus" aria-hidden="true"></span></summary>
-                <div class="topic-body"><p class="question">一个步骤分给多个角色时，结果如何归属？消息重送会不会造成重复处理？</p><dl><div><dt>对照实验</dt><dd>用同一批仪表记录比较正常交接、重复交接与交接中断，逐步核对输出和来源。</dd></div><div><dt>评价依据</dt><dd>核对结果完整率、重复处理数和可定位的失败步骤。</dd></div><div><dt>架构位置</dt><dd>应用编排给出步骤依赖，交接记录把发送方、接收方和记录引用相连。</dd></div></dl>
-                  <div class="topic-actions"><a href="./execution.html#offline-example">查看对应模块与实验</a><button type="button" class="download" data-card="roles">下载研究说明</button></div>
-                </div></details>
+<section class="topic-group" id="role-evolution" aria-labelledby="role-evolution-title"><h2 id="role-evolution-title">基于跨任务经验的群体协作策略演化</h2><p>从多次运行中提取经验，说明经验如何形成候选改动，再到独立任务中检验改动的收益与退化。</p>
 <details class="topic" id="topic-memory" data-track="2">
                 <summary><span class="topic-lead"><small>跨次运行</small><strong>角色经验的适用范围</strong></span><span class="plus" aria-hidden="true"></span></summary>
                 <div class="topic-body"><p class="question">在一种角色分工下总结的经验，换到其他任务批次后是否仍然有效？</p><dl><div><dt>对照实验</dt><dd>从开发批次提取带来源的经验，比较无经验、共享经验和按角色检索三种条件。</dd></div><div><dt>评价依据</dt><dd>在独立批次报告收益、退化样例，以及哪些角色使用过同一条经验。</dd></div><div><dt>架构位置</dt><dd>记忆保存经验来源，进化面据此提出带适用条件的 Skill 候选。</dd></div></dl>
                   <div class="topic-actions"><a href="./studies.html#skill">查看对应模块与实验</a><button type="button" class="download" data-card="memory">下载研究说明</button></div>
+                </div></details>
+<details class="topic" id="topic-candidate" data-track="2">
+                <summary><span class="topic-lead"><small>候选生成</small><strong>从跨任务经验到候选策略版本</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">多个任务中反复出现的同类错误，是否支持对既有协作规则作一次可检验的修改？</p><dl><div><dt>对照实验</dt><dd>以仪表巡检中重复报告造成的计数偏差为例，用开发批次提出一项修改，登记触发它的记录、适用条件和父版本。</dd></div><div><dt>评价依据</dt><dd>检查改动与原始反例的对应关系。候选与父版本交由同一独立协议比较。</dd></div><div><dt>架构位置</dt><dd>进化面提出候选，控制面记录版本与评价条件。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#skill">查看对应模块与实验</a><button type="button" class="download" data-card="candidate">下载研究说明</button></div>
                 </div></details>
 <details class="topic" id="topic-update" data-track="2">
                 <summary><span class="topic-lead"><small>版本演化</small><strong>候选策略的独立评价</strong></span><span class="plus" aria-hidden="true"></span></summary>
@@ -82,9 +97,9 @@
         <div class="section-aside"><p class="overline">共同实验</p><h2>协作与交接</h2><p>研究点共用问题索引、样本版本和独立评价协议。每项结果按适用条件归入相应模块，供后续实验复算和比较。</p><p>同一运行号连接观测来源、成员判断与版本号。这样，可以回查一次共同误判究竟来自输入缺失、消息重复，还是摘要过程中的信息丢失。</p><a class="file" href="./execution.html#offline-example">查看执行面离线样例</a>
           </div>
         <div class="research-steps">
-          <article><div><h3>个体—群组—整体的跨尺度状态与行为模型</h3><p>研究个体观测如何汇总为群组和整体状态，保留原始来源与可见时刻。</p></div></article>
-          <article><div><h3>群智共识与协作增益的综合度量</h3><p>依据独立标注，在同一批任务上比较判断质量与通信开销。将同源转发、共同误判等反例交给版本评价。</p></div></article>
-          <article><div><h3>分层群智决策、角色组织与策略演化</h3><p>研究任务内的角色交接，从跨次运行的记录提出候选改动，在未见任务上比较不同版本。</p></div></article>
+          <article><div><h3>局部观测下的个体状态表征与自主决策</h3><p>保存单机任务中当时可用的观测、个体判断与独立评价，作为衡量协作增益的基线。</p></div></article>
+          <article><div><h3>通信约束下的群体协同决策与规划</h3><p>按同一任务关联个体判断、角色交接与群组结果，分析信息中断前后的计划适用范围。</p></div></article>
+          <article><div><h3>基于跨任务经验的群体协作策略演化</h3><p>从多次运行的反例提出候选改动，登记依据和父版本，在未参与改动的任务上复测。</p></div></article>
         </div>
       </section>
     <section class="section wrap" aria-label="指标读法"><div class="section-aside"><p class="overline">合成数据</p><h2>指标读法</h2><p>三种条件各有 100 局，切换指标可比较成员一致、共同误判及平均团队收益。示例仅用于说明计算口径。</p><a class="file" href="./bench-example.csv" download="群体博弈指标示例.csv">下载图中示例 CSV</a></div><figure class="comparison">

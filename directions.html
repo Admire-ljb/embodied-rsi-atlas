@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#123c36"><meta name="description" content="具身智能的三个研究方向涵盖跨尺度状态与行为模型、群智共识与协作增益、分层决策与策略演化。">
+<meta name="theme-color" content="#123c36"><meta name="description" content="具身智能的三个研究方向涵盖个体自主决策、通信约束下的群体协同规划、跨任务策略演化。">
 <title>研究方向规划图 · 具身智能 RSI</title>
 <link rel="stylesheet" href="./framework.css">
 <link rel="stylesheet" href="./blueprint.css?v=overview-2">
@@ -19,24 +19,24 @@
   <h2 id="questions-title">三个研究方向</h2>
   <div class="research-grid">
     <article id="question-state">
-      <h3><a href="./topics.html#state-models">个体—群组—整体的跨尺度状态与行为模型</a></h3>
+      <h3><a href="./topics.html#state-models">局部观测下的个体状态表征与自主决策</a></h3>
       <ul class="research-tasks">
-        <li>描述单个智能体的观测、记忆和行为，保留信息来源与时间。</li>
-        <li>研究如何由个体记录表示群组关系和整体任务进度，并标明观测缺失带来的不确定性。</li>
+        <li>研究局部观测和历史信息如何支持个体状态判断，标明信息来源、可见时刻和不确定性。</li>
+        <li>在单机任务中独立评价决策结果，建立可与群体实验配对比较的个体能力基线。</li>
       </ul>
     </article>
     <article id="question-coordination">
-      <h3><a href="./topics.html#cooperation">群智共识与协作增益的综合度量</a></h3>
+      <h3><a href="./topics.html#cooperation">通信约束下的群体协同决策与规划</a></h3>
       <ul class="research-tasks">
-        <li>分析成员判断的依据，区分独立观测和同一消息的重复转发。</li>
-        <li>在相同任务与信息预算下，比较独立判断与协作判断的准确性、共同误判率及通信开销。</li>
+        <li>研究个体判断与角色交接如何共同反映群组进度，检验同一任务中群体计划的有效性。</li>
+        <li>比较正常通信、全程无通信和中途失联条件下的<a href="./topics.html#topic-interruption">计划适用边界</a>，以共识质量与协作增益评价差异。</li>
       </ul>
     </article>
     <article id="question-transfer">
-      <h3><a href="./topics.html#role-evolution">分层群智决策、角色组织与策略演化</a></h3>
+      <h3><a href="./topics.html#role-evolution">基于跨任务经验的群体协作策略演化</a></h3>
       <ul class="research-tasks">
-        <li>研究任务层、群组层与个体层的分工，以及任务执行中的角色交接与反馈。</li>
-        <li>研究如何从运行经验中调整技能或选择规则，并在未见任务上检验改动的收益与退化。</li>
+        <li>从多次任务中提取可复用经验，研究哪些经验足以支持对协作规则提出候选改动。</li>
+        <li>保留父版本和改动依据，在未参与改动的任务上检验候选策略的收益、退化及适用范围。</li>
       </ul>
     </article>
   </div>

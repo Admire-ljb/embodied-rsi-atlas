@@ -25,11 +25,11 @@
   <p>这是端到端联调的目标。可先用 AeroWeaver 原有的 Coverage 任务核对编排，再逐项替换 Skill 和环境工具。kagent 实例运行、跨实例 A2A 交接和完整链路仍待联调。<a href="./directions.html#execution-work">六个可独立测试的模块</a></p>
   <article id="offline-example" class="example-panel">
     <h2>运行离线样例</h2>
-    <p>任务是汇总一批仪表读数，找出缺失项。浏览器按所选输入执行读取、交接与汇总，最后与样例中的预期结果核对。三个用例均在本页本地运行。</p>
+    <p>任务是汇总一批仪表读数，找出缺失项。浏览器按所选输入执行读取、交接与汇总，最后与样例中的预期结果核对。三个用例均在本页本地运行。重复交接用例检查消息去重。通信中断后的计划评价列在<a href="./topics.html#topic-interruption">待验证的研究点</a>中。</p>
     <fieldset hidden><legend>验收用例</legend><select aria-label="选择验收用例"></select></fieldset>
     <div aria-live="polite"><ol></ol><output></output></div>
     <noscript><p>启用 JavaScript 可运行交互样例。</p></noscript>
-    <p class="asset-link"><a href="./module-acceptance-v1.json">查看输入记录与预期结果</a> · <a href="./topics.html#topic-roles">对应研究点 · 角色交接</a></p>
+    <p class="asset-link"><a href="./module-acceptance-v1.json">查看输入记录与预期结果</a> · <a href="./topics.html#topic-roles">群体协同规划 · 角色交接</a></p>
   </article>
   <section id="clock-skill"><h2>已有接口实测 · 时钟观测 Skill</h2>
     <p>本地 Python 执行器通过 MCP 读取基线，再发起一次新的仿真测量。两次调用的原始回执保存在同一条轨迹中，可按执行编号核对。</p>
