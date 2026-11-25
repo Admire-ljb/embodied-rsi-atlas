@@ -8,7 +8,7 @@
 <script src="./diagram-view.js" defer></script>
 <style>
   .relation-poster { position: relative; margin: 0; border: 1px solid #c3d1c8; border-radius: 7px; background: white; }
-  .relation-poster object, .relation-poster img { display: block; width: 100%; aspect-ratio: 1160/884; height: auto; }
+  .relation-poster object, .relation-poster img { display: block; width: 100%; aspect-ratio: 1160/1096; height: auto; }
   .relation-poster .fragment { position: absolute; width: 1px; height: 1px; pointer-events: none; }
   .figure-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); margin: 0; }
   .map-downloads { display: flex; gap: .85rem; }
@@ -19,21 +19,22 @@
 <header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html" aria-current="page">架构总图</a><a href="./directions.html">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
 <section class="diagram-page" id="architecture"><div class="diagram-view">
-<div class="export-poster map-downloads"><a download href="./rsi-architecture-v1.7.svg">下载矢量图</a><a download href="./rsi-architecture-v1.7.jpg">下载 JPG</a></div>
+<div class="export-poster map-downloads"><a download href="./rsi-architecture-v1.8.svg">下载矢量图</a><a download href="./rsi-architecture-v1.8.jpg">下载 JPG</a></div>
 <div class="diagram-tools" role="group" aria-label="架构总图缩放" hidden>
   <span class="zoom-label">图幅</span><button type="button" data-zoom="auto" aria-pressed="true">自动</button><button type="button" data-zoom="fit" aria-pressed="false">适宽</button><button type="button" data-zoom="original" aria-pressed="false">原大</button>
   <button type="button" data-zoom="smaller" aria-label="缩小图幅">−</button><span class="zoom-amount" aria-live="polite"></span><button type="button" data-zoom="larger" aria-label="放大图幅">＋</button><span class="pan-hint" hidden>可横向滚动查看</span>
 </div>
 <div class="diagram-scroll" tabindex="0" role="region" aria-label="架构总图图面"><div class="diagram-stage"><div class="diagram-sheet"><figure class="relation-poster" id="framework" aria-labelledby="poster-title">
 <figcaption class="figure-name"><h1 id="poster-title">具身智能体 RSI 组件与协作关系</h1></figcaption>
-<span class="fragment" id="control" style="left:2%;top:17%"></span>
-<span class="fragment" id="evolution" style="left:2%;top:36.8%"></span>
-<span class="fragment" id="execution" style="left:47.6%;top:36.8%"></span>
-<span class="fragment" id="environment-tools" style="left:2%;top:85%"></span>
-<object data="./rsi-architecture-v1.7.svg" type="image/svg+xml" width="1160" height="884" aria-label="架构组件与协作关系。点击组件可查看技术说明。">
-<img src="./rsi-architecture-v1.7.jpg" width="1160" height="884" alt="进化面提交候选，控制面验证并下发版本。执行面经 MCP 调用环境，遥测记录拼接为轨迹后回到进化面。">
+<span class="fragment" id="control" style="left:2%;top:14%"></span>
+<span class="fragment" id="evolution" style="left:2%;top:29.7%"></span>
+<span class="fragment" id="execution" style="left:47.6%;top:29.7%"></span>
+<span class="fragment" id="agent-internals" style="left:48.7%;top:44%"></span>
+<span class="fragment" id="environment-tools" style="left:2%;top:87.8%"></span>
+<object data="./rsi-architecture-v1.8.svg" type="image/svg+xml" width="1160" height="1096" aria-label="三面架构与观测 Agent 内部五层。点击各层和网关查看职责。">
+<img src="./rsi-architecture-v1.8.jpg" width="1160" height="1096" alt="观测 Agent 含模型、上下文、记忆、Skill 和 Harness。模型与记忆分别经网关访问服务和存储，Harness 经工具网关调用环境。运行证据回到进化面，候选由控制面验证并发布。">
 </object></figure></div></div></div>
-</div><p class="map-notes"><a href="./modules.html">组件职责与接口说明</a> · <a href="./execution.html">执行面实测记录</a></p></section>
+</div><p class="map-notes"><a href="./modules.html#agent-layers">Agent 五层与网关说明</a> · <a href="./modules.html">架构组件职责</a> · <a href="./execution.html">执行面实测记录</a></p></section>
 </main>
 <footer class="site-foot"><div class="guide-wrap"><span>具身智能 RSI 研究架构</span><nav aria-label="技术资料"><a href="./modules.html">技术模块</a><a href="./environment.html">环境工具</a><a href="./cases.html">任务实例</a><a href="./recursion.html">递归验证</a><a href="./assets.html">成果库</a></nav></div></footer>
 </body></html>

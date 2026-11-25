@@ -109,6 +109,17 @@
     },
     {
       "id": "layered-architecture",
+      "version": "1.8",
+      "name": "具身智能体 RSI 架构与 Agent 内部五层",
+      "kind": "工程架构",
+      "module": "具身智能 RSI 研究架构",
+      "file": "rsi-architecture-v1.8.svg",
+      "depends_on": ["layered-architecture@1.7"],
+      "scope": "展开观测 Agent 的五层结构、进程外模型、记忆与工具网关，区分经验沉淀与模型更新预留路径。",
+      "audience": "core"
+    },
+    {
+      "id": "layered-architecture",
       "version": "1.7",
       "name": "具身智能体 RSI 组件与协作关系",
       "kind": "工程架构",

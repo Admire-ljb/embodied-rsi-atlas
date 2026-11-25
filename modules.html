@@ -22,6 +22,19 @@
 <article id="work-twin"><div><small>共用证据</small><h3>参照质量与不确定性</h3></div><div><p><b>交付</b>　记录评价参照的来源、有效区间，以及参照与智能体可见输入的关系。</p><p><b>验收</b>　对无法独立核实的样本给出证据不足的判定，保留分组复算记录。</p><a href="./studies.html#cooperation">共识与协作增益的度量</a></div></article></div>
 <p class="asset-link"><a href="./directions.html">查看研究顺序与停止条件</a> · <a href="./topics.html#topics">专题研究点与开题卡</a></p>
     </div></section>
+<section class="wrap section" id="agent-layers">
+  <div class="section-head"><div><p class="kicker">执行面 · 观测 Agent</p><h2>Agent 内部五层</h2></div>
+  <p>同一份应用版本登记角色、Skill 和工具绑定。模型选择、记忆访问和工具权限分别交给进程外的三个网关治理。图中的五层沿用 AgenticMesh 的设计。</p></div>
+  <div class="table-scroll"><table><thead><tr><th scope="col">层</th><th scope="col">运行时职责</th><th scope="col">版本与访问边界</th></tr></thead><tbody>
+    <tr id="agent-model"><th scope="row">模型</th><td>经模型网关请求推理。网关按路由与预算选择提供方，支持切换与降级。</td><td>本期冻结模型权重。经验蒸馏和模型更新后的上下文适配属于预留路径。</td></tr>
+    <tr id="agent-context"><th scope="row">上下文</th><td>组织系统指令、当前任务、示例与本步可见观测，供模型判断下一步。</td><td>观测随任务推进而更新。对提示模板或示例集的持久修改形成版本候选。</td></tr>
+    <tr id="agent-memory"><th scope="row">记忆</th><td>经记忆网关按作用域检索和写入经验、事实及其来源。后端可绑定向量库或图谱。</td><td>运行时写入按既有权限执行。修改记忆组织方式、共享范围或访问策略需要版本验证。</td></tr>
+    <tr id="agent-skill"><th scope="row">Skill（技能）</th><td>描述可复用的操作流程、适用条件与结果判据。时钟观测 Skill 指定读取基线、新测量和比较回执的步骤。</td><td>反复有效的经验可以整理为 Skill 候选。通过控制面验证后绑定到新版本。</td></tr>
+    <tr id="agent-harness"><th scope="row">Harness（执行框架）</th><td>装配工具、控制流程与子代理，执行选定的 Skill。环境调用经工具网关进行 MCP 绑定，并取得结构化回执。</td><td>工具清单与流程随应用版本发布。每步执行记录与网关回执通过运行号关联。</td></tr>
+  </tbody></table></div>
+  <p class="evidence-status">本地已验证时钟 Skill 的 Python 执行器与 MCP 调用。模型网关、记忆网关、kagent 集群、A2A 交接以及跨层经验沉淀均为待验证设计。</p>
+  <p class="asset-link"><a href="./architecture.html#agent-internals">在总图中定位五层</a> · <a href="./execution.html">查看时钟原型的运行记录</a> · <a href="http://admire.buaanlsde.cn/rsi/three-planes.html">AgenticMesh 三面架构原图</a></p>
+</section>
 <p class="wrap asset-link">架构参考　<a href="http://admire.buaanlsde.cn/rsi/three-planes.html">三面架构组件与关系</a> · <a href="https://kagent.dev/docs/kagent/0.x/concepts/agents/">kagent Agent 定义</a></p>
 </main>
 <footer class="site-foot"><div class="guide-wrap"><span>具身智能 RSI 研究架构</span><nav aria-label="技术资料"><a href="./environment.html">环境工具</a><a href="./cases.html">任务实例</a><a href="./recursion.html">递归验证</a><a href="./assets.html">成果库</a></nav></div></footer>
