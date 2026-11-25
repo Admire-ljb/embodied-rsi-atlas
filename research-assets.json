@@ -74,7 +74,7 @@
     },
     {
       "id": "two-task-profiles",
-      "version": "1.1",
+      "version": "1.2",
       "name": "双任务适配示例",
       "kind": "实例配置",
       "module": "任务适配层",
@@ -82,7 +82,7 @@
       "depends_on": [
         "task-profile-contract@1.0"
       ],
-      "scope": "固定翼实例选用 AFSIM 作为首期平台，列明课题二、三的数据来源；室内巡检沿用同一描述规范。",
+      "scope": "固定翼时钟记录与室内巡检样例共用观测、来源和独立评价字段。",
       "audience": "core"
     },
     {
@@ -90,7 +90,7 @@
       "version": "1.0",
       "name": "AFSIM 时钟标记输入",
       "kind": "联调输入",
-      "module": "课题二 · 任务级时钟",
+      "module": "环境工具 · 时钟基准",
       "file": "afsim-clock-input.txt",
       "scope": "两个预设时钟标记，无实体模型。可按相同输入复核运行记录。",
       "depends_on": []
@@ -100,19 +100,19 @@
       "version": "1.0",
       "name": "AFSIM 时钟重复运行记录",
       "kind": "本地实测",
-      "module": "课题二 · 任务级时钟",
+      "module": "环境工具 · 时钟基准",
       "file": "afsim-clock-check.json",
-      "scope": "记录两次运行的事件标识与逻辑时刻，供三组联调时比对。",
+      "scope": "两次运行的事件标识与逻辑时刻，用于核对 Skill 返回值。",
       "depends_on": [
         "clock-markers@1.0"
       ]
     },
     {
       "id": "layered-architecture",
-      "version": "1.0",
-      "name": "具身 RSI 分层架构图",
+      "version": "1.1",
+      "name": "AI 组具身 RSI 分层架构图",
       "kind": "工程架构",
-      "module": "系统总体",
+      "module": "AI 组研究架构",
       "file": "rsi-architecture.jpg",
       "depends_on": [],
       "scope": "外部锚点、三面职责、kagent 智能体、共用证据和 MCP 仿真适配。",
@@ -142,6 +142,19 @@
         "clock-mcp-server@1.0"
       ],
       "scope": "两种传输分别验证工具发现、基线读取、新测量、返回结构和无效参数处理。"
+    },
+    {
+      "id": "ai-directions",
+      "version": "1.0",
+      "kind": "方向规划",
+      "module": "AI 组研究架构",
+      "name": "AI 组研究方向规划图",
+      "file": "ai-directions.jpg",
+      "depends_on": [
+        "layered-architecture@1.1"
+      ],
+      "scope": "共同基准、两条并行支线与递归验证，附各方向交接的产物。",
+      "audience": "core"
     }
   ]
 }

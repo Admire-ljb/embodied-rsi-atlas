@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#123c36">
-  <meta name="description" content="基于 kagent 与 AgenticMesh 的具身智能 RSI 分层架构，含工程职责、MCP 工具契约及首个 AFSIM 仿真实例。">
-  <title>具身智能 RSI 研究架构</title>
+  <meta name="description" content="基于 kagent 与 AgenticMesh 的具身智能 RSI 分层架构，含 AI 组研究方向、MCP 工具契约及首个 AFSIM 仿真实例。">
+  <title>具身智能 RSI · AI 组研究架构</title>
   <link rel="stylesheet" href="./framework.css">
   <link rel="stylesheet" href="./embodied.css">
   <link rel="stylesheet" href="./blueprint.css">
+  <link rel="stylesheet" href="./directions.css">
   <script src="./framework.js" defer></script>
   <script src="./profiles.js" defer></script>
 </head>
@@ -16,16 +17,16 @@
   <a class="skip" href="#architecture">跳到通用架构</a>
   <header><div class="wrap bar">
     <a class="brand" href="#top"><b>具身智能</b><span>RSI 研究架构</span></a>
-    <nav aria-label="主导航"><a href="#architecture">架构总图</a><a href="#engineering">工程分工</a><a href="#tool-contract">MCP 工具</a><a href="#adaptation">任务实例</a><a href="#recursion">递归验证</a><a href="#assets">成果库</a></nav>
+    <nav aria-label="主导航"><a href="#architecture">架构总图</a><a href="./directions.html">方向规划图</a><a href="#engineering">AI 组任务</a><a href="#tool-contract">MCP 工具</a><a href="#adaptation">任务实例</a><a href="#recursion">递归验证</a><a href="#assets">成果库</a></nav>
   </div></header>
   <main>
     <section id="architecture" class="wrap blueprint-section">
       <div id="framework" class="blueprint-heading">
-        <div><p class="kicker">具身智能 · 递归自我改进</p><h1>具身智能 RSI <em>工程架构</em></h1></div>
+        <div><p class="kicker">AI 组 · 具身智能与递归自我改进</p><h1>具身智能 RSI <em>研究架构</em></h1></div>
         <p>kagent 承载智能体，AgenticMesh 管理证据与版本演化。智能体通过 MCP 调用环境工具，首个仿真后端选用 AFSIM。</p>
       </div>
       <figure class="blueprint" aria-labelledby="map-caption">
-        <figcaption id="map-caption"><strong>系统组件与关系</strong><span>选择组件可查看对应的工程交付</span></figcaption>
+        <figcaption id="map-caption"><strong>系统组件与关系</strong><span>选择组件查看 AI 组交付与研究方向</span></figcaption>
         <div class="map-band anchor-band"><div class="band-title">外部锚点 <small>试验前冻结</small></div><div class="node-strip"><a href="#work-eval">约束与预算</a><a href="#work-twin">独立参考与不确定度</a><a href="#work-eval">留出样本与放行规则</a></div></div>
         <div class="map-wire">↓ 固定评价条件</div>
         <div id="control" class="map-band control-band"><div class="band-title">控制面 <small>AgenticMesh · 治理与发布</small></div><div class="node-strip flow-nodes"><a href="#work-release">接收候选</a><a href="#work-eval">独立对照与回归</a><a href="#work-release">发布或回退版本</a></div></div>
@@ -44,55 +45,55 @@
           </div>
         </div>
         <div class="map-rails"><span>↑ 轨迹、失败样本与反馈</span><span>↕ 工具调用与结构化结果</span></div>
-        <div class="map-band evidence-band"><div class="band-title">共用底座 <small>遥测、证据与实验</small></div><div class="node-strip"><a href="#work-eval">运行号与调用轨迹</a><a href="#work-eval">可复核的基线与回放</a><a href="#work-twin">全数字与台架参照</a></div></div>
+        <div class="map-band evidence-band"><div class="band-title">共用底座 <small>遥测、证据与实验</small></div><div class="node-strip"><a href="#work-eval">运行号与调用轨迹</a><a href="#work-eval">可复核的基线与回放</a><a href="#work-twin">独立标注与适用范围</a></div></div>
         <div class="map-band tool-band"><div class="band-title">环境工具层 <small>MCP · 仿真适配</small></div>
           <div class="tool-flow"><a href="#tool-contract">MCP 工具入口</a><span>⇄</span><a href="#work-tools">平台适配器</a><span>⇄</span><a href="#tool-contract">AFSIM 时钟实验</a></div>
           <p>首次接入实现两个工具：读取对照记录、运行固定时钟测量。工具调用与回执同时进入证据底座。</p>
         </div>
       </figure>
-      <p class="map-source">图中 kagent 集群、A2A 协作和 AgenticMesh 发布流程为拟建集成。时钟工具的验证范围见下方记录。 <a href="./rsi-architecture.jpg" download>下载完整架构图</a> · <a href="http://admire.buaanlsde.cn/rsi/three-planes.html">三面架构设计参照</a> · <a href="https://kagent.dev/docs/kagent/0.x/concepts/agents/">kagent Agent 定义</a></p>
+      <p class="map-source">图中 kagent 集群、A2A 协作和 AgenticMesh 发布流程为拟建集成。时钟工具的验证范围见下方记录。 <a href="./directions.html">查看方向规划图</a> · <a href="./rsi-architecture.jpg" download>下载完整架构图</a> · <a href="http://admire.buaanlsde.cn/rsi/three-planes.html">三面架构设计参照</a> · <a href="https://kagent.dev/docs/kagent/0.x/concepts/agents/">kagent Agent 定义</a></p>
     </section>
+    <section class="wrap direction-preview"><div><p class="kicker">方向规划图</p><h2>AI 组接下来研究什么？</h2><p>从可回放样本出发，沿观测表征和协作度量两条支线推进，再汇合到改进器的递归验证。</p><a class="button" href="./directions.html">进入方向规划图</a></div><a href="./directions.html" aria-label="查看 AI 组完整方向规划图"><img src="./ai-directions.jpg" width="1680" height="940" loading="lazy" alt="共同基准分出观测表征与协作度量两条支线，经 Skill 候选和独立评价后汇合"></a></section>
     <section class="band" id="engineering"><div class="wrap section">
-      <div class="section-head" id="research"><div><p class="kicker">工程分工</p><h2>模块、接口与验收</h2></div><p>AI 组牵头统一任务与 Skill 的语义。软件组维护运行平台和仿真适配，飞控组维护本体模型与独立参照。每个研究问题归入一项可验收、可复用的工程交付。</p></div>
+      <div class="section-head" id="research"><div><p class="kicker">AI 组任务</p><h2>模块、交付与验收</h2></div><p>AI 组维护 Agent 声明、Skill 语义、可见观测和独立评价规则。AFSIM 提供时钟样例，MCP 提供调用入口。打开各模块的研究方向，可查其前置成果和第一项实验。</p></div>
       <div class="work-list">
-        <article id="work-runtime"><div><small>AI 组牵头 · 软件组部署</small><h3>智能体运行与协作</h3></div><div><p><b>交付</b>　kagent Agent 声明、模型配置、角色交接和 Skill 工具绑定。AgenticMesh 的应用定义引用这些运行实例。</p><p><b>验收与研究点</b>　用室内仪表读数任务检查交接时是否保留图像来源。比较交接前后观测遗漏的比例。</p></div></article>
-        <article id="work-tools"><div><small>软件组牵头 · AI 组定契约</small><h3>MCP 工具与平台适配</h3></div><div><p><b>交付</b>　命名工具、参数规范、结果来源、时间单位和错误回执。首个适配器连接 AFSIM 时钟样例。</p><p><b>验收与研究点</b>　用标准客户端发现工具并执行测量。检验换用另一来源后，“秒”和“采样时刻”能否保持同一含义。</p></div></article>
-        <article id="work-eval"><div><small>软件组记录 · AI 组独立评价</small><h3>证据与独立评价</h3></div><div><p><b>交付</b>　运行号、调用与回执关联、冻结样本和评分协议，供 Run Ledger 与回放使用。</p><p><b>验收与研究点</b>　从一次判断追到当时可见的记录。用迟到数据检查回放是否引入事后信息。</p></div></article>
-        <article id="work-evolve"><div><small>AI 组</small><h3>记忆、归因与候选生成</h3></div><div><p><b>交付</b>　可追溯到原始记录的失败案例、经验条目和带父版本的候选改动。</p><p><b>验收与研究点</b>　更换一批巡检样本，比较带适用条件的经验与无条件复用的经验，检查误报是否下降。</p></div></article>
-        <article id="work-release"><div><small>AI 组定规则 · 软件组实施</small><h3>版本治理与回退</h3></div><div><p><b>交付</b>　候选版本、评价预算、放行结果及可恢复的前一应用版本。</p><p><b>验收与研究点</b>　在固定回归集上拒绝已知退化候选。在相同预算下比较两版改进器产生有效候选的比例。</p></div></article>
-        <article id="work-twin"><div><small>飞控组牵头 · 软件组对时</small><h3>本体模型与独立参照</h3></div><div><p><b>交付</b>　全数字和半实物时标、采样来源、误差区间及适用条件。通过平台适配层与任务级事件对应。</p><p><b>验收与研究点</b>　用独立台架时标核对同一标记，研究采样分辨率对事件判定的影响。台架接入待联调。</p></div></article>
-      </div>
-      <p class="asset-link"><a href="./fixed-wing.html#integration">固定翼实例的三课题联调</a> · <a href="./topics.html#topics">专题研究点与开题卡</a></p>
+<article id="work-runtime"><div><small>执行面</small><h3>智能体上下文与角色交接</h3></div><div><p><b>交付</b>　定义 kagent Agent 的角色、上下文和 Skill 绑定，给每次交接保留观测来源。</p><p><b>验收</b>　在同一批读数任务上复核交接前后的信息遗漏。</p><a href="./directions.html#observation">局部观测的时间与表征</a></div></article>
+<article id="work-tools"><div><small>环境工具层</small><h3>Skill 与 MCP 调用契约</h3></div><div><p><b>交付</b>　编写 Skill 的输入、调用次序、回执和异常语义。用 AFSIM 时钟工具生成第一份调用样例。</p><p><b>验收</b>　从回执中区分基线与新测结果，检查事件标识、来源与时间单位。</p><a href="./directions.html#basis">可回放的共同基准</a></div></article>
+<article id="work-eval"><div><small>共用证据</small><h3>群体度量与独立评价</h3></div><div><p><b>交付</b>　确定样本、分母、信息预算和配对基线，保留共同误判的反例。</p><p><b>验收</b>　从同一批输入复算一致率、共同误判率和配对收益。</p><a href="./directions.html#cooperation">共识与协作增益的度量</a></div></article>
+<article id="work-evolve"><div><small>进化面</small><h3>经验记忆与 Skill 候选</h3></div><div><p><b>交付</b>　给每条经验记录来源、适用范围和反例。每项候选引用父版本。</p><p><b>验收</b>　换一批样本检验同一条经验的收益和失效条件。</p><a href="./directions.html#skill">经验复用与 Skill 候选</a></div></article>
+<article id="work-release"><div><small>控制面</small><h3>候选判定与版本比较</h3></div><div><p><b>交付</b>　冻结独立评价协议、预算、留出集和可恢复的基线版本。</p><p><b>验收</b>　用已知退化版本检验接受规则，再以等预算比较新旧改进器。</p><a href="./directions.html#evaluation">候选版本的独立评价</a></div></article>
+<article id="work-twin"><div><small>共用证据</small><h3>参照质量与不确定性</h3></div><div><p><b>交付</b>　记录评价参照的来源、有效区间，以及参照与智能体可见输入的关系。</p><p><b>验收</b>　对无法独立核实的样本给出证据不足的判定，保留分组复算记录。</p><a href="./directions.html#cooperation">共识与协作增益的度量</a></div></article></div>
+<p class="asset-link"><a href="./directions.html">查看研究顺序与停止条件</a> · <a href="./topics.html#topics">专题研究点与开题卡</a></p>
     </div></section>
     <section class="wrap section" id="tool-contract">
-      <div class="section-head"><div><p class="kicker">首个 MCP 适配器</p><h2>把时钟实验做成工具</h2></div><p>软件组实现工具，AI 组在 Skill 中约定调用次序与判读方法。标准客户端通过 <code>tools/list</code> 发现工具及参数，通过 <code>tools/call</code> 调用。基线与新测结果均带运行号、事件标识和逻辑秒数。</p></div>
+      <div class="section-head"><div><p class="kicker">首个 MCP 适配器</p><h2>把时钟实验做成工具</h2></div><p>AI 组在 Skill 中约定何时调用工具、如何核对回执，以及如何解释返回结果。标准客户端通过 <code>tools/list</code> 发现工具及参数，通过 <code>tools/call</code> 调用。基线与新测结果均带运行号、事件标识和逻辑秒数。</p></div>
       <div class="levels"><article><h3>读取基线</h3><code>read_clock_reference(run_id)</code><p>从两次已发布的 AFSIM 实测中选择一条，返回该次实验的时钟标记和来源。</p></article><article><h3>发起一次新测量</h3><code>measure_clock_markers()</code><p>在本地启动一次固定的无实体时钟实验，生成新的运行号并返回实际输出。每次调用都使用同一份双标记输入。</p></article></div>
       <details class="worked"><summary>查看调用示例与 kagent 绑定方式</summary><div><pre class="rpc"><code>{"jsonrpc":"2.0","id":3,"method":"tools/call",
  "params":{"name":"measure_clock_markers","arguments":{}}}</code></pre><p>测量 Skill 先读取基线，再发起新测量，逐项对照标记和时间。kagent 的声明式 Agent 通过 <code>mcpServer.toolNames</code> 绑定这两个名称。集群接入需提供可达的 Streamable HTTP 服务，AgenticMesh 通过运行实例引用和调用标识关联证据。</p></div></details>
-      <p class="evidence-status">官方 MCP 客户端已在 stdio 和 Streamable HTTP 上分别完成工具发现、读取基线与新测量。AFSIM 2.9.0 的两次新测均得到 1 秒和 3 秒的标记。GitHub Pages 提供代码、说明与实测记录。集群 Agent 调用、版本发布和半实物试验仍待联调。</p>
+      <p class="evidence-status">官方 MCP 客户端已在 stdio 和 Streamable HTTP 上分别完成工具发现、读取基线与新测量。AFSIM 2.9.0 的两次新测均得到 1 秒和 3 秒的标记。GitHub Pages 提供代码、说明与实测记录。集群 Agent 调用与候选版本评价仍待验证。</p>
       <p class="asset-link"><a href="./clock_mcp.py" download>工具服务源码</a> · <a href="./mcp-clock-test.json" download>协议调用实测记录</a> · <a href="https://github.com/Admire-ljb/embodied-rsi-atlas#运行-mcp-时钟工具">本地运行说明</a> · <a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCP 工具规范</a></p>
     </section>
     <section class="band" id="adaptation"><div class="wrap section">
       <div class="section-head"><div><p class="kicker">任务适配层</p><h2>换任务，更换哪些内容？</h2></div><p>任务方描述环境、观测、能力、反馈和真值。通用内核沿用相同的运行、提案、评价和版本关系。下面两份设计配置通过同一份任务描述规范校验。</p></div>
       <div class="profile-panel">
-        <div class="profile-menu"><label for="profile-select">选择任务实例</label><select id="profile-select" disabled><option value="fixed-wing-simulation">高速固定翼无人机集群</option><option value="indoor-meter-inspection">室内移动机器人巡检</option></select><span id="profile-status">设计示例 · v1.1</span></div>
+        <div class="profile-menu"><label for="profile-select">选择任务实例</label><select id="profile-select" disabled><option value="fixed-wing-simulation">高速固定翼无人机集群</option><option value="indoor-meter-inspection">室内移动机器人巡检</option></select><span id="profile-status">设计示例 · v1.2</span></div>
         <div id="profile-content" aria-live="polite"><h3 id="profile-title">高速固定翼无人机集群</h3><p id="profile-objective">在给定仿真记录中，研究异步观测、群体判断与跨粒度比较的证据边界。</p>
           <dl class="field-grid" id="profile-fields">
                 <div><dt>具身体</dt><dd>多个匿名成员及群组</dd></div>
-                <div><dt>环境与数据来源</dt><dd>首期选用 AFSIM 任务级仿真，经课题二自研适配层提供观测与事件；课题三提供单机细粒度对照。</dd></div>
+                <div><dt>环境与数据来源</dt><dd>使用 AFSIM 时钟记录及带来源的任务级样本，比较不同记录粒度下可见的证据。</dd></div>
                 <div><dt>时间语义</dt><dd>分别登记仿真采样时刻、可见时刻与记录粒度。</dd></div>
                 <div><dt>当时可见的观测</dt><dd>给定样本中当时已公开的局部观测、群组摘要和来源。</dd></div>
                 <div><dt>任务能力</dt><dd>查询带版本的样本快照、读取前缀记录、登记研究判断。</dd></div>
                 <div><dt>回执与后续观测</dt><dd>快照的版本回执、可见历史范围和后续独立标注。</dd></div>
-                <div><dt>独立评价依据</dt><dd>课题三提供带有效区间的独立参考，区分全数字结果、半实物量测和已用于输入的数据。</dd></div>
+                <div><dt>独立评价依据</dt><dd>评价方保存独立标注、来源与有效区间，注明与运行输入是否有重合。</dd></div>
                 <div><dt>评价指标</dt><dd>证据覆盖率、样本内共同误判比例、分组结果差异。</dd></div>
-                <div><dt>首项交付</dt><dd>AFSIM 时钟标记输入与两次运行记录已发布。带可见时刻的快照及半实物时标为后续交付。</dd></div>
+                <div><dt>首项交付</dt><dd>已公开时钟输入、基线和 MCP 实测记录。AI 组下一项交付是带可见时刻的样本及其判读规则。</dd></div>
           </dl>
         </div>
         <div class="profile-links"><a href="./fixed-wing.html">高速固定翼专题与研究分工 ↗</a><a href="./task-profiles.json" download>下载两份任务配置</a><a href="./task-profile.schema.json" download>下载共用规范</a></div>
         <noscript><p>两份完整任务配置可通过上方链接查看。</p></noscript>
       </div>
-      <div class="handoff" id="project-handoff"><h3>固定翼实例如何衔接课题二、三？</h3><p>AI 组牵头约定观测、技能和评价口径。软件组从 AFSIM 接入任务级状态、事件和仿真时间。飞控组提供单机模型接口，用全数字与半实物量测校核任务事件的物理依据。首轮已复现两个逻辑时钟标记，三组可沿用该样例联调。 <a href="./fixed-wing.html#integration">查看三组分工、联调顺序与实测记录</a></p></div>
+      <div class="handoff" id="project-handoff"><h3>AI 组如何使用固定翼仿真记录？</h3><p>先用时钟样例核对 Skill 返回的事件标识、来源和时间，再在带可见时刻的独立样本上检验观测摘要。<a href="./fixed-wing.html#integration">查看证据与验收样例</a></p></div>
     </div></section>
     <section class="wrap section" id="recursion">
       <div class="section-head"><div><p class="kicker">递归验证</p><h2>分别检验能力与改进器</h2></div><p>一次任务得分提高，只能支持该能力版本在特定条件下有改善。要检验递归自我改进，还要追踪谁提出了改进器的新版本，以及新改进器是否更善于产生有效候选。</p></div>
@@ -106,7 +107,7 @@
       <div class="section-head"><div><p class="kicker">共享成果库</p><h2>留下可复用的版本</h2></div><p>通用契约、任务配置、样本与评价记录共用成果索引。每一项列出归属模块、版本、适用范围和上游依赖。</p></div>
       <div class="asset-list">
           <div><span>通用契约 · v1.0</span><a href="./task-profile.schema.json" download="task-profile.schema.json">具身任务描述规范 ↓</a><p>JSON Schema 描述环境、具身体、观测、能力、反馈和独立评价等共用字段。</p></div>
-          <div><span>实例配置 · v1.1</span><a href="./task-profiles.json" download="task-profiles.json">双任务适配示例 ↓</a><p>固定翼实例选用 AFSIM 作为首期平台，列明课题二、三的数据来源；室内巡检沿用同一描述规范。</p></div>
+          <div><span>实例配置 · v1.2</span><a href="./task-profiles.json" download="task-profiles.json">双任务适配示例 ↓</a><p>固定翼时钟记录与室内巡检样例共用观测、来源和独立评价字段。</p></div>
           <div><span>通用模板 · v1.0</span><a href="./rsi-experiment.txt" download="具身RSI实验记录.md">能力与改进器实验记录 ↓</a><p>分别记录任务能力版本、改进器版本、具身运行证据以及等预算的独立评价结果。</p></div>
           <div><span>合成样本 · v1.0</span><a href="./consensus-example.csv" download="consensus-example.csv">共同误判合成样本 ↓</a><p>8 个抽象二值判断样本及两组匿名预测，仅用于演示计数和分母。</p></div>
           <div><span>已复算示例 · v1.0</span><a href="./consensus-note.txt" download="consensus-note.md">共同误判复算记录 ↓</a><p>同一组样本说明一致率无法唯一确定共同误判率。</p></div>
@@ -115,6 +116,6 @@
       <p class="asset-link"><a href="./research-assets.json" download>下载结构化成果索引（JSON）</a></p>
     </section>
   </main>
-  <footer><div class="wrap bar"><span>具身智能 · 递归自我改进研究架构</span><a href="#top">返回页首 ↑</a></div></footer>
+  <footer><div class="wrap bar"><span>AI 组 · 具身智能与递归自我改进研究架构</span><a href="#top">返回页首 ↑</a></div></footer>
 </body>
 </html>

@@ -1,12 +1,12 @@
 # 具身智能 RSI 研究架构
 
-首页以外部锚点、RSI 三面、共用证据和环境工具展示系统。设计采用 kagent 运行 Agent，AgenticMesh 组织治理、归因与候选发布，MCP 连接具身环境。工程分工下设可独立检验的研究点。高速固定翼与室内仪表巡检是两份任务配置。
+首页以外部锚点、RSI 三面、共用证据和环境工具展示系统。设计采用 kagent 运行 Agent，AgenticMesh 组织治理、归因与候选发布，MCP 连接具身环境。AI 组围绕观测、协作度量和递归改进维护基准、Skill 与评价协议。高速固定翼与室内仪表巡检是两份任务配置。
 
 ## 入口
 
-- [分层架构总图](./index.html#architecture) · [工程分工](./index.html#engineering) · [环境工具](./index.html#tool-contract)
+- [分层架构总图](./index.html#architecture) · [AI 组任务](./index.html#engineering) · [方向规划图](./directions.html) · [环境工具](./index.html#tool-contract)
 - [高速固定翼专题](./fixed-wing.html)
-- [AFSIM 与三课题联调](./fixed-wing.html#integration)，含[时钟输入](./afsim-clock-input.txt)及[两次运行记录](./afsim-clock-check.json)。本地时钟复现实验使用 AFSIM 2.9.0，运行中适配及半实物校核待联调。
+- [AI 组的 AFSIM 时钟样例](./fixed-wing.html#integration)，含[时钟输入](./afsim-clock-input.txt)及[两次运行记录](./afsim-clock-check.json)。本地时钟复现实验使用 AFSIM 2.9.0，后续可见性实验的前置条件见方向规划图。
 - [专题学生研究点与开题卡](./topics.html)
 - [任务描述规范](./task-profile.schema.json) 与 [两份配置](./task-profiles.json)
 - [共享成果索引](./research-assets.json)
