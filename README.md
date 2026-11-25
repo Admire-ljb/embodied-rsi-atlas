@@ -1,12 +1,12 @@
 # 具身智能 RSI 研究架构
 
-AI 组研究如何让智能体协作、复用经验，并独立检验技能与改进器的候选版本。kagent 负责 Agent 运行，AgenticMesh 管理证据、候选与版本。仿真环境和数字孪生并列位于环境工具层，通过统一 MCP 工具接口提供观测和反馈。首个 AFSIM 时钟样例已在本地验证，数字孪生接入为架构设计。
+研究体系分为概念定义、机制、评测与治理、平台和领域应用五层。各层节点分别映射到进化面、控制面、执行面与共用底座。架构拟以 kagent 承载 Agent 运行，AgenticMesh 管理证据、候选与版本。仿真环境和数字孪生并列位于环境工具层，通过统一 MCP 工具接口提供观测和反馈。首个 AFSIM 时钟样例已在本地验证，数字孪生接入为架构设计。
 
 ## 入口
 
-- [分层架构总图](./index.html#architecture) · [AI 组任务](./index.html#engineering) · [方向规划图](./directions.html) · [环境工具层](./index.html#environment-tools) · [已测时钟工具](./index.html#tool-contract)
+- [分层架构总图](./index.html#architecture) · [技术模块](./index.html#engineering) · [方向规划图](./directions.html) · [环境工具层](./index.html#environment-tools) · [已测时钟工具](./index.html#tool-contract)
 - [高速固定翼专题](./fixed-wing.html)
-- [AI 组的 AFSIM 时钟样例](./fixed-wing.html#integration)，含[时钟输入](./afsim-clock-input.txt)及[两次运行记录](./afsim-clock-check.json)。本地时钟复现实验使用 AFSIM 2.9.0，后续可见性实验的前置条件见方向规划图。
+- [AFSIM 时钟样例](./fixed-wing.html#integration)，含[时钟输入](./afsim-clock-input.txt)及[两次运行记录](./afsim-clock-check.json)。本地时钟复现实验使用 AFSIM 2.9.0，后续可见性实验的前置条件见方向规划图。
 - [专题学生研究点与开题卡](./topics.html)
 - [任务描述规范](./task-profile.schema.json) 与 [两份配置](./task-profiles.json)
 - [共享成果索引](./research-assets.json)
@@ -32,4 +32,4 @@ python clock_mcp.py
 
 将研究文件和版本化依赖登记在 research-assets.json，首页据此展示下载入口。核心成果可标注 audience 为 core。使用 rsi-experiment.txt 区分任务能力和改进器两类实验。共享样本和历史复算记录可通过既有编号查找。
 
-网站提供架构设计、可下载契约、设计实例及合成统计样例。尚无在线具身运行器或自动自改进实验结果。GitHub Pages 从 main 分支根目录发布。学生分工按岗位展示。
+网站提供架构设计、可下载契约、设计实例及合成统计样例。尚无在线具身运行器或自动自改进实验结果。GitHub Pages 从 main 分支根目录发布。专题页面提供可独立验证的研究问题。

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#123c36">
   <meta name="description" content="基于 kagent 与 AgenticMesh 的具身智能 RSI 分层架构，上层组织智能体、Skill、经验与独立评价，底层以 MCP 接入仿真环境和数字孪生。">
-  <title>AI 组目标架构 · 具身智能 RSI</title>
+  <title>分层技术架构 · 具身智能 RSI</title>
   <link rel="stylesheet" href="./framework.css">
   <link rel="stylesheet" href="./embodied.css">
   <link rel="stylesheet" href="./blueprint.css">
@@ -17,45 +17,121 @@
   <a class="skip" href="#architecture">跳到通用架构</a>
   <header><div class="wrap bar">
     <a class="brand" href="#top"><b>具身智能</b><span>RSI 研究架构</span></a>
-    <nav aria-label="主导航"><a href="#architecture">架构总图</a><a href="./directions.html">方向规划图</a><a href="#engineering">AI 组任务</a><a href="#environment-tools">环境工具层</a><a href="#adaptation">任务实例</a><a href="#recursion">递归验证</a><a href="#assets">成果库</a></nav>
+    <nav aria-label="主导航"><a href="#architecture">架构总图</a><a href="./directions.html">方向规划图</a><a href="#engineering">技术模块</a><a href="#environment-tools">环境工具层</a><a href="#adaptation">任务实例</a><a href="#recursion">递归验证</a><a href="#assets">成果库</a></nav>
   </div></header>
   <main>
     <section id="architecture" class="wrap blueprint-section">
       <div id="framework" class="blueprint-heading">
-        <div><p class="kicker">AI 组 · 目标架构</p><h1>具身智能体的<br><em>递归自我改进架构</em></h1></div>
-        <p>AI 组希望让智能体能够协作完成任务，从运行记录中找出失败原因，并提出可检验的技能改进。kagent 运行智能体，AgenticMesh 管理改进候选及其版本。候选通过独立评价后，才进入下一轮任务。</p>
+        <div><p class="kicker">具身智能 RSI</p><h1>具身智能体的<br><em>递归自我改进架构</em></h1></div>
+        <p>智能体在环境中执行任务，运行记录用于解释失败并提出技能改动。架构拟以 kagent 承载智能体，以 AgenticMesh 管理候选与版本。每项改动经过独立评价后进入下一轮运行。</p>
       </div>
       <figure class="blueprint" aria-labelledby="map-caption">
-        <figcaption id="map-caption"><strong>系统组件与关系</strong><span>选择组件查看其职责与研究方向</span></figcaption>
-        <div class="map-band anchor-band"><div class="band-title">外部锚点 <small>试验前冻结</small></div><div class="node-strip"><a href="#work-eval">约束与预算</a><a href="#work-twin">独立参考与不确定度</a><a href="#work-eval">留出样本与放行规则</a></div></div>
-        <div class="map-wire">↓ 固定评价条件</div>
-        <div id="control" class="map-band control-band"><div class="band-title">控制面 <small>AgenticMesh · 治理与发布</small></div><div class="node-strip flow-nodes"><a href="#work-release">接收候选</a><a href="#work-eval">独立对照与回归</a><a href="#work-release">发布或回退版本</a></div></div>
-        <div class="map-rails"><span>↑ 候选版本与依据</span><span>↓ 已放行的应用版本</span></div>
-        <div class="map-pair">
-          <div id="evolution" class="map-band evolution-band"><div class="band-title">进化面 <small>AgenticMesh</small></div>
-            <p>从运行证据中提出可检验的改动。</p>
-            <div class="node-stack"><a href="#work-evolve">失败聚类与原因分析</a><a href="#work-evolve">检索经验与反例</a><a href="#work-evolve">生成 Skill 或上下文候选</a></div>
-            <p class="node-foot">改进器本身也可以成为候选，沿同一控制面评估和发布。</p>
-          </div>
-          <div id="execution" class="map-band execution-band"><div class="band-title">执行面 <small>kagent · Agent 运行时</small></div>
-            <p>应用绑定角色、模型和可用工具。</p>
-            <div class="agent-strip"><a href="#work-runtime">实验协调 Agent</a><span aria-label="A2A 双向协作">⇄ A2A ⇄</span><a href="#work-runtime">观测 Agent</a></div>
-            <details class="agent-fold"><summary>展开单个 Agent 的五层结构</summary><dl><dt>模型</dt><dd>模型配置与推理服务</dd><dt>上下文</dt><dd>任务说明、约束与当时可见的观测</dd><dt>记忆</dt><dd>带来源和适用条件的经验</dd><dt>技能</dt><dd>例如按协议比较两组时钟标记</dd><dt>Harness</dt><dd>选择工具，校验参数，关联调用回执</dd></dl></details>
-            <p class="node-foot">A2A 传递角色间任务。Agent 经工具网关调用下方 MCP 服务。</p>
-          </div>
-        </div>
-        <div class="map-rails"><span>↑ 轨迹、失败样本与反馈</span><span>↕ 工具调用与结构化结果</span></div>
-        <div class="map-band evidence-band"><div class="band-title">共用底座 <small>遥测、证据与实验</small></div><div class="node-strip"><a href="#work-eval">运行号与调用轨迹</a><a href="#work-eval">可复核的基线与回放</a><a href="#work-twin">独立标注与适用范围</a></div></div>
+        <figcaption id="map-caption"><strong>研究层级与架构组件的对应关系</strong></figcaption>
+        <p class="matrix-key">纵向按技术问题分层，横向定位实现组件。点击技术节点可查看实验或接口定义。空项表示该节点在此面无直接组件。</p>
+        <table class="layer-matrix" aria-labelledby="map-caption"><colgroup><col class="layer-col"><col class="node-col"><col span="4"></colgroup>
+<thead><tr><th scope="col">研究层级</th><th scope="col">技术节点</th>
+<th scope="col" id="evolution" style="--wash:#e5f1e9;--accent:#457149">进化面<small>提出候选</small></th>
+<th scope="col" id="control" style="--wash:#faf1d9;--accent:#846423">控制面<small>评价与发布</small></th>
+<th scope="col" id="execution" style="--wash:#e7f0f7;--accent:#416781">执行面<small>运行智能体</small></th>
+<th scope="col" id="evidence-base" style="--wash:#ecefe9;--accent:#576854">共用底座<small>保存证据</small></th>
+</tr></thead>
+<tbody id="layer-concept" style="--layer-wash:#eaf0f5">
+<tr>
+<th class="layer-name" scope="rowgroup" rowspan="2">概念定义层</th>
+<th class="node-name" scope="row"><a href="#work-evolve">改进对象</a></th>
+<td data-plane="进化面">提出上下文或 Skill 的改动</td>
+<td data-plane="控制面">登记父版本与候选版本</td>
+<td data-plane="执行面">加载指定版本的智能体</td>
+<td data-plane="共用底座">关联版本、任务与运行记录</td>
+</tr>
+<tr>
+<th class="node-name" scope="row"><a href="#recursion">递归的判据</a></th>
+<td data-plane="进化面">提出改进器的新版本</td>
+<td data-plane="控制面">等预算比较两版改进器</td>
+<td data-plane="执行面">在新批次上分别运行</td>
+<td data-plane="共用底座">保存谱系与独立比较结果</td>
+</tr>
+</tbody>
+<tbody id="layer-mechanism" style="--layer-wash:#e8f2eb">
+<tr>
+<th class="layer-name" scope="rowgroup" rowspan="2">机制层</th>
+<th class="node-name" scope="row"><a href="#work-runtime">多智能体协作</a></th>
+<td data-plane="进化面">从交接失败中检索反例</td>
+<td data-plane="控制面" class="na"><span aria-hidden="true">—</span><span class="sr-only">无直接组件</span></td>
+<td data-plane="执行面">通过 A2A 传递任务与上下文</td>
+<td data-plane="共用底座">记录交接时可见的信息</td>
+</tr>
+<tr>
+<th class="node-name" scope="row"><a href="#work-evolve">经验与技能</a></th>
+<td data-plane="进化面">从失败样本生成 Skill 候选</td>
+<td data-plane="控制面">限定可改字段与预算</td>
+<td data-plane="执行面">绑定 Skill 与可用工具</td>
+<td data-plane="共用底座">索引经验来源及适用条件</td>
+</tr>
+</tbody>
+<tbody id="layer-evaluation" style="--layer-wash:#faf2e1">
+<tr>
+<th class="layer-name" scope="rowgroup" rowspan="2">评测与治理层</th>
+<th class="node-name" scope="row"><a href="#work-eval">独立评价</a></th>
+<td data-plane="进化面" class="na"><span aria-hidden="true">—</span><span class="sr-only">无直接组件</span></td>
+<td data-plane="控制面">在冻结的留出集上比较新旧版本</td>
+<td data-plane="执行面">按相同输入回放两个版本</td>
+<td data-plane="共用底座">保存配对样本与独立标注</td>
+</tr>
+<tr>
+<th class="node-name" scope="row"><a href="#work-release">版本放行</a></th>
+<td data-plane="进化面">登记退化样本及其原因</td>
+<td data-plane="控制面">按接受准则发布或回退</td>
+<td data-plane="执行面">切换至获准的应用版本</td>
+<td data-plane="共用底座">保存判定依据和基线版本</td>
+</tr>
+</tbody>
+<tbody id="layer-platform" style="--layer-wash:#eaf1f8">
+<tr>
+<th class="layer-name" scope="rowgroup" rowspan="2">平台层</th>
+<th class="node-name" scope="row"><a href="#work-runtime">运行时与注册</a></th>
+<td data-plane="进化面">AgenticMesh 管理改进提案</td>
+<td data-plane="控制面">AgenticMesh 管理候选与发布</td>
+<td data-plane="执行面">kagent 承载角色与工具绑定</td>
+<td data-plane="共用底座">运行号关联调用轨迹</td>
+</tr>
+<tr>
+<th class="node-name" scope="row"><a href="#environment-tools">环境工具接入</a></th>
+<td data-plane="进化面" class="na"><span aria-hidden="true">—</span><span class="sr-only">无直接组件</span></td>
+<td data-plane="控制面">声明工具权限与版本</td>
+<td data-plane="执行面">Skill 经 MCP 调用环境工具</td>
+<td data-plane="共用底座">记录回执、来源与逻辑时刻</td>
+</tr>
+</tbody>
+<tbody id="layer-domain" style="--layer-wash:#f0ecf5">
+<tr>
+<th class="layer-name" scope="rowgroup" rowspan="2">领域应用层</th>
+<th class="node-name" scope="row"><a href="./fixed-wing.html">高速固定翼仿真</a></th>
+<td data-plane="进化面">提出观测摘要候选</td>
+<td data-plane="控制面">比较异步观测的可判读性</td>
+<td data-plane="执行面">读取给定时刻的可见记录</td>
+<td data-plane="共用底座">时钟基线与跨粒度样本</td>
+</tr>
+<tr>
+<th class="node-name" scope="row"><a href="#recursion">室内仪表巡检</a></th>
+<td data-plane="进化面">提出模糊读数的判读规则</td>
+<td data-plane="控制面">比较误报率与补采成本</td>
+<td data-plane="执行面">读取仪表图像并请求补采</td>
+<td data-plane="共用底座">成对图像与独立参考读数</td>
+</tr>
+</tbody>
+</table>
         <div class="map-band tool-band" id="environment-tools"><div class="band-title">环境工具层 <small>通过 MCP 接入外部环境</small></div>
           <div class="environment-bridge"><a class="environment-gateway" href="#work-tools">统一 MCP 工具接口</a><div class="environment-sources"><a href="#tool-contract"><strong>仿真环境</strong><span>AFSIM · 时钟工具已实测</span></a><div class="environment-source"><strong>数字孪生</strong><span>模型观测与参照记录 · 预留接入</span></div></div></div>
           <p>Agent 通过 Skill 调用已登记的工具。返回的观测携带来源、时刻和单位，供 Agent 判断与实验回放使用。</p>
         </div>
       </figure>
+      <details class="agent-spec"><summary>执行面的智能体组成</summary><p>模型负责推理，上下文保存任务与当前可见观测，记忆保存经验及其来源。Skill 描述工具调用条件和结果判读规则，Harness 负责参数校验、调用与回执关联。</p></details>
       <p class="map-source">图中 kagent 集群、A2A 协作和 AgenticMesh 发布流程为拟建集成。时钟工具的验证范围见下方记录。 <a href="./directions.html">查看方向规划图</a> · <a href="./rsi-architecture.jpg" download>下载完整架构图</a> · <a href="http://admire.buaanlsde.cn/rsi/three-planes.html">三面架构设计参照</a> · <a href="https://kagent.dev/docs/kagent/0.x/concepts/agents/">kagent Agent 定义</a></p>
     </section>
-    <section class="wrap direction-preview"><div><p class="kicker">方向规划图</p><h2>AI 组接下来研究什么？</h2><p>从可回放样本出发，沿观测表征和协作度量两条支线推进，再汇合到改进器的递归验证。</p><a class="button" href="./directions.html">进入方向规划图</a></div><a href="./directions.html" aria-label="查看 AI 组完整方向规划图"><img src="./ai-directions.jpg" width="1680" height="940" loading="lazy" alt="共同基准分出观测表征与协作度量两条支线，经 Skill 候选和独立评价后汇合"></a></section>
+    <section class="wrap direction-preview"><div><p class="kicker">方向规划图</p><h2>从观测表征到递归验证</h2><p>从可回放样本出发，沿观测表征和协作度量两条支线推进，再汇合到改进器的递归验证。</p><a class="button" href="./directions.html">进入方向规划图</a></div><a href="./directions.html" aria-label="查看完整研究方向规划图"><img src="./ai-directions.jpg" width="1680" height="940" loading="lazy" alt="共同基准分出观测表征与协作度量两条支线，经 Skill 候选和独立评价后汇合"></a></section>
     <section class="band" id="engineering"><div class="wrap section">
-      <div class="section-head" id="research"><div><p class="kicker">AI 组任务</p><h2>模块、交付与验收</h2></div><p>AI 组维护 Agent 的角色与协作、Skill 的调用规则、记忆与候选生成、独立评价及版本选择。每个模块都要交付能由下一项实验复用的记录或判据。</p></div>
+      <div class="section-head" id="research"><div><p class="kicker">技术模块</p><h2>模块、交付与验收</h2></div><p>各模块分别定义角色交接、工具调用、经验检索和版本选择。模块间以带来源的观测、可回放的运行记录及固定的评价协议交换结果。</p></div>
       <div class="work-list">
 <article id="work-runtime"><div><small>执行面</small><h3>智能体上下文与角色交接</h3></div><div><p><b>交付</b>　定义 kagent Agent 的角色、上下文和 Skill 绑定，给每次交接保留观测来源。</p><p><b>验收</b>　在同一批读数任务上复核交接前后的信息遗漏。</p><a href="./directions.html#observation">局部观测的时间与表征</a></div></article>
 <article id="work-tools"><div><small>执行面 · 技能与工具绑定</small><h3>Skill 与 MCP 调用契约</h3></div><div><p><b>交付</b>　定义 Skill 何时调用 MCP 工具、允许哪些输入、如何解释输出。用时钟样例核对观测来源、单位和回执。</p><p><b>验收</b>　从回执中区分基线与新测结果，检查事件标识、来源与时间单位。</p><a href="./directions.html#basis">可回放的共同基准</a></div></article>
@@ -66,7 +142,7 @@
 <p class="asset-link"><a href="./directions.html">查看研究顺序与停止条件</a> · <a href="./topics.html#topics">专题研究点与开题卡</a></p>
     </div></section>
     <section class="wrap section" id="tool-contract">
-      <div class="section-head"><div><p class="kicker">首个 MCP 适配器</p><h2>把时钟实验做成工具</h2></div><p>AI 组在 Skill 中约定何时调用工具、如何核对回执，以及如何解释返回结果。标准客户端通过 <code>tools/list</code> 发现工具及参数，通过 <code>tools/call</code> 调用。基线与新测结果均带运行号、事件标识和逻辑秒数。</p></div>
+      <div class="section-head"><div><p class="kicker">首个 MCP 适配器</p><h2>把时钟实验做成工具</h2></div><p>Skill 定义何时调用工具、如何核对回执，以及如何解释返回结果。标准客户端通过 <code>tools/list</code> 发现工具及参数，通过 <code>tools/call</code> 调用。基线与新测结果均带运行号、事件标识和逻辑秒数。</p></div>
       <div class="levels"><article><h3>读取基线</h3><code>read_clock_reference(run_id)</code><p>从两次已发布的 AFSIM 实测中选择一条，返回该次实验的时钟标记和来源。</p></article><article><h3>发起一次新测量</h3><code>measure_clock_markers()</code><p>在本地启动一次固定的无实体时钟实验，生成新的运行号并返回实际输出。每次调用都使用同一份双标记输入。</p></article></div>
       <details class="worked"><summary>查看调用示例与 kagent 绑定方式</summary><div><pre class="rpc"><code>{"jsonrpc":"2.0","id":3,"method":"tools/call",
  "params":{"name":"measure_clock_markers","arguments":{}}}</code></pre><p>测量 Skill 先读取基线，再发起新测量，逐项对照标记和时间。kagent 的声明式 Agent 通过 <code>mcpServer.toolNames</code> 绑定这两个名称。集群接入需提供可达的 Streamable HTTP 服务，AgenticMesh 通过运行实例引用和调用标识关联证据。</p></div></details>
@@ -74,7 +150,7 @@
       <p class="asset-link"><a href="./clock_mcp.py" download>工具服务源码</a> · <a href="./mcp-clock-test.json" download>协议调用实测记录</a> · <a href="https://github.com/Admire-ljb/embodied-rsi-atlas#运行-mcp-时钟工具">本地运行说明</a> · <a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCP 工具规范</a></p>
     </section>
     <section class="band" id="adaptation"><div class="wrap section">
-      <div class="section-head"><div><p class="kicker">任务适配层</p><h2>换任务，更换哪些内容？</h2></div><p>任务配置声明 Agent 可用的观测、工具、反馈和独立评价依据。通用内核沿用相同的运行、提案、评价和版本关系。下面两份设计配置通过同一份任务描述规范校验。</p></div>
+      <div class="section-head"><div><p class="kicker">领域应用层</p><h2>任务配置与观测契约</h2></div><p>任务配置声明 Agent 可用的观测、工具、反馈和独立评价依据。通用内核沿用相同的运行、提案、评价和版本关系。下面两份设计配置通过同一份任务描述规范校验。</p></div>
       <div class="profile-panel">
         <div class="profile-menu"><label for="profile-select">选择任务实例</label><select id="profile-select" disabled><option value="fixed-wing-simulation">高速固定翼无人机集群</option><option value="indoor-meter-inspection">室内移动机器人巡检</option></select><span id="profile-status">设计示例 · v1.3</span></div>
         <div id="profile-content" aria-live="polite"><h3 id="profile-title">高速固定翼无人机集群</h3><p id="profile-objective">在给定仿真记录中，研究异步观测、群体判断与跨粒度比较的证据边界。</p>
@@ -87,13 +163,13 @@
                 <div><dt>回执与后续观测</dt><dd>快照的版本回执、可见历史范围和后续独立标注。</dd></div>
                 <div><dt>独立评价依据</dt><dd>评价方保存独立标注、来源与有效区间，注明与运行输入是否有重合。</dd></div>
                 <div><dt>评价指标</dt><dd>证据覆盖率、样本内共同误判比例、分组结果差异。</dd></div>
-                <div><dt>首项交付</dt><dd>已公开时钟输入、基线和 MCP 实测记录。AI 组下一项交付是带可见时刻的样本及其判读规则。</dd></div>
+                <div><dt>首项交付</dt><dd>已公开时钟输入、基线和 MCP 实测记录。后续实验需提供带可见时刻的样本及其判读规则。</dd></div>
           </dl>
         </div>
-        <div class="profile-links"><a href="./fixed-wing.html">高速固定翼专题与研究分工 ↗</a><a href="./task-profiles.json" download>下载两份任务配置</a><a href="./task-profile.schema.json" download>下载共用规范</a></div>
+        <div class="profile-links"><a href="./fixed-wing.html">高速固定翼专题与研究节点 ↗</a><a href="./task-profiles.json" download>下载两份任务配置</a><a href="./task-profile.schema.json" download>下载共用规范</a></div>
         <noscript><p>两份完整任务配置可通过上方链接查看。</p></noscript>
       </div>
-      <div class="handoff" id="project-handoff"><h3>AI 组如何使用固定翼仿真记录？</h3><p>先用时钟样例核对 Skill 返回的事件标识、来源和时间，再在带可见时刻的独立样本上检验观测摘要。<a href="./fixed-wing.html#integration">查看证据与验收样例</a></p></div>
+      <div class="handoff" id="project-handoff"><h3>固定翼仿真记录的判读与验证</h3><p>先用时钟样例核对 Skill 返回的事件标识、来源和时间，再在带可见时刻的独立样本上检验观测摘要。<a href="./fixed-wing.html#integration">查看证据与验收样例</a></p></div>
     </div></section>
     <section class="wrap section" id="recursion">
       <div class="section-head"><div><p class="kicker">递归验证</p><h2>分别检验能力与改进器</h2></div><p>一次任务得分提高，只能支持该能力版本在特定条件下有改善。要检验递归自我改进，还要追踪谁提出了改进器的新版本，以及新改进器是否更善于产生有效候选。</p></div>
@@ -116,6 +192,6 @@
       <p class="asset-link"><a href="./research-assets.json" download>下载结构化成果索引（JSON）</a></p>
     </section>
   </main>
-  <footer><div class="wrap bar"><span>AI 组 · 具身智能与递归自我改进研究架构</span><a href="#top">返回页首 ↑</a></div></footer>
+  <footer><div class="wrap bar"><span>具身智能与递归自我改进研究架构</span><a href="#top">返回页首 ↑</a></div></footer>
 </body>
 </html>

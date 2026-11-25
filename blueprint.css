@@ -6,6 +6,34 @@
 .blueprint figcaption, .band-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 14px; }
 .blueprint figcaption { justify-content: space-between; margin-bottom: 12px; }
 .blueprint figcaption strong { font: 700 1.25rem/1.5 var(--serif); }
+.matrix-key { color: var(--muted); margin-bottom: 15px; font-size: .95rem; }
+.layer-matrix { table-layout: fixed; width: 100%; margin: 0 0 16px; line-height: 1.55; }
+.layer-col { width: 11%; }
+.node-col { width: 13%; }
+.layer-matrix th, .layer-matrix td { padding: 10px 9px; vertical-align: middle; overflow-wrap: anywhere; }
+.layer-matrix thead th { --wash: #eff2f1; --accent: #667a72; background: var(--wash); border-top: 3px solid var(--accent); font-weight: 700; }
+.layer-matrix thead small { display: block; font-size: .85rem; font-weight: 450; color: #3f574e; }
+.layer-matrix tbody { border-top: 1.5px solid #8ba398; }
+.layer-matrix .layer-name, .layer-matrix .node-name { background: var(--layer-wash); }
+.layer-matrix .layer-name { font-weight: 750; }
+.blueprint .layer-matrix a { display: inline; text-align: left; border: 0; padding: 0; background: transparent; border-radius: 0; color: #184e42; font: inherit; text-decoration: underline; text-decoration-color: #97b0a4; }
+.layer-matrix .na { color: #63786d; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.agent-spec { margin-top: 14px; border-bottom: 1px solid var(--line); padding: 0 0 10px; }
+.agent-spec summary { cursor: pointer; color: var(--green); font-weight: 650; }
+.agent-spec p { margin-top: 6px; color: var(--muted); }
+@media screen and (max-width: 760px) {
+  .layer-matrix, .layer-matrix tbody { display: block; }
+  .layer-matrix colgroup { display: none; }
+  .layer-matrix thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .layer-matrix tbody { margin-top: 18px; }
+  .layer-matrix tr { display: grid; grid-template-columns: 1fr 1fr; }
+  .layer-matrix .layer-name, .layer-matrix .node-name { grid-column: 1/-1; padding: 8px 10px; }
+  .layer-matrix .layer-name { font-size: 1.04rem; border-left: 3px solid #4a7162; }
+  .layer-matrix .node-name { background: #f7f9f7; }
+  .layer-matrix td { display: block; padding: 7px 10px; }
+  .layer-matrix td::before { content: attr(data-plane); display: block; color: #52695e; font-size: .82rem; font-weight: 700; }
+}
 .blueprint figcaption span, .map-source, .blueprint .node-foot { font-size: .87rem; }
 .map-band { --stroke: #b8c5bd; --wash: #f4f6f4; padding: 10px clamp(10px, 1.5vw, 18px); background: var(--wash); border: 1px solid var(--stroke); border-left: 4px solid var(--stroke); border-radius: 5px; }
 .band-title { font-weight: 750; font-size: 1.08rem; line-height: 1.5; }
