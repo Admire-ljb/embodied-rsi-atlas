@@ -4,7 +4,7 @@
 
 ## 入口
 
-- [架构总图与组件关系](./index.html#architecture) · [分层方向规划图](./directions.html#plan) · [执行面原型](./index.html#execution-prototype) · [技术模块](./index.html#engineering) · [环境工具层](./index.html#environment-tools)
+- [架构总图与组件关系](./index.html#architecture) · [分层方向规划图](./directions.html#plan) · [执行面原型](./execution.html#execution-prototype) · [技术模块](./modules.html#engineering) · [环境工具层](./index.html#environment-tools)
 - [高速固定翼专题](./fixed-wing.html)
 - [AFSIM 时钟样例](./fixed-wing.html#integration)，含[时钟输入](./afsim-clock-input.txt)及[两次运行记录](./afsim-clock-check.json)。本地时钟复现实验使用 AFSIM 2.9.0，后续可见性实验的前置条件见方向规划图。
 - [专题学生研究点与开题卡](./topics.html)

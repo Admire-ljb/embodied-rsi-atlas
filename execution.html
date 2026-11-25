@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123c36"><meta name="description" content="时钟观测 Skill 的本地运行步骤、接口、实测轨迹和集群声明。">
+<title>执行面原型 · 具身智能 RSI</title>
+<link rel="stylesheet" href="./framework.css">
+<link rel="stylesheet" href="./embodied.css">
+<link rel="stylesheet" href="./blueprint.css">
+<link rel="stylesheet" href="./directions.css">
+<link rel="stylesheet" href="./guide.css">
+</head>
+<body id="top" data-page="execution"><a class="skip" href="#content">跳到正文</a>
+<header class="site-guide"><div class="guide-wrap"><nav class="guide-grid" aria-label="主导航">
+<a class="guide-card" href="./index.html"><strong>架构总图</strong><small>系统由哪些组件组成，怎样配合</small></a>
+<a class="guide-card" href="./directions.html"><strong>方向规划图</strong><small>各研究方向对应哪些架构组件</small></a>
+<span class="guide-card" aria-current="page"><span class="current-mark">当前</span><strong>执行面原型</strong><small>查看可运行的 Skill 与实测轨迹</small></span>
+<a class="guide-card" href="./topics.html"><strong>研究点地图</strong><small>从研究问题进入实验与选题</small></a></nav></div></header>
+<main id="content">
+<section class="wrap section" id="execution-prototype">
+      <div class="section-head"><div><p class="kicker">执行面 · 首项实现</p><h1 class="detail-heading">时钟观测 Skill</h1></div><p>本地 Python 执行器通过 MCP 读取指定基线，发起一次新的仿真测量，并将两份回执写入同一条执行轨迹。该流程可独立复跑。kagent 声明文件提供观测 Agent 的指令与工具绑定，集群接入待验证。</p></div>
+      <div class="table-scroll"><table><caption>以基线 repeat-01 为例的一次实际执行</caption><thead><tr><th scope="col">步骤</th><th scope="col">调用与返回</th><th scope="col">判定依据</th></tr></thead><tbody><tr><th scope="row">读取基线</th><td><code>read_clock_reference</code></td><td>核实基线编号、来源和秒单位，保存有序事件。</td></tr><tr><th scope="row">采集新测量</th><td><code>measure_clock_markers</code></td><td>收到新的运行号，记录 sample-a 为 1 秒、sample-b 为 3 秒。</td></tr><tr><th scope="row">比较并归档</th><td><code>matched</code></td><td>标记的标识、顺序和逻辑时刻逐项一致。轨迹同时保留工具参数与原始结构化回执。</td></tr></tbody></table></div>
+      <p class="evidence-status">两条基线分别完成一次新测量。另一次撤去仿真可执行文件配置，执行器保留已读取的基线，并返回 <code>incomplete</code>。三次调用轨迹均可下载。</p>
+      <p class="asset-link"><a href="./environment.html">环境工具接口</a> · <a href="./run_clock_skill.py" download>Python 执行器</a> · <a href="./clock-observer.yaml" download>kagent 观测 Agent 声明</a> · <a href="./execution-traces.json">三次实测轨迹</a> · <a href="https://github.com/Admire-ljb/embodied-rsi-atlas#本地运行执行面原型">运行说明</a> · <a href="./directions.html#layer-platform">在方向规划图中定位</a></p>
+    </section>
+</main>
+<footer class="site-foot"><div class="guide-wrap"><span>具身智能 RSI 研究架构</span><nav aria-label="技术资料"><a href="./modules.html">技术模块</a><a href="./environment.html">环境工具</a><a href="./cases.html">任务实例</a><a href="./recursion.html">递归验证</a><a href="./assets.html">成果库</a></nav></div></footer>
+</body></html>

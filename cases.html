@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123c36"><meta name="description" content="固定翼仿真与室内巡检的任务配置、观测及评价依据。">
+<title>任务实例 · 具身智能 RSI</title>
+<link rel="stylesheet" href="./framework.css">
+<link rel="stylesheet" href="./embodied.css">
+<link rel="stylesheet" href="./blueprint.css">
+<link rel="stylesheet" href="./directions.css">
+<link rel="stylesheet" href="./guide.css">
+<script src="./profiles.js?v=pages-1" defer></script>
+</head>
+<body id="top" data-page="cases"><a class="skip" href="#content">跳到正文</a>
+<header class="site-guide"><div class="guide-wrap"><nav class="guide-grid" aria-label="主导航">
+<a class="guide-card" href="./index.html"><strong>架构总图</strong><small>系统由哪些组件组成，怎样配合</small></a>
+<a class="guide-card" href="./directions.html"><strong>方向规划图</strong><small>各研究方向对应哪些架构组件</small></a>
+<a class="guide-card" href="./execution.html"><strong>执行面原型</strong><small>查看可运行的 Skill 与实测轨迹</small></a>
+<a class="guide-card" href="./topics.html"><strong>研究点地图</strong><small>从研究问题进入实验与选题</small></a></nav></div></header>
+<main id="content">
+<section class="band" id="adaptation"><div class="wrap section">
+      <div class="section-head"><div><p class="kicker">领域应用层</p><h1 class="detail-heading">任务配置与观测契约</h1></div><p>任务配置声明 Agent 可用的观测、工具、反馈和独立评价依据。通用内核沿用相同的运行、提案、评价和版本关系。下面两份设计配置通过同一份任务描述规范校验。</p></div>
+      <div class="profile-panel">
+        <div class="profile-menu"><label for="profile-select">选择任务实例</label><select id="profile-select" disabled><option value="fixed-wing-simulation">高速固定翼无人机集群</option><option value="indoor-meter-inspection">室内移动机器人巡检</option></select><span id="profile-status">设计示例 · v1.3</span></div>
+        <div id="profile-content" aria-live="polite"><h3 id="profile-title">高速固定翼无人机集群</h3><p id="profile-objective">在给定仿真记录中，研究异步观测、群体判断与跨粒度比较的证据边界。</p>
+          <dl class="field-grid" id="profile-fields">
+                <div><dt>具身体</dt><dd>多个匿名成员及群组</dd></div>
+                <div><dt>环境与数据来源</dt><dd>环境工具层通过 MCP 提供观测。AFSIM 时钟工具已在本地验证，数字孪生观测为预留输入。</dd></div>
+                <div><dt>时间语义</dt><dd>分别登记仿真采样时刻、可见时刻与记录粒度。</dd></div>
+                <div><dt>当时可见的观测</dt><dd>给定样本中当时已公开的局部观测、群组摘要和来源。</dd></div>
+                <div><dt>任务能力</dt><dd>查询带版本的样本快照、读取前缀记录、登记研究判断。</dd></div>
+                <div><dt>回执与后续观测</dt><dd>快照的版本回执、可见历史范围和后续独立标注。</dd></div>
+                <div><dt>独立评价依据</dt><dd>评价方保存独立标注、来源与有效区间，注明与运行输入是否有重合。</dd></div>
+                <div><dt>评价指标</dt><dd>证据覆盖率、样本内共同误判比例、分组结果差异。</dd></div>
+                <div><dt>首项交付</dt><dd>已公开时钟输入、基线和 MCP 实测记录。后续实验需提供带可见时刻的样本及其判读规则。</dd></div>
+          </dl>
+        </div>
+        <div class="profile-links"><a href="./fixed-wing.html">高速固定翼专题与研究节点 ↗</a><a href="./task-profiles.json" download>下载两份任务配置</a><a href="./task-profile.schema.json" download>下载共用规范</a></div>
+        <noscript><p>两份完整任务配置可通过上方链接查看。</p></noscript>
+      </div>
+      <div class="handoff" id="project-handoff"><h3>固定翼仿真记录的判读与验证</h3><p>先用时钟样例核对 Skill 返回的事件标识、来源和时间，再在带可见时刻的独立样本上检验观测摘要。<a href="./fixed-wing.html#integration">查看证据与验收样例</a></p></div>
+    </div></section>
+</main>
+<footer class="site-foot"><div class="guide-wrap"><span>具身智能 RSI 研究架构</span><nav aria-label="技术资料"><a href="./modules.html">技术模块</a><a href="./environment.html">环境工具</a><a href="./recursion.html">递归验证</a><a href="./assets.html">成果库</a></nav></div></footer>
+</body></html>

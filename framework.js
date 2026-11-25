@@ -1,23 +1,30 @@
 'use strict';
 
-// Preserve links shared before the student map moved to its own page.
-function followStudentBookmark() {
+// Preserve shared links to sections that now live in their own documents.
+function followMovedSection() {
   const hash = window.location.hash;
-  const directionLayers = ['#layer-concept', '#layer-mechanism', '#layer-evaluation', '#layer-platform', '#layer-domain'];
-  if (document.body.dataset.page === 'core' && directionLayers.includes(hash)) {
-    window.location.replace('./directions.html' + hash);
-    return true;
+  const page = document.body.dataset.page;
+  if (!hash || document.getElementById(hash.slice(1))) return false;
+  let target;
+  if (page === 'directions' && /^#(mapping|experiments|observation|basis|skill|evaluation|cooperation|recursion-study|dependencies)$/.test(hash)) {
+    target = 'studies';
+  } else if (page === 'core') {
+    const oldSections = [
+      [/^#(execution-prototype)$/, 'execution'],
+      [/^#(engineering|research|work-[\w-]+)$/, 'modules'],
+      [/^#tool-contract$/, 'environment'],
+      [/^#(adaptation|project-handoff|profile-[\w-]+)$/, 'cases'],
+      [/^#recursion$/, 'recursion'],
+      [/^#(assets|asset-[\w.@-]+)$/, 'assets'],
+      [/^#layer-(concept|mechanism|evaluation|platform|domain)$/, 'directions'],
+      [/^#(representation|measurement|generalization|roadmap|example)$/, 'fixed-wing'],
+    ];
+    target = oldSections.find(([pattern]) => pattern.test(hash))?.[1];
   }
-  if (hash === '#topics' || hash === '#evidence' || hash.startsWith('#topic-')) {
-    window.location.replace('./topics.html' + hash);
-    return true;
-  }
-  const caseSections = ['#representation', '#measurement', '#generalization', '#roadmap', '#example'];
-  if (document.body.dataset.page === 'core' && caseSections.includes(hash)) {
-    window.location.replace('./fixed-wing.html' + hash);
-    return true;
-  }
-  return false;
+  if ((page === 'core' || page === 'fixed-wing') && /^#(topics|evidence|topic-[\w-]+)$/.test(hash)) target = 'topics';
+  if (!target) return false;
+  window.location.replace('./' + target + '.html' + window.location.search + hash);
+  return true;
 }
 
 function assetKey(asset) {
@@ -67,6 +74,8 @@ function isLocalAsset(path) {
 async function loadRegistry() {
   // Opening a local copy keeps the pre-rendered entries available without a server.
   if (!['http:', 'https:'].includes(window.location.protocol)) return;
+  const list = document.querySelector('.asset-list');
+  if (!list) return;
   try {
     const response = await fetch('./research-assets.json');
     if (!response.ok) return;
@@ -81,8 +90,7 @@ async function loadRegistry() {
     );
     if (!complete) return;
 
-    const list = document.querySelector('.asset-list');
-    const orderedAssets = document.body.dataset.page === 'core'
+    const orderedAssets = document.body.dataset.page === 'assets'
       ? [...data.assets].sort((a, b) => Number(Boolean(b.audience === 'core')) - Number(Boolean(a.audience === 'core')))
       : data.assets;
     list.replaceChildren(...orderedAssets.map(asset => assetRow(asset, registry)));
@@ -94,5 +102,5 @@ async function loadRegistry() {
   }
 }
 
-window.addEventListener('hashchange', followStudentBookmark);
-if (!followStudentBookmark()) loadRegistry();
+window.addEventListener('hashchange', followMovedSection);
+if (!followMovedSection()) loadRegistry();

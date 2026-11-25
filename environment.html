@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123c36"><meta name="description" content="MCP 时钟工具、协议实测及数字孪生的接入边界。">
+<title>环境工具层 · 具身智能 RSI</title>
+<link rel="stylesheet" href="./framework.css">
+<link rel="stylesheet" href="./embodied.css">
+<link rel="stylesheet" href="./blueprint.css">
+<link rel="stylesheet" href="./directions.css">
+<link rel="stylesheet" href="./guide.css">
+</head>
+<body id="top" data-page="environment"><a class="skip" href="#content">跳到正文</a>
+<header class="site-guide"><div class="guide-wrap"><nav class="guide-grid" aria-label="主导航">
+<a class="guide-card" href="./index.html"><strong>架构总图</strong><small>系统由哪些组件组成，怎样配合</small></a>
+<a class="guide-card" href="./directions.html"><strong>方向规划图</strong><small>各研究方向对应哪些架构组件</small></a>
+<a class="guide-card" href="./execution.html"><strong>执行面原型</strong><small>查看可运行的 Skill 与实测轨迹</small></a>
+<a class="guide-card" href="./topics.html"><strong>研究点地图</strong><small>从研究问题进入实验与选题</small></a></nav></div></header>
+<main id="content">
+<section class="wrap section" id="tool-contract">
+      <div class="section-head"><div><p class="kicker">首个 MCP 适配器</p><h1 class="detail-heading">把时钟实验做成工具</h1></div><p>Skill 定义何时调用工具、如何核对回执，以及如何解释返回结果。标准客户端通过 <code>tools/list</code> 发现工具及参数，通过 <code>tools/call</code> 调用。基线与新测结果均带运行号、事件标识和逻辑秒数。</p></div>
+      <div class="levels"><article><h3>读取基线</h3><code>read_clock_reference(run_id)</code><p>从两次已发布的 AFSIM 实测中选择一条，返回该次实验的时钟标记和来源。</p></article><article><h3>发起一次新测量</h3><code>measure_clock_markers()</code><p>在本地启动一次固定的无实体时钟实验，生成新的运行号并返回实际输出。每次调用都使用同一份双标记输入。</p></article></div>
+      <details class="worked"><summary>查看调用示例与 kagent 绑定方式</summary><div><pre class="rpc"><code>{"jsonrpc":"2.0","id":3,"method":"tools/call",
+ "params":{"name":"measure_clock_markers","arguments":{}}}</code></pre><p>测量 Skill 先读取基线，再发起新测量，逐项对照标记和时间。kagent 的声明式 Agent 通过 <code>mcpServer.toolNames</code> 绑定这两个名称。集群接入需提供可达的 Streamable HTTP 服务，AgenticMesh 通过运行实例引用和调用标识关联证据。</p></div></details>
+      <p class="evidence-status">官方 MCP 客户端已在 stdio 和 Streamable HTTP 上分别完成工具发现、读取基线与新测量。AFSIM 2.9.0 的两次新测均得到 1 秒和 3 秒的标记。GitHub Pages 提供代码、说明与实测记录。集群 Agent 调用与候选版本评价仍待验证。</p>
+      <p class="asset-link"><a href="./clock_mcp.py" download>工具服务源码</a> · <a href="./mcp-clock-test.json" download>协议调用实测记录</a> · <a href="https://github.com/Admire-ljb/embodied-rsi-atlas#运行-mcp-时钟工具">本地运行说明</a> · <a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCP 工具规范</a></p>
+    <article class="twin-note" id="digital-twin"><h2>数字孪生接口</h2><p>架构预留模型观测与参照记录的 MCP 接口。接入后，观测需声明来源、时刻和单位，独立参照需注明有效范围。目前公开实测覆盖 AFSIM 时钟工具。</p></article></section>
+</main>
+<footer class="site-foot"><div class="guide-wrap"><span>具身智能 RSI 研究架构</span><nav aria-label="技术资料"><a href="./modules.html">技术模块</a><a href="./cases.html">任务实例</a><a href="./recursion.html">递归验证</a><a href="./assets.html">成果库</a></nav></div></footer>
+</body></html>

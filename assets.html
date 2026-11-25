@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123c36"><meta name="description" content="可下载的架构图、代码、任务规范、研究样本与实测记录。">
+<title>成果库 · 具身智能 RSI</title>
+<link rel="stylesheet" href="./framework.css">
+<link rel="stylesheet" href="./embodied.css">
+<link rel="stylesheet" href="./blueprint.css">
+<link rel="stylesheet" href="./directions.css">
+<link rel="stylesheet" href="./guide.css">
+<script src="./framework.js?v=pages-1" defer></script>
+</head>
+<body id="top" data-page="assets"><a class="skip" href="#content">跳到正文</a>
+<header class="site-guide"><div class="guide-wrap"><nav class="guide-grid" aria-label="主导航">
+<a class="guide-card" href="./index.html"><strong>架构总图</strong><small>系统由哪些组件组成，怎样配合</small></a>
+<a class="guide-card" href="./directions.html"><strong>方向规划图</strong><small>各研究方向对应哪些架构组件</small></a>
+<a class="guide-card" href="./execution.html"><strong>执行面原型</strong><small>查看可运行的 Skill 与实测轨迹</small></a>
+<a class="guide-card" href="./topics.html"><strong>研究点地图</strong><small>从研究问题进入实验与选题</small></a></nav></div></header>
+<main id="content">
+<section class="wrap section" id="assets">
+      <div class="section-head"><div><p class="kicker">共享成果库</p><h1 class="detail-heading">留下可复用的版本</h1></div><p>通用契约、任务配置、样本与评价记录共用成果索引。每一项列出归属模块、版本、适用范围和上游依赖。</p></div>
+      <div class="asset-list">
+          <div><span>通用契约 · v1.0</span><a href="./task-profile.schema.json" download="task-profile.schema.json">具身任务描述规范 ↓</a><p>JSON Schema 描述环境、具身体、观测、能力、反馈和独立评价等共用字段。</p></div>
+          <div><span>实例配置 · v1.3</span><a href="./task-profiles.json" download="task-profiles.json">双任务适配示例 ↓</a><p>固定翼与室内巡检沿用同一套观测与评价字段，具体环境通过工具接入。</p></div>
+          <div><span>通用模板 · v1.0</span><a href="./rsi-experiment.txt" download="具身RSI实验记录.md">能力与改进器实验记录 ↓</a><p>分别记录任务能力版本、改进器版本、具身运行证据以及等预算的独立评价结果。</p></div>
+          <div><span>合成样本 · v1.0</span><a href="./consensus-example.csv" download="consensus-example.csv">共同误判合成样本 ↓</a><p>8 个抽象二值判断样本及两组匿名预测，仅用于演示计数和分母。</p></div>
+          <div><span>已复算示例 · v1.0</span><a href="./consensus-note.txt" download="consensus-note.md">共同误判复算记录 ↓</a><p>同一组样本说明一致率无法唯一确定共同误判率。</p></div>
+          <div><span>可用模板 · v1.0</span><a href="./research-record.txt" download="research-record.md">研究成果登记模板 ↓</a><p>记录研究问题、依赖版本、实验口径、结果、反例与后续复用。</p></div>
+      </div>
+      <p class="asset-link"><a href="./research-assets.json" download>下载结构化成果索引（JSON）</a></p>
+    </section>
+</main>
+<footer class="site-foot"><div class="guide-wrap"><span>具身智能 RSI 研究架构</span><nav aria-label="技术资料"><a href="./modules.html">技术模块</a><a href="./environment.html">环境工具</a><a href="./cases.html">任务实例</a><a href="./recursion.html">递归验证</a></nav></div></footer>
+</body></html>

@@ -69,7 +69,14 @@ async function loadTaskProfiles() {
     if (profiles.size !== data.profiles.length) return;
 
     select.replaceChildren(...data.profiles.map(profile => new Option(profile.title, profile.task_id)));
-    select.addEventListener('change', () => showTaskProfile(profiles.get(select.value)));
+    const requested = new URLSearchParams(location.search).get('task');
+    if (profiles.has(requested)) select.value = requested;
+    select.addEventListener('change', () => {
+      const url = new URL(location.href);
+      url.searchParams.set('task', select.value);
+      history.replaceState(null, '', url);
+      showTaskProfile(profiles.get(select.value));
+    });
     select.disabled = false;
     showTaskProfile(profiles.get(select.value));
   } catch {

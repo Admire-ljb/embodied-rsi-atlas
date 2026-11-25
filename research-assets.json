@@ -109,13 +109,13 @@
     },
     {
       "id": "layered-architecture",
-      "version": "1.4",
+      "version": "1.5",
       "name": "具身智能体 RSI 架构总图",
       "kind": "工程架构",
       "module": "具身智能 RSI 研究架构",
       "file": "rsi-architecture.jpg",
       "depends_on": [],
-      "scope": "外部锚点、控制面、进化面、执行面与证据底座。环境工具层统一接入仿真环境及数字孪生。",
+      "scope": "三面之间的调用关系、Agent 组成与证据回流。图内标明本地时钟实测结果、集群联调状态和数字孪生接入边界。",
       "audience": "core"
     },
     {
@@ -151,7 +151,7 @@
       "name": "分层研究方向规划图",
       "file": "ai-directions.jpg",
       "depends_on": [
-        "layered-architecture@1.4"
+        "layered-architecture@1.5"
       ],
       "scope": "以研究层级为行、架构面与共用底座为列，将研究节点映射到组件，并标出执行面的首项实现。",
       "audience": "core"
