@@ -74,7 +74,7 @@
     },
     {
       "id": "two-task-profiles",
-      "version": "1.2",
+      "version": "1.3",
       "name": "双任务适配示例",
       "kind": "实例配置",
       "module": "任务适配层",
@@ -82,7 +82,7 @@
       "depends_on": [
         "task-profile-contract@1.0"
       ],
-      "scope": "固定翼时钟记录与室内巡检样例共用观测、来源和独立评价字段。",
+      "scope": "固定翼与室内巡检沿用同一套观测与评价字段，具体环境通过工具接入。",
       "audience": "core"
     },
     {
@@ -109,13 +109,13 @@
     },
     {
       "id": "layered-architecture",
-      "version": "1.1",
+      "version": "1.2",
       "name": "AI 组具身 RSI 分层架构图",
       "kind": "工程架构",
       "module": "AI 组研究架构",
       "file": "rsi-architecture.jpg",
       "depends_on": [],
-      "scope": "外部锚点、三面职责、kagent 智能体、共用证据和 MCP 仿真适配。",
+      "scope": "AI 组的智能体执行、经验改进与独立评价。仿真环境和数字孪生均通过环境工具层接入。",
       "audience": "core"
     },
     {
@@ -151,7 +151,7 @@
       "name": "AI 组研究方向规划图",
       "file": "ai-directions.jpg",
       "depends_on": [
-        "layered-architecture@1.1"
+        "layered-architecture@1.2"
       ],
       "scope": "共同基准、两条并行支线与递归验证，附各方向交接的产物。",
       "audience": "core"

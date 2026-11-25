@@ -1,10 +1,10 @@
 # 具身智能 RSI 研究架构
 
-首页以外部锚点、RSI 三面、共用证据和环境工具展示系统。设计采用 kagent 运行 Agent，AgenticMesh 组织治理、归因与候选发布，MCP 连接具身环境。AI 组围绕观测、协作度量和递归改进维护基准、Skill 与评价协议。高速固定翼与室内仪表巡检是两份任务配置。
+AI 组研究如何让智能体协作、复用经验，并独立检验技能与改进器的候选版本。kagent 负责 Agent 运行，AgenticMesh 管理证据、候选与版本。仿真环境和数字孪生并列位于环境工具层，通过统一 MCP 工具接口提供观测和反馈。首个 AFSIM 时钟样例已在本地验证，数字孪生接入为架构设计。
 
 ## 入口
 
-- [分层架构总图](./index.html#architecture) · [AI 组任务](./index.html#engineering) · [方向规划图](./directions.html) · [环境工具](./index.html#tool-contract)
+- [分层架构总图](./index.html#architecture) · [AI 组任务](./index.html#engineering) · [方向规划图](./directions.html) · [环境工具层](./index.html#environment-tools) · [已测时钟工具](./index.html#tool-contract)
 - [高速固定翼专题](./fixed-wing.html)
 - [AI 组的 AFSIM 时钟样例](./fixed-wing.html#integration)，含[时钟输入](./afsim-clock-input.txt)及[两次运行记录](./afsim-clock-check.json)。本地时钟复现实验使用 AFSIM 2.9.0，后续可见性实验的前置条件见方向规划图。
 - [专题学生研究点与开题卡](./topics.html)

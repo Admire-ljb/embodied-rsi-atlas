@@ -3,11 +3,11 @@
   "profiles": [
     {
       "task_id": "fixed-wing-simulation",
-      "version": "1.2",
+      "version": "1.3",
       "title": "高速固定翼无人机集群",
       "status": "设计示例",
       "objective": "在给定仿真记录中，研究异步观测、群体判断与跨粒度比较的证据边界。",
-      "environment": "使用 AFSIM 时钟记录及带来源的任务级样本，比较不同记录粒度下可见的证据。",
+      "environment": "环境工具层通过 MCP 提供观测。AFSIM 时钟工具已在本地验证，数字孪生观测为预留输入。",
       "entities": "多个匿名成员及群组",
       "time_basis": "分别登记仿真采样时刻、可见时刻与记录粒度。",
       "observations": "给定样本中当时已公开的局部观测、群组摘要和来源。",

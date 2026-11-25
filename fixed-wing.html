@@ -58,9 +58,9 @@
       </div>
     </div></section>
     <section class="wrap section" id="integration" aria-labelledby="integration-title">
-      <div class="section-head"><div><p class="kicker">固定翼实例 · AI 组</p><h2 id="integration-title">用 AFSIM 时钟检验 Skill 的调用语义</h2></div><p>已有实测覆盖两个无实体时钟标记。AI 组用这份记录核对调用、返回与判读的含义，再建立带可见时间的观测样本。</p></div>
+      <div class="section-head"><div><p class="kicker">固定翼实例 · AI 组</p><h2 id="integration-title">用 AFSIM 时钟检验 Skill 的调用语义</h2></div><p>在这个实例中，AI 组用环境工具层返回的两个时钟标记验证 Skill 的调用和判读规则。其他观测源按同一接口接入。</p></div>
       <div class="planes"><article><h3>可见输入</h3><p>保存采样时刻、可见时刻、来源和单位，写清智能体在每次判断时可以读取的历史范围。</p></article><article><h3>可复用 Skill</h3><p>分别读取基线并发起新测量，用回执中的运行号区别两次调用。比较事件标识和逻辑时间，保留差异与缺失值。</p></article><article><h3>独立验收</h3><p>用人为标注的迟到观测验证查询前缀。再由另一位评价者只凭冻结记录复算，无独立依据的情况标记为未知。</p></article></div>
-      <p class="asset-link"><a href="./directions.html#observation">对应方向与首个实验</a> · <a href="./index.html#tool-contract">时钟工具与实测记录</a></p>
+      <p class="asset-link"><a href="./directions.html#observation">对应方向与首个实验</a> · <a href="./index.html#tool-contract">时钟工具与实测记录</a> · <a href="./index.html#environment-tools">查看环境工具层</a></p>
       <div class="worked" id="clock-check"><h3>首项实测 · AFSIM 逻辑时钟</h3><p>在本地 AFSIM 2.9.0 中，以同一份无实体输入独立运行两次。两次均在逻辑时间 1 秒和 3 秒依次输出标记 A、B。此结果验证了这两个标记的顺序和时刻可复现。观测可见性与 Agent 集成需分别验证。</p><p class="asset-link"><a href="./afsim-clock-input.txt" download>下载时钟样例输入</a> · <a href="./afsim-clock-check.json" download>下载两次运行的逐项记录</a></p></div>
     </section>
     <section class="wrap section" id="roadmap">

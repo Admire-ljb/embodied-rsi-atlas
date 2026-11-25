@@ -16,7 +16,7 @@
 .evidence-band { --wash: #f4f4ee; --stroke: #a7aa93; }
 .tool-band { --wash: #edf6f2; --stroke: #518575; margin-top: 8px; }
 .map-band p { color: #40564d; font-size: .93rem; margin-top: 4px; }
-.node-strip, .node-stack, .agent-strip, .tool-flow { display: grid; gap: 7px; margin-top: 7px; }
+.node-strip, .node-stack, .agent-strip { display: grid; gap: 7px; margin-top: 7px; }
 .node-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .blueprint a, .agent-fold { background: #fff; border: 1px solid var(--stroke); border-radius: 4px; }
 .blueprint a { display: grid; place-items: center; text-align: center; padding: 4px 8px; color: #253c33; text-decoration: none; font-size: .94rem; overflow-wrap: anywhere; }
@@ -36,7 +36,15 @@
 .agent-fold dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 8px 0; font-size: .92rem; }
 .agent-fold dt { font-weight: 650; }
 .agent-fold dd { margin: 0; }
-.tool-flow { grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; }
+.environment-bridge { max-width: 55rem; margin: 12px auto; }
+.environment-gateway { width: fit-content; min-width: 42%; margin: 0 auto; font-weight: 650; }
+.environment-sources { position: relative; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; padding-top: 22px; }
+.environment-sources::before { content: ''; position: absolute; left: 50%; top: 0; height: 11px; border-left: 1px solid var(--stroke); }
+.environment-sources::after { content: ''; position: absolute; left: calc(25% - 3.5px); right: calc(25% - 3.5px); top: 10px; height: 11px; border: 1px solid var(--stroke); border-bottom: 0; }
+.environment-sources > * { display: grid; align-content: center; justify-items: center; text-align: center; padding: 6px 8px; }
+.environment-source { background: white; border: 1px dashed var(--stroke); border-radius: 4px; }
+.environment-sources strong { font-size: 1rem; color: var(--ink); }
+.environment-sources span { color: var(--muted); font-size: .85rem; }
 .map-source { margin-top: 10px; }
 .work-list article { display: grid; grid-template-columns: minmax(190px, .72fr) 2fr; gap: 25px; padding: 17px 0; border-top: 1px solid #bdcbbf; scroll-margin-block-start: 1rem; }
 .work-list small { color: var(--green); font-weight: 650; }
@@ -53,7 +61,7 @@
   .blueprint-section { width: calc(100% - 24px); }
   .map-pair { grid-template-columns: 1fr; gap: 7px; }
   .node-stack { grid-template-columns: repeat(3,minmax(0,1fr)); }
-  .node-strip, .tool-flow { column-gap: 4px; }
+  .node-strip { column-gap: 4px; }
   .flow-nodes { column-gap: 13px; }
   .flow-nodes a:not(:last-child)::after { left: 100%; font-size: .78rem; }
   .blueprint a { padding: 4px; font-size: .88rem; }
