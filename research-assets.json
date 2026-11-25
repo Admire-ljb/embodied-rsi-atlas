@@ -109,6 +109,17 @@
     },
     {
       "id": "layered-architecture",
+      "version": "1.9",
+      "name": "具身智能体 RSI 架构与 AeroWeaver 执行面",
+      "kind": "工程架构",
+      "module": "具身智能 RSI 研究架构",
+      "file": "rsi-architecture-v1.9.svg",
+      "depends_on": ["layered-architecture@1.8.1"],
+      "scope": "将任务编排与本地 Agent 协作归入 AeroWeaver，以按任务绑定角色的实例展开内部五层。",
+      "audience": "core"
+    },
+    {
+      "id": "layered-architecture",
       "version": "1.8.1",
       "name": "具身智能体 RSI 架构与 Agent 内部五层",
       "kind": "工程架构",

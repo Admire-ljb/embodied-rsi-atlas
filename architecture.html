@@ -19,7 +19,7 @@
 <header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html" aria-current="page">架构总图</a><a href="./directions.html">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html">研究点地图</a></nav></div></header>
 <main id="content">
 <section class="diagram-page" id="architecture"><div class="diagram-view">
-<div class="export-poster map-downloads"><a download href="./rsi-architecture-v1.8.1.svg">下载矢量图</a><a download href="./rsi-architecture-v1.8.1.jpg">下载 JPG</a></div>
+<div class="export-poster map-downloads"><span>架构图 v1.9</span><a download href="./rsi-architecture-v1.9.svg">下载矢量图</a><a download href="./rsi-architecture-v1.9.jpg">下载 JPG</a></div>
 <div class="diagram-tools" role="group" aria-label="架构总图缩放" hidden>
   <span class="zoom-label">图幅</span><button type="button" data-zoom="auto" aria-pressed="true">自动</button><button type="button" data-zoom="fit" aria-pressed="false">适宽</button><button type="button" data-zoom="original" aria-pressed="false">原大</button>
   <button type="button" data-zoom="smaller" aria-label="缩小图幅">−</button><span class="zoom-amount" aria-live="polite"></span><button type="button" data-zoom="larger" aria-label="放大图幅">＋</button><span class="pan-hint" hidden>可横向滚动查看</span>
@@ -31,10 +31,10 @@
 <span class="fragment" id="execution" style="left:47.6%;top:29.7%"></span>
 <span class="fragment" id="agent-internals" style="left:48.7%;top:44%"></span>
 <span class="fragment" id="environment-tools" style="left:2%;top:87.8%"></span>
-<object data="./rsi-architecture-v1.8.1.svg" type="image/svg+xml" width="1160" height="1096" aria-label="三面架构与观测 Agent 内部五层。点击各层和网关查看职责。">
-<img src="./rsi-architecture-v1.8.1.jpg" width="1160" height="1096" alt="观测 Agent 含模型、上下文、记忆、Skill 和 Harness。模型与记忆分别经网关访问服务和存储，Harness 经工具网关调用环境。运行证据回到进化面，候选由控制面验证并发布。">
+<object data="./rsi-architecture-v1.9.svg" type="image/svg+xml" width="1160" height="1096" aria-label="三面架构与组件关系。AeroWeaver 包含应用编排和多个协作的本地 Agent。点击编排节点、Agent 和网关可查看职责。">
+<img src="./rsi-architecture-v1.9.jpg" width="1160" height="1096" alt="执行面以 AeroWeaver 编排应用，按任务绑定角色和 Skill，本地 Agent 之间拟通过 A2A 协议通信。单个实例展开为模型、上下文、记忆、Skill 和 Harness 五层。环境工具通过 MCP 调用。进化面根据运行证据提出候选，控制面验证并发布版本。">
 </object></figure></div></div></div>
-</div><p class="map-notes"><a href="./modules.html#agent-layers">Agent 五层与网关说明</a> · <a href="./modules.html">架构组件职责</a> · <a href="./execution.html">执行面实测记录</a></p></section>
+</div><p class="map-notes"><a href="./modules.html#aeroweaver">AeroWeaver 编排与协作</a> · <a href="./modules.html#agent-layers">Agent 五层与网关说明</a> · <a href="./execution.html">执行面实测记录</a></p></section>
 </main>
 <footer class="site-foot"><div class="guide-wrap"><span>具身智能 RSI 研究架构</span><nav aria-label="技术资料"><a href="./modules.html">技术模块</a><a href="./environment.html">环境工具</a><a href="./cases.html">任务实例</a><a href="./recursion.html">递归验证</a><a href="./assets.html">成果库</a></nav></div></footer>
 </body></html>

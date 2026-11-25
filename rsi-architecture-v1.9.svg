@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1096" width="100%" height="100%" role="group" aria-labelledby="title desc" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+  <title id="title">具身智能体 RSI 组件与协作关系</title>
+  <desc id="desc">控制面将获准版本下发至执行面。AeroWeaver 编排应用，按任务为本地 Agent 分配角色并绑定 Skill。Agent 实例之间拟通过 A2A 协议通信。展开一个实例可见模型、上下文、记忆、Skill 和 Harness 五层。模型、记忆与环境工具分别由对应网关访问。运行证据进入进化面，候选版本由控制面验证。</desc>
+  <style>a:hover rect,a:focus rect{stroke:#173f36;stroke-width:2.3}a:focus{outline:none}</style>
+  <text x="25" y="39" font-size="29" font-weight="700" fill="#203b37" text-anchor="start">具身智能体 RSI 组件与协作关系</text>
+  <text x="1135" y="37" font-size="16" font-weight="400" fill="#50675e" text-anchor="end">控制面、进化面与 Agent 五层结构沿用 AgenticMesh</text>
+  <rect x="24" y="62" width="1112" height="66" rx="8" fill="#f4f6f4" stroke="#c1cec8" stroke-width="1" />
+  <rect x="24" y="153" width="1112" height="127" rx="8" fill="#fcf6e9" stroke="#d3be8a" stroke-width="1" />
+  <rect x="24" y="326" width="496" height="478" rx="8" fill="#eef6ef" stroke="#aac9af" stroke-width="1" />
+  <rect x="552" y="326" width="584" height="478" rx="8" fill="#edf4f9" stroke="#abc4d7" stroke-width="1" />
+  <rect x="564" y="357" width="561" height="107" rx="8" fill="#e3eef5" stroke="#94b0c5" stroke-width="1" />
+  <rect x="24" y="837" width="908" height="98" rx="8" fill="#f0f3f0" stroke="#b8c9bf" stroke-width="1" />
+  <rect x="24" y="963" width="1112" height="89" rx="8" fill="#edf5f2" stroke="#adc9bb" stroke-width="1" />
+  <rect x="202" y="180" width="551" height="72" rx="5" fill="#f9edcf" stroke="#d8c58e" stroke-width="1" />
+  <text x="39" y="100" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">外部锚点</text>
+  <text x="39" y="181" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">控制面</text>
+  <text x="39" y="351" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">进化面</text>
+  <text x="230" y="350" font-size="14" font-weight="400" fill="#50675e" text-anchor="start">AgenticMesh</text>
+  <text x="568" y="351" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">执行面</text>
+  <text x="654" y="350" font-size="14" font-weight="400" fill="#50675e" text-anchor="start">kagent 运行时（拟接入）</text>
+  <text x="39" y="863" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">共用底座</text>
+  <text x="39" y="993" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">环境工具层</text>
+  <text x="215" y="200" font-size="14" font-weight="700" fill="#74561e" text-anchor="start">分级质量门禁</text>
+  <text x="400" y="271" font-size="14" font-weight="700" fill="#71571f" text-anchor="start">治理对象</text>
+  <text x="473" y="271" font-size="14" font-weight="400" fill="#71571f" text-anchor="start">范围与预算  /  实验对象  /  应用定义  /  策略与身份</text>
+  <polyline points="286,113 286,180" fill="none" stroke="#9a6e20" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="286.0,180.0 282.0,172.0 290.0,172.0" fill="#9a6e20" />
+  <polyline points="464,113 464,180" fill="none" stroke="#9a6e20" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="464.0,180.0 460.0,172.0 468.0,172.0" fill="#9a6e20" />
+  <polyline points="847,113 847,210" fill="none" stroke="#9a6e20" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="847.0,210.0 843.0,202.0 851.0,202.0" fill="#9a6e20" />
+  <polyline points="1049,113 1049,210" fill="none" stroke="#9a6e20" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="1049.0,210.0 1045.0,202.0 1053.0,202.0" fill="#9a6e20" />
+  <rect x="208" y="78" width="156" height="35" rx="5" fill="white" stroke="#bac8be" stroke-width="1" />
+  <text x="286.0" y="101.1" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">约束与预算</text>
+  <rect x="386" y="78" width="156" height="35" rx="5" fill="white" stroke="#bac8be" stroke-width="1" />
+  <text x="464.0" y="101.1" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">注入真值</text>
+  <rect x="769" y="78" width="156" height="35" rx="5" fill="white" stroke="#bac8be" stroke-width="1" />
+  <text x="847.0" y="101.1" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">留出集与锚集</text>
+  <rect x="971" y="78" width="156" height="35" rx="5" fill="white" stroke="#bac8be" stroke-width="1" />
+  <text x="1049.0" y="101.1" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">放行规则</text>
+  <a href="./modules.html#work-release" target="_top">
+    <rect x="48" y="210" width="130" height="36" rx="5" fill="white" stroke="#c8ae70" stroke-width="1" />
+    <text x="113.0" y="233.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">候选版本</text>
+  </a>
+  <a href="./modules.html#work-release" target="_top">
+    <rect x="213" y="210" width="123" height="36" rx="5" fill="white" stroke="#c8ae70" stroke-width="1" />
+    <text x="274.5" y="233.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">模拟与红队测试</text>
+  </a>
+  <a href="./modules.html#work-release" target="_top">
+    <rect x="353" y="210" width="128" height="36" rx="5" fill="white" stroke="#c8ae70" stroke-width="1" />
+    <text x="417.0" y="233.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">回放与沙箱</text>
+  </a>
+  <a href="./modules.html#work-release" target="_top">
+    <rect x="500" y="210" width="105" height="36" rx="5" fill="white" stroke="#c8ae70" stroke-width="1" />
+    <text x="552.5" y="233.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">流量镜像</text>
+  </a>
+  <a href="./modules.html#work-release" target="_top">
+    <rect x="625" y="210" width="117" height="36" rx="5" fill="white" stroke="#c8ae70" stroke-width="1" />
+    <text x="683.5" y="233.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">金丝雀发布</text>
+  </a>
+  <a href="./modules.html#work-eval" target="_top">
+    <rect x="777" y="210" width="140" height="36" rx="5" fill="white" stroke="#c8ae70" stroke-width="1" />
+    <text x="847.0" y="233.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">接受准则</text>
+  </a>
+  <a href="./modules.html#work-release" target="_top">
+    <rect x="962" y="210" width="154" height="36" rx="5" fill="#f1f7f0" stroke="#94b79d" stroke-width="1" />
+    <text x="1039.0" y="233.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">应用版本</text>
+  </a>
+  <polyline points="178,228 213,228" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="213.0,228.0 205.0,232.0 205.0,224.0" fill="#327558" />
+  <polyline points="336,228 353,228" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="353.0,228.0 345.0,232.0 345.0,224.0" fill="#327558" />
+  <polyline points="481,228 500,228" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="500.0,228.0 492.0,232.0 492.0,224.0" fill="#327558" />
+  <polyline points="605,228 625,228" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="625.0,228.0 617.0,232.0 617.0,224.0" fill="#327558" />
+  <polyline points="742,228 777,228" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="777.0,228.0 769.0,232.0 769.0,224.0" fill="#327558" />
+  <polyline points="917,228 962,228" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="962.0,228.0 954.0,232.0 954.0,224.0" fill="#327558" />
+  <polyline points="114,374 114,246" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="114.0,246.0 118.0,254.0 110.0,254.0" fill="#327558" />
+  <text x="124" y="305" font-size="14" font-weight="700" fill="#327558" text-anchor="start">提交候选</text>
+  <polyline points="1075,246 1075,383" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="1075.0,383.0 1071.0,375.0 1079.0,375.0" fill="#327558" />
+  <text x="1084" y="301" font-size="13" font-weight="700" fill="#327558" text-anchor="start">灰度下发</text>
+  <text x="1084" y="318" font-size="13" font-weight="400" fill="#327558" text-anchor="start">支持回退</text>
+  <polyline points="1008,246 1008,296 382,296 382,374" fill="none" stroke="#7956a2" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 4" />
+  <polygon points="382.0,374.0 378.0,366.0 386.0,366.0" fill="#7956a2" />
+  <text x="594" y="315" font-size="14" font-weight="700" fill="#7956a2" text-anchor="start">获准的改进器版本</text>
+  <a href="./modules.html#work-evolve" target="_top">
+    <rect x="48" y="374" width="132" height="42" rx="5" fill="white" stroke="#92b599" stroke-width="1" />
+    <text x="114.0" y="400.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">候选提案</text>
+  </a>
+  <a href="./modules.html#work-evolve" target="_top">
+    <rect x="48" y="493" width="132" height="42" rx="5" fill="white" stroke="#92b599" stroke-width="1" />
+    <text x="114.0" y="519.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">归因定位</text>
+  </a>
+  <a href="./modules.html#work-evolve" target="_top">
+    <rect x="48" y="600" width="132" height="42" rx="5" fill="white" stroke="#92b599" stroke-width="1" />
+    <text x="114.0" y="626.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">改进目标</text>
+  </a>
+  <a href="./modules.html#work-evolve" target="_top">
+    <rect x="48" y="716" width="132" height="42" rx="5" fill="white" stroke="#92b599" stroke-width="1" />
+    <text x="114.0" y="742.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">失败聚类</text>
+  </a>
+  <a href="./recursion.html" target="_top">
+    <rect x="258" y="374" width="240" height="52" rx="5" fill="white" stroke="#ab92c3" stroke-width="1" />
+    <text x="378.0" y="400.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">改进器</text>
+    <text x="378.0" y="417.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">归因器 · 提议器 · 评判器</text>
+  </a>
+  <a href="./studies.html#skill" target="_top">
+    <rect x="273" y="493" width="207" height="42" rx="5" fill="white" stroke="#92b599" stroke-width="1" />
+    <text x="376.5" y="519.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">经验库</text>
+  </a>
+  <a href="./modules.html#agent-skill" target="_top">
+    <rect x="273" y="600" width="207" height="42" rx="5" fill="white" stroke="#92b599" stroke-width="1" />
+    <text x="376.5" y="626.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">经验沉淀</text>
+  </a>
+  <a href="./modules.html#work-evolve" target="_top">
+    <rect x="273" y="716" width="207" height="42" rx="5" fill="white" stroke="#92b599" stroke-width="1" />
+    <text x="376.5" y="742.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">故障诊断与自愈</text>
+  </a>
+  <polyline points="114,716 114,642" fill="none" stroke="#3f72a0" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="114.0,642.0 118.0,650.0 110.0,650.0" fill="#3f72a0" />
+  <polyline points="114,600 114,535" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="114.0,535.0 118.0,543.0 110.0,543.0" fill="#667974" />
+  <polyline points="114,493 114,416" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="114.0,416.0 118.0,424.0 110.0,424.0" fill="#327558" />
+  <polyline points="258,408 220,408 220,514 180,514" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="180.0,514.0 188.0,510.0 188.0,518.0" fill="#667974" />
+  <polyline points="258,393 180,393" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="180.0,393.0 188.0,389.0 188.0,397.0" fill="#327558" />
+  <polyline points="376,493 376,426" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="376.0,426.0 380.0,434.0 372.0,434.0" fill="#667974" />
+  <text x="386" y="465" font-size="14" font-weight="400" fill="#50675e" text-anchor="start">检索经验</text>
+  <polyline points="376,535 376,600" fill="none" stroke="#287769" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="376.0,600.0 372.0,592.0 380.0,592.0" fill="#287769" />
+  <polyline points="273,621 180,621" fill="none" stroke="#287769" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="180.0,621.0 188.0,617.0 188.0,625.0" fill="#287769" />
+  <polyline points="180,737 273,737" fill="none" stroke="#3f72a0" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="273.0,737.0 265.0,741.0 265.0,733.0" fill="#3f72a0" />
+  <polyline points="316,716 316,680 154,680 154,642" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="154.0,642.0 158.0,650.0 150.0,650.0" fill="#327558" />
+  <text x="324" y="691" font-size="14" font-weight="400" fill="#50675e" text-anchor="start">生成修复目标</text>
+  <text x="578" y="376" font-size="17" font-weight="700" fill="#203b37" text-anchor="start">AeroWeaver · 应用编排与多智能体协作</text>
+  <a href="./modules.html#aeroweaver" target="_top">
+    <rect x="576" y="383" width="535" height="27" rx="5" fill="white" stroke="#9bb6cb" stroke-width="1" />
+    <text x="843.5" y="402.1" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">任务编排 · 分配角色与绑定 Skill</text>
+  </a>
+  <a href="./modules.html#agent-layers" target="_top">
+    <rect x="615" y="429" width="168" height="27" rx="5" fill="white" stroke="#96b3c9" stroke-width="1" />
+    <text x="699.0" y="448.1" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">本地 Agent 1</text>
+  </a>
+  <a href="./modules.html#aeroweaver" target="_top">
+    <rect x="898" y="429" width="160" height="27" rx="5" fill="white" stroke="#96b3c9" stroke-width="1" />
+    <text x="978.0" y="448.1" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">本地 Agent N</text>
+  </a>
+  <polyline points="699,410 699,429" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="699.0,429.0 695.0,421.0 703.0,421.0" fill="#667974" />
+  <polyline points="978,410 978,429" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="978.0,429.0 974.0,421.0 982.0,421.0" fill="#667974" />
+  <polyline points="783,444 898,444" fill="none" stroke="#247b83" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="898.0,444.0 890.0,448.0 890.0,440.0" fill="#247b83" />
+  <polygon points="783.0,444.0 791.0,440.0 791.0,448.0" fill="#247b83" />
+  <text x="840" y="437" font-size="13" font-weight="700" fill="#247b83" text-anchor="middle">A2A 协议</text>
+  <rect x="565" y="483" width="238" height="289" rx="8" fill="#e4eff6" stroke="#94b0c5" stroke-width="1" />
+  <polyline points="699,456 699,483" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 4" />
+  <polygon points="699.0,483.0 695.0,475.0 703.0,475.0" fill="#667974" />
+  <text x="711" y="474" font-size="13" font-weight="400" fill="#50675e" text-anchor="start">展开</text>
+  <text x="579" y="505" font-size="16" font-weight="700" fill="#203b37" text-anchor="start">单个 Agent 内部五层</text>
+  <text x="825" y="505" font-size="15" font-weight="700" fill="#203b37" text-anchor="start">进程外网关</text>
+  <text x="995" y="505" font-size="15" font-weight="700" fill="#203b37" text-anchor="start">服务与存储</text>
+  <a href="./modules.html#agent-model" target="_top">
+    <rect x="607" y="513" width="184" height="40" rx="5" fill="white" stroke="#a2b9cb" stroke-width="1" />
+    <text x="699.0" y="533.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">模型</text>
+    <text x="699.0" y="550.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">权重冻结 · 更新预留</text>
+  </a>
+  <a href="./modules.html#agent-context" target="_top">
+    <rect x="607" y="562" width="184" height="40" rx="5" fill="white" stroke="#a2b9cb" stroke-width="1" />
+    <text x="699.0" y="582.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">上下文</text>
+    <text x="699.0" y="599.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">系统指令 · 任务信息 · 示例</text>
+  </a>
+  <a href="./modules.html#agent-memory" target="_top">
+    <rect x="607" y="611" width="184" height="40" rx="5" fill="white" stroke="#a2b9cb" stroke-width="1" />
+    <text x="699.0" y="631.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">记忆</text>
+    <text x="699.0" y="648.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">经验 · 事实 · 来源</text>
+  </a>
+  <a href="./modules.html#agent-skill" target="_top">
+    <rect x="607" y="660" width="184" height="40" rx="5" fill="white" stroke="#a2b9cb" stroke-width="1" />
+    <text x="699.0" y="680.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">Skill（技能）</text>
+    <text x="699.0" y="697.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">可复用流程 · 时钟观测</text>
+  </a>
+  <a href="./modules.html#agent-harness" target="_top">
+    <rect x="607" y="709" width="184" height="40" rx="5" fill="white" stroke="#a2b9cb" stroke-width="1" />
+    <text x="699.0" y="729.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">Harness</text>
+    <text x="699.0" y="746.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">工具绑定 · 控制流程 · 子代理</text>
+  </a>
+  <polyline points="607,585 587,585 587,626 607,626" fill="none" stroke="#287769" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="607.0,626.0 599.0,630.0 599.0,622.0" fill="#287769" />
+  <polyline points="607,634 587,634 587,675 607,675" fill="none" stroke="#287769" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="607.0,675.0 599.0,679.0 599.0,671.0" fill="#287769" />
+  <polyline points="607,683 587,683 587,724 607,724" fill="none" stroke="#287769" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="607.0,724.0 599.0,728.0 599.0,720.0" fill="#287769" />
+  <polyline points="607,737 576,737 576,533 607,533" fill="none" stroke="#287769" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 4" />
+  <polygon points="607.0,533.0 599.0,537.0 599.0,529.0" fill="#287769" />
+  <polyline points="607,544 587,544 587,576 607,576" fill="none" stroke="#287769" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 4" />
+  <polygon points="607.0,576.0 599.0,580.0 599.0,572.0" fill="#287769" />
+  <text x="580" y="765" font-size="12" font-weight="400" fill="#287769" text-anchor="start">实线：经验沉淀　虚线：预留</text>
+  <a href="./modules.html#agent-model" target="_top">
+    <rect x="826" y="513" width="121" height="40" rx="5" fill="white" stroke="#a2b9cb" stroke-width="1" />
+    <text x="886.5" y="533.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">模型网关</text>
+    <text x="886.5" y="550.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">路由 · 预算</text>
+  </a>
+  <a href="./modules.html#agent-model" target="_top">
+    <rect x="981" y="513" width="140" height="40" rx="5" fill="white" stroke="#a2b9cb" stroke-width="1" />
+    <text x="1051.0" y="533.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">模型提供方</text>
+    <text x="1051.0" y="550.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">切换 · 降级</text>
+  </a>
+  <polyline points="791,533 826,533" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="826.0,533.0 818.0,537.0 818.0,529.0" fill="#667974" />
+  <polyline points="947,533 981,533" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="981.0,533.0 973.0,537.0 973.0,529.0" fill="#667974" />
+  <a href="./modules.html#agent-memory" target="_top">
+    <rect x="826" y="611" width="121" height="40" rx="5" fill="white" stroke="#a2b9cb" stroke-width="1" />
+    <text x="886.5" y="631.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">记忆网关</text>
+    <text x="886.5" y="648.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">读写范围</text>
+  </a>
+  <a href="./modules.html#agent-memory" target="_top">
+    <rect x="981" y="611" width="140" height="40" rx="5" fill="white" stroke="#a2b9cb" stroke-width="1" />
+    <text x="1051.0" y="631.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">记忆存储</text>
+    <text x="1051.0" y="648.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">向量库 · 图谱</text>
+  </a>
+  <polyline points="791,631 826,631" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="826.0,631.0 818.0,635.0 818.0,627.0" fill="#667974" />
+  <polyline points="947,631 981,631" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="981.0,631.0 973.0,635.0 973.0,627.0" fill="#667974" />
+  <a href="./modules.html#work-tools" target="_top">
+    <rect x="826" y="709" width="121" height="40" rx="5" fill="white" stroke="#87b8b8" stroke-width="1" />
+    <text x="886.5" y="729.0" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">工具网关</text>
+    <text x="886.5" y="746.0" font-size="13" font-weight="400" fill="#50675e" text-anchor="middle">MCP 绑定 · 权限</text>
+  </a>
+  <polyline points="791,729 826,729" fill="none" stroke="#247b83" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="826.0,729.0 818.0,733.0 818.0,725.0" fill="#247b83" />
+  <text x="826" y="687" font-size="13" font-weight="400" fill="#50675e" text-anchor="start">运行时记忆按权限读写</text>
+  <text x="569" y="793" font-size="14" font-weight="400" fill="#375c70" text-anchor="start">本地实测　时钟 Skill / MCP</text>
+  <text x="858" y="793" font-size="13" font-weight="400" fill="#375c70" text-anchor="start">待联调　模型、记忆网关与 A2A</text>
+  <a href="./assets.html" target="_top">
+    <rect x="48" y="877" width="163" height="40" rx="5" fill="white" stroke="#9eb8ca" stroke-width="1" />
+    <text x="129.5" y="902.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">统一轨迹</text>
+  </a>
+  <a href="./assets.html" target="_top">
+    <rect x="348" y="877" width="166" height="40" rx="5" fill="white" stroke="#9eb8ca" stroke-width="1" />
+    <text x="431.0" y="902.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">轨迹拼接</text>
+  </a>
+  <a href="./assets.html" target="_top">
+    <rect x="727" y="877" width="180" height="40" rx="5" fill="white" stroke="#9eb8ca" stroke-width="1" />
+    <text x="817.0" y="902.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">遥测采集</text>
+  </a>
+  <polyline points="843,749 843,877" fill="none" stroke="#3f72a0" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="843.0,877.0 839.0,869.0 847.0,869.0" fill="#3f72a0" />
+  <text x="853" y="835" font-size="14" font-weight="700" fill="#3f72a0" text-anchor="start">工具回执</text>
+  <polyline points="768,749 768,877" fill="none" stroke="#3f72a0" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="768.0,877.0 764.0,869.0 772.0,869.0" fill="#3f72a0" />
+  <text x="759" y="835" font-size="14" font-weight="700" fill="#3f72a0" text-anchor="end">Agent 步骤</text>
+  <polyline points="727,897 514,897" fill="none" stroke="#3f72a0" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="514.0,897.0 522.0,893.0 522.0,901.0" fill="#3f72a0" />
+  <polyline points="348,897 211,897" fill="none" stroke="#3f72a0" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="211.0,897.0 219.0,893.0 219.0,901.0" fill="#3f72a0" />
+  <polyline points="135,877 135,758" fill="none" stroke="#3f72a0" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="135.0,758.0 139.0,766.0 131.0,766.0" fill="#3f72a0" />
+  <text x="145" y="825" font-size="14" font-weight="700" fill="#3f72a0" text-anchor="start">运行证据</text>
+  <polyline points="157,877 157,852 503,852 503,514 480,514" fill="none" stroke="#3f72a0" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="480.0,514.0 488.0,510.0 488.0,518.0" fill="#3f72a0" />
+  <text x="493" y="825" font-size="14" font-weight="400" fill="#3f72a0" text-anchor="end">经验归档</text>
+  <a href="./environment.html" target="_top">
+    <rect x="935" y="975" width="188" height="38" rx="5" fill="white" stroke="#81aaa5" stroke-width="1" />
+    <text x="1029.0" y="999.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">MCP 环境接口</text>
+  </a>
+  <a href="./environment.html#tool-contract" target="_top">
+    <rect x="290" y="1010" width="224" height="34" rx="5" fill="white" stroke="#9ab9aa" stroke-width="1" />
+    <text x="402.0" y="1032.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">AFSIM 时钟服务</text>
+  </a>
+  <a href="./environment.html#digital-twin" target="_top">
+    <rect x="586" y="1010" width="230" height="34" rx="5" fill="white" stroke="#9ab9aa" stroke-width="1" />
+    <text x="701.0" y="1032.6" font-size="16" font-weight="700" fill="#203b37" text-anchor="middle">数字孪生接口（预留）</text>
+  </a>
+  <polyline points="947,721 1106,721 1106,975" fill="none" stroke="#247b83" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="1106.0,975.0 1102.0,967.0 1110.0,967.0" fill="#247b83" />
+  <polyline points="1050,975 1050,740 947,740" fill="none" stroke="#247b83" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="947.0,740.0 955.0,736.0 955.0,744.0" fill="#247b83" />
+  <text x="1040" y="889" font-size="14" font-weight="700" fill="#247b83" text-anchor="end">回执</text>
+  <text x="1111" y="889" font-size="14" font-weight="700" fill="#247b83" text-anchor="start">调用</text>
+  <polyline points="935,994 402,994 402,1010" fill="none" stroke="#247b83" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="402.0,1010.0 398.0,1002.0 406.0,1002.0" fill="#247b83" />
+  <polyline points="701,994 701,1010" fill="none" stroke="#247b83" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="701.0,1010.0 697.0,1002.0 705.0,1002.0" fill="#247b83" />
+  <polyline points="33,1074 62,1074" fill="none" stroke="#327558" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="62.0,1074.0 54.0,1078.0 54.0,1070.0" fill="#327558" />
+  <text x="71" y="1080" font-size="15" font-weight="400" fill="#50675e" text-anchor="start">候选与版本</text>
+  <polyline points="246,1074 275,1074" fill="none" stroke="#3f72a0" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="275.0,1074.0 267.0,1078.0 267.0,1070.0" fill="#3f72a0" />
+  <text x="284" y="1080" font-size="15" font-weight="400" fill="#50675e" text-anchor="start">运行证据</text>
+  <polyline points="422,1074 451,1074" fill="none" stroke="#247b83" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="451.0,1074.0 443.0,1078.0 443.0,1070.0" fill="#247b83" />
+  <text x="460" y="1080" font-size="15" font-weight="400" fill="#50675e" text-anchor="start">调用与回执</text>
+  <polyline points="623,1074 652,1074" fill="none" stroke="#667974" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="652.0,1074.0 644.0,1078.0 644.0,1070.0" fill="#667974" />
+  <text x="661" y="1080" font-size="15" font-weight="400" fill="#50675e" text-anchor="start">编排与依赖</text>
+  <polyline points="820,1074 849,1074" fill="none" stroke="#9a6e20" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="849.0,1074.0 841.0,1078.0 841.0,1070.0" fill="#9a6e20" />
+  <text x="858" y="1080" font-size="15" font-weight="400" fill="#50675e" text-anchor="start">外部约束</text>
+  <polyline points="980,1074 1009,1074" fill="none" stroke="#7956a2" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 4" />
+  <polygon points="1009.0,1074.0 1001.0,1078.0 1001.0,1070.0" fill="#7956a2" />
+  <text x="1018" y="1080" font-size="15" font-weight="400" fill="#50675e" text-anchor="start">改进器递归</text>
+</svg>

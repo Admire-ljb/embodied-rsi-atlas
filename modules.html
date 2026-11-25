@@ -14,7 +14,7 @@
 <section class="band" id="engineering"><div class="wrap section">
       <div class="section-head" id="research"><div><p class="kicker">技术模块</p><h1 class="detail-heading">模块、交付与验收</h1></div><p>各模块分别定义角色交接、工具调用、经验检索和版本选择。模块间以带来源的观测、可回放的运行记录及固定的评价协议交换结果。</p></div>
       <div class="work-list">
-<article id="work-runtime"><div><small>执行面</small><h3>智能体上下文与角色交接</h3></div><div><p><b>交付</b>　定义 kagent Agent 的角色、上下文和 Skill 绑定，给每次交接保留观测来源。</p><p><b>验收</b>　在同一批读数任务上复核交接前后的信息遗漏。</p><a href="./studies.html#observation">局部观测的时间与表征</a></div></article>
+<article id="work-runtime"><div><small>执行面</small><h3 id="aeroweaver">AeroWeaver · 应用编排与多智能体协作</h3></div><div><p><b>编排</b>　沿用 AeroWeaver 的任务上下文、角色分配和技能绑定机制。每个本地 Agent 持有自己的上下文和可用 Skill，通过消息与其他实例协作。角色随任务配置。</p><p><b>接入</b>　本项目拟用 kagent 承载 Agent 实例，用 A2A 适配实例间的消息交换。环境工具通过 MCP 网关调用。</p><p><b>验收</b>　在同一项时钟校验任务中核对两个实例交换的读数、来源与时刻，并用运行记录复现交接过程。</p><a href="https://admire-ljb.github.io/AeroWeaver/">AeroWeaver 项目与设计</a> · <a href="./studies.html#observation">局部观测的时间与表征</a></div></article>
 <article id="work-tools"><div><small>执行面 · 技能与工具绑定</small><h3>Skill 与 MCP 调用契约</h3></div><div><p><b>交付</b>　定义 Skill 何时调用 MCP 工具、允许哪些输入、如何解释输出。用时钟样例核对观测来源、单位和回执。</p><p><b>验收</b>　从回执中区分基线与新测结果，检查事件标识、来源与时间单位。</p><a href="./studies.html#basis">可回放的共同基准</a></div></article>
 <article id="work-eval"><div><small>共用证据</small><h3>群体度量与独立评价</h3></div><div><p><b>交付</b>　确定样本、分母、信息预算和配对基线，保留共同误判的反例。</p><p><b>验收</b>　从同一批输入复算一致率、共同误判率和配对收益。</p><a href="./studies.html#cooperation">共识与协作增益的度量</a></div></article>
 <article id="work-evolve"><div><small>进化面 · 沿用 AgenticMesh</small><h3>从运行证据到改进候选</h3></div><div><p><b>输入</b>　执行轨迹、在线评测结果和既有经验。按症状归集失败样本，生成含适用条件与验收用例的目标。</p><p><b>组件</b>　归因器用回放定位可能出错的组件，提议器给出补丁，评判器检查证据是否足以支持送审。经验库保存症状、位置、修改与效果之间的关联。</p><p><b>输出</b>　候选携带父版本、改动范围、证据和已知反例。改进器自身的修改走同一条提交流程，由控制面裁决。</p><a href="./architecture.html#evolution">在总图中定位</a> · <a href="./studies.html#skill">经验复用研究</a></div></article>
@@ -23,7 +23,7 @@
 <p class="asset-link"><a href="./directions.html">查看研究顺序与停止条件</a> · <a href="./topics.html#topics">专题研究点与开题卡</a></p>
     </div></section>
 <section class="wrap section" id="agent-layers">
-  <div class="section-head"><div><p class="kicker">执行面 · 观测 Agent</p><h2>Agent 内部五层</h2></div>
+  <div class="section-head"><div><p class="kicker">执行面 · 单个 Agent 实例</p><h2>Agent 内部五层</h2></div>
   <p>同一份应用版本登记角色、Skill 和工具绑定。模型选择、记忆访问和工具权限分别交给进程外的三个网关治理。图中的五层沿用 AgenticMesh 的设计。</p></div>
   <div class="table-scroll"><table><thead><tr><th scope="col">层</th><th scope="col">运行时职责</th><th scope="col">版本与访问边界</th></tr></thead><tbody>
     <tr id="agent-model"><th scope="row">模型</th><td>经模型网关请求推理。网关按路由与预算选择提供方，支持切换与降级。</td><td>本期冻结模型权重。经验蒸馏和模型更新后的上下文适配属于预留路径。</td></tr>
