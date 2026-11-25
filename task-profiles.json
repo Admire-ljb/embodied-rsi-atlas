@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "profiles": [
+    {
+      "task_id": "fixed-wing-simulation",
+      "version": "1.0",
+      "title": "高速固定翼无人机集群",
+      "status": "设计示例",
+      "objective": "在给定仿真记录中，研究异步观测、群体判断与跨粒度比较的证据边界。",
+      "environment": "任务级仿真记录与跨粒度对照样本",
+      "entities": "多个匿名成员及群组",
+      "time_basis": "分别登记仿真采样时刻、可见时刻与记录粒度。",
+      "observations": "给定样本中当时已公开的局部观测、群组摘要和来源。",
+      "capabilities": "查询带版本的样本快照、读取前缀记录、登记研究判断。",
+      "feedback": "快照的版本回执、可见历史范围和后续独立标注。",
+      "reference": "独立样本标注及跨粒度校核记录，由评价方保存。",
+      "metrics": "证据覆盖率、样本内共同误判比例、分组结果差异。",
+      "first_artifact": "带时间和来源的观测样例，以及可复算的共识指标。"
+    },
+    {
+      "task_id": "indoor-meter-inspection",
+      "version": "1.0",
+      "title": "室内移动机器人巡检",
+      "status": "迁移设计示例",
+      "objective": "在模拟仪表巡检中，检验读数不清时补采观测能否减少误报。",
+      "environment": "室内走廊与仪表模拟工位",
+      "entities": "单台移动机器人及待检仪表",
+      "time_basis": "分别登记图像曝光时刻、接收时刻及一次巡检的截止时刻。",
+      "observations": "当时可见的仪表图像、采样时间和读数质量。",
+      "capabilities": "读取仪表图像、请求一次补采、登记读数或未知。",
+      "feedback": "补采是否完成、新观测的来源与时间、该次任务的摘要。",
+      "reference": "独立参考读数和遮挡条件，只在评价阶段使用。",
+      "metrics": "读数误报率、可判读比例、每次巡检的补采次数。",
+      "first_artifact": "读数模糊与补采成功的成对样例，以及复核协议。"
+    }
+  ]
+}

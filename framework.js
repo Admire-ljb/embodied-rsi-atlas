@@ -7,6 +7,11 @@ function followStudentBookmark() {
     window.location.replace('./topics.html' + hash);
     return true;
   }
+  const caseSections = ['#representation', '#measurement', '#generalization', '#roadmap', '#example'];
+  if (document.body.dataset.page === 'core' && caseSections.includes(hash)) {
+    window.location.replace('./fixed-wing.html' + hash);
+    return true;
+  }
   return false;
 }
 
@@ -72,7 +77,10 @@ async function loadRegistry() {
     if (!complete) return;
 
     const list = document.querySelector('.asset-list');
-    list.replaceChildren(...data.assets.map(asset => assetRow(asset, registry)));
+    const orderedAssets = document.body.dataset.page === 'core'
+      ? [...data.assets].sort((a, b) => Number(Boolean(b.audience === 'core')) - Number(Boolean(a.audience === 'core')))
+      : data.assets;
+    list.replaceChildren(...orderedAssets.map(asset => assetRow(asset, registry)));
     if (window.location.hash.startsWith('#asset-')) {
       document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
     }

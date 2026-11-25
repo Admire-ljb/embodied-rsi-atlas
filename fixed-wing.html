@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c36">
+  <meta name="description" content="高速固定翼无人机集群群体对抗博弈研究框架：长期科学问题、实验架构、方向规划、研究成果库和可认领的学生研究点。">
+  <title>高速固定翼无人机集群群体对抗博弈研究框架</title>
+  <link rel="stylesheet" href="./framework.css">
+  <script src="./framework.js" defer></script>
+</head>
+<body id="top" data-page="fixed-wing">
+  <a class="skip" href="#framework">跳到研究体系</a>
+  <header><div class="wrap bar">
+    <a class="brand" href="#top"><b>高速固定翼</b><span>任务实例</span></a>
+    <nav aria-label="主导航"><a href="./index.html">通用 RSI 架构</a><a href="#framework">实例主线</a><a href="#architecture">研究架构</a><a href="#roadmap">方向规划</a><a href="#assets">成果库</a><a class="nav-topic" href="./topics.html#topics">学生选题 ↗</a></nav>
+  </div></header>
+  <main>
+    <section class="lead"><div class="wrap lead-inner">
+      <div><p class="kicker">具身 RSI 任务实例 · 高速固定翼无人机集群</p><h1>群体对抗博弈<br><em>研究框架</em></h1>
+        <p class="intro">在局部信息异步到达、群组状态持续变化、对手分布不固定的条件下，哪些群体判断可信，哪些协作收益可归因，哪些策略比较结论能推广？</p>
+        <div class="actions"><a class="button" href="#framework">查看总体框架</a><a class="text-link" href="./topics.html#topics">进入学生研究点地图 ↗</a></div>
+      </div>
+      <figure class="hero-map"><figcaption>课题一的研究结构</figcaption>
+        <div class="map-root">群智协同决策与策略演化</div>
+        <div class="map-branches"><a href="#representation"><small>3.2.1</small><b>状态表征</b></a><a href="#measurement"><small>3.2.2</small><b>协作度量</b></a><a href="#generalization"><small>3.2.3</small><b>策略适应</b></a></div>
+        <div class="map-floor"><span>共用实验协议</span><span>版本化成果库</span></div>
+        <p>每个研究点归入一条主线，产物由公共模块承接。</p>
+      </figure>
+    </div></section>
+    <section class="wrap section" id="framework">
+      <div class="section-head"><div><p class="kicker">研究体系</p><h2>三条长期科学主线</h2></div><p>立项书第 3.2 节规定研究主线。个人选题围绕其中一个假设开展，共用样本与评价口径，并把结果交回对应的模块。</p></div>
+      <div class="tracks">
+        <article id="representation" class="track">
+          <p class="section-id">§ 3.2.1</p><h3>跨尺度状态与行为表征</h3><p class="big-q">个体在不同时刻获得的证据，能够支持哪些群组判断？</p><p>同一段局部历史可能与多个整体状态相容。比较表征时，应说明哪些差异可以辨认，哪些只能保留为不确定。</p>
+          <details><summary>研究方法与长期积累</summary><p>固定同一段可见观测，比较不同摘要保留的时间、来源和群组信息；用独立标注检验被遗漏的状态差异。</p><p><strong>观测表征库</strong>收录观测字典、含时间与来源的样本、状态不可区分的反例。</p></details>
+          <a href="./topics.html#topic-state">查看一个研究点 ↗</a>
+        </article>
+        <article id="measurement" class="track">
+          <p class="section-id">§ 3.2.2</p><h3>群智共识与协作增益</h3><p class="big-q">成员形成一致意见时，能否把共同偏差与真正的信息互补区分开？</p><p>群体判断可以高度一致而同时出错。协作增益还依赖基线、信息预算和评分真值，需要单独检验。</p>
+          <details><summary>研究方法与长期积累</summary><p>先在可手算的样本上区分一致、正确和共同误判，再在相同样本和相同信息预算下估计配对收益差。</p><p><strong>群体度量库</strong>收录指标定义、分母约定、配对评价协议、负例与独立复算记录。</p></details>
+          <a href="./topics.html#topic-gain">查看一个研究点 ↗</a>
+        </article>
+        <article id="generalization" class="track">
+          <p class="section-id">§ 3.2.3</p><h3>分层决策与策略适应</h3><p class="big-q">对抽象分层博弈策略的比较结论，在未见对手和不同样本构成下能否保持？</p><p>总体优势可能仅来自某个对手组占比较大。区分结构差异、对手构成以及样本重复使用的影响。</p>
+          <details><summary>研究方法与长期积累</summary><p>在相同观察条件下比较给定版本，对熟悉组和留出组分别核算收益和波动，定位排序保持或反转的条件。</p><p><strong>比较基线库</strong>收录对手分组、策略版本索引、对照结果及适用范围。</p></details>
+          <a href="./topics.html#topic-update">查看一个研究点 ↗</a>
+        </article>
+      </div>
+      <aside class="domain"><strong>高速固定翼条件在研究中体现在哪里？</strong><p>同一条观测在采样时和到达时可能对应不同状态。个体运动是连续的，任务级记录通常是离散的。跨粒度比较需要明确时间基准、状态定义及其可见范围。只有在这些前提相同或差异已说明时，两个实验的群组结论才可比较。</p></aside>
+    </section>
+    <section class="band" id="architecture"><div class="wrap section">
+      <div class="section-head"><div><p class="kicker">研究架构</p><h2>一项研究怎样进入框架</h2></div><p>研究架构按职责划分为三部分。不同学生和不同代际的方法沿用同一协议，因而可以相互比较，也可以推翻旧结论。</p></div>
+      <div class="planes">
+        <article><h3>实验协议与独立评价</h3><p>登记假设、可见信息、基线、预算和留出划分。协议发生变化时保留旧版本，并说明哪些结论需要重算。</p><small>产物</small><b>带版本的比较协议</b></article>
+        <article><h3>实验运行与证据记录</h3><p>用约定的样本和方法得到判断、时间记录及得分。研究者只能使用当时可见的观测，评分者另行持有真值。</p><small>产物</small><b>可复算的样本和原始结果</b></article>
+        <article><h3>方法迭代与成果归档</h3><p>根据误差或反例提出一个可区分的改动，由另一位研究者在原协议下复测。保留成立、证据不足和与预期相反的结果。</p><small>产物</small><b>有条件的结论和后续问题</b></article>
+      </div>
+      <div class="handoff"><h3>课题之间交换什么</h3><p><b>课题一</b>提出研究问题、观测定义和比较口径。<b>课题二</b>衔接任务级样本、运行版本和事件记录。<b>课题三</b>衔接不同粒度间的对应关系和独立校核依据。若两种粒度给出不同结论，先记录差异与适用条件，再决定是否能合并解释。</p></div>
+    </div></section>
+    <section class="wrap section" id="roadmap">
+      <div class="section-head"><div><p class="kicker">方向规划</p><h2>按研究依赖安排先后</h2></div><p>下面是建议的研究顺序。三条主线可以并行推进，后一项比较只引用已明确版本和口径的上游产物。</p></div>
+      <ol class="road">
+        <li><div><h3>定义一组大家都能复算的问题</h3><p>约定记录字段、观测时刻、真值和分组。一人给出手算样本，另一人按定义重做，先暴露口径分歧。</p><small>起点：共享样本及字段字典。完成标志：双方得到相同的原始计数。</small></div></li>
+        <li><div><h3>用反例区分竞争解释</h3><p>围绕一个问题改变一个条件，检验结论是否源于摘要差异、信息互补或样本构成。反例与正结果一并登记。</p><small>依赖：可复算样本与基线。完成标志：能写出支持什么、哪些解释仍无法排除。</small></div></li>
+        <li><div><h3>在新划分和不同粒度上检验边界</h3><p>新一届学生引用既有模块版本，在独立样本或新分组上复测。若结论反转，登记反转条件和受影响的旧记录。</p><small>依赖：已有比较记录及留出集。完成标志：可定位结论成立、失效或尚未知的条件。</small></div></li>
+      </ol>
+    </section>
+    <section class="band" id="assets"><div class="wrap section">
+      <div class="section-head"><div><p class="kicker">成果库</p><h2>可继承的研究成果</h2></div><p>每个条目关联科学问题、产物版本、上游依赖和适用条件。这里已提供一个能手算的例子和登记模板，后续提交研究文件并在索引中登记版本，首页即可显示新条目及其上游依赖。</p></div>
+      <div class="asset-list">
+        <div><span>合成样本 · v1.0</span><a href="./consensus-example.csv" download>共同误判合成样本 ↓</a><p>8 个抽象二值判断样本及两组匿名预测，仅用于演示计数和分母。</p></div>
+        <div><span>已复算示例 · v1.0</span><a href="./consensus-note.txt" download="consensus-note.md">共同误判复算记录 ↓</a><p>同一组样本说明一致率无法唯一确定共同误判率。</p></div>
+        <div><span>可用模板 · v1.0</span><a href="./research-record.txt" download="research-record.md">研究成果登记模板 ↓</a><p>记录研究问题、依赖版本、实验口径、结果、反例与后续复用。</p></div>
+      </div><p class="asset-link"><a href="./research-assets.json" download>下载结构化成果索引（JSON）</a></p>
+      <details class="worked" id="example" open><summary>一个研究点怎样留下下一届可以使用的成果？</summary>
+        <div><p>在八条抽象二值判断记录上，两组判断者各有六次给出一致意见。以全部八条为分母，甲组共同误判一次，乙组共同误判三次。</p>
+          <div class="table-scroll"><table><caption>同一真值集上的合成反例</caption><thead><tr><th scope="col">结果组</th><th scope="col">一致率</th><th scope="col">总体共同误判率</th><th scope="col">给定一致时的误判比例</th></tr></thead><tbody><tr><th scope="row">甲</th><td>6/8</td><td>1/8</td><td>1/6</td></tr><tr><th scope="row">乙</th><td>6/8</td><td>3/8</td><td>3/6</td></tr></tbody></table></div>
+          <p><strong>第一位学生</strong>交付样本、分母定义和复算记录，证明一致率相同仍可有不同的共同误判率。<strong>下一位学生</strong>直接复用这组记录核对指标实现，再用另一批有同预算对照的样本研究信息共享收益。这个合成反例本身只说明指标的逻辑关系。</p>
+        </div>
+      </details>
+    </div></section>
+    <section id="topics" class="wrap section students">
+      <div><p class="kicker">学生入口</p><h2>认领一个可交付的研究点</h2><p>建议由一名协调人维护问题地图，其余成员按研究点协作。课题组持续维护三条主线，学生只对一个具体假设、一项可复用产物和一次可复查的对照负责。</p></div>
+      <div><a class="button" href="./topics.html#topics">查看九个研究点 ↗</a><a class="text-link" href="./topics.html#evidence">查看协作与交接</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap bar"><span>课题一 · 高速固定翼集群群智协同决策与策略演化</span><a href="./index.html">返回通用架构 ↑</a></div></footer>
+</body>
+</html>

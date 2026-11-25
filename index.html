@@ -4,87 +4,104 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#123c36">
-  <meta name="description" content="高速固定翼无人机集群群体对抗博弈研究框架：长期科学问题、实验架构、方向规划、研究成果库和可认领的学生研究点。">
-  <title>高速固定翼无人机集群群体对抗博弈研究框架</title>
+  <meta name="description" content="面向具身智能的递归自我改进研究架构。控制面、执行面、进化面共用版本化证据，以高速固定翼和室内移动巡检展示任务如何接入。">
+  <title>具身智能 RSI 研究架构</title>
   <link rel="stylesheet" href="./framework.css">
+  <link rel="stylesheet" href="./embodied.css">
   <script src="./framework.js" defer></script>
+  <script src="./profiles.js" defer></script>
 </head>
-<body id="top">
-  <a class="skip" href="#framework">跳到研究体系</a>
+<body id="top" data-page="core">
+  <a class="skip" href="#architecture">跳到通用架构</a>
   <header><div class="wrap bar">
-    <a class="brand" href="#top"><b>课题一</b><span>群体博弈研究</span></a>
-    <nav aria-label="主导航"><a href="#framework">研究体系</a><a href="#architecture">研究架构</a><a href="#roadmap">方向规划</a><a href="#assets">成果库</a><a class="nav-topic" href="./topics.html#topics">学生选题 ↗</a></nav>
+    <a class="brand" href="#top"><b>具身智能</b><span>RSI 研究架构</span></a>
+    <nav aria-label="主导航"><a href="#architecture">通用架构</a><a href="#adaptation">任务接入</a><a href="#recursion">递归验证</a><a href="#research">学生研究点</a><a href="#assets">成果库</a></nav>
   </div></header>
   <main>
-    <section class="lead"><div class="wrap lead-inner">
-      <div><p class="kicker">高速固定翼无人机集群</p><h1>群体对抗博弈<br><em>研究框架</em></h1>
-        <p class="intro">在局部信息异步到达、群组状态持续变化、对手分布不固定的条件下，哪些群体判断可信，哪些协作收益可归因，哪些策略比较结论能推广？</p>
-        <div class="actions"><a class="button" href="#framework">查看总体框架</a><a class="text-link" href="./topics.html#topics">进入学生研究点地图 ↗</a></div>
+    <section class="lead" id="framework"><div class="wrap lead-inner">
+      <div><p class="kicker">递归自我改进 · Recursive Self-Improvement</p>
+        <h1>具身智能<br><em>RSI 研究架构</em></h1>
+        <p class="intro">具身智能体从环境中获取观测，调用技能，再观察环境发生了什么。怎样把这些经历变成可复核的能力改进？产生改进的方法本身，又能否随经验而进步？</p>
+        <div class="actions"><a class="button" href="#architecture">查看三面架构</a><a class="text-link" href="./fixed-wing.html">高速固定翼实例 ↗</a></div>
       </div>
-      <figure class="hero-map"><figcaption>课题一的研究结构</figcaption>
-        <div class="map-root">群智协同决策与策略演化</div>
-        <div class="map-branches"><a href="#representation"><small>3.2.1</small><b>状态表征</b></a><a href="#measurement"><small>3.2.2</small><b>协作度量</b></a><a href="#generalization"><small>3.2.3</small><b>策略适应</b></a></div>
-        <div class="map-floor"><span>共用实验协议</span><span>版本化成果库</span></div>
-        <p>每个研究点归入一条主线，产物由公共模块承接。</p>
+      <figure class="hero-map core-figure">
+        <figcaption>一次跨版本改进怎样闭合</figcaption>
+        <ol class="cycle">
+          <li><a href="#control"><b>控制面</b><span>指定实验版本</span></a></li>
+          <li><a href="#execution"><b>执行面</b><span>产生运行证据</span></a></li>
+          <li><a href="#evolution"><b>进化面</b><span>提交候选版本</span></a></li>
+        </ol>
+        <div class="return-path"><span>回到控制面 · 独立检验，决定保留哪个版本</span></div>
+        <p>共享记录关联任务、具身交互、候选和评价。换任务时，通过适配层更换环境、能力与评分依据。</p>
       </figure>
     </div></section>
-    <section class="wrap section" id="framework">
-      <div class="section-head"><div><p class="kicker">研究体系</p><h2>三条长期科学主线</h2></div><p>立项书第 3.2 节规定研究主线。个人选题围绕其中一个假设开展，共用样本与评价口径，并把结果交回对应的模块。</p></div>
-      <div class="tracks">
-        <article id="representation" class="track">
-          <p class="section-id">§ 3.2.1</p><h3>跨尺度状态与行为表征</h3><p class="big-q">个体在不同时刻获得的证据，能够支持哪些群组判断？</p><p>同一段局部历史可能与多个整体状态相容。比较表征时，应说明哪些差异可以辨认，哪些只能保留为不确定。</p>
-          <details><summary>研究方法与长期积累</summary><p>固定同一段可见观测，比较不同摘要保留的时间、来源和群组信息；用独立标注检验被遗漏的状态差异。</p><p><strong>观测表征库</strong>收录观测字典、含时间与来源的样本、状态不可区分的反例。</p></details>
-          <a href="./topics.html#topic-state">查看一个研究点 ↗</a>
-        </article>
-        <article id="measurement" class="track">
-          <p class="section-id">§ 3.2.2</p><h3>群智共识与协作增益</h3><p class="big-q">成员形成一致意见时，能否把共同偏差与真正的信息互补区分开？</p><p>群体判断可以高度一致而同时出错。协作增益还依赖基线、信息预算和评分真值，需要单独检验。</p>
-          <details><summary>研究方法与长期积累</summary><p>先在可手算的样本上区分一致、正确和共同误判，再在相同样本和相同信息预算下估计配对收益差。</p><p><strong>群体度量库</strong>收录指标定义、分母约定、配对评价协议、负例与独立复算记录。</p></details>
-          <a href="./topics.html#topic-gain">查看一个研究点 ↗</a>
-        </article>
-        <article id="generalization" class="track">
-          <p class="section-id">§ 3.2.3</p><h3>分层决策与策略适应</h3><p class="big-q">对抽象分层博弈策略的比较结论，在未见对手和不同样本构成下能否保持？</p><p>总体优势可能仅来自某个对手组占比较大。区分结构差异、对手构成以及样本重复使用的影响。</p>
-          <details><summary>研究方法与长期积累</summary><p>在相同观察条件下比较给定版本，对熟悉组和留出组分别核算收益和波动，定位排序保持或反转的条件。</p><p><strong>比较基线库</strong>收录对手分组、策略版本索引、对照结果及适用范围。</p></details>
-          <a href="./topics.html#topic-update">查看一个研究点 ↗</a>
-        </article>
-      </div>
-      <aside class="domain"><strong>高速固定翼条件在研究中体现在哪里？</strong><p>同一条观测在采样时和到达时可能对应不同状态。个体运动是连续的，任务级记录通常是离散的。跨粒度比较需要明确时间基准、状态定义及其可见范围。只有在这些前提相同或差异已说明时，两个实验的群组结论才可比较。</p></aside>
-    </section>
-    <section class="band" id="architecture"><div class="wrap section">
-      <div class="section-head"><div><p class="kicker">研究架构</p><h2>一项研究怎样进入框架</h2></div><p>研究架构按职责划分为三部分。不同学生和不同代际的方法沿用同一协议，因而可以相互比较，也可以推翻旧结论。</p></div>
+    <section class="wrap section" id="architecture">
+      <div class="section-head"><div><p class="kicker">通用内核</p><h2>三面共用一条运行记录</h2></div><p>借鉴 Agentic Mesh 的职责划分。执行侧保留当时发生的事实，进化侧说明为什么提议修改，控制侧持有候选无法改写的评价条件。 <a href="http://admire.buaanlsde.cn/rsi/three-planes.html">设计参照：三面架构图</a></p></div>
       <div class="planes">
-        <article><h3>实验协议与独立评价</h3><p>登记假设、可见信息、基线、预算和留出划分。协议发生变化时保留旧版本，并说明哪些结论需要重算。</p><small>产物</small><b>带版本的比较协议</b></article>
-        <article><h3>实验运行与证据记录</h3><p>用约定的样本和方法得到判断、时间记录及得分。研究者只能使用当时可见的观测，评分者另行持有真值。</p><small>产物</small><b>可复算的样本和原始结果</b></article>
-        <article><h3>方法迭代与成果归档</h3><p>根据误差或反例提出一个可区分的改动，由另一位研究者在原协议下复测。保留成立、证据不足和与预期相反的结果。</p><small>产物</small><b>有条件的结论和后续问题</b></article>
+        <article id="control"><h3>控制面 · 实验与版本</h3><p>登记任务、能力和改进器的版本，确定可见信息、资源预算和独立留出样本。收到候选后与基线比较，记录采纳、保留旧版或证据不足。</p><small>维护对象</small><b>任务注册、能力清单、评价协议、版本谱系</b></article>
+        <article id="execution"><h3>执行面 · 具身交互</h3><p>按已登记版本运行智能体。每步把观测的来源和时间、技能请求、执行回执、后续环境反馈串成轨迹。区分“请求已受理”与“环境中发生了预期变化”。</p><small>维护对象</small><b>智能体运行器、任务适配器、交互事件记录</b></article>
+        <article id="evolution"><h3>进化面 · 归因与提案</h3><p>从开发样本中解释失败，提出带父版本的记忆、技能说明或候选生成方法。每份提案引用依据、预期收益和已知反例，提交控制面评价。</p><small>维护对象</small><b>经验记忆、归因方法、候选生成器、改进记录</b></article>
       </div>
-      <div class="handoff"><h3>课题之间交换什么</h3><p><b>课题一</b>提出研究问题、观测定义和比较口径。<b>课题二</b>衔接任务级样本、运行版本和事件记录。<b>课题三</b>衔接不同粒度间的对应关系和独立校核依据。若两种粒度给出不同结论，先记录差异与适用条件，再决定是否能合并解释。</p></div>
-    </div></section>
-    <section class="wrap section" id="roadmap">
-      <div class="section-head"><div><p class="kicker">方向规划</p><h2>按研究依赖安排先后</h2></div><p>下面是建议的研究顺序。三条主线可以并行推进，后一项比较只引用已明确版本和口径的上游产物。</p></div>
-      <ol class="road">
-        <li><div><h3>定义一组大家都能复算的问题</h3><p>约定记录字段、观测时刻、真值和分组。一人给出手算样本，另一人按定义重做，先暴露口径分歧。</p><small>起点：共享样本及字段字典。完成标志：双方得到相同的原始计数。</small></div></li>
-        <li><div><h3>用反例区分竞争解释</h3><p>围绕一个问题改变一个条件，检验结论是否源于摘要差异、信息互补或样本构成。反例与正结果一并登记。</p><small>依赖：可复算样本与基线。完成标志：能写出支持什么、哪些解释仍无法排除。</small></div></li>
-        <li><div><h3>在新划分和不同粒度上检验边界</h3><p>新一届学生引用既有模块版本，在独立样本或新分组上复测。若结论反转，登记反转条件和受影响的旧记录。</p><small>依赖：已有比较记录及留出集。完成标志：可定位结论成立、失效或尚未知的条件。</small></div></li>
-      </ol>
+      <div class="handoff"><h3>具身交互需要两种不同的反馈</h3><p><b>任务内</b>，本步环境反馈成为下一步可见观测。<b>跨运行</b>，多次轨迹的证据用于提出新版本。独立真值在评价阶段使用，避免把事后才知道的信息写入智能体当时的观测。</p></div>
+      <details class="worked"><summary>展开共用对象与关联关系</summary><div class="table-scroll"><table>
+        <thead><tr><th scope="col">对象</th><th scope="col">最小约定</th><th scope="col">关联到</th></tr></thead><tbody>
+          <tr><th scope="row">任务与能力</th><td>环境、具身体、观测范围、能力及版本</td><td>一次运行的条件</td></tr>
+          <tr><th scope="row">运行与证据</th><td>运行号、采样和可见时刻、请求回执、后续观测</td><td>当时能知道什么、后来验证了什么</td></tr>
+          <tr><th scope="row">提案与候选</th><td>父版本、改进器版本、改动对象、依据与预期</td><td>由哪次经验提出哪次修改</td></tr>
+          <tr><th scope="row">评价与版本</th><td>独立协议、对照版本、预算、结果和冻结样本标识</td><td>本轮采用哪个版本，为什么</td></tr>
+        </tbody></table></div></details>
     </section>
-    <section class="band" id="assets"><div class="wrap section">
-      <div class="section-head"><div><p class="kicker">成果库</p><h2>可继承的研究成果</h2></div><p>每个条目关联科学问题、产物版本、上游依赖和适用条件。这里已提供一个能手算的例子和登记模板，后续提交研究文件并在索引中登记版本，首页即可显示新条目及其上游依赖。</p></div>
-      <div class="asset-list">
-        <div><span>合成样本 · v1.0</span><a href="./consensus-example.csv" download>共同误判合成样本 ↓</a><p>8 个抽象二值判断样本及两组匿名预测，仅用于演示计数和分母。</p></div>
-        <div><span>已复算示例 · v1.0</span><a href="./consensus-note.txt" download="consensus-note.md">共同误判复算记录 ↓</a><p>同一组样本说明一致率无法唯一确定共同误判率。</p></div>
-        <div><span>可用模板 · v1.0</span><a href="./research-record.txt" download="research-record.md">研究成果登记模板 ↓</a><p>记录研究问题、依赖版本、实验口径、结果、反例与后续复用。</p></div>
-      </div><p class="asset-link"><a href="./research-assets.json" download>下载结构化成果索引（JSON）</a></p>
-      <details class="worked" id="example" open><summary>一个研究点怎样留下下一届可以使用的成果？</summary>
-        <div><p>在八条抽象二值判断记录上，两组判断者各有六次给出一致意见。以全部八条为分母，甲组共同误判一次，乙组共同误判三次。</p>
-          <div class="table-scroll"><table><caption>同一真值集上的合成反例</caption><thead><tr><th scope="col">结果组</th><th scope="col">一致率</th><th scope="col">总体共同误判率</th><th scope="col">给定一致时的误判比例</th></tr></thead><tbody><tr><th scope="row">甲</th><td>6/8</td><td>1/8</td><td>1/6</td></tr><tr><th scope="row">乙</th><td>6/8</td><td>3/8</td><td>3/6</td></tr></tbody></table></div>
-          <p><strong>第一位学生</strong>交付样本、分母定义和复算记录，证明一致率相同仍可有不同的共同误判率。<strong>下一位学生</strong>直接复用这组记录核对指标实现，再用另一批有同预算对照的样本研究信息共享收益。这个合成反例本身只说明指标的逻辑关系。</p>
+    <section class="band" id="adaptation"><div class="wrap section">
+      <div class="section-head"><div><p class="kicker">任务适配层</p><h2>换任务，更换哪些内容？</h2></div><p>任务方描述环境、观测、能力、反馈和真值。通用内核沿用相同的运行、提案、评价和版本关系。下面两份设计配置通过同一份任务描述规范校验。</p></div>
+      <div class="profile-panel">
+        <div class="profile-menu"><label for="profile-select">选择任务实例</label><select id="profile-select" disabled><option value="fixed-wing-simulation">高速固定翼无人机集群</option><option value="indoor-meter-inspection">室内移动机器人巡检</option></select><span id="profile-status">设计示例 · v1.0</span></div>
+        <div id="profile-content" aria-live="polite"><h3 id="profile-title">高速固定翼无人机集群</h3><p id="profile-objective">在给定仿真记录中，研究异步观测、群体判断与跨粒度比较的证据边界。</p>
+          <dl class="field-grid" id="profile-fields">
+                <div><dt>具身体</dt><dd>多个匿名成员及群组</dd></div>
+                <div><dt>环境与数据来源</dt><dd>任务级仿真记录与跨粒度对照样本</dd></div>
+                <div><dt>时间语义</dt><dd>分别登记仿真采样时刻、可见时刻与记录粒度。</dd></div>
+                <div><dt>当时可见的观测</dt><dd>给定样本中当时已公开的局部观测、群组摘要和来源。</dd></div>
+                <div><dt>任务能力</dt><dd>查询带版本的样本快照、读取前缀记录、登记研究判断。</dd></div>
+                <div><dt>回执与后续观测</dt><dd>快照的版本回执、可见历史范围和后续独立标注。</dd></div>
+                <div><dt>独立评价依据</dt><dd>独立样本标注及跨粒度校核记录，由评价方保存。</dd></div>
+                <div><dt>评价指标</dt><dd>证据覆盖率、样本内共同误判比例、分组结果差异。</dd></div>
+                <div><dt>首项交付</dt><dd>带时间和来源的观测样例，以及可复算的共识指标。</dd></div>
+          </dl>
         </div>
-      </details>
+        <div class="profile-links"><a href="./fixed-wing.html">高速固定翼专题与研究分工 ↗</a><a href="./task-profiles.json" download>下载两份任务配置</a><a href="./task-profile.schema.json" download>下载共用规范</a></div>
+        <noscript><p>两份完整任务配置可通过上方链接查看。</p></noscript>
+      </div>
     </div></section>
-    <section id="topics" class="wrap section students">
-      <div><p class="kicker">学生入口</p><h2>认领一个可交付的研究点</h2><p>建议由一名协调人维护问题地图，其余成员按研究点协作。课题组持续维护三条主线，学生只对一个具体假设、一项可复用产物和一次可复查的对照负责。</p></div>
-      <div><a class="button" href="./topics.html#topics">查看九个研究点 ↗</a><a class="text-link" href="./topics.html#evidence">查看协作与交接</a></div>
+    <section class="wrap section" id="recursion">
+      <div class="section-head"><div><p class="kicker">递归验证</p><h2>分别检验能力与改进器</h2></div><p>一次任务得分提高，只能支持该能力版本在特定条件下有改善。要检验递归自我改进，还要追踪谁提出了改进器的新版本，以及新改进器是否更善于产生有效候选。</p></div>
+      <div class="levels">
+        <article><h3>第一层 · 改进任务能力</h3><p>以室内仪表巡检为例，旧观测摘要把“图像不清”写成了确定读数。进化面提出保留来源与“未知”的摘要候选。控制面在成对的留出记录上比较新旧版本，同时报告误报和可判读比例。</p><b>比较对象</b><p>同一任务和同一评价协议下的两版观测摘要。</p></article>
+        <article><h3>第二层 · 改进产生候选的方法</h3><p>若既有改进过程基于失败记录，提出改变候选样例的选择方式，则把此改动登记为改进器候选。让两版改进器从同一能力版本出发，在新批次享有相同预算，比较最终独立增益、波动和退化。</p><b>递归所需证据</b><p>改进器候选的产生来源、父版本，以及它在新任务批次中产生改进的能力。手工设计的候选只登记为对照。</p></article>
+      </div>
+      <p class="evidence-status">当前公开内容包括架构设计、两份可校验的任务描述和实验模板。上述巡检过程是待验证的实验设计，实际运行和递归收益尚待研究。</p>
+    </section>
+    <section class="band" id="research"><div class="wrap section">
+      <div class="section-head"><div><p class="kicker">学生研究点</p><h2>在共用模块里认领小问题</h2></div><p>通用研究点交付给内核，领域研究点交付给适配器或专题库。每项产物都应能说明下一位研究者如何检验或复用它。</p></div>
+      <div class="tracks">
+        <article class="track"><h3>观测何时真正可用？</h3><p class="big-q">同一条迟到观测会不会改变对历史证据的判断？</p><p>在两类匿名记录上核对采样与可见时间，交付字段映射、乱序样例和可复算检查。接入执行面的证据记录。</p></article>
+        <article class="track"><h3>经验在什么条件下失效？</h3><p class="big-q">场景变化后，怎样识别一条曾经有效的经验已经过期？</p><p>选定一个任务的两种条件，比较有无适用条件标记的经验库，交付反例、有效范围和版本记录。接入进化面的经验记忆。</p></article>
+        <article class="track"><h3>改进器的收益如何比较？</h3><p class="big-q">在相同预算下，新改进器能否产生更多经独立验证的改进？</p><p>固定起始版本、预算和留出划分，交付配对评价协议、一次复算和负结果记录。接入控制面的独立评价。</p></article>
+      </div>
+      <div class="handoff"><h3>高速固定翼是第一个领域实例</h3><p>立项书课题一的跨尺度表征、共识与协作增益、策略适应三条主线保存在专题页。其九个学生研究点继续按岗位展示。<a href="./fixed-wing.html">查看课题一框架</a> · <a href="./topics.html#topics">进入学生研究点地图</a></p></div>
+    </div></section>
+    <section class="wrap section" id="assets">
+      <div class="section-head"><div><p class="kicker">共享成果库</p><h2>留下可复用的版本</h2></div><p>通用契约、任务配置、样本与评价记录共用成果索引。每一项列出归属模块、版本、适用范围和上游依赖。</p></div>
+      <div class="asset-list">
+          <div><span>通用契约 · v1.0</span><a href="./task-profile.schema.json" download="task-profile.schema.json">具身任务描述规范 ↓</a><p>JSON Schema 描述环境、具身体、观测、能力、反馈和独立评价等共用字段。</p></div>
+          <div><span>实例配置 · v1.0</span><a href="./task-profiles.json" download="task-profiles.json">双任务适配示例 ↓</a><p>高速固定翼仿真记录与室内移动巡检采用同一字段集合；两份配置用于架构设计与校验。</p></div>
+          <div><span>通用模板 · v1.0</span><a href="./rsi-experiment.txt" download="具身RSI实验记录.md">能力与改进器实验记录 ↓</a><p>分别记录任务能力版本、改进器版本、具身运行证据以及等预算的独立评价结果。</p></div>
+          <div><span>合成样本 · v1.0</span><a href="./consensus-example.csv" download="consensus-example.csv">共同误判合成样本 ↓</a><p>8 个抽象二值判断样本及两组匿名预测，仅用于演示计数和分母。</p></div>
+          <div><span>已复算示例 · v1.0</span><a href="./consensus-note.txt" download="consensus-note.md">共同误判复算记录 ↓</a><p>同一组样本说明一致率无法唯一确定共同误判率。</p></div>
+          <div><span>可用模板 · v1.0</span><a href="./research-record.txt" download="research-record.md">研究成果登记模板 ↓</a><p>记录研究问题、依赖版本、实验口径、结果、反例与后续复用。</p></div>
+      </div>
+      <p class="asset-link"><a href="./research-assets.json" download>下载结构化成果索引（JSON）</a></p>
     </section>
   </main>
-  <footer><div class="wrap bar"><span>课题一 · 高速固定翼集群群智协同决策与策略演化</span><a href="#top">返回页首 ↑</a></div></footer>
+  <footer><div class="wrap bar"><span>具身智能 · 递归自我改进研究架构</span><a href="#top">返回页首 ↑</a></div></footer>
 </body>
 </html>

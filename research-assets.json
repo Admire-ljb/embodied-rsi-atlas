@@ -34,6 +34,44 @@
       "depends_on": [],
       "scope": "记录研究问题、依赖版本、实验口径、结果、反例与后续复用。",
       "download_name": "research-record.md"
+    },
+    {
+      "id": "task-profile-contract",
+      "version": "1.0",
+      "name": "具身任务描述规范",
+      "kind": "通用契约",
+      "module": "任务适配层",
+      "file": "task-profile.schema.json",
+      "depends_on": [],
+      "scope": "JSON Schema 描述环境、具身体、观测、能力、反馈和独立评价等共用字段。",
+      "audience": "core"
+    },
+    {
+      "id": "two-task-profiles",
+      "version": "1.0",
+      "name": "双任务适配示例",
+      "kind": "实例配置",
+      "module": "任务适配层",
+      "file": "task-profiles.json",
+      "depends_on": [
+        "task-profile-contract@1.0"
+      ],
+      "scope": "高速固定翼仿真记录与室内移动巡检采用同一字段集合；两份配置用于架构设计与校验。",
+      "audience": "core"
+    },
+    {
+      "id": "rsi-experiment",
+      "version": "1.0",
+      "name": "能力与改进器实验记录",
+      "kind": "通用模板",
+      "module": "独立评价",
+      "file": "rsi-experiment.txt",
+      "download_name": "具身RSI实验记录.md",
+      "depends_on": [
+        "record-template@1.0"
+      ],
+      "scope": "分别记录任务能力版本、改进器版本、具身运行证据以及等预算的独立评价结果。",
+      "audience": "core"
     }
   ]
 }
