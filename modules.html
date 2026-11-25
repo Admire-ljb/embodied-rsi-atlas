@@ -17,14 +17,14 @@
 <article id="work-runtime"><div><small>执行面</small><h3 id="aeroweaver">AeroWeaver · 应用编排与多智能体协作</h3></div><div><p><b>编排</b>　沿用 AeroWeaver 的任务上下文、角色分配和技能绑定机制。每个本地 Agent 持有自己的上下文和可用 Skill，通过消息与其他实例协作。角色随任务配置。</p><p><b>接入</b>　本项目拟用 kagent 承载 Agent 实例，用 A2A 适配实例间的消息交换。环境工具通过 MCP 网关调用。</p><p><b>验收</b>　给定离线任务，验证计划、角色与 Skill 绑定、A2A 交接和结果汇总能通过同一运行号关联。</p><a href="https://admire-ljb.github.io/AeroWeaver/">AeroWeaver 项目与设计</a> · <a href="./studies.html#observation">局部观测的时间与表征</a></div></article>
 <article id="work-tools"><div><small>执行面 · 技能与工具绑定</small><h3>Skill 与 MCP 调用契约</h3></div><div><p><b>交付</b>　定义 Skill 何时调用 MCP 工具、允许哪些输入、如何解释输出。已有时钟样例用于接口自检。首轮以离线数据接通环境工具，封装检索、摘要与结果核验 Skill。</p><p><b>验收</b>　验证 Skill 的正常、缺失输入及失败回执，核对结果来源和工具版本。</p><a href="./studies.html#basis">可回放的共同基准</a></div></article>
 <article id="work-eval"><div><small>共用证据</small><h3>群体度量与独立评价</h3></div><div><p><b>交付</b>　确定样本、分母、信息预算和配对基线，保留共同误判的反例。</p><p><b>验收</b>　从同一批输入复算一致率、共同误判率和配对收益。</p><a href="./studies.html#cooperation">共识与协作增益的度量</a></div></article>
-<article id="work-evolve"><div><small>进化面 · 沿用 AgenticMesh</small><h3>从运行证据到改进候选</h3></div><div><p><b>输入</b>　执行轨迹、在线评测结果和既有经验。按症状归集失败样本，生成含适用条件与验收用例的目标。</p><p><b>组件</b>　归因器用回放定位可能出错的组件，提议器给出补丁，评判器检查证据是否足以支持送审。经验库保存症状、位置、修改与效果之间的关联。</p><p><b>输出</b>　候选携带父版本、改动范围、证据和已知反例。改进器自身的修改走同一条提交流程，由控制面裁决。</p><a href="./architecture.html#evolution">在总图中定位</a> · <a href="./studies.html#skill">经验复用研究</a></div></article>
-<article id="work-release"><div><small>控制面 · 沿用 AgenticMesh</small><h3>候选验证、发布与回退</h3></div><div><p><b>输入</b>　候选差异、父版本及冻结的试验对象。控制面维护验证预算、留出样本、风险分级与放行规则。</p><p><b>组件</b>　从模拟交互、对抗测试进入录制回放与隔离沙箱，更高等级采用流量镜像和小流量试发。各阶段将运行结果关联到同一候选版本。</p><p><b>输出</b>　记录接受、拒绝或证据不足及其依据；接受时生成锁定依赖的应用版本，灰度下发。发现退化时恢复已登记的基线。</p><a href="./architecture.html#control">在总图中定位</a> · <a href="./studies.html#evaluation">独立评价研究</a></div></article>
+<article id="work-evolve"><div><small>进化面</small><h3>从运行证据到改进候选</h3></div><div><p><b>输入</b>　执行轨迹、在线评测结果和既有经验。按症状归集失败样本，生成含适用条件与验收用例的目标。</p><p><b>组件</b>　归因器用回放定位可能出错的组件，提议器给出补丁，评判器检查证据是否足以支持送审。经验库保存症状、位置、修改与效果之间的关联。</p><p><b>输出</b>　候选携带父版本、改动范围、证据和已知反例。改进器自身的修改走同一条提交流程，由控制面裁决。</p><a href="./architecture.html#evolution">在总图中定位</a> · <a href="./studies.html#skill">经验复用研究</a></div></article>
+<article id="work-release"><div><small>控制面</small><h3>候选验证、发布与回退</h3></div><div><p><b>输入</b>　候选差异、父版本及冻结的试验对象。控制面维护验证预算、留出样本、风险分级与放行规则。</p><p><b>组件</b>　从模拟交互、对抗测试进入录制回放与隔离沙箱，更高等级采用流量镜像和小流量试发。各阶段将运行结果关联到同一候选版本。</p><p><b>输出</b>　记录接受、拒绝或证据不足及其依据；接受时生成锁定依赖的应用版本，灰度下发。发现退化时恢复已登记的基线。</p><a href="./architecture.html#control">在总图中定位</a> · <a href="./studies.html#evaluation">独立评价研究</a></div></article>
 <article id="work-twin"><div><small>共用证据</small><h3>参照质量与不确定性</h3></div><div><p><b>交付</b>　记录评价参照的来源、有效区间，以及参照与智能体可见输入的关系。</p><p><b>验收</b>　对无法独立核实的样本给出证据不足的判定，保留分组复算记录。</p><a href="./studies.html#cooperation">共识与协作增益的度量</a></div></article></div>
-<p class="asset-link"><a href="./directions.html">查看研究顺序与停止条件</a> · <a href="./topics.html#topics">专题研究点与开题卡</a></p>
+<p class="asset-link"><a href="./directions.html">查看研究顺序与停止条件</a> · <a href="./topics.html#topics">三个方向的研究点</a></p>
     </div></section>
 <section class="wrap section" id="agent-layers">
   <div class="section-head"><div><p class="kicker">执行面 · 单个 Agent 实例</p><h2>Agent 内部五层</h2></div>
-  <p>同一份应用版本登记角色、Skill 和工具绑定。模型选择、记忆访问和工具权限分别交给进程外的三个网关治理。图中的五层沿用 AgenticMesh 的设计。</p></div>
+  <p>同一份应用版本登记角色、Skill 和工具绑定。模型选择、记忆访问和工具权限分别交给进程外的三个网关治理。</p></div>
   <div class="table-scroll"><table><thead><tr><th scope="col">层</th><th scope="col">运行时职责</th><th scope="col">版本与访问边界</th></tr></thead><tbody>
     <tr id="agent-model"><th scope="row">模型</th><td>经模型网关请求推理。网关按路由与预算选择提供方，支持切换与降级。</td><td>本期冻结模型权重。经验蒸馏和模型更新后的上下文适配属于预留路径。</td></tr>
     <tr id="agent-context"><th scope="row">上下文</th><td>组织系统指令、当前任务、示例与本步可见观测，供模型判断下一步。</td><td>观测随任务推进而更新。对提示模板或示例集的持久修改形成版本候选。</td></tr>
@@ -33,7 +33,7 @@
     <tr id="agent-harness"><th scope="row">Harness（执行框架）</th><td>装配工具、控制流程与子代理，执行选定的 Skill。环境调用经工具网关进行 MCP 绑定，并取得结构化回执。</td><td>工具清单与流程随应用版本发布。每步执行记录与网关回执通过运行号关联。</td></tr>
   </tbody></table></div>
   <p class="evidence-status">本地已验证时钟 Skill 的 Python 执行器与 MCP 调用。模型网关、记忆网关、kagent 集群、A2A 交接以及跨层经验沉淀均为待验证设计。</p>
-  <p class="asset-link"><a href="./architecture.html#agent-internals">在总图中定位五层</a> · <a href="./execution.html">查看时钟原型的运行记录</a> · <a href="http://admire.buaanlsde.cn/rsi/three-planes.html">AgenticMesh 三面架构原图</a></p>
+  <p class="asset-link"><a href="./architecture.html#agent-internals">在总图中定位五层</a> · <a href="./execution.html#clock-skill">查看时钟 Skill 实测记录</a> · <a href="http://admire.buaanlsde.cn/rsi/three-planes.html">相关研究 · AgenticMesh 三面架构</a></p>
 </section>
 <p class="wrap asset-link">架构参考　<a href="http://admire.buaanlsde.cn/rsi/three-planes.html">三面架构组件与关系</a> · <a href="https://kagent.dev/docs/kagent/0.x/concepts/agents/">kagent Agent 定义</a></p>
 </main>

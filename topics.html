@@ -4,230 +4,82 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#163b37">
-    <meta name="description" content="学生研究点地图。按科学问题选题，查看每项的依赖、对照实验、接入模块和后续复用。">
-    <title>学生研究点地图 · 群体博弈研究框架</title>
-    <link rel="stylesheet" href="./atlas.css">
-    <script src="./atlas.js" defer></script>
+    <meta name="description" content="具身智能 RSI 三个研究方向的科学问题、对照实验及对应架构组件。">
+    <title>研究点地图 · 具身智能 RSI</title>
+    <link rel="stylesheet" href="./atlas.css?v=research-map">
+    <script src="./atlas.js?v=research-map" defer></script>
     <link rel="stylesheet" href="./guide.css?v=overview-2">
 </head>
   <body>
-    <a class="skip" href="#topics">跳到学生选题</a>
+    <a class="skip" href="#topics">跳到研究点</a>
     <header class="site-guide"><div class="guide-wrap guide-bar"><a class="guide-brand" href="./index.html"><b>具身智能</b><span>RSI 研究架构</span></a><nav class="guide-nav" aria-label="主导航"><a href="./index.html">研究首页</a><a href="./architecture.html">架构总图</a><a href="./directions.html">方向规划图</a><a href="./execution.html">执行面原型</a><a href="./topics.html" aria-current="page">研究点地图</a></nav></div></header>
     <main id="top">
       <section class="catalog" id="topics">
         <div class="wrap">
-          <div class="title-line"><div><p class="overline">研究归属</p><h1 style="font-size:clamp(2rem,4vw,3.5rem)">学生研究点地图</h1></div><p>选题分属跨尺度建模、协作度量、分层决策与演化三个方向。每项列出首轮对照、交付成果与后续用途。<a href="./directions.html#questions">查看三个方向与任务</a></p></div>
+          <div class="title-line"><h1>研究点地图</h1><p>围绕同一批离线任务，研究智能体如何形成状态判断、成员交互带来多少增益，以及经验能否改进下一版本。展开各项可查看研究问题、对照与架构位置。</p></div>
           <form class="filters" id="filters" hidden>
             <div class="pills" aria-label="研究方向"><button type="button" data-filter="-1" aria-pressed="true">全部方向</button><button type="button" data-filter="0" aria-pressed="false">跨尺度建模</button><button type="button" data-filter="1" aria-pressed="false">协作度量</button><button type="button" data-filter="2" aria-pressed="false">分层决策与演化</button></div>
-            <label class="level">研究起点 <select id="level"><option value="">全部</option><option>本科入门</option><option>本科进阶</option><option>研究生</option></select></label>
-            <label class="search"><span class="sr">搜索选题</span><input id="search" type="search" placeholder="搜索研究问题或交付物"></label>
+            <label class="search"><span class="sr">搜索研究点</span><input id="search" type="search" placeholder="搜索问题、指标或组件"></label>
           </form>
-          <p id="count" class="count" aria-live="polite">共 9 个课题</p>
+          <p id="count" class="count" aria-live="polite">共 9 个研究点</p>
           <div id="cards">
-            <details class="topic" id="topic-state" data-track="0" data-level="研究生">
-              <summary>
-                <span class="topic-num">01</span>
-                <span class="topic-lead"><small>状态表征 · 研究生</small><strong>时间标注对群组状态摘要可信度的影响</strong></span>
-                <span class="plus" aria-hidden="true"></span>
-              </summary>
-              <div class="topic-body">
-                <p class="question">观测过期时，时间标注能否改善群组状态摘要的可信度？</p>
-                <dl>
-                  <div><dt>研究归属</dt><dd>个体—群组—整体的跨尺度状态与行为模型</dd></div>
-                  <div><dt>数据与材料</dt><dd>具有状态变化标注的抽象对局日志。保留观察者、采样时刻和到达时刻。</dd></div>
-                  <div><dt>首轮对照</dt><dd>比较最新观测、历史摘要和带来源及采样时间的摘要。三组使用相同的可见记录。</dd></div>
-                  <div><dt>评价指标</dt><dd>在群组状态已经改变的样本中，统计旧证据误用率；另报可判断样本覆盖率。</dd></div>
-
-                  <div><dt>首周任务</dt><dd>选一次状态改变，标出改变前后在各观察者处可见的证据。</dd></div>
-                <div><dt>接入模块</dt><dd>观测表征库</dd></div><div><dt>后续复用</dt><dd>使用时间校验样本评估摘要可信度，并把误用反例交给证据覆盖研究。</dd></div></dl>
-                <div class="topic-actions">
-                  <button type="button" class="download" data-card="state">下载开题卡</button>
-                  <a href="#topic-state">本题链接</a>
-                </div>
-              </div>
-            </details>
-            <details class="topic" id="topic-gain" data-track="1" data-level="研究生">
-              <summary>
-                <span class="topic-num">02</span>
-                <span class="topic-lead"><small>协作度量 · 研究生</small><strong>错配信息下群体共识指标的区分效度</strong></span>
-                <span class="plus" aria-hidden="true"></span>
-              </summary>
-              <div class="topic-body">
-                <p class="question">在等量本局信息与错配信息下，成员一致率能否区分判断质量？</p>
-                <dl>
-                  <div><dt>研究归属</dt><dd>群智共识与协作增益的综合度量</dd></div>
-                  <div><dt>数据与材料</dt><dd>使用同一批抽象对局和固定个体模型，保存独立判断与小组结论。</dd></div>
-                  <div><dt>首轮对照</dt><dd>比较独立判断、共享本局信息、共享等量错配信息。后两组保持相同消息预算。</dd></div>
-                  <div><dt>评价指标</dt><dd>同时公布一致数、共同误判数与总局数，分别计算总体和一致样本内的共同误判比例。</dd></div>
-
-                  <div><dt>首周任务</dt><dd>手算一组“一致但共同出错”的记录，明确三个指标各自的分母。</dd></div>
-                <div><dt>接入模块</dt><dd>群体度量库</dd></div><div><dt>后续复用</dt><dd>使用一致性列联表示例验证分母，向配对收益评价提供可独立核对的指标。</dd></div></dl>
-                <div class="topic-actions">
-                  <button type="button" class="download" data-card="gain">下载开题卡</button>
-                  <a href="#topic-gain">本题链接</a>
-                </div>
-              </div>
-            </details>
-            <details class="topic" id="topic-update" data-track="2" data-level="研究生">
-              <summary>
-                <span class="topic-num">03</span>
-                <span class="topic-lead"><small>策略适应 · 研究生</small><strong>熟悉与留出对手组中的版本收益差</strong></span>
-                <span class="plus" aria-hidden="true"></span>
-              </summary>
-              <div class="topic-body">
-                <p class="question">已有两个策略版本在熟悉对手上的相对优势，换到预留对手组是否仍然成立？</p>
-                <dl>
-                  <div><dt>研究归属</dt><dd>分层群智决策、角色组织与策略演化</dd></div>
-                  <div><dt>数据与材料</dt><dd>抽象双队计分博弈的策略版本、独立重复批次和预先划定的对手组。</dd></div>
-                  <div><dt>首轮对照</dt><dd>使用相同条件下的两版给定策略结果，保持对手组和观察口径固定；熟悉组与留出组分别比较。</dd></div>
-                  <div><dt>评价指标</dt><dd>在相同样本上计算两个版本的收益差，分别报告各对手组和各独立批次。</dd></div>
-
-                  <div><dt>首周任务</dt><dd>冻结对手划分和预算口径，画出首版配对结果表。</dd></div>
-                <div><dt>接入模块</dt><dd>比较基线库</dd></div><div><dt>后续复用</dt><dd>使用经核查的对手划分，向后续版本提供固定比较协议。</dd></div></dl>
-                <div class="topic-actions">
-                  <button type="button" class="download" data-card="update">下载开题卡</button>
-                  <a href="#topic-update">本题链接</a>
-                </div>
-              </div>
-            </details>
-            <details class="topic" id="topic-replay" data-track="0" data-level="本科入门">
-              <summary>
-                <span class="topic-num">04</span>
-                <span class="topic-lead"><small>状态表征 · 延伸研究点 · 本科入门</small><strong>采样时刻与到达时刻的对局记录校验</strong></span>
-                <span class="plus" aria-hidden="true"></span>
-              </summary>
-              <div class="topic-body">
-                <p class="question">一条晚到的旧观测会使哪些历史样本被错误地视为当前样本？</p>
-                <dl>
-                  <div><dt>研究归属</dt><dd>个体—群组—整体的跨尺度状态与行为模型 · 延伸研究点</dd></div>
-                  <div><dt>数据与材料</dt><dd>同一组含乱序和缺失条目的合成观测表。</dd></div>
-                  <div><dt>首轮对照</dt><dd>比较按接收顺序与按采样时间检索所得的状态标签。</dd></div>
-                  <div><dt>评价指标</dt><dd>时间错配比例、可核验记录比例。</dd></div>
-
-                  <div><dt>首周任务</dt><dd>用两名观察者的三条记录展示一次时间错配。</dd></div>
-                <div><dt>接入模块</dt><dd>观测表征库</dd></div><div><dt>后续复用</dt><dd>后续摘要研究直接复用时间字段与乱序反例。</dd></div></dl>
-                <div class="topic-actions">
-                  <button type="button" class="download" data-card="replay">下载开题卡</button>
-                  <a href="#topic-replay">本题链接</a>
-                </div>
-              </div>
-            </details>
-            <details class="topic" id="topic-attribution" data-track="0" data-level="本科进阶">
-              <summary>
-                <span class="topic-num">05</span>
-                <span class="topic-lead"><small>状态表征 · 延伸研究点 · 本科进阶</small><strong>群组状态摘要的证据覆盖与不确定性</strong></span>
-                <span class="plus" aria-hidden="true"></span>
-              </summary>
-              <div class="topic-body">
-                <p class="question">不同成员的观测互相矛盾时，摘要表达的不确定性是否可信？</p>
-                <dl>
-                  <div><dt>研究归属</dt><dd>个体—群组—整体的跨尺度状态与行为模型 · 延伸研究点</dd></div>
-                  <div><dt>数据与材料</dt><dd>有标准答案或由标注者明确标为不可判定的抽象记录。</dd></div>
-                  <div><dt>首轮对照</dt><dd>给同一批记录生成有来源与无来源的摘要，由独立标注者核对证据。</dd></div>
-                  <div><dt>评价指标</dt><dd>证据引用正确率、错误肯定率、可判定样本覆盖率。</dd></div>
-
-                  <div><dt>首周任务</dt><dd>标注一例冲突和一例缺测，分别写出可以支持的结论。</dd></div>
-                <div><dt>接入模块</dt><dd>观测表征库</dd></div><div><dt>后续复用</dt><dd>作为摘要证据来源及未知状态的复核样本。</dd></div></dl>
-                <div class="topic-actions">
-                  <button type="button" class="download" data-card="attribution">下载开题卡</button>
-                  <a href="#topic-attribution">本题链接</a>
-                </div>
-              </div>
-            </details>
-            <details class="topic" id="topic-agreement" data-track="1" data-level="本科入门">
-              <summary>
-                <span class="topic-num">06</span>
-                <span class="topic-lead"><small>协作度量 · 延伸研究点 · 本科入门</small><strong>群体一致性与判断正确性的统计区分</strong></span>
-                <span class="plus" aria-hidden="true"></span>
-              </summary>
-              <div class="topic-body">
-                <p class="question">两组样本的一致率相同，能否仍然具有不同的错误结构？</p>
-                <dl>
-                  <div><dt>研究归属</dt><dd>群智共识与协作增益的综合度量 · 延伸研究点</dd></div>
-                  <div><dt>数据与材料</dt><dd>各成员判断和独立真值均已知的合成样本。</dd></div>
-                  <div><dt>首轮对照</dt><dd>分别统计一致且正确、一致但错误以及成员有分歧的样本。</dd></div>
-                  <div><dt>评价指标</dt><dd>一致率、共同误判率、给定一致时的错误比例。</dd></div>
-
-                  <div><dt>首周任务</dt><dd>构造两个一致率相同而共同误判数不同的样本集。</dd></div>
-                <div><dt>接入模块</dt><dd>群体度量库</dd></div><div><dt>后续复用</dt><dd>为错配信息实验保留可逐局复算的列联表。</dd></div></dl>
-                <div class="topic-actions">
-                  <button type="button" class="download" data-card="agreement">下载开题卡</button>
-                  <a href="#topic-agreement">本题链接</a>
-                </div>
-              </div>
-            </details>
-            <details class="topic" id="topic-transfer" data-track="1" data-level="本科进阶">
-              <summary>
-                <span class="topic-num">07</span>
-                <span class="topic-lead"><small>协作度量 · 延伸研究点 · 本科进阶</small><strong>协作收益估计的样本配对与区间评价</strong></span>
-                <span class="plus" aria-hidden="true"></span>
-              </summary>
-              <div class="topic-body">
-                <p class="question">不同样本难度是否会改变对协作收益的估计？</p>
-                <dl>
-                  <div><dt>研究归属</dt><dd>群智共识与协作增益的综合度量 · 延伸研究点</dd></div>
-                  <div><dt>数据与材料</dt><dd>每个对局有两种处理条件的对应记录，并保留对局标识。</dd></div>
-                  <div><dt>首轮对照</dt><dd>比较总体均值差与分层配对估计，单列缺少配对的一组。</dd></div>
-                  <div><dt>评价指标</dt><dd>配对收益差、区间宽度和各层样本量。</dd></div>
-
-                  <div><dt>首周任务</dt><dd>核对一组成对样本，并找出一条无法配对的记录。</dd></div>
-                <div><dt>接入模块</dt><dd>群体度量库</dd></div><div><dt>后续复用</dt><dd>在新的对手或条件分组上沿用相同配对口径。</dd></div></dl>
-                <div class="topic-actions">
-                  <button type="button" class="download" data-card="transfer">下载开题卡</button>
-                  <a href="#topic-transfer">本题链接</a>
-                </div>
-              </div>
-            </details>
-            <details class="topic" id="topic-roles" data-track="2" data-level="本科进阶">
-              <summary>
-                <span class="topic-num">08</span>
-                <span class="topic-lead"><small>策略适应 · 延伸研究点 · 本科进阶</small><strong>对手构成变化下的策略排序稳定性</strong></span>
-                <span class="plus" aria-hidden="true"></span>
-              </summary>
-              <div class="topic-body">
-                <p class="question">评价集中各类对手所占比例变化时，策略排序会不会反转？</p>
-                <dl>
-                  <div><dt>研究归属</dt><dd>分层群智决策、角色组织与策略演化 · 延伸研究点</dd></div>
-                  <div><dt>数据与材料</dt><dd>给定的抽象博弈收益表及分组标签。</dd></div>
-                  <div><dt>首轮对照</dt><dd>保留各组收益，改变汇总权重，检查排序变化的来源。</dd></div>
-                  <div><dt>评价指标</dt><dd>排名反转次数、组内差异及最差组收益。</dd></div>
-
-                  <div><dt>首周任务</dt><dd>找出一个总体结论与组内比较不一致的示例。</dd></div>
-                <div><dt>接入模块</dt><dd>比较基线库</dd></div><div><dt>后续复用</dt><dd>为跨版本比较提供一个已知会发生排序反转的样例。</dd></div></dl>
-                <div class="topic-actions">
-                  <button type="button" class="download" data-card="roles">下载开题卡</button>
-                  <a href="#topic-roles">本题链接</a>
-                </div>
-              </div>
-            </details>
-            <details class="topic" id="topic-memory" data-track="2" data-level="本科入门">
-              <summary>
-                <span class="topic-num">09</span>
-                <span class="topic-lead"><small>策略适应 · 延伸研究点 · 本科入门</small><strong>博弈策略版本与评测样本的独立性核查</strong></span>
-                <span class="plus" aria-hidden="true"></span>
-              </summary>
-              <div class="topic-body">
-                <p class="question">版本迭代中重复使用的测试样本，会给留出评价带来多大偏差？</p>
-                <dl>
-                  <div><dt>研究归属</dt><dd>分层群智决策、角色组织与策略演化 · 延伸研究点</dd></div>
-                  <div><dt>数据与材料</dt><dd>有版本标识、评测时间与训练或留出分组的记录。</dd></div>
-                  <div><dt>首轮对照</dt><dd>分别核算重复样本与独立样本上的结果，标注划分不清的部分。</dd></div>
-                  <div><dt>评价指标</dt><dd>样本重叠率、独立留出集上的收益差。</dd></div>
-
-                  <div><dt>首周任务</dt><dd>为两版策略整理一份样本使用记录。</dd></div>
-                <div><dt>接入模块</dt><dd>比较基线库</dd></div><div><dt>后续复用</dt><dd>为后续版本提供同一套留出样本标识和重叠核查。</dd></div></dl>
-                <div class="topic-actions">
-                  <button type="button" class="download" data-card="memory">下载开题卡</button>
-                  <a href="#topic-memory">本题链接</a>
-                </div>
-              </div>
-            </details>
-          </div>
-          <p class="empty" id="empty" hidden>没有匹配的课题。<button type="button" id="reset">清除筛选</button></p>
+<section class="topic-group" id="state-models" aria-labelledby="state-models-title"><h2 id="state-models-title">个体—群组—整体的跨尺度状态与行为模型</h2><p>用个体当时可见的记录解释群组状态与整体任务进度，检验每一级摘要保留了哪些信息。</p>
+<details class="topic" id="topic-replay" data-track="0">
+                <summary><span class="topic-lead"><small>时序与可见性</small><strong>离线观测的时间边界</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">同一条记录在采样时刻与到达时刻之间，哪些成员已经能够使用它？</p><dl><div><dt>对照实验</dt><dd>固定回放时刻，分别按事件发生时间和成员可见时间截取记录。</dd></div><div><dt>评价依据</dt><dd>逐条核对晚到、缺失和乱序记录，统计被提前使用的记录数。</dd></div><div><dt>架构位置</dt><dd>环境工具层返回带来源的时序记录，Agent 上下文据此重建观测。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#observation">查看对应模块与实验</a><button type="button" class="download" data-card="replay">下载研究说明</button></div>
+                </div></details>
+<details class="topic" id="topic-state" data-track="0">
+                <summary><span class="topic-lead"><small>状态与行为</small><strong>从成员记录到群组与整体状态</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">多名成员报告同一步骤时，怎样判断群组进度，又保留结论所依赖的个体行为？</p><dl><div><dt>对照实验</dt><dd>用同批记录分别生成个体、群组和整体摘要。以离线巡检为例，核对每条读数经过谁读取、谁复核。</dd></div><div><dt>评价依据</dt><dd>比较各尺度的进度判定误差，并核对汇总结果能否回溯到对应的成员记录。</dd></div><div><dt>架构位置</dt><dd>Agent 上下文与记忆提供摘要，步骤轨迹保留原始依据。</dd></div></dl>
+                  <div class="topic-actions"><a href="./modules.html#agent-layers">查看对应模块与实验</a><button type="button" class="download" data-card="state">下载研究说明</button></div>
+                </div></details>
+<details class="topic" id="topic-attribution" data-track="0">
+                <summary><span class="topic-lead"><small>信息不完备</small><strong>缺测与冲突条件下的状态可信度</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">只掌握部分成员的记录时，哪些整体状态仍然可以可靠判断？</p><dl><div><dt>对照实验</dt><dd>在相同任务片段中逐步减少可见来源，比较摘要与独立标注。</dd></div><div><dt>评价依据</dt><dd>同时统计可判断样本的覆盖率，以及证据不足时仍给出确定结论的比例。</dd></div><div><dt>架构位置</dt><dd>共用底座保存冲突和缺测样本，供后续协作实验复用。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#basis">查看对应模块与实验</a><button type="button" class="download" data-card="attribution">下载研究说明</button></div>
+                </div></details>
+</section>
+<section class="topic-group" id="cooperation" aria-labelledby="cooperation-title"><h2 id="cooperation-title">群智共识与协作增益的综合度量</h2><p>在同一任务和信息预算下，分别衡量成员是否达成一致、结论是否正确，以及消息交换带来了多少增益。</p>
+<details class="topic" id="topic-agreement" data-track="1">
+                <summary><span class="topic-lead"><small>共识质量</small><strong>一致判断与共同误判</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">同样的一致率，是否可能对应完全不同的群体判断质量？</p><dl><div><dt>对照实验</dt><dd>将各成员的独立判断、交换信息后的判断与同一份独立标注配对。</dd></div><div><dt>评价依据</dt><dd>分别计算一致率、总体共同误判率和已达成一致样本中的误判比例。</dd></div><div><dt>架构位置</dt><dd>执行面保存成员判断，评价模块使用独立标注复算指标。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#cooperation">查看对应模块与实验</a><button type="button" class="download" data-card="agreement">下载研究说明</button></div>
+                </div></details>
+<details class="topic" id="topic-gain" data-track="1">
+                <summary><span class="topic-lead"><small>信息来源</small><strong>独立证据对协作判断的贡献</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">新消息是新增观测，还是同一条观测经多个成员转发？两者对结论有何影响？</p><dl><div><dt>对照实验</dt><dd>固定消息数量，比较独立来源、同源转发和未交换信息三个条件。</dd></div><div><dt>评价依据</dt><dd>对照原始来源核查重复计数，并比较相同样本上的判断变化。</dd></div><div><dt>架构位置</dt><dd>消息交接保留原始记录引用，共识度量按来源归并。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#cooperation">查看对应模块与实验</a><button type="button" class="download" data-card="gain">下载研究说明</button></div>
+                </div></details>
+<details class="topic" id="topic-transfer" data-track="1">
+                <summary><span class="topic-lead"><small>配对比较</small><strong>相同预算下的协作增益</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">给定相同输入、调用预算与评价规则，协作增加了多少有效判断？</p><dl><div><dt>对照实验</dt><dd>在同一批任务上配对比较独立判断与协作判断，同时记录消息量与调用次数。</dd></div><div><dt>评价依据</dt><dd>报告配对收益差及其区间，并单列无法配对的运行。</dd></div><div><dt>架构位置</dt><dd>运行记录提供配对索引，控制面复用同一协议比较版本。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#evaluation">查看对应模块与实验</a><button type="button" class="download" data-card="transfer">下载研究说明</button></div>
+                </div></details>
+</section>
+<section class="topic-group" id="role-evolution" aria-labelledby="role-evolution-title"><h2 id="role-evolution-title">分层群智决策、角色组织与策略演化</h2><p>从一次任务内的角色分工与交接，研究到跨次运行的经验复用，再用独立任务检验候选版本。</p>
+<details class="topic" id="topic-roles" data-track="2">
+                <summary><span class="topic-lead"><small>任务内组织</small><strong>分层任务中的角色交接</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">一个步骤分给多个角色时，结果如何归属？消息重送会不会造成重复处理？</p><dl><div><dt>对照实验</dt><dd>用同一批仪表记录比较正常交接、重复交接与交接中断，逐步核对输出和来源。</dd></div><div><dt>评价依据</dt><dd>核对结果完整率、重复处理数和可定位的失败步骤。</dd></div><div><dt>架构位置</dt><dd>应用编排给出步骤依赖，交接记录把发送方、接收方和记录引用相连。</dd></div></dl>
+                  <div class="topic-actions"><a href="./execution.html#offline-example">查看对应模块与实验</a><button type="button" class="download" data-card="roles">下载研究说明</button></div>
+                </div></details>
+<details class="topic" id="topic-memory" data-track="2">
+                <summary><span class="topic-lead"><small>跨次运行</small><strong>角色经验的适用范围</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">在一种角色分工下总结的经验，换到其他任务批次后是否仍然有效？</p><dl><div><dt>对照实验</dt><dd>从开发批次提取带来源的经验，比较无经验、共享经验和按角色检索三种条件。</dd></div><div><dt>评价依据</dt><dd>在独立批次报告收益、退化样例，以及哪些角色使用过同一条经验。</dd></div><div><dt>架构位置</dt><dd>记忆保存经验来源，进化面据此提出带适用条件的 Skill 候选。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#skill">查看对应模块与实验</a><button type="button" class="download" data-card="memory">下载研究说明</button></div>
+                </div></details>
+<details class="topic" id="topic-update" data-track="2">
+                <summary><span class="topic-lead"><small>版本演化</small><strong>候选策略的独立评价</strong></span><span class="plus" aria-hidden="true"></span></summary>
+                <div class="topic-body"><p class="question">由运行经验产生的修改，在未参与改动的新任务中还能保留多少收益？</p><dl><div><dt>对照实验</dt><dd>固定预算、角色配置与留出任务，在相同输入上比较父版本和候选版本。</dd></div><div><dt>评价依据</dt><dd>按任务组报告配对收益和退化情况，以冻结的接受规则作出版本选择。</dd></div><div><dt>架构位置</dt><dd>进化面提交候选，控制面关联父版本、评测样本和接受记录。</dd></div></dl>
+                  <div class="topic-actions"><a href="./studies.html#evaluation">查看对应模块与实验</a><button type="button" class="download" data-card="update">下载研究说明</button></div>
+                </div></details>
+</section>
+</div>
+          <p class="empty" id="empty" hidden>没有匹配的研究点。<button type="button" id="reset">清除筛选</button></p>
         </div>
       </section>
       <section class="section wrap evidence" id="evidence">
-        <div class="section-aside"><p class="overline">共同实验</p><h2>协作与交接</h2><p>研究点共用问题索引、样本版本和独立评价协议。每项结果按适用条件归入相应模块，供后续实验复算和比较。</p><p>开题时注明依赖的研究方向、样本版本和评分规则。交付时附一条反例及可复算的原始记录。</p><a class="file" href="./fixed-wing.html#integration">查看 AFSIM 时钟验收样例</a>
+        <div class="section-aside"><p class="overline">共同实验</p><h2>协作与交接</h2><p>研究点共用问题索引、样本版本和独立评价协议。每项结果按适用条件归入相应模块，供后续实验复算和比较。</p><p>同一运行号连接观测来源、成员判断与版本号。这样，可以回查一次共同误判究竟来自输入缺失、消息重复，还是摘要过程中的信息丢失。</p><a class="file" href="./execution.html#offline-example">查看执行面离线样例</a>
           </div>
         <div class="research-steps">
           <article><div><h3>个体—群组—整体的跨尺度状态与行为模型</h3><p>研究个体观测如何汇总为群组和整体状态，保留原始来源与可见时刻。</p></div></article>

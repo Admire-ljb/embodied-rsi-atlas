@@ -2,7 +2,6 @@
 
 const cards = Array.from(document.querySelectorAll('details.topic'));
 const filterForm = document.querySelector('#filters');
-const level = document.querySelector('#level');
 const search = document.querySelector('#search');
 const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
 let track = '-1';
@@ -14,19 +13,20 @@ function refresh() {
   let matches = 0;
   for (const card of cards) {
     const allowed = (track === '-1' || card.dataset.track === track)
-      && (!level.value || card.dataset.level === level.value)
       && (!term || card.textContent.toLocaleLowerCase().includes(term));
     card.hidden = !allowed;
     if (allowed) matches++;
   }
   filterButtons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === track)));
-  document.querySelector('#count').textContent = '显示 ' + matches + ' / ' + cards.length + ' 个课题';
+  for (const group of document.querySelectorAll('.topic-group')) {
+    group.hidden = !group.querySelector('.topic:not([hidden])');
+  }
+  document.querySelector('#count').textContent = '显示 ' + matches + ' / ' + cards.length + ' 个研究点';
   document.querySelector('#empty').hidden = matches !== 0;
 }
 
 function clearFilters() {
   track = '-1';
-  level.value = '';
   search.value = '';
   refresh();
 }
@@ -35,7 +35,6 @@ filterButtons.forEach(b => b.addEventListener('click', () => {
   track = b.dataset.filter;
   refresh();
 }));
-level.addEventListener('change', refresh);
 search.addEventListener('input', refresh);
 document.querySelector('#reset').addEventListener('click', clearFilters);
 refresh();
@@ -55,15 +54,16 @@ revealTopic(location.hash);
 document.querySelectorAll('[data-card]').forEach(button => button.addEventListener('click', () => {
   const card = button.closest('details');
   const title = card.querySelector('strong').textContent;
-  const lines = ['# ' + title, '', '高速固定翼无人机集群', '', '## 研究问题', '', card.querySelector('.question').textContent, ''];
+  const direction = card.closest('.topic-group').querySelector('h2').textContent;
+  const lines = ['# ' + title, '', direction, '', '## 研究问题', '', card.querySelector('.question').textContent, ''];
   card.querySelectorAll('dl div').forEach(row => {
     lines.push('## ' + row.querySelector('dt').textContent, '', row.querySelector('dd').textContent, '');
   });
-  lines.push('## 开题时补充', '', '拟用的数据版本：', '', '负责人与协作者：', '', '预期不成立的条件：', '', '首轮复测日期：', '');
+  lines.push('## 对应模块与实验', '', card.querySelector('.topic-actions a').href, '');
   const url = URL.createObjectURL(new Blob([lines.join('\n')], {type:'text/markdown;charset=utf-8'}));
   const a = document.createElement('a');
   a.href = url;
-  a.download = button.dataset.card + '-开题卡.md';
+  a.download = title + '-研究说明.md';
   document.body.appendChild(a);
   a.click();
   a.remove();

@@ -4,7 +4,6 @@
   <desc id="desc">控制面将获准版本下发至执行面。AeroWeaver 编排应用，按任务为本地 Agent 分配角色并绑定 Skill。Agent 实例之间拟通过 A2A 协议通信。展开一个实例可见模型、上下文、记忆、Skill 和 Harness 五层。模型、记忆与环境工具分别由对应网关访问。仿真环境服务通过统一的 MCP 环境接口接入，具体实现可替换。运行证据进入进化面，候选版本由控制面验证。</desc>
   <style>a:hover rect,a:focus rect{stroke:#173f36;stroke-width:2.3}a:focus{outline:none}</style>
   <text x="25" y="39" font-size="29" font-weight="700" fill="#203b37" text-anchor="start">具身智能体 RSI 组件与协作关系</text>
-  <text x="1135" y="37" font-size="16" font-weight="400" fill="#50675e" text-anchor="end">控制面、进化面与 Agent 五层结构沿用 AgenticMesh</text>
   <rect x="24" y="62" width="1112" height="66" rx="8" fill="#f4f6f4" stroke="#c1cec8" stroke-width="1" />
   <rect x="24" y="153" width="1112" height="127" rx="8" fill="#fcf6e9" stroke="#d3be8a" stroke-width="1" />
   <rect x="24" y="326" width="496" height="478" rx="8" fill="#eef6ef" stroke="#aac9af" stroke-width="1" />
@@ -16,7 +15,6 @@
   <text x="39" y="100" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">外部锚点</text>
   <text x="39" y="181" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">控制面</text>
   <text x="39" y="351" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">进化面</text>
-  <text x="230" y="350" font-size="14" font-weight="400" fill="#50675e" text-anchor="start">AgenticMesh</text>
   <text x="568" y="351" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">执行面</text>
   <text x="654" y="350" font-size="14" font-weight="400" fill="#50675e" text-anchor="start">kagent 运行时（拟接入）</text>
   <text x="39" y="863" font-size="20" font-weight="700" fill="#203b37" text-anchor="start">共用底座</text>

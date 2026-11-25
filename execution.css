@@ -1,0 +1,26 @@
+.execution-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+  padding: 0;
+  margin: 1rem 0;
+  list-style: none;
+}
+.execution-flow li { border-top: 2px solid #709481; padding-top: .65rem; }
+.execution-flow strong { color: #234d3c; }
+.execution-flow p, .example-panel p { margin: .4rem 0; }
+.example-panel {
+  background: #f0f5ef;
+  border: 1px solid #bed0c1;
+  border-radius: 6px;
+  margin: 2rem 0;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+.example-panel fieldset { border: 0; padding: 0; margin: 1rem 0 .5rem; }
+.example-panel legend { font-weight: 650; margin-bottom: .25rem; }
+.example-panel select { font: inherit; color: inherit; border: 1px solid #8ea99a; border-radius: 4px; padding: .3rem .65rem; background: white; }
+.example-panel ol { padding-left: 1.65rem; line-height: 1.8; }
+.example-panel output { display: block; margin: .75rem 0; font-weight: 650; color: #21523d; }
+#clock-skill > p { margin-block: .85rem; }
+@media (max-width: 760px) { .execution-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 440px) { .execution-flow { grid-template-columns: 1fr; gap: .7rem; } }

@@ -1,15 +1,15 @@
 # 具身智能 RSI 研究架构
 
-研究体系分为概念定义、机制、评测与治理、平台和领域应用五层。各层节点分别映射到进化面、控制面、执行面与共用底座。架构拟以 kagent 承载 Agent 运行，AgenticMesh 管理证据、候选与版本。仿真环境和数字孪生并列位于环境工具层，通过统一 MCP 工具接口提供观测和反馈。首个 AFSIM 时钟样例已在本地验证，数字孪生接入为架构设计。
+研究体系分为概念定义、机制、评测与治理、平台和领域应用五层。各层节点分别映射到进化面、控制面、执行面与共用底座。架构拟以 kagent 承载 Agent 运行，执行面记录运行证据，进化面提出候选，控制面评价并发布版本。仿真环境和数字孪生并列位于环境工具层，通过统一 MCP 工具接口提供观测和反馈。首个 AFSIM 时钟样例已在本地验证，数字孪生接入为架构设计。
 
 ## 入口
 
-控制面与进化面采用 AgenticMesh 的现行架构作为设计基线。首期优先验证执行面的 Skill、工具回执和运行轨迹。待取得跨面联调记录，再依据具体差异决定是否调整这两个面。
+执行面原型提供可在浏览器中运行的离线验收样例，以及本地 MCP 调用的实测轨迹。AeroWeaver 任务编排、kagent 实例与 A2A 交接将在同一任务上联调。
 
 - [研究首页](./index.html) · [架构总图与组件关系](./architecture.html) · [分层方向规划图](./directions.html#plan) · [执行面原型](./execution.html#execution-prototype) · [技术模块](./modules.html#engineering) · [环境工具层](./architecture.html#environment-tools)
 - [高速固定翼专题](./fixed-wing.html)
 - [AFSIM 时钟样例](./fixed-wing.html#integration)，含[时钟输入](./afsim-clock-input.txt)及[两次运行记录](./afsim-clock-check.json)。本地时钟复现实验使用 AFSIM 2.9.0，后续可见性实验的前置条件见方向规划图。
-- [专题学生研究点与开题卡](./topics.html)
+- [三个方向的研究点地图](./topics.html)
 - [任务描述规范](./task-profile.schema.json) 与 [两份配置](./task-profiles.json)
 - [共享成果索引](./research-assets.json)
 
@@ -24,7 +24,7 @@ python clock_mcp.py
 
 默认传输为 stdio。使用宿主或 MCP 客户端启动上述 Python 进程，再执行 `tools/list`。调用 `read_clock_reference` 时传入 `{"run_id":"repeat-01"}` 或 `{"run_id":"repeat-02"}`，可直接读取已发表的实测基线。调用 `measure_clock_markers` 时传入 `{}`。新测量需要在工具服务进程环境中将 `AFSIM_MISSION` 设为本机获准使用的 mission 可执行文件的绝对路径，每次调用使用独立的临时目录。
 
-本机 HTTP 验证可用 `python clock_mcp.py --transport streamable-http`，端点为 `http://127.0.0.1:8000/mcp`。在 kagent 中规划绑定这两个工具时，使用 Agent 的 `mcpServer.toolNames` 指定名称，并引用已注册的工具服务。集群需单独提供可达的服务地址。本项目已用官方客户端验证两种传输、实际测量及错误处理，集群和 AgenticMesh 端到端集成待验收。[协议实测结果](./mcp-clock-test.json)
+本机 HTTP 验证可用 `python clock_mcp.py --transport streamable-http`，端点为 `http://127.0.0.1:8000/mcp`。在 kagent 中规划绑定这两个工具时，使用 Agent 的 `mcpServer.toolNames` 指定名称，并引用已注册的工具服务。集群需单独提供可达的服务地址。本项目已用官方客户端验证两种传输、实际测量及错误处理，集群运行和跨实例交接待联调。[协议实测结果](./mcp-clock-test.json)
 
 ## 本地运行执行面原型
 

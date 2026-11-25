@@ -19,21 +19,21 @@
   <h2 id="questions-title">三个研究方向</h2>
   <div class="research-grid">
     <article id="question-state">
-      <h3>个体—群组—整体的跨尺度状态与行为模型</h3>
+      <h3><a href="./topics.html#state-models">个体—群组—整体的跨尺度状态与行为模型</a></h3>
       <ul class="research-tasks">
         <li>描述单个智能体的观测、记忆和行为，保留信息来源与时间。</li>
         <li>研究如何由个体记录表示群组关系和整体任务进度，并标明观测缺失带来的不确定性。</li>
       </ul>
     </article>
     <article id="question-coordination">
-      <h3>群智共识与协作增益的综合度量</h3>
+      <h3><a href="./topics.html#cooperation">群智共识与协作增益的综合度量</a></h3>
       <ul class="research-tasks">
         <li>分析成员判断的依据，区分独立观测和同一消息的重复转发。</li>
         <li>在相同任务与信息预算下，比较独立判断与协作判断的准确性、共同误判率及通信开销。</li>
       </ul>
     </article>
     <article id="question-transfer">
-      <h3>分层群智决策、角色组织与策略演化</h3>
+      <h3><a href="./topics.html#role-evolution">分层群智决策、角色组织与策略演化</a></h3>
       <ul class="research-tasks">
         <li>研究任务层、群组层与个体层的分工，以及任务执行中的角色交接与反馈。</li>
         <li>研究如何从运行经验中调整技能或选择规则，并在未见任务上检验改动的收益与退化。</li>
@@ -53,7 +53,7 @@
       <tr><th scope="row"><a href="./modules.html#agent-skill">Skill 封装与注册</a></th><td>按名称和版本发现与调用 Skill，约定输入、输出、错误和来源引用。</td><td>用命令行测试入口直接调用真实 Skill。以固定回执代替外部工具，分别检查检索和摘要逻辑。</td><td>三条记录中只将 r2 列为缺失，零读数有效。缺少必填参数时返回约定错误。</td></tr>
       <tr><th scope="row"><a href="./modules.html#aeroweaver">任务规划与应用编排</a></th><td>AeroWeaver 接收任务和能力清单，生成含 Skill、角色与依赖的计划，交付可调度步骤。</td><td>用静态能力清单、模拟执行器单测编排器。分别输入完整指令、变更指令和某一步执行失败的回执。</td><td>计划只引用已登记能力，依赖无环，上游结果可供下游使用。失败后给出可观察的状态。</td></tr>
       <tr><th scope="row"><a href="./modules.html#aeroweaver">A2A 通信与交接</a></th><td>传递任务、中间结果与状态，保留运行号、步骤号、消息标识及证据引用。</td><td>运行真实通信适配器，使用本地 A2A 测试对端收发消息。按脚本模拟正常应答、重复投递和超时。</td><td>同一消息投递两次，得到两条投递记录和一次业务接收。超时可在调用端识别。</td></tr>
-      <tr><th scope="row"><a href="./modules.html#work-release">运行记录与版本管理</a></th><td>接收版本信息和结构化事件，按运行号还原计划、工具调用、消息及最终状态。</td><td>以固定事件序列和临时存储测试归档、检索与回放。按 AgenticMesh 的三面架构导出验收记录和失败样例。</td><td>重复导入保持结果一致。指定一次失败运行，能定位最先失败的步骤及应用版本。</td></tr>
+      <tr><th scope="row"><a href="./modules.html#work-release">运行记录与版本管理</a></th><td>接收版本信息和结构化事件，按运行号还原计划、工具调用、消息及最终状态。</td><td>以固定事件序列和临时存储测试归档、检索与回放。按运行号导出验收记录和失败样例。</td><td>重复导入保持结果一致。指定一次失败运行，能定位最先失败的步骤及应用版本。</td></tr>
     </tbody>
   </table></div>
   <div class="joint-test" id="first-milestone"><h3>最终联调 · 用真实模块完成同一项任务</h3>
