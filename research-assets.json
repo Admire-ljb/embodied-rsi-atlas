@@ -109,6 +109,17 @@
     },
     {
       "id": "layered-architecture",
+      "version": "1.8.1",
+      "name": "具身智能体 RSI 架构与 Agent 内部五层",
+      "kind": "工程架构",
+      "module": "具身智能 RSI 研究架构",
+      "file": "rsi-architecture-v1.8.1.svg",
+      "depends_on": ["layered-architecture@1.8"],
+      "scope": "调整应用编排与角色、Agent 内部回路、遥测采集和环境服务的连线与接点。",
+      "audience": "core"
+    },
+    {
+      "id": "layered-architecture",
       "version": "1.8",
       "name": "具身智能体 RSI 架构与 Agent 内部五层",
       "kind": "工程架构",
